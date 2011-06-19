@@ -681,88 +681,88 @@ Public Class IISSPGeneral
     ''' </summary>
     ''' <returns>Řetězcovou reprezentaci Xml dokumentu</returns>
     ''' <remarks>Výsledek také ukláda do <see cref="MyRequest"></see></remarks>
-    'Public Function Requestback() As String
-    '    Log("Dotazuji (Request): ", Me)
-    '    Dim HisXml As XmlDocument = New XmlDocument
-    '    HisXml.LoadXml(MyRequest)
-    '    Try
-    '        Dim Rq As HttpWebRequest = WebRequest.Create(Url)
-    '        Rq.Method = "POST"
-    '        Rq.Headers.Add("SOAPAction", "http://sap.com/xi/WebService/soap1.1")
-    '        Rq.Headers.Add("Accept-Encoding", "gzip,deflate")
-    '        Rq.KeepAlive = True
-    '        'Rq.MaximumResponseHeadersLength = 512
-    '        'Rq.ContentType = "text/xml;charset=utf-8"
-    '        Rq.UserAgent = "INSYCO Client 2.0.0.1"
-    '        Rq.ServicePoint.Expect100Continue = False
-    '        'Rq.PreAuthenticate = True
-    '        'Rq.AuthenticationLevel = Security.AuthenticationLevel.MutualAuthRequested
-    '        Dim reqBuff As Byte() = System.Text.UTF8Encoding.UTF8.GetBytes(MyRequest)
-    '        'Rq.ContentLength = reqBuff.Length
-    '        Rq.Timeout = TimeOut
-    '        Rq.Credentials = New NetworkCredential(UserName, Password, "")
-    '        Rq.ClientCertificates.Add(New X509Certificate2("c:\iissp\settings\tiba.pfx", "tiba"))
-    '        'Dim reqStream As Stream = Rq.GetRequestStream()
-    '        'reqStream.Write(reqBuff, 0, reqBuff.Length)
+    Public Function Requestback() As String
+        Log("Dotazuji (Request): ", Me)
+        Dim HisXml As XmlDocument = New XmlDocument
+        HisXml.LoadXml(MyRequest)
+        Try
+            Dim Rq As HttpWebRequest = WebRequest.Create(Url)
+            Rq.Method = "POST"
+            Rq.Headers.Add("SOAPAction", "http://sap.com/xi/WebService/soap1.1")
+            Rq.Headers.Add("Accept-Encoding", "gzip,deflate")
+            Rq.KeepAlive = True
+            'Rq.MaximumResponseHeadersLength = 512
+            'Rq.ContentType = "text/xml;charset=utf-8"
+            Rq.UserAgent = "INSYCO Client 2.0.0.1"
+            Rq.ServicePoint.Expect100Continue = False
+            'Rq.PreAuthenticate = True
+            'Rq.AuthenticationLevel = Security.AuthenticationLevel.MutualAuthRequested
+            Dim reqBuff As Byte() = System.Text.UTF8Encoding.UTF8.GetBytes(MyRequest)
+            'Rq.ContentLength = reqBuff.Length
+            Rq.Timeout = TimeOut
+            Rq.Credentials = New NetworkCredential(UserName, Password, "")
+            Rq.ClientCertificates.Add(New X509Certificate2("c:\iissp\settings\tiba.pfx", "tiba"))
+            'Dim reqStream As Stream = Rq.GetRequestStream()
+            'reqStream.Write(reqBuff, 0, reqBuff.Length)
 
-    '        Dim files() As UploadFile = {New UploadFile("c:\iissp\settings\body.xml", "hokuspokus", "text/xml;charset=utf-8"),
-    '                                     New UploadFile("c:\iissp\settings\attachment-by-tyba.xml", Nothing, "text/xml;charset=utf-8")}
-    '        Dim colec As Specialized.NameValueCollection = New Specialized.NameValueCollection()
-    '        'colec.Add("pok", "pook")
+            Dim files() As UploadFile = {New UploadFile("c:\iissp\settings\body.xml", "hokuspokus", "text/xml;charset=utf-8"),
+                                         New UploadFile("c:\iissp\settings\attachment-by-tyba.xml", Nothing, "text/xml;charset=utf-8")}
+            Dim colec As Specialized.NameValueCollection = New Specialized.NameValueCollection()
+            'colec.Add("pok", "pook")
 
-    '        Log("Request odeslán:", Me)
-    '        Dim rqx As HttpWebRequest = WebRequest.Create(Url)
-    '        Dim Response As HttpWebResponse = HttpUploadHelper.Upload(Rq, files, colec)
-    '        'Dim Response As HttpWebResponse = CType(Rq.GetResponse(), HttpWebResponse)
-    '        Dim memStream As MemoryStream = New MemoryStream()
-    '        Const BUFFER_SIZE As Integer = 4096
-    '        Dim iRead As Integer = 0
-    '        Dim idx As Integer = 0
-    '        Dim iSize As Int64 = 0
-    '        memStream.SetLength(BUFFER_SIZE)
-    '        While (True)
-    '            Dim resBuffer As Byte() = New Byte(BUFFER_SIZE) {}
-    '            Try
-    '                iRead = Response.GetResponseStream().Read(resBuffer, 0, BUFFER_SIZE)
-    '            Catch e As System.Exception
-    '                Response.Close()
-    '                memStream.Close()
-    '                HisXml = MakeErrorAnswer(501, "Chyba při příjmu dotazu", e.Message)
-    '                Return HisXml.OuterXml
-    '            End Try
+            Log("Request odeslán:", Me)
+            Dim rqx As HttpWebRequest = WebRequest.Create(Url)
+            Dim Response As HttpWebResponse = HttpUploadHelper.Upload(Rq, files, colec)
+            'Dim Response As HttpWebResponse = CType(Rq.GetResponse(), HttpWebResponse)
+            Dim memStream As MemoryStream = New MemoryStream()
+            Const BUFFER_SIZE As Integer = 4096
+            Dim iRead As Integer = 0
+            Dim idx As Integer = 0
+            Dim iSize As Int64 = 0
+            memStream.SetLength(BUFFER_SIZE)
+            While (True)
+                Dim resBuffer As Byte() = New Byte(BUFFER_SIZE) {}
+                Try
+                    iRead = Response.GetResponseStream().Read(resBuffer, 0, BUFFER_SIZE)
+                Catch e As System.Exception
+                    Response.Close()
+                    memStream.Close()
+                    HisXml = MakeErrorAnswer(501, "Chyba při příjmu dotazu", e.Message)
+                    Return HisXml.OuterXml
+                End Try
 
-    '            If iRead = 0 Then
-    '                Exit While
-    '            End If
-    '            iSize += iRead
-    '            memStream.SetLength(iSize)
-    '            memStream.Write(resBuffer, 0, iRead)
-    '            idx += iRead
-    '            Log("Přijato bytu: " + idx.ToString, Me)
-    '        End While
+                If iRead = 0 Then
+                    Exit While
+                End If
+                iSize += iRead
+                memStream.SetLength(iSize)
+                memStream.Write(resBuffer, 0, iRead)
+                idx += iRead
+                Log("Přijato bytu: " + idx.ToString, Me)
+            End While
 
 
-    '        Dim content As Byte() = memStream.ToArray()
-    '        Response.Close()
-    '        memStream.Close()
+            Dim content As Byte() = memStream.ToArray()
+            Response.Close()
+            memStream.Close()
 
-    '        Dim strResp As String = System.Text.UTF8Encoding.UTF8.GetString(content)
-    '        Try
-    '            HisXml.LoadXml(strResp)
-    '        Catch e As System.Exception
-    '            HisXml = MakeErrorAnswer(200, "Úspěšně odesláno", "HTML 200 OK")
+            Dim strResp As String = System.Text.UTF8Encoding.UTF8.GetString(content)
+            Try
+                HisXml.LoadXml(strResp)
+            Catch e As System.Exception
+                HisXml = MakeErrorAnswer(200, "Úspěšně odesláno", "HTML 200 OK")
 
-    '            Return HisXml.OuterXml
-    '        End Try
-    '    Catch webE As WebException
-    '        HisXml = MakeErrorAnswer(500, "Chyba při odesílání", webE.Message)
-    '        Return HisXml.OuterXml
-    '    End Try
+                Return HisXml.OuterXml
+            End Try
+        Catch webE As WebException
+            HisXml = MakeErrorAnswer(500, "Chyba při odesílání", webE.Message)
+            Return HisXml.OuterXml
+        End Try
 
-    '    Log("Konec requestu OK", Me)
-    '    MyRequest = HisXml.OuterXml
-    '    Return HisXml.OuterXml
-    'End Function
+        Log("Konec requestu OK", Me)
+        MyRequest = HisXml.OuterXml
+        Return HisXml.OuterXml
+    End Function
 
     ''' <summary>
     ''' Vlastní volání dotazu. Předpokládá správné nastavení všech vlastností ovlivňující přenos.

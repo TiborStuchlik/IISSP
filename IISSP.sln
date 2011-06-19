@@ -5,6 +5,8 @@ Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "IISSPClassLibrary", "IISSPC
 EndProject
 Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "IISSPTestApplication", "IISSPTestApplication\IISSPTestApplication.vbproj", "{DADC6C06-EDD4-42A7-BF44-6F64295D49B1}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UploadHelper", "UploadHelper\UploadHelper.csproj", "{02FBD52C-B997-4D18-9E2C-81B5AE8EFB30}"
+EndProject
 Global
 	GlobalSection(TeamFoundationVersionControl) = preSolution
 		SccNumberOfProjects = 5
@@ -55,6 +57,16 @@ Global
 		{DADC6C06-EDD4-42A7-BF44-6F64295D49B1}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{DADC6C06-EDD4-42A7-BF44-6F64295D49B1}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{DADC6C06-EDD4-42A7-BF44-6F64295D49B1}.Release|x86.ActiveCfg = Release|Any CPU
+		{02FBD52C-B997-4D18-9E2C-81B5AE8EFB30}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{02FBD52C-B997-4D18-9E2C-81B5AE8EFB30}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{02FBD52C-B997-4D18-9E2C-81B5AE8EFB30}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{02FBD52C-B997-4D18-9E2C-81B5AE8EFB30}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{02FBD52C-B997-4D18-9E2C-81B5AE8EFB30}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{02FBD52C-B997-4D18-9E2C-81B5AE8EFB30}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{02FBD52C-B997-4D18-9E2C-81B5AE8EFB30}.Release|Any CPU.Build.0 = Release|Any CPU
+		{02FBD52C-B997-4D18-9E2C-81B5AE8EFB30}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{02FBD52C-B997-4D18-9E2C-81B5AE8EFB30}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{02FBD52C-B997-4D18-9E2C-81B5AE8EFB30}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
