@@ -206,6 +206,12 @@
   <ItemGroup>
     <Folder Include="My Project\DataSources\" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\UploadHelper\UploadHelper.csproj">
+      <Project>{02FBD52C-B997-4D18-9E2C-81B5AE8EFB30}</Project>
+      <Name>UploadHelper</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

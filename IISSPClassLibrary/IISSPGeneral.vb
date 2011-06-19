@@ -811,10 +811,6 @@ Public Class IISSPGeneral
 
             ' Clean up the streams.
 
-
-
-
-
             Dim Response As HttpWebResponse = CType(Rq.GetResponse(), HttpWebResponse)
             Dim memStream As MemoryStream = New MemoryStream()
             Const BUFFER_SIZE As Integer = 4096

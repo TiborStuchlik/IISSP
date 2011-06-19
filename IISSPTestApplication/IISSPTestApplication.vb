@@ -286,6 +286,7 @@ Public Class IISSPTestApplication
         IG.SenderSubjectName = "IN-SY-CO"
         IG.RecipientIc = "00006947"
         IG.RecipientSubjectName = "Ministerstvo financí"
+
         ' zatim se automaticky nacita pri inicializaci General z resource
         ' IG.ClientCertificate = New X509Certificate2("tiba.pfx", "tiba")
         Dim OutXml As New XmlDocument
@@ -340,7 +341,7 @@ Public Class IISSPTestApplication
         Xml.PreserveWhitespace = True
         Xml.LoadXml(TBSignedSource.Text)
         Dim IG As IISSPGeneral = New IISSPGeneral
-        ' IG.ClientCertificate = New X509Certificate2("tiba.pfx", "tiba")
+        IG.SetClientCertificate("settings\tiba.pfx", "tiba")
         Xml = IG.SignXml(Xml)
         Xml = IG.FormatXml(Xml)
         TBSignedSource.Text = Xml.OuterXml
