@@ -1,0 +1,84 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="My" GeneratedClassName="MySettings" UseMySettingsClassName="true">
+  <Profiles />
+  <Settings>
+    <Setting Name="Url" Type="System.String" Scope="User">
+      <Value Profile="(Default)">https://testportal3.statnipokladna.cz/risre/ws/INBOX</Value>
+    </Setting>
+    <Setting Name="ClientCertificate" Type="System.Security.Cryptography.X509Certificates.X509Certificate2" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="UserName" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="Password" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="ServerCertificate" Type="System.Security.Cryptography.X509Certificates.X509Certificate2" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="CAServer" Type="System.Security.Cryptography.X509Certificates.X509Certificate2" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="CAClient" Type="System.Security.Cryptography.X509Certificates.X509Certificate2" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="ServiceUrl" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="OtherCertificates" Type="System.Security.Cryptography.X509Certificates.X509Certificate2Collection" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="SenderResponsiblePersonId" Type="System.String" Scope="User">
+      <Value Profile="(Default)">EU1620000273</Value>
+    </Setting>
+    <Setting Name="SenderResponsiblePersonName" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Beneš Jiří</Value>
+    </Setting>
+    <Setting Name="SenderResponsiblePersonEmail" Type="System.String" Scope="User">
+      <Value Profile="(Default)">benes@insyco.cz</Value>
+    </Setting>
+    <Setting Name="SenderIc" Type="System.String" Scope="User">
+      <Value Profile="(Default)">00164801</Value>
+    </Setting>
+    <Setting Name="SenderSubjectName" Type="System.String" Scope="User">
+      <Value Profile="(Default)">IN-SY-CO</Value>
+    </Setting>
+    <Setting Name="RecipientIc" Type="System.String" Scope="User">
+      <Value Profile="(Default)">00006947</Value>
+    </Setting>
+    <Setting Name="RecipientSubjectName" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Ministerstvo financí</Value>
+    </Setting>
+    <Setting Name="RecipientModule" Type="System.String" Scope="User">
+      <Value Profile="(Default)">RISRE</Value>
+    </Setting>
+    <Setting Name="Url_FMMD" Type="System.String" Scope="User">
+      <Value Profile="(Default)">https://testportal3.statnipokladna.cz/risre/ws/B_SP_EKIS_FMMD</Value>
+    </Setting>
+    <Setting Name="Url_EKIS_SP_ROP" Type="System.String" Scope="User">
+      <Value Profile="(Default)">https://testportal3.statnipokladna.cz/risre/ws/B_EKIS_SP_ROP</Value>
+    </Setting>
+    <Setting Name="Url_SP_EKIS_ROP" Type="System.String" Scope="User">
+      <Value Profile="(Default)">https://testportal3.statnipokladna.cz/risre/ws/B_SP_EKIS_ROP</Value>
+    </Setting>
+    <Setting Name="WorkingDirectory" Type="System.String" Scope="User">
+      <Value Profile="(Default)">c:\iissp\</Value>
+    </Setting>
+    <Setting Name="Loging" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="TimeOut" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">25000</Value>
+    </Setting>
+    <Setting Name="ClientCertificatePath" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="ClientCertificatePWD" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="Url_EKIS_SP_ROP_ATT" Type="System.String" Scope="User">
+      <Value Profile="(Default)">https://testportal3.statnipokladna.cz/risre/ws/B_EKIS_SP_ROP_ATT</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

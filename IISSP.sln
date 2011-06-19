@@ -1,0 +1,62 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "IISSPClassLibrary", "IISSPClassLibrary\IISSPClassLibrary.vbproj", "{41F7D659-D5C7-4EAE-8253-8C7E84864AF2}"
+EndProject
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "IISSPTestApplication", "IISSPTestApplication\IISSPTestApplication.vbproj", "{DADC6C06-EDD4-42A7-BF44-6F64295D49B1}"
+EndProject
+Global
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 5
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = http://localhost:51234/tfs/iissp
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = IISSPClassLibrary\\IISSPClassLibrary.vbproj
+		SccProjectName1 = IISSPClassLibrary
+		SccLocalPath1 = IISSPClassLibrary
+		SccProjectUniqueName2 = IISSPTestApplication\\IISSPTestApplication.vbproj
+		SccProjectName2 = IISSPTestApplication
+		SccLocalPath2 = IISSPTestApplication
+		SccWebProject3 = true
+		SccProjectUniqueName3 = IISSPWebSite
+		SccProjectName3 = IISSPWebSite
+		SccLocalPath3 = IISSPWebSite
+		SccProjectEnlistmentChoice3 = 2
+		SccProjectUniqueName4 = TestProxyInbox\\IISSPTestProxy.vbproj
+		SccProjectName4 = TestProxyInbox
+		SccLocalPath4 = TestProxyInbox
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|Mixed Platforms = Debug|Mixed Platforms
+		Debug|x86 = Debug|x86
+		Release|Any CPU = Release|Any CPU
+		Release|Mixed Platforms = Release|Mixed Platforms
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{41F7D659-D5C7-4EAE-8253-8C7E84864AF2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{41F7D659-D5C7-4EAE-8253-8C7E84864AF2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{41F7D659-D5C7-4EAE-8253-8C7E84864AF2}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{41F7D659-D5C7-4EAE-8253-8C7E84864AF2}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{41F7D659-D5C7-4EAE-8253-8C7E84864AF2}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{41F7D659-D5C7-4EAE-8253-8C7E84864AF2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{41F7D659-D5C7-4EAE-8253-8C7E84864AF2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{41F7D659-D5C7-4EAE-8253-8C7E84864AF2}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{41F7D659-D5C7-4EAE-8253-8C7E84864AF2}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{41F7D659-D5C7-4EAE-8253-8C7E84864AF2}.Release|x86.ActiveCfg = Release|Any CPU
+		{DADC6C06-EDD4-42A7-BF44-6F64295D49B1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DADC6C06-EDD4-42A7-BF44-6F64295D49B1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DADC6C06-EDD4-42A7-BF44-6F64295D49B1}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{DADC6C06-EDD4-42A7-BF44-6F64295D49B1}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{DADC6C06-EDD4-42A7-BF44-6F64295D49B1}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{DADC6C06-EDD4-42A7-BF44-6F64295D49B1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DADC6C06-EDD4-42A7-BF44-6F64295D49B1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DADC6C06-EDD4-42A7-BF44-6F64295D49B1}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{DADC6C06-EDD4-42A7-BF44-6F64295D49B1}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{DADC6C06-EDD4-42A7-BF44-6F64295D49B1}.Release|x86.ActiveCfg = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

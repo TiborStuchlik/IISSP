@@ -1,0 +1,566 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+
+<head>
+<title>Knihovna pro komunikaci s internetovou informačn&#237; službou St&#225;tn&#237; pokladny - Table of Content</title>
+<link rel="stylesheet" href="TOC.css">
+<script type="text/javascript" src="TOC.js"></script>
+</head>
+
+<body onload="javascript: Initialize();" onresize="javascript: ResizeTree();">
+<form id="IndexForm" runat="server">
+
+<div id="TOCDiv" class="TOCDiv">
+
+<div id="divSearchOpts" class="SearchOpts" style="height: 100px; display: none;">
+<img class="TOCLink" onclick="javascript: ShowHideSearch(false);"
+    src="CloseSearch.png" height="16" width="16" alt="Hide search" style="float: right;"/>
+Keyword(s) for which to search:
+<input id="txtSearchText" type="text" style="width: 100%;"
+  onkeypress="javascript: return OnSearchTextKeyPress(event);" /><br />
+<input id="chkSortByTitle" type="checkbox" /><label for="chkSortByTitle">&nbsp;Sort results by title</label><br />
+<input type="button" value="Search" onclick="javascript: return PerformSearch();" />
+</div>
+
+<div id="divIndexOpts" class="IndexOpts" style="height: 25px; display: none;">
+<img class="TOCLink" onclick="javascript: ShowHideIndex(false);"
+    src="CloseSearch.png" height="17" width="17" alt="Hide index" style="float: right;"/>
+Keyword Index
+</div>
+
+<div id="divNavOpts" class="NavOpts" style="height: 20px;">
+    <img class="TOCLink" onclick="javascript: SyncTOC();" src="SyncTOC.gif"
+        height="16" width="16" alt="Sync to TOC"/>
+    <img class="TOCLink" onclick="javascript: ExpandOrCollapseAll(true);"
+        src="ExpandAll.bmp" height="16" width="16" alt="Expand all "/>
+    <img class="TOCLink" onclick="javascript: ExpandOrCollapseAll(false);"
+        src="CollapseAll.bmp" height="16" width="16" alt="Collapse all" />
+</div>
+
+<div class="Tree" id="divSearchResults" style="display: none;"
+    onselectstart="javascript: return false;">
+</div>
+
+<div class="Tree" id="divIndexResults" style="display: none;"
+    onselectstart="javascript: return false;">
+</div>
+
+<div class="Tree" id="divTree" onselectstart="javascript: return false;">
+<div class="TreeNode">
+<img class="TreeNodeImg" onclick="javascript: Toggle(this);" src="Collapsed.gif"/><a class="UnselectedNode" onclick="javascript: return Expand(this);" href="html/f86fa130-4419-a1ed-8c9a-1539d5e7c84b.htm" target="TopicContent">IISSPClassLibrary Namespace</a>
+<div class="Hidden">
+<div class="TreeNode">
+<img class="TreeNodeImg" onclick="javascript: Toggle(this);" src="Collapsed.gif"/><a class="UnselectedNode" onclick="javascript: return Expand(this);" href="html/55562f3e-ea27-ea22-5fc5-40ae053fda3b.htm" target="TopicContent">IISSPCrypto Class</a>
+<div class="Hidden">
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/a99babd9-22c6-10b7-9a18-e211279f4099.htm" target="TopicContent">IISSPCrypto Members</a>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/30dee684-a421-34a8-7733-3377173403df.htm" target="TopicContent">IISSPCrypto Constructor </a>
+</div>
+<div class="TreeNode">
+<img class="TreeNodeImg" onclick="javascript: Toggle(this);" src="Collapsed.gif"/><a class="UnselectedNode" onclick="javascript: return Expand(this);" href="html/88d97abf-21f6-6140-8b83-afc938bcb989.htm" target="TopicContent">IISSPCrypto Fields</a>
+<div class="Hidden">
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/d5a5bb31-6866-9dd6-4b63-8c51da02e13a.htm" target="TopicContent">ClassId Field</a>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/d86b324d-ba1d-8a77-e744-e110d542931b.htm" target="TopicContent">EventsId Field</a>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/32ce5ae5-183b-0953-aba4-e1a1c4f75981.htm" target="TopicContent">InterfaceId Field</a>
+</div>
+</div>
+</div>
+<div class="TreeNode">
+<img class="TreeNodeImg" onclick="javascript: Toggle(this);" src="Collapsed.gif"/><a class="UnselectedNode" onclick="javascript: return Expand(this);" href="html/66093638-2c85-f18e-f314-cd117d66fb47.htm" target="TopicContent">IISSPCrypto Methods </a>
+<div class="Hidden">
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/2e9d0834-4805-a07b-da19-4bceb505e296.htm" target="TopicContent">Decrypt Method </a>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/1f718b32-ca1e-0093-0f15-b2a30bed0621.htm" target="TopicContent">Encrypt Method </a>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="TreeNode">
+<img class="TreeNodeImg" onclick="javascript: Toggle(this);" src="Collapsed.gif"/><a class="UnselectedNode" onclick="javascript: return Expand(this);" href="html/5cfeed45-3345-e8ab-0dcc-13ba3024b1f8.htm" target="TopicContent">IISSPCrypto._IISSPCrypto Interface</a>
+<div class="Hidden">
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/0fda623b-e535-8502-0e68-fa3540882bf7.htm" target="TopicContent">IISSPCrypto._IISSPCrypto Members</a>
+</div>
+<div class="TreeNode">
+<img class="TreeNodeImg" onclick="javascript: Toggle(this);" src="Collapsed.gif"/><a class="UnselectedNode" onclick="javascript: return Expand(this);" href="html/18e66006-5769-8de0-38b9-a9378df36733.htm" target="TopicContent">IISSPCrypto._IISSPCrypto Methods </a>
+<div class="Hidden">
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/10a1433f-1e76-b055-4793-d966575fa953.htm" target="TopicContent">Decrypt Method </a>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/807d861b-833f-2b07-20f1-fd89aabb54fb.htm" target="TopicContent">Encrypt Method </a>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="TreeNode">
+<img class="TreeNodeImg" onclick="javascript: Toggle(this);" src="Collapsed.gif"/><a class="UnselectedNode" onclick="javascript: return Expand(this);" href="html/582a7ac2-a28b-ffdb-ab6d-fe260393e1c6.htm" target="TopicContent">IISSPGeneral Class</a>
+<div class="Hidden">
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/b7a43ca0-ef71-3ac4-f733-c76291212c8f.htm" target="TopicContent">IISSPGeneral Members</a>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/f0a470dd-8ca4-e768-b8a0-d4c80210d3a4.htm" target="TopicContent">IISSPGeneral Constructor </a>
+</div>
+<div class="TreeNode">
+<img class="TreeNodeImg" onclick="javascript: Toggle(this);" src="Collapsed.gif"/><a class="UnselectedNode" onclick="javascript: return Expand(this);" href="html/bc74d703-0b6c-1ac3-46d2-db569ddd2c62.htm" target="TopicContent">IISSPGeneral Fields</a>
+<div class="Hidden">
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/acca9bb2-f3bb-c54d-f05f-2155b379c395.htm" target="TopicContent">CAClient Field</a>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/97238502-100d-8f86-25b8-09a8ae0417e9.htm" target="TopicContent">CAServer Field</a>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/b48d4a73-bf68-90f4-a25a-4fd2dc91e8e7.htm" target="TopicContent">ClassId Field</a>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/0317a6b1-fd7f-e2f6-06b5-7d5c4f05123f.htm" target="TopicContent">EventsId Field</a>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/7af73d89-e8a0-56dd-5867-bed7b1e8f22a.htm" target="TopicContent">InterfaceId Field</a>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/65840da7-f2f5-b9f8-d280-e33a011251e4.htm" target="TopicContent">ServerCertificate Field</a>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/a1cbbb8e-2ccf-d87e-9d29-ead8e28e6844.htm" target="TopicContent">Url_EKIS_SP_ROP Field</a>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/a9128a34-2f28-f58c-4251-fa6ed8256d25.htm" target="TopicContent">Url_FMMD Field</a>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/2a0edbcc-fee6-d8dc-48e8-36de41c45f88.htm" target="TopicContent">Url_SP_EKIS_ROP Field</a>
+</div>
+</div>
+</div>
+<div class="TreeNode">
+<img class="TreeNodeImg" onclick="javascript: Toggle(this);" src="Collapsed.gif"/><a class="UnselectedNode" onclick="javascript: return Expand(this);" href="html/0d809f0a-e4b2-a5da-6b8f-27015513c058.htm" target="TopicContent">IISSPGeneral Methods </a>
+<div class="Hidden">
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/f23c7cdd-a3a2-ed88-47d5-4c1a32c4dc66.htm" target="TopicContent">Finalize Method </a>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/528cd5e5-9da2-80fe-55f4-90015e57dbea.htm" target="TopicContent">FormatXml Method </a>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/6488e3ec-710d-066e-e428-51f312f01b8d.htm" target="TopicContent">GetDate Method </a>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/d899f59a-67a6-7e5b-8373-ef91ff3c1db6.htm" target="TopicContent">GetDateTime Method </a>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/e7ca9cc1-82a5-6293-2cbc-f0a9f162d05d.htm" target="TopicContent">GetGuid Method </a>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/b656564f-0fd9-32e8-d44c-b33c5c1d4272.htm" target="TopicContent">GetWorkDirectory Method </a>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/79a46fe1-86af-ec2a-84f0-f0e05b8f6087.htm" target="TopicContent">Log Method </a>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/2d7cbacb-4a9d-dd93-769b-4396385c94bc.htm" target="TopicContent">MakeIisspEnvelopeXml Method </a>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/c1d8dd33-c74e-e0b4-bb0a-9b45140d22d0.htm" target="TopicContent">MakeSoapEnvelopeXml Method </a>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/3973d071-eb8e-5346-214a-6becbe0a1f71.htm" target="TopicContent">Request Method </a>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/5b2be770-47ad-317b-4871-4f4c694bf361.htm" target="TopicContent">SetMyRequestToIisspStrig Method </a>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/401bb0ff-0f94-6a69-98cf-a1ed63bdd81e.htm" target="TopicContent">SetMyRequestToIisspXml Method </a>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/bc8b91e3-ff45-4146-618f-d013db1bda04.htm" target="TopicContent">SignXml Method </a>
+</div>
+</div>
+</div>
+<div class="TreeNode">
+<img class="TreeNodeImg" onclick="javascript: Toggle(this);" src="Collapsed.gif"/><a class="UnselectedNode" onclick="javascript: return Expand(this);" href="html/0aae1bfc-0869-e4b7-cffe-e2e2f0903476.htm" target="TopicContent">IISSPGeneral Properties </a>
+<div class="Hidden">
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/e69cdac2-061d-4fb1-28e8-2e30cf62ab19.htm" target="TopicContent">ClientCertificate Property </a>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/5a27d5f9-b549-77ad-d37a-5d4136baece8.htm" target="TopicContent">Loging Property </a>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/be83758b-31e6-4c48-83f0-518c2708842f.htm" target="TopicContent">MyRequest Property </a>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/3f6ccc61-6819-5edc-788e-b6251b8593a3.htm" target="TopicContent">NamespaceManager Property </a>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/4f08be93-95ab-ddf1-0a3f-c9e009a1ba35.htm" target="TopicContent">Password Property </a>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/6c667e5e-ec71-9094-422e-49806b54dcf0.htm" target="TopicContent">RecipientIc Property </a>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/079e56ae-6199-db3a-4119-edd49c8662fb.htm" target="TopicContent">RecipientModule Property </a>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/4f14d691-9ee1-f6fa-c033-4d7837c3e276.htm" target="TopicContent">RecipientSubjectName Property </a>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/92969486-8cc0-4290-6462-0ee341ec954b.htm" target="TopicContent">RefGuid Property </a>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/d0a1517a-1097-859c-bbd0-bb5516b60e04.htm" target="TopicContent">SenderIc Property </a>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/1abc2c4e-7374-eae0-e632-38c4ae7eb4a2.htm" target="TopicContent">SenderResponsiblePersonEmail Property </a>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/e7bb3047-18e3-96d4-4ebc-fe6c2a2aa7be.htm" target="TopicContent">SenderResponsiblePersonId Property </a>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/fe67b6bf-fd66-d430-7ba6-461b714c6b9a.htm" target="TopicContent">SenderResponsiblePersonName Property </a>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/f327f336-922b-f087-a483-d20795b7a096.htm" target="TopicContent">SenderSubjectName Property </a>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/5def0581-39c2-14ee-66b3-5a2b8fde0ba3.htm" target="TopicContent">Service Property </a>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/88b19e98-0ca3-cda2-a93e-a98cd5f5e4b0.htm" target="TopicContent">TimeOut Property </a>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/fa2ebb45-30b6-2fc4-3b75-e16d73d4d941.htm" target="TopicContent">Url Property </a>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/caadc0c2-f1bd-54b3-30c7-1540196cfd88.htm" target="TopicContent">UserName Property </a>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/ce4d2c41-ec6a-6424-d80a-b1ab8987644b.htm" target="TopicContent">WorkingDirectory Property </a>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="TreeNode">
+<img class="TreeNodeImg" onclick="javascript: Toggle(this);" src="Collapsed.gif"/><a class="UnselectedNode" onclick="javascript: return Expand(this);" href="html/d4fa6882-c61b-6196-b022-2db49f0a4e4b.htm" target="TopicContent">IISSPGeneral._IISSPGeneral Interface</a>
+<div class="Hidden">
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/63e41de6-0f0d-5064-dfab-8747b90122a3.htm" target="TopicContent">IISSPGeneral._IISSPGeneral Members</a>
+</div>
+<div class="TreeNode">
+<img class="TreeNodeImg" onclick="javascript: Toggle(this);" src="Collapsed.gif"/><a class="UnselectedNode" onclick="javascript: return Expand(this);" href="html/508a11a0-e960-6a77-84a9-7c62c7baea20.htm" target="TopicContent">IISSPGeneral._IISSPGeneral Methods </a>
+<div class="Hidden">
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/4fb1821a-5690-1e7b-86da-4854716ea56a.htm" target="TopicContent">FormatXml Method </a>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/3c5bcbc8-a92c-e81e-4004-d5f6d45c6929.htm" target="TopicContent">GetDate Method </a>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/1058161a-d94b-8954-2caa-26bbdcd90cfb.htm" target="TopicContent">GetDateTime Method </a>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/86a7dafb-0541-c705-e2f2-30f435176527.htm" target="TopicContent">GetGuid Method </a>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/8d826c56-facb-5d3d-be62-9677ba05adae.htm" target="TopicContent">GetWorkDirectory Method </a>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/f9d89ab9-1c76-fcb2-fb9c-f089dca361a9.htm" target="TopicContent">Log Method </a>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/c3c6a27f-9ca7-0e43-e49c-991a54b67118.htm" target="TopicContent">MakeIisspEnvelopeXml Method </a>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/2d696dde-d961-e707-bcdd-a934f0b17ac2.htm" target="TopicContent">MakeSoapEnvelopeXml Method </a>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/efc056d1-a210-5d1d-7196-3f92c84594c4.htm" target="TopicContent">Request Method </a>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/f1412809-83e3-39e3-cd86-f50b584d3c3d.htm" target="TopicContent">SetMyRequestToIisspStrig Method </a>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/d9c43647-a8dc-1cea-7b56-e65e0fed5938.htm" target="TopicContent">SetMyRequestToIisspXml Method </a>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/f199261c-1e3b-15bd-d3b0-3af2c24d79b2.htm" target="TopicContent">SignXml Method </a>
+</div>
+</div>
+</div>
+<div class="TreeNode">
+<img class="TreeNodeImg" onclick="javascript: Toggle(this);" src="Collapsed.gif"/><a class="UnselectedNode" onclick="javascript: return Expand(this);" href="html/e5c73a8c-db6c-2d75-b91e-9db278eda35f.htm" target="TopicContent">IISSPGeneral._IISSPGeneral Properties </a>
+<div class="Hidden">
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/12c5fe4a-9751-cca4-fd60-3f42337657c5.htm" target="TopicContent">ClientCertificate Property </a>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/fc5d0ee7-499c-dd69-852b-f5ab592eeb3e.htm" target="TopicContent">Loging Property </a>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/59e2e68c-b69c-2fe0-00bc-1d539cf45b4a.htm" target="TopicContent">MyRequest Property </a>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/f85506b5-a3e4-c75a-a784-3f4629bbd188.htm" target="TopicContent">NamespaceManager Property </a>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/c604d280-a50a-66bc-d083-d8437d791e65.htm" target="TopicContent">Password Property </a>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/db071473-8e72-8402-864d-843f56189ea3.htm" target="TopicContent">RecipientIc Property </a>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/a9d424f9-7a63-06f9-11ca-30379674b2b0.htm" target="TopicContent">RecipientModule Property </a>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/89d6ea4f-ad4b-3bbd-e226-94460b84d2b8.htm" target="TopicContent">RecipientSubjectName Property </a>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/6876e49d-35c7-256c-31ba-b15e4d716f99.htm" target="TopicContent">RefGuid Property </a>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/f85ebb3c-dd90-b650-f82b-559e93cca050.htm" target="TopicContent">SenderIc Property </a>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/93dfc454-99a3-b3b6-4f82-a45511473681.htm" target="TopicContent">SenderResponsiblePersonEmail Property </a>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/cffa0a60-9901-4db7-bf40-fd050fa3e38e.htm" target="TopicContent">SenderResponsiblePersonId Property </a>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/92dcbef3-1a9f-da46-ef7c-eaf1e1ec5d95.htm" target="TopicContent">SenderResponsiblePersonName Property </a>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/33792ecf-4ab7-41eb-f319-bed47ac62188.htm" target="TopicContent">SenderSubjectName Property </a>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/44d78f18-95dc-4907-2440-1044d604bd02.htm" target="TopicContent">Service Property </a>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/8e469796-44ca-2109-a3b6-7803b92abfb1.htm" target="TopicContent">TimeOut Property </a>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/ab93e779-5a71-0153-d6f9-1c12756659fb.htm" target="TopicContent">Url Property </a>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/f48717eb-2e4b-a246-2cdb-d6ce900f8527.htm" target="TopicContent">UserName Property </a>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/cc2894d9-16c4-d06e-75da-23cd35989c81.htm" target="TopicContent">WorkingDirectory Property </a>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="TreeNode">
+<img class="TreeNodeImg" onclick="javascript: Toggle(this);" src="Collapsed.gif"/><a class="UnselectedNode" onclick="javascript: return Expand(this);" href="html/b2a072fd-f415-7e67-9e83-f569d33a0226.htm" target="TopicContent">IISSPInbox Class</a>
+<div class="Hidden">
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/6b9a00b2-69d8-b907-77bd-dbccafb84414.htm" target="TopicContent">IISSPInbox Members</a>
+</div>
+<div class="TreeNode">
+<img class="TreeNodeImg" onclick="javascript: Toggle(this);" src="Collapsed.gif"/><a class="UnselectedNode" onclick="javascript: return Expand(this);" href="html/2d23eda5-5139-4e9a-869a-e6b1d9594b4a.htm" target="TopicContent">IISSPInbox Constructor </a>
+<div class="Hidden">
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/aab0944f-a06c-63ff-ac0e-93227019ddcd.htm" target="TopicContent">IISSPInbox Constructor </a>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/e42aaf58-0161-5490-65af-c8a60fba64e6.htm" target="TopicContent">IISSPInbox Constructor (String)</a>
+</div>
+</div>
+</div>
+<div class="TreeNode">
+<img class="TreeNodeImg" onclick="javascript: Toggle(this);" src="Collapsed.gif"/><a class="UnselectedNode" onclick="javascript: return Expand(this);" href="html/c67d105d-e94e-9051-c161-33fda7d07a46.htm" target="TopicContent">IISSPInbox Fields</a>
+<div class="Hidden">
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/ffe129a7-3cef-91ae-4ac2-f17f413e969c.htm" target="TopicContent">ClassId Field</a>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/24d04086-cadf-f7ff-f62a-1f343ad49237.htm" target="TopicContent">EventsId Field</a>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/d4b11b7b-56bf-487e-7449-7ee3e6fa5f3e.htm" target="TopicContent">InterfaceId Field</a>
+</div>
+</div>
+</div>
+<div class="TreeNode">
+<img class="TreeNodeImg" onclick="javascript: Toggle(this);" src="Collapsed.gif"/><a class="UnselectedNode" onclick="javascript: return Expand(this);" href="html/efb97a03-b1d7-e8ad-b6a1-20f6da99f548.htm" target="TopicContent">IISSPInbox Methods </a>
+<div class="Hidden">
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/0ed51b51-25e2-d5b4-0790-34b3e8293507.htm" target="TopicContent">GetMessageById Method </a>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/cc4f8d6f-7ad1-846f-c416-b5c3a6104c25.htm" target="TopicContent">GetMessagesHeaders Method </a>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/6c5f02ab-615b-28c1-df4e-a5058e57e098.htm" target="TopicContent">GetTestRequest Method </a>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/af548ca8-1b17-5ca3-d0de-c98860bd29f8.htm" target="TopicContent">MakeRISRERequestXml Method </a>
+</div>
+</div>
+</div>
+<div class="TreeNode">
+<img class="TreeNodeImg" onclick="javascript: Toggle(this);" src="Collapsed.gif"/><a class="UnselectedNode" onclick="javascript: return Expand(this);" href="html/74c86e63-f887-57cd-1a86-8c3a1152236e.htm" target="TopicContent">IISSPInbox Properties </a>
+<div class="Hidden">
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/7ff7231f-3e2a-52bf-27c0-7a581a37009f.htm" target="TopicContent">General Property </a>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="TreeNode">
+<img class="TreeNodeImg" onclick="javascript: Toggle(this);" src="Collapsed.gif"/><a class="UnselectedNode" onclick="javascript: return Expand(this);" href="html/6d275e04-90de-218e-72ad-ab074f02a430.htm" target="TopicContent">IISSPInbox._IISSPInbox Interface</a>
+<div class="Hidden">
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/60d50865-488f-1095-982b-15f2b0c9de45.htm" target="TopicContent">IISSPInbox._IISSPInbox Members</a>
+</div>
+<div class="TreeNode">
+<img class="TreeNodeImg" onclick="javascript: Toggle(this);" src="Collapsed.gif"/><a class="UnselectedNode" onclick="javascript: return Expand(this);" href="html/2fc4d9ea-96ed-4268-08c5-2268e52ab5b7.htm" target="TopicContent">IISSPInbox._IISSPInbox Methods </a>
+<div class="Hidden">
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/2a4a1e30-7fc9-52c3-2c5f-c7646c2be3e4.htm" target="TopicContent">GetMessageById Method </a>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/e3e8f3cc-b4b7-a13e-cc9a-f70b15475023.htm" target="TopicContent">GetMessagesHeaders Method </a>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/6b9bb40a-4611-bd2e-cdc3-f18026acea4e.htm" target="TopicContent">GetTestRequest Method </a>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/7d42777b-438b-ec50-f422-9c05b3bc910d.htm" target="TopicContent">MakeRISRERequestXml Method </a>
+</div>
+</div>
+</div>
+<div class="TreeNode">
+<img class="TreeNodeImg" onclick="javascript: Toggle(this);" src="Collapsed.gif"/><a class="UnselectedNode" onclick="javascript: return Expand(this);" href="html/3c529a75-33ac-525d-e81c-d63bd3832baf.htm" target="TopicContent">IISSPInbox._IISSPInbox Properties </a>
+<div class="Hidden">
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/ba584ba7-3bad-201e-3ddf-abf958810b5e.htm" target="TopicContent">General Property </a>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="TreeNode">
+<img class="TreeNodeImg" onclick="javascript: Toggle(this);" src="Collapsed.gif"/><a class="UnselectedNode" onclick="javascript: return Expand(this);" href="html/9520af68-77a3-d856-bf60-807a62c63bd1.htm" target="TopicContent">IISSPROP Class</a>
+<div class="Hidden">
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/a36cce83-afda-cfbe-2bfa-805239d166bd.htm" target="TopicContent">IISSPROP Members</a>
+</div>
+<div class="TreeNode">
+<img class="TreeNodeImg" onclick="javascript: Toggle(this);" src="Collapsed.gif"/><a class="UnselectedNode" onclick="javascript: return Expand(this);" href="html/6098f75e-91be-db52-b181-9e212449f72d.htm" target="TopicContent">IISSPROP Constructor </a>
+<div class="Hidden">
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/3a958d5e-9728-6bf4-3031-f8aae041d76c.htm" target="TopicContent">IISSPROP Constructor </a>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/8d1beb3e-d7f5-7859-452a-e545f834798f.htm" target="TopicContent">IISSPROP Constructor (String)</a>
+</div>
+</div>
+</div>
+<div class="TreeNode">
+<img class="TreeNodeImg" onclick="javascript: Toggle(this);" src="Collapsed.gif"/><a class="UnselectedNode" onclick="javascript: return Expand(this);" href="html/14662992-4cbc-53e2-cf74-0c7516240256.htm" target="TopicContent">IISSPROP Fields</a>
+<div class="Hidden">
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/bb83d2d8-c6a2-df84-dcd1-cd52a3df0f9b.htm" target="TopicContent">ClassId Field</a>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/4e6760b1-19b4-09e3-ecc8-2243bbc2f4c5.htm" target="TopicContent">EventsId Field</a>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/5bc02914-edf1-5d67-2dfc-9c1877b9ac47.htm" target="TopicContent">InterfaceId Field</a>
+</div>
+</div>
+</div>
+<div class="TreeNode">
+<img class="TreeNodeImg" onclick="javascript: Toggle(this);" src="Collapsed.gif"/><a class="UnselectedNode" onclick="javascript: return Expand(this);" href="html/3afb2b0e-1d7e-ed31-6e86-c20436e7fc86.htm" target="TopicContent">IISSPROP Methods </a>
+<div class="Hidden">
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/9ff0169c-0f37-4c6a-878e-d65478cd8079.htm" target="TopicContent">GetEKIS_SP_ROP Method </a>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/e9892a70-901d-7e34-ebcb-aaf4924af028.htm" target="TopicContent">GetFMMD_CISELNIK Method </a>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/dbdd78a9-c632-4453-393a-209d0d438da4.htm" target="TopicContent">GetFMMD_CISELNIKWSDL Method </a>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/96cbb180-18d2-d626-0d31-42e28cf3ca5a.htm" target="TopicContent">GetSP_EKIS_ROP Method </a>
+</div>
+</div>
+</div>
+<div class="TreeNode">
+<img class="TreeNodeImg" onclick="javascript: Toggle(this);" src="Collapsed.gif"/><a class="UnselectedNode" onclick="javascript: return Expand(this);" href="html/144488ca-2f58-a742-7f15-8ae4958dbae2.htm" target="TopicContent">IISSPROP Properties </a>
+<div class="Hidden">
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/8538c4a7-cbfd-08b2-653b-3dab985c5de9.htm" target="TopicContent">General Property </a>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="TreeNode">
+<img class="TreeNodeImg" onclick="javascript: Toggle(this);" src="Collapsed.gif"/><a class="UnselectedNode" onclick="javascript: return Expand(this);" href="html/0ddf23ff-f716-d1de-351e-c553989dda0d.htm" target="TopicContent">IISSPROP._IISSPROP Interface</a>
+<div class="Hidden">
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/0f439889-cf59-3ea1-bbac-8be68ab06ec1.htm" target="TopicContent">IISSPROP._IISSPROP Members</a>
+</div>
+<div class="TreeNode">
+<img class="TreeNodeImg" onclick="javascript: Toggle(this);" src="Collapsed.gif"/><a class="UnselectedNode" onclick="javascript: return Expand(this);" href="html/bcb9896d-2d4b-a7b3-5ab5-090c46600a66.htm" target="TopicContent">IISSPROP._IISSPROP Methods </a>
+<div class="Hidden">
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/45bbe820-570b-b130-e29d-51d2f9c4fdf0.htm" target="TopicContent">GetEKIS_SP_ROP Method </a>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/f3ad600a-c004-7ec3-5183-587c57cbfcc5.htm" target="TopicContent">GetFMMD_CISELNIK Method </a>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/2970b03e-a73d-e382-8e49-f55c6c594355.htm" target="TopicContent">GetFMMD_CISELNIKWSDL Method </a>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/0d33a9ee-59a2-f4ac-c270-6eae0b67487a.htm" target="TopicContent">GetSP_EKIS_ROP Method </a>
+</div>
+</div>
+</div>
+<div class="TreeNode">
+<img class="TreeNodeImg" onclick="javascript: Toggle(this);" src="Collapsed.gif"/><a class="UnselectedNode" onclick="javascript: return Expand(this);" href="html/f86dd78b-2c66-cbad-eea9-a0ebb9980261.htm" target="TopicContent">IISSPROP._IISSPROP Properties </a>
+<div class="Hidden">
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/8bd60a64-89a4-e09f-1d1a-68c6d67c3a66.htm" target="TopicContent">General Property </a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+</div>
+
+</div>
+
+<div id="TOCSizer" class="TOCSizer" onmousedown="OnMouseDown(event)" onselectstart="javascript: return false;"></div>
+
+<iframe id="TopicContent" name="TopicContent" class="TopicContent" src="html/f86fa130-4419-a1ed-8c9a-1539d5e7c84b.htm">
+This page uses an IFRAME but your browser does not support it.
+</iframe>
+
+</form>
+
+</body>
+
+</html>

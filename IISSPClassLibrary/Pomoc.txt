@@ -1,0 +1,19 @@
+﻿    Private _Xtiba As String
+    ''' <summary>
+    ''' Zadáváme nebo čteme Xtiba pokud je vyžadováno volanou službou.
+    ''' </summary>
+    ''' <value></value>
+    ''' <returns></returns>
+    ''' <remarks></remarks>
+    Public Property Xtiba() As String
+        Set(ByVal value As String)
+            _Xtiba = value
+            My.Settings.Xtiba = value
+        End Set
+        Get
+            If _Xtiba Is Nothing Then
+                _Xtiba = My.Settings.Xtiba
+            End If
+            Return _Xtiba
+        End Get
+    End Property

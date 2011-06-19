@@ -1,0 +1,181 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<HelpTOC>
+
+  <HelpTOCNode Id="b346a89f-20b7-4bd4-b027-3b7315e13824" Title="IISSPClassLibrary Namespace" Url="html/f86fa130-4419-a1ed-8c9a-1539d5e7c84b.htm">
+    <HelpTOCNode Id="23e8bb09-1c29-41f7-8127-e95a12b1db42" Title="IISSPCrypto Class" Url="html/55562f3e-ea27-ea22-5fc5-40ae053fda3b.htm">
+      <HelpTOCNode Title="IISSPCrypto Members" Url="html/a99babd9-22c6-10b7-9a18-e211279f4099.htm" />
+      <HelpTOCNode Title="IISSPCrypto Constructor " Url="html/30dee684-a421-34a8-7733-3377173403df.htm" />
+      <HelpTOCNode Id="9a2c7eae-d5b9-40d2-8711-681545ca5853" Title="IISSPCrypto Fields" Url="html/88d97abf-21f6-6140-8b83-afc938bcb989.htm">
+        <HelpTOCNode Title="ClassId Field" Url="html/d5a5bb31-6866-9dd6-4b63-8c51da02e13a.htm" />
+        <HelpTOCNode Title="EventsId Field" Url="html/d86b324d-ba1d-8a77-e744-e110d542931b.htm" />
+        <HelpTOCNode Title="InterfaceId Field" Url="html/32ce5ae5-183b-0953-aba4-e1a1c4f75981.htm" />
+      </HelpTOCNode>
+      <HelpTOCNode Id="99287dec-afb8-43ca-81b6-dc3f7bfebebe" Title="IISSPCrypto Methods " Url="html/66093638-2c85-f18e-f314-cd117d66fb47.htm">
+        <HelpTOCNode Title="Decrypt Method " Url="html/2e9d0834-4805-a07b-da19-4bceb505e296.htm" />
+        <HelpTOCNode Title="Encrypt Method " Url="html/1f718b32-ca1e-0093-0f15-b2a30bed0621.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Id="db85f38c-769d-4a54-8b9d-fba3df24bf24" Title="IISSPCrypto._IISSPCrypto Interface" Url="html/5cfeed45-3345-e8ab-0dcc-13ba3024b1f8.htm">
+      <HelpTOCNode Title="IISSPCrypto._IISSPCrypto Members" Url="html/0fda623b-e535-8502-0e68-fa3540882bf7.htm" />
+      <HelpTOCNode Id="f027b54c-0bb7-44e1-906b-fa500d267417" Title="IISSPCrypto._IISSPCrypto Methods " Url="html/18e66006-5769-8de0-38b9-a9378df36733.htm">
+        <HelpTOCNode Title="Decrypt Method " Url="html/10a1433f-1e76-b055-4793-d966575fa953.htm" />
+        <HelpTOCNode Title="Encrypt Method " Url="html/807d861b-833f-2b07-20f1-fd89aabb54fb.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Id="3ceff53c-bdf0-4162-b9b4-dca6532c31f3" Title="IISSPGeneral Class" Url="html/582a7ac2-a28b-ffdb-ab6d-fe260393e1c6.htm">
+      <HelpTOCNode Title="IISSPGeneral Members" Url="html/b7a43ca0-ef71-3ac4-f733-c76291212c8f.htm" />
+      <HelpTOCNode Title="IISSPGeneral Constructor " Url="html/f0a470dd-8ca4-e768-b8a0-d4c80210d3a4.htm" />
+      <HelpTOCNode Id="1d221c1e-3131-4863-ad61-2bc328dcd122" Title="IISSPGeneral Fields" Url="html/bc74d703-0b6c-1ac3-46d2-db569ddd2c62.htm">
+        <HelpTOCNode Title="CAClient Field" Url="html/acca9bb2-f3bb-c54d-f05f-2155b379c395.htm" />
+        <HelpTOCNode Title="CAServer Field" Url="html/97238502-100d-8f86-25b8-09a8ae0417e9.htm" />
+        <HelpTOCNode Title="ClassId Field" Url="html/b48d4a73-bf68-90f4-a25a-4fd2dc91e8e7.htm" />
+        <HelpTOCNode Title="EventsId Field" Url="html/0317a6b1-fd7f-e2f6-06b5-7d5c4f05123f.htm" />
+        <HelpTOCNode Title="InterfaceId Field" Url="html/7af73d89-e8a0-56dd-5867-bed7b1e8f22a.htm" />
+        <HelpTOCNode Title="ServerCertificate Field" Url="html/65840da7-f2f5-b9f8-d280-e33a011251e4.htm" />
+        <HelpTOCNode Title="Url_EKIS_SP_ROP Field" Url="html/a1cbbb8e-2ccf-d87e-9d29-ead8e28e6844.htm" />
+        <HelpTOCNode Title="Url_FMMD Field" Url="html/a9128a34-2f28-f58c-4251-fa6ed8256d25.htm" />
+        <HelpTOCNode Title="Url_SP_EKIS_ROP Field" Url="html/2a0edbcc-fee6-d8dc-48e8-36de41c45f88.htm" />
+      </HelpTOCNode>
+      <HelpTOCNode Id="6561f9cc-6e69-4a41-bf1a-f680165af7e1" Title="IISSPGeneral Methods " Url="html/0d809f0a-e4b2-a5da-6b8f-27015513c058.htm">
+        <HelpTOCNode Title="Finalize Method " Url="html/f23c7cdd-a3a2-ed88-47d5-4c1a32c4dc66.htm" />
+        <HelpTOCNode Title="FormatXml Method " Url="html/528cd5e5-9da2-80fe-55f4-90015e57dbea.htm" />
+        <HelpTOCNode Title="GetDate Method " Url="html/6488e3ec-710d-066e-e428-51f312f01b8d.htm" />
+        <HelpTOCNode Title="GetDateTime Method " Url="html/d899f59a-67a6-7e5b-8373-ef91ff3c1db6.htm" />
+        <HelpTOCNode Title="GetGuid Method " Url="html/e7ca9cc1-82a5-6293-2cbc-f0a9f162d05d.htm" />
+        <HelpTOCNode Title="GetWorkDirectory Method " Url="html/b656564f-0fd9-32e8-d44c-b33c5c1d4272.htm" />
+        <HelpTOCNode Title="Log Method " Url="html/79a46fe1-86af-ec2a-84f0-f0e05b8f6087.htm" />
+        <HelpTOCNode Title="MakeIisspEnvelopeXml Method " Url="html/2d7cbacb-4a9d-dd93-769b-4396385c94bc.htm" />
+        <HelpTOCNode Title="MakeSoapEnvelopeXml Method " Url="html/c1d8dd33-c74e-e0b4-bb0a-9b45140d22d0.htm" />
+        <HelpTOCNode Title="Request Method " Url="html/3973d071-eb8e-5346-214a-6becbe0a1f71.htm" />
+        <HelpTOCNode Title="SetMyRequestToIisspStrig Method " Url="html/5b2be770-47ad-317b-4871-4f4c694bf361.htm" />
+        <HelpTOCNode Title="SetMyRequestToIisspXml Method " Url="html/401bb0ff-0f94-6a69-98cf-a1ed63bdd81e.htm" />
+        <HelpTOCNode Title="SignXml Method " Url="html/bc8b91e3-ff45-4146-618f-d013db1bda04.htm" />
+      </HelpTOCNode>
+      <HelpTOCNode Id="91459958-dcfd-4296-b414-f444197f7823" Title="IISSPGeneral Properties " Url="html/0aae1bfc-0869-e4b7-cffe-e2e2f0903476.htm">
+        <HelpTOCNode Title="ClientCertificate Property " Url="html/e69cdac2-061d-4fb1-28e8-2e30cf62ab19.htm" />
+        <HelpTOCNode Title="Loging Property " Url="html/5a27d5f9-b549-77ad-d37a-5d4136baece8.htm" />
+        <HelpTOCNode Title="MyRequest Property " Url="html/be83758b-31e6-4c48-83f0-518c2708842f.htm" />
+        <HelpTOCNode Title="NamespaceManager Property " Url="html/3f6ccc61-6819-5edc-788e-b6251b8593a3.htm" />
+        <HelpTOCNode Title="Password Property " Url="html/4f08be93-95ab-ddf1-0a3f-c9e009a1ba35.htm" />
+        <HelpTOCNode Title="RecipientIc Property " Url="html/6c667e5e-ec71-9094-422e-49806b54dcf0.htm" />
+        <HelpTOCNode Title="RecipientModule Property " Url="html/079e56ae-6199-db3a-4119-edd49c8662fb.htm" />
+        <HelpTOCNode Title="RecipientSubjectName Property " Url="html/4f14d691-9ee1-f6fa-c033-4d7837c3e276.htm" />
+        <HelpTOCNode Title="RefGuid Property " Url="html/92969486-8cc0-4290-6462-0ee341ec954b.htm" />
+        <HelpTOCNode Title="SenderIc Property " Url="html/d0a1517a-1097-859c-bbd0-bb5516b60e04.htm" />
+        <HelpTOCNode Title="SenderResponsiblePersonEmail Property " Url="html/1abc2c4e-7374-eae0-e632-38c4ae7eb4a2.htm" />
+        <HelpTOCNode Title="SenderResponsiblePersonId Property " Url="html/e7bb3047-18e3-96d4-4ebc-fe6c2a2aa7be.htm" />
+        <HelpTOCNode Title="SenderResponsiblePersonName Property " Url="html/fe67b6bf-fd66-d430-7ba6-461b714c6b9a.htm" />
+        <HelpTOCNode Title="SenderSubjectName Property " Url="html/f327f336-922b-f087-a483-d20795b7a096.htm" />
+        <HelpTOCNode Title="Service Property " Url="html/5def0581-39c2-14ee-66b3-5a2b8fde0ba3.htm" />
+        <HelpTOCNode Title="TimeOut Property " Url="html/88b19e98-0ca3-cda2-a93e-a98cd5f5e4b0.htm" />
+        <HelpTOCNode Title="Url Property " Url="html/fa2ebb45-30b6-2fc4-3b75-e16d73d4d941.htm" />
+        <HelpTOCNode Title="UserName Property " Url="html/caadc0c2-f1bd-54b3-30c7-1540196cfd88.htm" />
+        <HelpTOCNode Title="WorkingDirectory Property " Url="html/ce4d2c41-ec6a-6424-d80a-b1ab8987644b.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Id="e95682f2-1b18-4e2b-8d2a-46c34ef1d5a4" Title="IISSPGeneral._IISSPGeneral Interface" Url="html/d4fa6882-c61b-6196-b022-2db49f0a4e4b.htm">
+      <HelpTOCNode Title="IISSPGeneral._IISSPGeneral Members" Url="html/63e41de6-0f0d-5064-dfab-8747b90122a3.htm" />
+      <HelpTOCNode Id="cfdbf424-87fa-4061-8153-8d0c07861e7e" Title="IISSPGeneral._IISSPGeneral Methods " Url="html/508a11a0-e960-6a77-84a9-7c62c7baea20.htm">
+        <HelpTOCNode Title="FormatXml Method " Url="html/4fb1821a-5690-1e7b-86da-4854716ea56a.htm" />
+        <HelpTOCNode Title="GetDate Method " Url="html/3c5bcbc8-a92c-e81e-4004-d5f6d45c6929.htm" />
+        <HelpTOCNode Title="GetDateTime Method " Url="html/1058161a-d94b-8954-2caa-26bbdcd90cfb.htm" />
+        <HelpTOCNode Title="GetGuid Method " Url="html/86a7dafb-0541-c705-e2f2-30f435176527.htm" />
+        <HelpTOCNode Title="GetWorkDirectory Method " Url="html/8d826c56-facb-5d3d-be62-9677ba05adae.htm" />
+        <HelpTOCNode Title="Log Method " Url="html/f9d89ab9-1c76-fcb2-fb9c-f089dca361a9.htm" />
+        <HelpTOCNode Title="MakeIisspEnvelopeXml Method " Url="html/c3c6a27f-9ca7-0e43-e49c-991a54b67118.htm" />
+        <HelpTOCNode Title="MakeSoapEnvelopeXml Method " Url="html/2d696dde-d961-e707-bcdd-a934f0b17ac2.htm" />
+        <HelpTOCNode Title="Request Method " Url="html/efc056d1-a210-5d1d-7196-3f92c84594c4.htm" />
+        <HelpTOCNode Title="SetMyRequestToIisspStrig Method " Url="html/f1412809-83e3-39e3-cd86-f50b584d3c3d.htm" />
+        <HelpTOCNode Title="SetMyRequestToIisspXml Method " Url="html/d9c43647-a8dc-1cea-7b56-e65e0fed5938.htm" />
+        <HelpTOCNode Title="SignXml Method " Url="html/f199261c-1e3b-15bd-d3b0-3af2c24d79b2.htm" />
+      </HelpTOCNode>
+      <HelpTOCNode Id="b11d6214-5baa-46ac-89bd-100768dab46f" Title="IISSPGeneral._IISSPGeneral Properties " Url="html/e5c73a8c-db6c-2d75-b91e-9db278eda35f.htm">
+        <HelpTOCNode Title="ClientCertificate Property " Url="html/12c5fe4a-9751-cca4-fd60-3f42337657c5.htm" />
+        <HelpTOCNode Title="Loging Property " Url="html/fc5d0ee7-499c-dd69-852b-f5ab592eeb3e.htm" />
+        <HelpTOCNode Title="MyRequest Property " Url="html/59e2e68c-b69c-2fe0-00bc-1d539cf45b4a.htm" />
+        <HelpTOCNode Title="NamespaceManager Property " Url="html/f85506b5-a3e4-c75a-a784-3f4629bbd188.htm" />
+        <HelpTOCNode Title="Password Property " Url="html/c604d280-a50a-66bc-d083-d8437d791e65.htm" />
+        <HelpTOCNode Title="RecipientIc Property " Url="html/db071473-8e72-8402-864d-843f56189ea3.htm" />
+        <HelpTOCNode Title="RecipientModule Property " Url="html/a9d424f9-7a63-06f9-11ca-30379674b2b0.htm" />
+        <HelpTOCNode Title="RecipientSubjectName Property " Url="html/89d6ea4f-ad4b-3bbd-e226-94460b84d2b8.htm" />
+        <HelpTOCNode Title="RefGuid Property " Url="html/6876e49d-35c7-256c-31ba-b15e4d716f99.htm" />
+        <HelpTOCNode Title="SenderIc Property " Url="html/f85ebb3c-dd90-b650-f82b-559e93cca050.htm" />
+        <HelpTOCNode Title="SenderResponsiblePersonEmail Property " Url="html/93dfc454-99a3-b3b6-4f82-a45511473681.htm" />
+        <HelpTOCNode Title="SenderResponsiblePersonId Property " Url="html/cffa0a60-9901-4db7-bf40-fd050fa3e38e.htm" />
+        <HelpTOCNode Title="SenderResponsiblePersonName Property " Url="html/92dcbef3-1a9f-da46-ef7c-eaf1e1ec5d95.htm" />
+        <HelpTOCNode Title="SenderSubjectName Property " Url="html/33792ecf-4ab7-41eb-f319-bed47ac62188.htm" />
+        <HelpTOCNode Title="Service Property " Url="html/44d78f18-95dc-4907-2440-1044d604bd02.htm" />
+        <HelpTOCNode Title="TimeOut Property " Url="html/8e469796-44ca-2109-a3b6-7803b92abfb1.htm" />
+        <HelpTOCNode Title="Url Property " Url="html/ab93e779-5a71-0153-d6f9-1c12756659fb.htm" />
+        <HelpTOCNode Title="UserName Property " Url="html/f48717eb-2e4b-a246-2cdb-d6ce900f8527.htm" />
+        <HelpTOCNode Title="WorkingDirectory Property " Url="html/cc2894d9-16c4-d06e-75da-23cd35989c81.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Id="6875cf9c-d8d3-4ebf-9c61-d4361a53369d" Title="IISSPInbox Class" Url="html/b2a072fd-f415-7e67-9e83-f569d33a0226.htm">
+      <HelpTOCNode Title="IISSPInbox Members" Url="html/6b9a00b2-69d8-b907-77bd-dbccafb84414.htm" />
+      <HelpTOCNode Id="68b14ecd-3211-4027-9285-b861c4dcb79b" Title="IISSPInbox Constructor " Url="html/2d23eda5-5139-4e9a-869a-e6b1d9594b4a.htm">
+        <HelpTOCNode Title="IISSPInbox Constructor " Url="html/aab0944f-a06c-63ff-ac0e-93227019ddcd.htm" />
+        <HelpTOCNode Title="IISSPInbox Constructor (String)" Url="html/e42aaf58-0161-5490-65af-c8a60fba64e6.htm" />
+      </HelpTOCNode>
+      <HelpTOCNode Id="4660c52e-6fa0-482f-b0fd-35721c57d2ca" Title="IISSPInbox Fields" Url="html/c67d105d-e94e-9051-c161-33fda7d07a46.htm">
+        <HelpTOCNode Title="ClassId Field" Url="html/ffe129a7-3cef-91ae-4ac2-f17f413e969c.htm" />
+        <HelpTOCNode Title="EventsId Field" Url="html/24d04086-cadf-f7ff-f62a-1f343ad49237.htm" />
+        <HelpTOCNode Title="InterfaceId Field" Url="html/d4b11b7b-56bf-487e-7449-7ee3e6fa5f3e.htm" />
+      </HelpTOCNode>
+      <HelpTOCNode Id="ba0931ce-be1e-4caf-9ee7-1a228b18debb" Title="IISSPInbox Methods " Url="html/efb97a03-b1d7-e8ad-b6a1-20f6da99f548.htm">
+        <HelpTOCNode Title="GetMessageById Method " Url="html/0ed51b51-25e2-d5b4-0790-34b3e8293507.htm" />
+        <HelpTOCNode Title="GetMessagesHeaders Method " Url="html/cc4f8d6f-7ad1-846f-c416-b5c3a6104c25.htm" />
+        <HelpTOCNode Title="GetTestRequest Method " Url="html/6c5f02ab-615b-28c1-df4e-a5058e57e098.htm" />
+        <HelpTOCNode Title="MakeRISRERequestXml Method " Url="html/af548ca8-1b17-5ca3-d0de-c98860bd29f8.htm" />
+      </HelpTOCNode>
+      <HelpTOCNode Id="5a073aaa-5e86-4ecc-aa8b-0d3edb9f31ad" Title="IISSPInbox Properties " Url="html/74c86e63-f887-57cd-1a86-8c3a1152236e.htm">
+        <HelpTOCNode Title="General Property " Url="html/7ff7231f-3e2a-52bf-27c0-7a581a37009f.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Id="2aa0784c-3869-4b86-9f4c-e7f87885374c" Title="IISSPInbox._IISSPInbox Interface" Url="html/6d275e04-90de-218e-72ad-ab074f02a430.htm">
+      <HelpTOCNode Title="IISSPInbox._IISSPInbox Members" Url="html/60d50865-488f-1095-982b-15f2b0c9de45.htm" />
+      <HelpTOCNode Id="ab9b29d6-57df-4671-9c69-a4926963a4a2" Title="IISSPInbox._IISSPInbox Methods " Url="html/2fc4d9ea-96ed-4268-08c5-2268e52ab5b7.htm">
+        <HelpTOCNode Title="GetMessageById Method " Url="html/2a4a1e30-7fc9-52c3-2c5f-c7646c2be3e4.htm" />
+        <HelpTOCNode Title="GetMessagesHeaders Method " Url="html/e3e8f3cc-b4b7-a13e-cc9a-f70b15475023.htm" />
+        <HelpTOCNode Title="GetTestRequest Method " Url="html/6b9bb40a-4611-bd2e-cdc3-f18026acea4e.htm" />
+        <HelpTOCNode Title="MakeRISRERequestXml Method " Url="html/7d42777b-438b-ec50-f422-9c05b3bc910d.htm" />
+      </HelpTOCNode>
+      <HelpTOCNode Id="ce5f6046-92fa-4b46-b752-e4e1942d3aa1" Title="IISSPInbox._IISSPInbox Properties " Url="html/3c529a75-33ac-525d-e81c-d63bd3832baf.htm">
+        <HelpTOCNode Title="General Property " Url="html/ba584ba7-3bad-201e-3ddf-abf958810b5e.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Id="7f915eec-4620-4d1b-9684-d8395ab64f6b" Title="IISSPROP Class" Url="html/9520af68-77a3-d856-bf60-807a62c63bd1.htm">
+      <HelpTOCNode Title="IISSPROP Members" Url="html/a36cce83-afda-cfbe-2bfa-805239d166bd.htm" />
+      <HelpTOCNode Id="e954eac0-5f5f-4f8b-a8c5-12b85551f03a" Title="IISSPROP Constructor " Url="html/6098f75e-91be-db52-b181-9e212449f72d.htm">
+        <HelpTOCNode Title="IISSPROP Constructor " Url="html/3a958d5e-9728-6bf4-3031-f8aae041d76c.htm" />
+        <HelpTOCNode Title="IISSPROP Constructor (String)" Url="html/8d1beb3e-d7f5-7859-452a-e545f834798f.htm" />
+      </HelpTOCNode>
+      <HelpTOCNode Id="3d608865-c3f4-4fbe-ba88-90beaf44b5ee" Title="IISSPROP Fields" Url="html/14662992-4cbc-53e2-cf74-0c7516240256.htm">
+        <HelpTOCNode Title="ClassId Field" Url="html/bb83d2d8-c6a2-df84-dcd1-cd52a3df0f9b.htm" />
+        <HelpTOCNode Title="EventsId Field" Url="html/4e6760b1-19b4-09e3-ecc8-2243bbc2f4c5.htm" />
+        <HelpTOCNode Title="InterfaceId Field" Url="html/5bc02914-edf1-5d67-2dfc-9c1877b9ac47.htm" />
+      </HelpTOCNode>
+      <HelpTOCNode Id="8e7960f5-ef65-4acd-ad42-3dee65e91044" Title="IISSPROP Methods " Url="html/3afb2b0e-1d7e-ed31-6e86-c20436e7fc86.htm">
+        <HelpTOCNode Title="GetEKIS_SP_ROP Method " Url="html/9ff0169c-0f37-4c6a-878e-d65478cd8079.htm" />
+        <HelpTOCNode Title="GetFMMD_CISELNIK Method " Url="html/e9892a70-901d-7e34-ebcb-aaf4924af028.htm" />
+        <HelpTOCNode Title="GetFMMD_CISELNIKWSDL Method " Url="html/dbdd78a9-c632-4453-393a-209d0d438da4.htm" />
+        <HelpTOCNode Title="GetSP_EKIS_ROP Method " Url="html/96cbb180-18d2-d626-0d31-42e28cf3ca5a.htm" />
+      </HelpTOCNode>
+      <HelpTOCNode Id="50dd2223-285c-4721-851b-16980e4dae2e" Title="IISSPROP Properties " Url="html/144488ca-2f58-a742-7f15-8ae4958dbae2.htm">
+        <HelpTOCNode Title="General Property " Url="html/8538c4a7-cbfd-08b2-653b-3dab985c5de9.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Id="45f4cbd9-c285-4dda-93f0-8ab0c0dd28f9" Title="IISSPROP._IISSPROP Interface" Url="html/0ddf23ff-f716-d1de-351e-c553989dda0d.htm">
+      <HelpTOCNode Title="IISSPROP._IISSPROP Members" Url="html/0f439889-cf59-3ea1-bbac-8be68ab06ec1.htm" />
+      <HelpTOCNode Id="bbab45c9-c69a-4a56-a07c-424ee1c87bbd" Title="IISSPROP._IISSPROP Methods " Url="html/bcb9896d-2d4b-a7b3-5ab5-090c46600a66.htm">
+        <HelpTOCNode Title="GetEKIS_SP_ROP Method " Url="html/45bbe820-570b-b130-e29d-51d2f9c4fdf0.htm" />
+        <HelpTOCNode Title="GetFMMD_CISELNIK Method " Url="html/f3ad600a-c004-7ec3-5183-587c57cbfcc5.htm" />
+        <HelpTOCNode Title="GetFMMD_CISELNIKWSDL Method " Url="html/2970b03e-a73d-e382-8e49-f55c6c594355.htm" />
+        <HelpTOCNode Title="GetSP_EKIS_ROP Method " Url="html/0d33a9ee-59a2-f4ac-c270-6eae0b67487a.htm" />
+      </HelpTOCNode>
+      <HelpTOCNode Id="c0255d5f-f8f7-4dd3-8c7f-6c34cdbe0f43" Title="IISSPROP._IISSPROP Properties " Url="html/f86dd78b-2c66-cbad-eea9-a0ebb9980261.htm">
+        <HelpTOCNode Title="General Property " Url="html/8bd60a64-89a4-e09f-1d1a-68c6d67c3a66.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+  </HelpTOCNode>
+</HelpTOC>
