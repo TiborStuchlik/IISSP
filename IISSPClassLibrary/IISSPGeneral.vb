@@ -801,14 +801,10 @@ Public Class IISSPGeneral
             Dim PostResponse As String = (reqBuff.ToString)
 
             ' Create a file and write the byte data to a file.
-            Dim oFileStream As System.IO.FileStream
-            oFileStream = New System.IO.FileStream("c:\iissp\test.txt", System.IO.FileMode.Create)
-            oFileStream.Write(reqBuff, 0, reqBuff.Length)
-            oFileStream.Close()
-
-
-
-
+            ' Dim oFileStream As System.IO.FileStream
+            ' oFileStream = New System.IO.FileStream("c:\iissp\test.txt", System.IO.FileMode.Create)
+            ' oFileStream.Write(reqBuff, 0, reqBuff.Length)
+            ' oFileStream.Close()
 
             ' Read the content.
             'Dim PostResponse As String = oReader.ReadToEnd()
@@ -866,8 +862,8 @@ Public Class IISSPGeneral
             HisXml = MakeErrorAnswer(500, "Chyba při odesílání", webE.Message + " :: " + strR)
             If strR > "" Then
                 Dim xx As XmlDocument = New XmlDocument
-                xx.LoadXml(strR)
-                xx = FormatXml(xx)
+                'xx.LoadXml(strR)
+                'xx = FormatXml(xx)
                 Log(strR, Me)
                 Log("ERROR::IISSPGeneral: Protistraně se nepodařilo zprávu zpracovat", Me)
             Else
