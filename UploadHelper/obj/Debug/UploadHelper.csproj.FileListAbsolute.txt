@@ -1,0 +1,15 @@
+C:\IISSP\UploadHelper\bin\Debug\Krystalware.UploadHelper.dll
+C:\IISSP\UploadHelper\bin\Debug\Krystalware.UploadHelper.pdb
+C:\IISSP\UploadHelper\obj\Debug\ResolveAssemblyReference.cache
+C:\IISSP\UploadHelper\obj\Debug\Krystalware.UploadHelper.dll
+C:\IISSP\UploadHelper\obj\Debug\Krystalware.UploadHelper.pdb
+M:\Transfer\Insyco\IISSP\UploadHelper\bin\Debug\Krystalware.UploadHelper.dll
+M:\Transfer\Insyco\IISSP\UploadHelper\bin\Debug\Krystalware.UploadHelper.pdb
+M:\Transfer\Insyco\IISSP\UploadHelper\obj\Debug\ResolveAssemblyReference.cache
+M:\Transfer\Insyco\IISSP\UploadHelper\obj\Debug\Krystalware.UploadHelper.dll
+M:\Transfer\Insyco\IISSP\UploadHelper\obj\Debug\Krystalware.UploadHelper.pdb
+M:\Transfer\IISSP\IISSPTest\UploadHelper\bin\Debug\Krystalware.UploadHelper.dll
+M:\Transfer\IISSP\IISSPTest\UploadHelper\bin\Debug\Krystalware.UploadHelper.pdb
+M:\Transfer\IISSP\IISSPTest\UploadHelper\obj\Debug\ResolveAssemblyReference.cache
+M:\Transfer\IISSP\IISSPTest\UploadHelper\obj\Debug\Krystalware.UploadHelper.dll
+M:\Transfer\IISSP\IISSPTest\UploadHelper\obj\Debug\Krystalware.UploadHelper.pdb
