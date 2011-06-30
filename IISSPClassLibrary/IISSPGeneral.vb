@@ -530,7 +530,7 @@ Public Class IISSPGeneral
         ' zatim nacitame z resource dokud nebude jasne odkud se budou nacitat
         'ClientCertificate = New X509Certificate2(My.Resources.tiba, "tiba")
         _NamespaceManager = New XmlNamespaceManager(New NameTable)
-        _NamespaceManager.AddNamespace("SOAP", "http://schemas.xmlsoap.org/soap/envelope/")
+        _NamespaceManager.AddNamespace("SOAP-ENV", "http://schemas.xmlsoap.org/soap/envelope/")
         _NamespaceManager.AddNamespace("msg", "urn:cz:mfcr:iissp:schemas:Messaging:v1")
         _NamespaceManager.AddNamespace("cmn", "urn:cz:mfcr:iissp:schemas:Common:v1")
 
@@ -900,7 +900,7 @@ Public Class IISSPGeneral
         'SEXml.LoadXml(My.Resources.SoapEnvelope)
         SEXml.Load(WorkingDirectory & "\Settings\SoapEnvelope.xml")
         ' pripravime telo Soap dotazu
-        Dim SoapNode As XmlNode = SEXml.SelectSingleNode("/SOAP:Envelope/SOAP:Body", NamespaceManager)
+        Dim SoapNode As XmlNode = SEXml.SelectSingleNode("/SOAP-ENV:Envelope/SOAP-ENV:Body", NamespaceManager)
         ' a zpravu vlozime do Soap obalky
         SoapNode.AppendChild(SEXml.ImportNode(InElement, True))
         ' a vratime cely xml dokument - kompletni dotaz na inbox

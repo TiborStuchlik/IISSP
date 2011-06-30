@@ -81,8 +81,8 @@ Public Class IISSPTestApplication
 
         CBRequests.SelectedIndex = 0
         CBInbox.SelectedIndex = 0
-        ' Log("Spouštím request")
-        ' BackgroundWorker1.RunWorkerAsync()
+        Log("Spouštím request")
+        BackgroundWorker1.RunWorkerAsync()
 
     End Sub
 
@@ -177,6 +177,24 @@ Public Class IISSPTestApplication
     End Sub
 
     Private Sub Button2_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button2.Click
+        Dim IG As IISSPGeneral = New IISSPGeneral
+        IG.Loging = True
+        ''IG.MyRequest = TBSource.Text
+        IG.UserName = GUserName
+        IG.Password = GPassword
+        IG.Url = GUrl
+        IG.TimeOut = 15000
+        IG.RecipientModule = GModule
+        IG.SenderResponsiblePersonEmail = "benes@insyco.cz"
+        IG.SenderResponsiblePersonId = "EU1620000273"
+        IG.SenderResponsiblePersonName = "Beneš Jiří"
+        IG.SenderIc = "00164801"
+        IG.SenderSubjectName = "IN-SY-CO"
+        IG.RecipientIc = "00006947"
+        IG.RecipientSubjectName = "Ministerstvo financí"
+
+
+
         If ComboBox1.SelectedIndex = 0 Then
             RZS = ""
         ElseIf ComboBox1.SelectedIndex = 1 Then
@@ -377,7 +395,7 @@ Public Class IISSPTestApplication
         Dim doc As XmlDocument = New XmlDocument
         doc.LoadXml(TBTest.Text)
         Dim nsmgr As XmlNamespaceManager = New XmlNamespaceManager(doc.NameTable)
-        nsmgr.AddNamespace("SOAP", "http://schemas.xmlsoap.org/soap/envelope/")
+        nsmgr.AddNamespace("SOAP-ENV", "http://schemas.xmlsoap.org/soap/envelope/")
         nsmgr.AddNamespace("msg", "urn:cz:mfcr:iissp:schemas:Messaging:v1")
         nsmgr.AddNamespace("cmn", "urn:cz:mfcr:iissp:schemas:Common:v1")
         Try

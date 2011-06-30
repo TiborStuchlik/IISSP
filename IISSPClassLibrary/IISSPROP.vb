@@ -77,10 +77,10 @@ Public Class IISSPROP
 
         ' zaregistrujem si namespace
         Dim nsmgr As XmlNamespaceManager = New XmlNamespaceManager(SEXml.NameTable)
-        nsmgr.AddNamespace("SOAP", "http://schemas.xmlsoap.org/soap/envelope/")
+        nsmgr.AddNamespace("SOAP-ENV", "http://schemas.xmlsoap.org/soap/envelope/")
 
         ' pripravime telo Soap dotazu
-        Dim SoapNode As XmlNode = SEXml.SelectSingleNode("/SOAP:Envelope/SOAP:Body", nsmgr)
+        Dim SoapNode As XmlNode = SEXml.SelectSingleNode("/SOAP-ENV:Envelope/SOAP-ENV:Body", nsmgr)
 
         ' a zpravu vlozime do Soap obalky
         SoapNode.AppendChild(SEXml.ImportNode(doc.DocumentElement, True))

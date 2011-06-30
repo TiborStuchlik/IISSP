@@ -13,3 +13,8 @@ M:\Transfer\IISSP\IISSPTest\UploadHelper\bin\Debug\Krystalware.UploadHelper.pdb
 M:\Transfer\IISSP\IISSPTest\UploadHelper\obj\Debug\ResolveAssemblyReference.cache
 M:\Transfer\IISSP\IISSPTest\UploadHelper\obj\Debug\Krystalware.UploadHelper.dll
 M:\Transfer\IISSP\IISSPTest\UploadHelper\obj\Debug\Krystalware.UploadHelper.pdb
+C:\GIT_IISSP\IISSP\UploadHelper\bin\Debug\Krystalware.UploadHelper.dll
+C:\GIT_IISSP\IISSP\UploadHelper\bin\Debug\Krystalware.UploadHelper.pdb
+C:\GIT_IISSP\IISSP\UploadHelper\obj\Debug\ResolveAssemblyReference.cache
+C:\GIT_IISSP\IISSP\UploadHelper\obj\Debug\Krystalware.UploadHelper.dll
+C:\GIT_IISSP\IISSP\UploadHelper\obj\Debug\Krystalware.UploadHelper.pdb

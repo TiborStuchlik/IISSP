@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<SOAP:Envelope xmlns:SOAP="http://schemas.xmlsoap.org/soap/envelope/" xmlns:msg="urn:cz:mfcr:iissp:schemas:Messaging:v1">
-  <SOAP:Body>
+<SOAP-ENV:Envelope xmlns:SOAP="http://schemas.xmlsoap.org/soap/envelope/" xmlns:msg="urn:cz:mfcr:iissp:schemas:Messaging:v1">
+  <SOAP-ENV:Body>
     <Envelope xmlns="urn:cz:mfcr:iissp:schemas:Messaging:v1">
       <EnvelopeHeader>
         <TransactionId>001bf00022985f03a12a2009f15a54</TransactionId>
@@ -27,5 +27,5 @@
         </Inbox>
       </EnvelopeBody>
     </Envelope>
-  </SOAP:Body>
-</SOAP:Envelope>
+  </SOAP-ENV:Body>
+</SOAP-ENV:Envelope>

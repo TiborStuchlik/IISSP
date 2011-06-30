@@ -93,7 +93,7 @@ Public Class IISSPInbox
         Dim doc As XmlDocument = New XmlDocument
         Dim nsmgr As XmlNamespaceManager = New XmlNamespaceManager(doc.NameTable)
         ' zaregistrujem si namespace
-        nsmgr.AddNamespace("SOAP", "http://schemas.xmlsoap.org/soap/envelope/")
+        nsmgr.AddNamespace("SOAP-ENV", "http://schemas.xmlsoap.org/soap/envelope/")
         nsmgr.AddNamespace("msg", "urn:cz:mfcr:iissp:schemas:Messaging:v1")
         nsmgr.AddNamespace("cmn", "urn:cz:mfcr:iissp:schemas:Common:v1")
         ' nacteme obalku dotazu pro Inbox
@@ -114,7 +114,7 @@ Public Class IISSPInbox
         ' nacitame z resource - az bude funkcni wsdl budeme cist z neho
         SEXml.Load(General.WorkingDirectory & "Settings\SoapEnvelope.xml")
         ' pripravime telo Soap dotazu
-        Dim SoapNode As XmlNode = SEXml.SelectSingleNode("/SOAP:Envelope/SOAP:Body", nsmgr)
+        Dim SoapNode As XmlNode = SEXml.SelectSingleNode("/SOAP-ENV:Envelope/SOAP-ENV:Body", nsmgr)
         ' a zpravu vlozime do Soap obalky
         SoapNode.AppendChild(SEXml.ImportNode(MEXml.DocumentElement, True))
         ' a vratime cely xml dokument - kompletni dotaz na inbox
@@ -133,7 +133,7 @@ Public Class IISSPInbox
         Dim MEXml As XmlDocument = New XmlDocument
         Dim nsmgr As XmlNamespaceManager = New XmlNamespaceManager(MEXml.NameTable)
 
-        nsmgr.AddNamespace("SOAP", "http://schemas.xmlsoap.org/soap/envelope/")
+        nsmgr.AddNamespace("SOAP-ENV", "http://schemas.xmlsoap.org/soap/envelope/")
         nsmgr.AddNamespace("msg", "urn:cz:mfcr:iissp:schemas:Messaging:v1")
         nsmgr.AddNamespace("cmn", "urn:cz:mfcr:iissp:schemas:Common:v1")
         MEXml.Load(General.WorkingDirectory & "Settings\RisreCsuisEnvelopeLayout.xml")
@@ -151,7 +151,7 @@ Public Class IISSPInbox
         ' nacitame z resource - az bude funkcni wsdl budeme cist z neho
         SEXml.Load(General.WorkingDirectory & "Settings\SoapEnvelope.xml")
         ' pripravime telo Soap dotazu
-        Dim SoapNode As XmlNode = SEXml.SelectSingleNode("/SOAP:Envelope/SOAP:Body", nsmgr)
+        Dim SoapNode As XmlNode = SEXml.SelectSingleNode("/SOAP-ENV:Envelope/SOAP-ENV:Body", nsmgr)
         ' a zpravu vlozime do Soap obalky
         SoapNode.AppendChild(SEXml.ImportNode(MEXml.DocumentElement, True))
         ' a vratime cely xml dokument - kompletni dotaz na inbox
@@ -333,24 +333,60 @@ Public Class IISSPInbox
                                 ByVal ZpravaStatus As String, _
                                 ByVal TypDatoveZpravy As String) As String
         General.Log("Volám: GetMessagesHeaders", Me)
-        General.SenderResponsiblePersonId = "2000000002"
+
         Dim doc As XmlDocument = New XmlDocument
+        Dim docX As XmlDocument = New XmlDocument
         Dim nsmgr As XmlNamespaceManager = New XmlNamespaceManager(doc.NameTable)
 
         nsmgr.AddNamespace("msg", "urn:cz:mfcr:iissp:schemas:Messaging:v1")
 
         If General.RecipientModule = "CSUIS" Then
             doc.Load(General.WorkingDirectory & "Settings\CsuisInboxGetMessagesHeadersLayout.xml")
-            doc.SelectSingleNode("//msg:ZpravaStatus", nsmgr).InnerText = ZpravaStatus
-            doc.SelectSingleNode("//msg:TypDatoveZpravy", nsmgr).InnerText = TypDatoveZpravy
+
+            If ZpravaStatus = "" Then
+                doc.SelectSingleNode("//msg:ZpravaStatus", nsmgr).ParentNode.RemoveChild(doc.SelectSingleNode("//msg:ZpravaStatus", nsmgr))
+            Else
+                doc.SelectSingleNode("//msg:ZpravaStatus", nsmgr).InnerText = ZpravaStatus
+            End If
+
+            If TypDatoveZpravy = "" Then
+                doc.SelectSingleNode("//msg:TypDatoveZpravy", nsmgr).ParentNode.RemoveChild(doc.SelectSingleNode("//msg:TypDatoveZpravy", nsmgr))
+            Else
+                doc.SelectSingleNode("//msg:TypDatoveZpravy", nsmgr).InnerText = TypDatoveZpravy
+            End If
+
+
         Else
             doc.Load(General.WorkingDirectory & "Settings\RisreInboxGetMessagesHeadersLayout.xml")
         End If
 
-        doc.SelectSingleNode("//msg:ZobrazitHromadneZpravy", nsmgr).InnerText = HromadneZpravy
-        doc.SelectSingleNode("//msg:ZpravaDatumVytvoreniOd", nsmgr).InnerText = DatumVytvoreniOd
-        doc.SelectSingleNode("//msg:ZpravaDatumVytvoreniDo", nsmgr).InnerText = DatumVytvoreniDo
-        General.MyRequest = MakeInboxRequestXml(doc.DocumentElement).OuterXml
+            If HromadneZpravy = "" Then
+            doc.SelectSingleNode("//msg:ZobrazitHromadneZpravy", nsmgr).ParentNode.RemoveChild(doc.SelectSingleNode("//msg:ZobrazitHromadneZpravy", nsmgr))
+            Else
+                doc.SelectSingleNode("//msg:ZobrazitHromadneZpravy", nsmgr).InnerText = HromadneZpravy
+            End If
+
+
+        If DatumVytvoreniOd = "" Then
+            doc.SelectSingleNode("//msg:ZpravaDatumVytvoreniOd", nsmgr).ParentNode.RemoveChild(doc.SelectSingleNode("//msg:ZpravaDatumVytvoreniOd", nsmgr))
+        Else
+            doc.SelectSingleNode("//msg:ZpravaDatumVytvoreniOd", nsmgr).InnerText = DatumVytvoreniOd
+        End If
+
+
+        If DatumVytvoreniDo = "" Then
+            doc.SelectSingleNode("//msg:ZpravaDatumVytvoreniDo", nsmgr).ParentNode.RemoveChild(doc.SelectSingleNode("//msg:ZpravaDatumVytvoreniDo", nsmgr))
+
+        Else
+            doc.SelectSingleNode("//msg:ZpravaDatumVytvoreniDo", nsmgr).InnerText = DatumVytvoreniDo
+        End If
+
+
+        ''General.MyRequest = MakeInboxRequestXml(doc.DocumentElement).OuterXml
+        ''docX = General.MakeIisspEnvelopeXml(doc.DocumentElement)
+
+
+        General.MyRequest = General.MakeSoapEnvelopeXml(General.MakeIisspEnvelopeXml(doc.DocumentElement).DocumentElement).OuterXml
         Return General.Request
     End Function
 
