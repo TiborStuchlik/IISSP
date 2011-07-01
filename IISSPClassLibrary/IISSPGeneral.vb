@@ -852,9 +852,20 @@ Public Class IISSPGeneral
                 Return HisXml.OuterXml
             End Try
         Catch webE As WebException
-            Dim str As MemoryStream = webE.Response.GetResponseStream()
-            Dim con As Byte() = str.ToArray()
-            Dim strR As String = System.Text.UTF8Encoding.UTF8.GetString(con)
+
+
+            Dim str As MemoryStream
+            Dim strR As String
+
+            If webE.Response Is Nothing Then
+                strR = webE.Message
+            Else
+                str = webE.Response.GetResponseStream()
+                Dim con As Byte() = str.ToArray()
+                strR = System.Text.UTF8Encoding.UTF8.GetString(con)
+
+            End If
+
             HisXml = MakeErrorAnswer(500, "Chyba při odesílání", webE.Message + " :: " + strR)
             If strR > "" Then
                 Dim xx As XmlDocument = New XmlDocument

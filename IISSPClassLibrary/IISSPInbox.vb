@@ -409,6 +409,42 @@ Public Class IISSPInbox
         Return doc.OuterXml.ToString
     End Function
 
+    ''' <summary>
+    ''' Odešle enkryptovaný soubor do Inbox
+    ''' </summary>
+    ''' <param name="EncryptedString"></param>
+    ''' <returns></returns>
+    ''' <remarks></remarks>
+    Public Function SendCSUISEncryptedMessage(ByVal EncryptedString As String) As String
+
+        Dim IG As New IISSPGeneral
+
+        IG.Log("Volám: SendCSUISEncryptedMessage", Me)
+        Dim doc As XmlDocument = New XmlDocument
+        Dim nsmgr As XmlNamespaceManager = New XmlNamespaceManager(doc.NameTable)
+        Dim xElement As XmlElement
+        nsmgr.AddNamespace("msg", "urn:cz:mfcr:iissp:schemas:Messaging:v1")
+
+
+        xElement = doc.CreateElement("msg", "EncryptedMessage", "urn:cz:mfcr:iissp:schemas:Messaging:v1")
+        xElement.InnerText = EncryptedString
+        doc.AppendChild(xElement)
+
+
+
+        ''Return IG.MakeSoapEnvelopeXml(doc.DocumentElement).DocumentElement.OuterXml
+        IG.MyRequest = IG.MakeSoapEnvelopeXml(doc.DocumentElement).DocumentElement.OuterXml
+
+        '' Return IG.MyRequest
+        '' Dim OutXml As New XmlDocument
+        '' OutXml.LoadXml(IG.Request())
+        ''  OutXml.Save("output.xml")
+        Return IG.Request()
+
+    End Function
+
+
+
 End Class
 
 

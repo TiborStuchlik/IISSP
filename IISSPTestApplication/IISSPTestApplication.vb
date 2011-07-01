@@ -295,7 +295,7 @@ Public Class IISSPTestApplication
         IG.UserName = GUserName
         IG.Password = GPassword
         IG.Url = GUrl
-        IG.TimeOut = 15000
+        IG.TimeOut = 25000
         IG.RecipientModule = GModule
         IG.SenderResponsiblePersonEmail = "benes@insyco.cz"
         IG.SenderResponsiblePersonId = "EU1620000273"
@@ -453,5 +453,52 @@ Public Class IISSPTestApplication
             'LogTB.SelectAll()
 
         End If
+    End Sub
+
+    Private Sub cmdSendEncryptedMsg_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cmdSendEncryptedMsg.Click
+
+        Dim IC As IISSPCrypto = New IISSPCrypto
+        Dim aa As String
+        Dim bb As String
+
+        Dim FullPath = Application.StartupPath
+
+        aa = IC.Encrypt(TBCInput.Text, FullPath + "\AESKEY.DEC")
+
+
+        WebBrowser1.Navigate(My.Application.Info.DirectoryPath + "\progress.htm")
+
+        Dim IG As IISSPGeneral = New IISSPGeneral
+        IG.Loging = True
+        ''IG.MyRequest = Inbox.SendCSUISEncryptedMessage(aa)
+        IG.UserName = GUserName
+        IG.Password = GPassword
+        IG.Url = GUrl
+        '' IG.TimeOut = 25000
+        ''   IG.RecipientModule = GModule
+        '' IG.SenderResponsiblePersonEmail = "benes@insyco.cz"
+        ''  IG.SenderResponsiblePersonId = "EU1620000273"
+        '' IG.SenderResponsiblePersonName = "Beneš Jiří"
+        ''  IG.SenderIc = "00164801"
+        '' IG.SenderSubjectName = "IN-SY-CO"
+        ''  IG.RecipientIc = "00006947"
+        ''    IG.RecipientSubjectName = "Ministerstvo financí"
+
+
+
+
+        TBSource.Text = Inbox.SendCSUISEncryptedMessage(aa)
+        WebBrowser1.Navigate(My.Application.Info.DirectoryPath + "\output.xml")
+
+        Exit Sub
+
+        
+
+        ' zatim se automaticky nacita pri inicializaci General z resource
+        ' IG.ClientCertificate = New X509Certificate2("tiba.pfx", "tiba")
+        Dim OutXml As New XmlDocument
+        OutXml.LoadXml(IG.Request())
+        OutXml.Save("output.xml")
+        WebBrowser1.Navigate(My.Application.Info.DirectoryPath + "\output.xml")
     End Sub
 End Class
