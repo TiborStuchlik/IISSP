@@ -84,7 +84,6 @@ W:\IISSP\IISSPTestApplication\bin\Debug\IISSPTestApplication.pdb
 W:\IISSP\IISSPTestApplication\bin\Debug\IISSPTestApplication.xml
 W:\IISSP\IISSPTestApplication\bin\Debug\IISSPClassLibrary.dll
 W:\IISSP\IISSPTestApplication\bin\Debug\IISSPClassLibrary.pdb
-W:\IISSP\IISSPTestApplication\bin\Debug\IISSPClassLibrary.xml
 W:\IISSP\IISSPTestApplication\obj\Debug\ResolveAssemblyReference.cache
 W:\IISSP\IISSPTestApplication\obj\Debug\IISSPTestApplication.IISSPTestApplication.resources
 W:\IISSP\IISSPTestApplication\obj\Debug\IISSPTestApplication.Resources.resources
