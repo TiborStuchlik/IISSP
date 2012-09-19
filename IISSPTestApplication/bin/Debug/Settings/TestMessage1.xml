@@ -1,0 +1,21 @@
+<risre:ZpravaRisre xmlns:msg="urn:cz:mfcr:iissp:schemas:Messaging:v1" xmlns:cmn="urn:cz:mfcr:iissp:schemas:Common:v1" xmlns:risre="urn:cz:mfcr:iissp:schemas:Risre:v1">
+  <risre:DataKmenovaRozpoctovaDotaz>
+    <risre:ProgramRozpoctovy>
+      <risre:Kapitola>304</risre:Kapitola>
+      <risre:DatumPlatnostiOd>2009-01-01</risre:DatumPlatnostiOd>
+      <risre:DatumPlatnostiDo>2010-12-31</risre:DatumPlatnostiDo>
+      <risre:ProgramRozpoctovyRozsah>
+        <risre:ZahrnutiVyrazeniKod>I</risre:ZahrnutiVyrazeniKod>
+        <risre:IntervalKod>9</risre:IntervalKod>
+        <risre:RozsahOd>204V0110</risre:RozsahOd>
+        <risre:RozsahDo>204V0120</risre:RozsahDo>
+      </risre:ProgramRozpoctovyRozsah>
+      <risre:DatumCasUdrzbaPosledniRozsah>
+        <risre:ZahrnutiVyrazeniKod>I</risre:ZahrnutiVyrazeniKod>
+        <risre:IntervalKod>3</risre:IntervalKod>
+        <risre:DatumCasRozsahOd>2009-01-01T00:00:00Z</risre:DatumCasRozsahOd>
+        <risre:DatumCasRozsahDo>2010-12-31T00:00:00Z</risre:DatumCasRozsahDo>
+      </risre:DatumCasUdrzbaPosledniRozsah>
+    </risre:ProgramRozpoctovy>
+  </risre:DataKmenovaRozpoctovaDotaz>
+</risre:ZpravaRisre>

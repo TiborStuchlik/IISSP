@@ -1,0 +1,5 @@
+<msg:Inbox xmlns:msg="urn:cz:mfcr:iissp:schemas:Messaging:v1">
+  <msg:ZpravaPozadavek>
+    <msg:ZpravaId></msg:ZpravaId>
+  </msg:ZpravaPozadavek>
+</msg:Inbox>

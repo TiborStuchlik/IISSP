@@ -18,3 +18,13 @@ C:\GIT_IISSP\IISSP\UploadHelper\bin\Debug\Krystalware.UploadHelper.pdb
 C:\GIT_IISSP\IISSP\UploadHelper\obj\Debug\ResolveAssemblyReference.cache
 C:\GIT_IISSP\IISSP\UploadHelper\obj\Debug\Krystalware.UploadHelper.dll
 C:\GIT_IISSP\IISSP\UploadHelper\obj\Debug\Krystalware.UploadHelper.pdb
+C:\Users\Administrator\Documents\GitHub\IISSP\UploadHelper\bin\Debug\Krystalware.UploadHelper.dll
+C:\Users\Administrator\Documents\GitHub\IISSP\UploadHelper\bin\Debug\Krystalware.UploadHelper.pdb
+C:\Users\Administrator\Documents\GitHub\IISSP\UploadHelper\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\Administrator\Documents\GitHub\IISSP\UploadHelper\obj\Debug\Krystalware.UploadHelper.dll
+C:\Users\Administrator\Documents\GitHub\IISSP\UploadHelper\obj\Debug\Krystalware.UploadHelper.pdb
+W:\IISSP\UploadHelper\bin\Debug\Krystalware.UploadHelper.dll
+W:\IISSP\UploadHelper\bin\Debug\Krystalware.UploadHelper.pdb
+W:\IISSP\UploadHelper\obj\Debug\ResolveAssemblyReference.cache
+W:\IISSP\UploadHelper\obj\Debug\Krystalware.UploadHelper.dll
+W:\IISSP\UploadHelper\obj\Debug\Krystalware.UploadHelper.pdb

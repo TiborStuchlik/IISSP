@@ -1,0 +1,779 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Tiba>
+  <GlobalSetings>
+    <Connections>
+      <Connection Name="INBOX">
+        <Url>https://portal5.statnipokladna.cz/csuis/wstest/inbox</Url>
+        <Port>443</Port>
+        <Wsdl>
+          <wsdl:definitions xmlns:msg="urn:cz:mfcr:iissp:schemas:Messaging:v1" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" name="SI_INBOX_ENVELOPE" targetNamespace="urn:cz:mfcr:iissp:schemas:Messaging:v1">
+            <wsdl:documentation />
+            <wsdl:types>
+              <xsd:schema targetNamespace="urn:cz:mfcr:iissp:schemas:WSDL:v1" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+                <xsd:import namespace="urn:cz:mfcr:iissp:schemas:Messaging:v1" schemaLocation="iissp_messaging.xsd" />
+              </xsd:schema>
+            </wsdl:types>
+            <wsdl:message name="msg.Envelope">
+              <wsdl:documentation />
+              <wsdl:part name="Envelope" element="msg:Envelope" />
+            </wsdl:message>
+            <wsdl:portType name="INBOX_ENVELOPE">
+              <wsdl:documentation />
+              <wsdl:operation name="Inbox">
+                <wsdl:input message="msg:msg.Envelope" />
+                <wsdl:output message="msg:msg.Envelope" />
+                <wsdl:fault name="msg.Envelope" message="msg:msg.Envelope" />
+              </wsdl:operation>
+            </wsdl:portType>
+            <wsdl:binding name="INBOX_ENVELOPEBinding" type="msg:INBOX_ENVELOPE">
+              <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" />
+              <wsdl:operation name="Inbox">
+                <soap:operation soapAction="http://sap.com/xi/WebService/soap1.1" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" />
+                <wsdl:input>
+                  <soap:body use="literal" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" />
+                </wsdl:input>
+                <wsdl:output>
+                  <soap:body use="literal" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" />
+                </wsdl:output>
+                <wsdl:fault name="msg.Envelope">
+                  <soap:fault name="msg.Envelope" use="literal" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" />
+                </wsdl:fault>
+              </wsdl:operation>
+            </wsdl:binding>
+            <wsdl:service name="INBOX_ENVELOPEService">
+              <wsdl:port name="INBOX_ENVELOPEPort" binding="msg:INBOX_ENVELOPEBinding">
+                <soap:address location="https://portal3.statnipokladna.cz/csuis/ws/inbox" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" />
+              </wsdl:port>
+              <wsdl:port name="INBOX_ENVELOPE_Test_Port" binding="msg:INBOX_ENVELOPEBinding">
+                <soap:address location="https://portal5.statnipokladna.cz/csuis/wstest/inbox" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" />
+              </wsdl:port>
+            </wsdl:service>
+          </wsdl:definitions>
+        </Wsdl>
+      </Connection>
+      <Connection Name="CSUIS">
+        <Url>https://portal5.statnipokladna.cz/csuis/wstest/vykazy</Url>
+        <Port>443</Port>
+        <Wsdl>
+          <wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:p1="urn:cz:mfcr:iissp:schemas:Messaging:v1" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="SI_ENCRYPTED_MESSAGE" targetNamespace="urn:cz:mfcr:iissp:schemas:Messaging:v1">
+            <wsdl:documentation />
+            <wsdl:types>
+              <xsd:schema targetNamespace="urn:cz:mfcr:iissp:schemas:WSDL:v1">
+                <xsd:import namespace="urn:cz:mfcr:iissp:schemas:Messaging:v1" schemaLocation="iissp_messaging.xsd" />
+              </xsd:schema>
+            </wsdl:types>
+            <wsdl:message name="p1.EncryptedMessage">
+              <wsdl:documentation />
+              <wsdl:part name="EncryptedMessage" element="p1:EncryptedMessage" />
+            </wsdl:message>
+            <wsdl:portType name="ENCRYPTED_MESSAGE">
+              <wsdl:documentation />
+              <wsdl:operation name="ENCRYPTED_MESSAGE">
+                <wsdl:input message="p1:p1.EncryptedMessage" />
+              </wsdl:operation>
+            </wsdl:portType>
+            <wsdl:binding name="ENCRYPTED_MESSAGEBinding" type="p1:ENCRYPTED_MESSAGE">
+              <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" />
+              <wsdl:operation name="ENCRYPTED_MESSAGE">
+                <soap:operation soapAction="http://sap.com/xi/WebService/soap1.1" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" />
+                <wsdl:input>
+                  <soap:body use="literal" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" />
+                </wsdl:input>
+              </wsdl:operation>
+            </wsdl:binding>
+            <wsdl:service name="SI_ENCRYPTED_MESSAGEService">
+              <wsdl:port name="ENCRYPTED_MESSAGE_Port" binding="p1:ENCRYPTED_MESSAGEBinding">
+                <soap:address location="https://portal3.statnipokladna.cz/csuis/ws/vykazy" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" />
+              </wsdl:port>
+              <wsdl:port name="ENCRYPTED_MESSAGE_Test_Port" binding="p1:ENCRYPTED_MESSAGEBinding">
+                <soap:address location="https://portal5.statnipokladna.cz/csuis/wstest/vykazy" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" />
+              </wsdl:port>
+            </wsdl:service>
+          </wsdl:definitions>
+        </Wsdl>
+      </Connection>
+    </Connections>
+    <Cretials>
+      <Creditial>
+        <Username>2000000002</Username>
+        <Password>lr3zr6c5</Password>
+        <Certificate />
+      </Creditial>
+    </Cretials>
+  </GlobalSetings>
+  <Sections>
+    <Inbox>
+      <Request name="VsechnyZpravy">
+        <Element>
+          <SOAP:Envelope xmlns:SOAP="http://schemas.xmlsoap.org/soap/envelope/" xmlns:msg="urn:cz:mfcr:iissp:schemas:Messaging:v1">
+            <SOAP:Body>
+              <Envelope xmlns="urn:cz:mfcr:iissp:schemas:Messaging:v1">
+                <EnvelopeHeader>
+                  <TransactionId>001bf00022985f03a12a2009f15a54</TransactionId>
+                  <DateTimeCreated>2009-12-03T15:52:07.0Z</DateTimeCreated>
+                  <Sender>
+                    <IC>48318264</IC>
+                    <SubjectName>Tibor Stuchlik</SubjectName>
+                    <ResponsiblePerson>
+                      <PersonName>Tibor Stuchlik</PersonName>
+                      <Email>tibor@seznam.cz</Email>
+                      <PersonId>2000000002</PersonId>
+                    </ResponsiblePerson>
+                  </Sender>
+                  <Recipient>
+                    <IC>00006947</IC>
+                    <SubjectName>Ministerstvo financi CR</SubjectName>
+                    <Module>CSUIS</Module>
+                  </Recipient>
+                </EnvelopeHeader>
+                <EnvelopeBody>
+                  <Inbox>
+                    <SeznamZpravPozadavek />
+                  </Inbox>
+                </EnvelopeBody>
+              </Envelope>
+            </SOAP:Body>
+          </SOAP:Envelope>
+        </Element>
+        <ZpravaId />
+      </Request>
+      <Request name="JednaZprava">
+        <Element>
+          <SOAP:Envelope xmlns:SOAP="http://schemas.xmlsoap.org/soap/envelope/" xmlns:msg="urn:cz:mfcr:iissp:schemas:Messaging:v1">
+            <SOAP:Body>
+              <Envelope xmlns="urn:cz:mfcr:iissp:schemas:Messaging:v1">
+                <EnvelopeHeader>
+                  <TransactionId>001bf00022985f03a12a2009f15a54</TransactionId>
+                  <DateTimeCreated>2009-12-03T15:52:07.0Z</DateTimeCreated>
+                  <Sender>
+                    <IC>48318264</IC>
+                    <SubjectName>Tibor Stuchlik</SubjectName>
+                    <ResponsiblePerson>
+                      <PersonName>Tibor Stuchlik</PersonName>
+                      <Email>tibor@seznam.cz</Email>
+                      <PersonId>2000000002</PersonId>
+                    </ResponsiblePerson>
+                  </Sender>
+                  <Recipient>
+                    <IC>00006947</IC>
+                    <SubjectName>Ministerstvo financi CR</SubjectName>
+                    <Module>CSUIS</Module>
+                  </Recipient>
+                </EnvelopeHeader>
+                <EnvelopeBody>
+                  <Inbox>
+                    <ZpravaPozadavek>
+                      <ZpravaId>
+                      </ZpravaId>
+                    </ZpravaPozadavek>
+                  </Inbox>
+                </EnvelopeBody>
+              </Envelope>
+            </SOAP:Body>
+          </SOAP:Envelope>
+        </Element>
+        <ZpravaId />
+      </Request>
+    </Inbox>
+  </Sections>
+
+  <services>
+
+    <service name="CSUIS">
+      <Description>Rozhranní pro odesílání dokumentů do CSUIS</Description>
+      <TestUrl>https://portal5.statnipokladna.cz/csuis/wstest/vykazy</TestUrl>
+      <TestUrlx>http://localhost:8080/csuis/wstest/vykazy</TestUrlx>
+      <Url>https://portal3.statnipokladna.cz/csuis/ws/vykazy</Url>
+      <Module>CSUIS</Module>
+      <UserName>2000000002</UserName>
+      <Password>lr3zr6c5</Password>
+      <Requests>
+        <Request name="Odeslání zašifrovaného souboru">
+          <SOAP:Envelope xmlns:SOAP="http://schemas.xmlsoap.org/soap/envelope/" xmlns:msg="urn:cz:mfcr:iissp:schemas:Messaging:v1">
+            <SOAP:Body>
+              <msg:EncryptedMessage>
+                TaPDMVr4HnMaiK/b/SShPS3syplFKg5AortGJpw5V0azu+pRQbYaMR/Sa7AHniiZpCE7FYsLnzpI
+                C1mAiheTkmscUbIJz00F+9Kz5OKvNisX7onEwqrjzGIyDj4/IP3RDcugeTzAN75EZke6aWLSIUck
+                D1kD1HqtbL9tUsylR7W8ya+i/IoveXAe6zmvXSnRvcZ2xjtccmOlou20hUt00ub6sw8udYn6w7lc
+                B/Ht7Yi9MV+wDn72p+5Yn/z8NLfMV9A2CDXk4Y4xuY+fjgNBVOftFgZgUpC/Ym/C46CpIsIIEi89
+                JjSY/92Pwa8Dch8GTC+uzFfTvful1vql/EtyTh6krpVWSnfRaLm6stjnjg2n/koU07YHWx8a6nRw
+                HGwhSSMt2o1CVswG3WMQePSUrCsGwFv/R5HccusypQHD7T1l0gNVHdwqec2o9Zv3qMnyZVnJHmzn
+                JCEvnPeb1P0rJKAmhOABbDMH18ztk5R6t07nHqWqW/ISm2yLJKyHpVCt8VR+ZA2IQoWNCHachqaV
+                g986FJ77eYIlyQfdHpO9bqIw58hMK4YWA3uE8EOSA0bVS1tuseH2khx4wf4dE16nPlW0mxof9dNh
+                jlGyhcUBTB3JVG8WasnOJpxwnmp/J0KiqdtG2xL+8YssefEJNPnDT+8/5L5coF9c/uJZoOdzXo/v
+                dTVwzPZfMZNsX4DgnpMM6T8Z73lxI3/JRppZ1yvfDmBD0BtTp1Zvr3mduU67KhZVeCmQwtMLByLs
+                1DVex1LtcdgV0IFQCfrSG/AT3sCqDAvRotuJt4ASswJbGiBhfPcJvrfJR5B8qvb4AbNAXUCZI9Lq
+                jIOl8ltY4jjaJXowwmFQmE2+N/ybI384tAQ91aHnXQ/mKuLuXcn+nc6rip57WdExCXrg/1ruXueV
+                Jv8pradXFr3jlKKNRprl2fr4VjgCBU7eY/XH8cW8KtbZKgiFAv4QilBqG0DJrndsCMbiffz+2dzx
+                39R8zz6HkZbB5fjmHhqkOdnb19Pkik0oTfRy10j4xCnV5hFQdtuagyNroPF4S5cd7JUHrIhULhmL
+                26VyevCHT5PRZqzYd4Y4xVw9tavznamaZ1fATLL504o8fcO67tpfADt7qt7s2e2JbOsYglm7gpiV
+                hwsl8OPff9cpnAXaHfid3wKgFi64S8voqyWuQ0fAb2GHeGfbVGmDKOrI0XuvGmsEQaPzF6yplXwA
+                Zdln+9DXn3q+1KYK9+7eb+jJ7I1K4pp1KXEbKVVioaIWz9SQs5/hn4oCUYGL1ET5K8CfWAF0z0+S
+                /+EW0erwNOk/2Kmz6PZgHm4uFBNfUylkzhwvuT3d77SWEKB7dvb8vPew1btuVczek9QXSegnUFU1
+                j5Ei1t/9XKNcivQZRGQ1f7UEMbyaaL7SBhNbdKvZ7Pd/awR4m5NzO43BzEsPWnaSssjW0fekhx2K
+                ESM9LJ5dBWqEJpLMpFom1LSMmL10Hjy3ppIC7gwIIlqEdyuq/DZNlUjoDjxivK1R+zssqk3d4f7e
+                INyYMaJ6qX64rSDRoS7ay0WqbFnENiG3wYFtv14fdTN+YutEDA3qeQEDNorNjg5NcP/4G/csLfXQ
+                p+R3mHgiVmY+xNaidu7Z6iGXc43qvN7ROKpXUDa2V0i5qz9EgeDLpkVN+0wiHqllelZ3ASNB4Xj+
+                DK6c9af0afX66bxa0FBKz6gO3xT6oz5nNNRrer/jfhyaCGWl5+i9Gv9fJuhuz0ttjeuo/ROO+JEO
+                WUIvFClbmYp4X+zAbqxDUOSZ4n7iZP0OJveqJK75QdAzzuh3tfFdkwjMDtTLkQwaVKZSVrhYpGzN
+                DBFiYVEwzMXUJPY9YDVQ4He6R1rn8Z1HQnRL0Yl2RRl1sVP8XtGUE2zDC0sjBqtQt8z0LesrvsFr
+                b5zlIq0W0GQS0fW7OCAEtYG4aUysSmGvnmzaZ+kEiok13ZnaaTFY9WDKkSrxDYcsYlpfWSboPa+7
+                S57/pSIQgmAriRS3rKxAvDcaMKSG+MVs+UHXnMeG/FmLiczCKeXmmJ0yJnnNdQy6uNXTz9DCwg8A
+                cpBclo9t62pH775mkV2EISv6/JwDgp/95PFu3L/uIbY1AJy5TlNuGiIMQUARKoORZ8R0bU3UQVLT
+                4u9kdH7afCQnjneM+oDHfAGO+Gqa9u/owSNQZNkpfesPxy/LLjYL0zSs7PE2Vbqf76pr1+wnxnvF
+                KdCYjt1709ugKzQww/wTPLzolkq6scHiAh8P601wdrkuh73h+TXKIYWgFs44fon8yNfLEIIMC9X4
+                hl0+E1d7MbsEqQFYYto5rHMUXhxAPzYr7DmBbG6hsDfvLN8zmNxiIh49ks5OWiyibxV4jr+T4Bbw
+                KnxWzi0TheT022aWYstcXJ+Fao6DvLgReOpOrUrQgonbSV+y554r/t0mklR5z5EkYFWHwn/rrFLv
+                0knzv+fZGvwUPaft9IKpwOkkQdwho20hovm+nvVUneZldKTuU29gqvL2a8LZFsfybluBCY7mEZWO
+                CLdBO8XTrD7U7UyUeOonjl11XCbbC12tvf71S9v7VJSFmlRWYD31ILvddkdKRkZu5tDzqxnXIiHY
+                2qvr1VHXbV9s07uXmDh1TBDOMT7hnQixXxSej+ZJ+rHgEoXKCLEOpKi3pwBu09mj2wjj89yK3mgQ
+                Fg8IQgM4dLBXYgjGCUakFbjjeaklV38+AMPINSxVn7dqOg/xdxkUQOZF77J7z06R60JumEEw6AdM
+                K7m8Z4XnD0AP2ERqVA3riKJr+HmNtyJpN9RLkjt/ojr3Uojsp5WJ03oHlMMjuBuo6u1FZKnbt4u9
+                89tYkBy8BUYEoeRGk9J3DpfEMeGsXyMSGx4KgiIKXzXlQ1/rTUX80NW4UcQeC30aSyA4KZCZa+tN
+                aGPEBnQKn9bKmS+3NRp7uTExaHckhXdQ6D+pNAeALn047HcwoXqUJdXQNH1kdsdrSZcJGQkuZZoy
+                AIJoU4YHzZftBwZ+SU2G81zkrN9Bub2EAbIBPY6wATO/Wmaq6TP0UHjK6AU22AFUF3cUlIL1BsV+
+                QrrQkK/GANGwMNAEoOPvmdD2V4JaDdyMiPbwbuG+8bdmPWVTlYgNgDADkAHUkEZ5xtcg07WB5Y0I
+                q7yeug6+BRL8TunXv9gn2qjKkvGkUQNEGKmyD/qD8nNWwdiRQWOCAvD1UJX9YZjVPz7lcNQXbwxx
+                vfSKiRRI4AffJEgp+xEDMk1Ubyru0njePHGvPA5qIW+wHyrDFSPRpeMAYggLK5wXDnzCIAWjmy8w
+                teUMFqzYngDfS+wI3s0SkuCsXW+YObdwp+4qL7AC4H3SNSmRzWAjfKMo1b3PJeNwPq7XXLM733Pf
+                2RWoP7ZizjYFuWR8Z0bZQqIsK7eDpgRvWi0rHKU8E7alMMdEg/mWQVHT46HHtKrBZhLN8jN+6qQf
+                MtcScv4/fxKDuzZ6RTSBL7vRxNg9peNKTMrgAZ6FnsoW9FYXTMcFfMfKm/Z9yB3km2QrXR6BHZIq
+                j9jNLAAe0B6VJ8kHVwPYcgqaNyGbxAECwaoJE13il1WnxrHQlbIr/HChfRncUdKh3qd7cfeNj9iq
+                8rfRVP74oh3PCtBFn0VMmHlHl0bDPpZggbKj28EOJmT54lZQ2bP2TrP8lj9feqRGrk/8pJYupT0Y
+                pc8tskACOA4N/SSPGxphERJ1YmmtFVUEcBxqfzqamDJxe5XWW9dCPOgClVMTm+dECoFryCaA2d0Z
+                49poNR+19aQZDxM815aREEAv+vHGahdyc8IiWKZIEM0+gOoVDsEg9spZCbKQwc9gh/DiF3HG7maE
+                TgRQ8Y5SD9CYIce27KkabIgsDBq+69pWOJYA+xS29dydipIeJfP1XETdg/2/so043w8/u3kDTU1+
+                5MsxZlkBEWwKD8gY0hj3rEgkLqOub048N1M7BdsSW1FNARWr09dPEnPDz/KllfIhl6X1oMvTLRtp
+                k3d+H2z+MCDIDJNO4IdjltY91NFSEX/T1iZ8VlTFlxeZoWdOA06G9BCoJHfdG4VDUgjvXbdj4f2T
+                FvO2Dk87DwvGvgP9ezLMk5+o9W5m2qlDfWKd7KRSepBwqhOAwC6nMjRO4KqopH8/DjciqvA4fM9E
+                imTPjqTLmIM0SV4grFZT4mybkeRsT/+Hw57I2edXgGRf1IY44TK79aV7DBgJlvojhQ6udeepeC5R
+                hpOkpRMWjWrs1nOntQd4G01ue0MoKXOwBaA3QEBgkHbV2/IVDhWQ6cTDFUZ02SnWFKzqyTpzP5nu
+                gfCslvHdXTpewTj6et4NJVe8DTTT0njiYDo9U47H68bJAtU/1jSOfC/JTnMEFkL0RT6UmWYr0UAf
+                4aRwEkbWMrVaDrV+7MTKVGMDNtNKNR9lozJCsCYVro/IjxVc2aWSJIbzP3pFZdaFtRY8f64WDCxN
+                ydOR9UxOO2DpuMsZrd4DOOID5O/6b+uNZPm9yc08blqP7pMBqs4CAIJSHmq+6EqMdwEzt+N7r+C3
+                rr45h2v6yiSAFUEmGFSa6/ulkDGzJbspJYJN0XU5rVDvi3hhBmJe9NRzVQlqp+HscMgkHc0fQijC
+                KHSLGToK95eJ2lJ59HCf7nFH8z3pfNOsmQOiajf/0WVsYprrGXCCFP/rx1BHQ1nSQNmIRF3O4goT
+                QooIatGykWjpYHIiNztQ/+WSOE4ABmjyXxJ4/xoHBf7H5itpPE7Tfbk39GYruDnLlZNLs8tt8NW5
+                nsjFcIvotetSgF/qedy38kBnAL8o5rj9EyeAWbVXzSfaVKn10XuutdmzRnLOr0RY7AYMyb/yZewr
+                0j9k/JH0pcC8jfcL9pBurKtI1/mmku/0ubvfh5M9BqDZEqtjUjB4ZSlNv3jvzVp1Q4FAHguoxybO
+                htY6gFMOxtGBFEjMEb5RwDMCaNtPbmKZ9agIcAxUIFnpXxdtoj96DhbiWDw8xS5s2STUFDZclF4E
+                1dhEbnmquH6Eh3Ayvas+Vxi/PJmbIAVlH5GJL1qOZP72AR0SCOdbqK1Txzeh22yReMsGhWarafVG
+                nk7lIn+L5Mgt3KIJHOM7G/SHVekpSPIM2BTjlQPNLiXVCMI6qUK1fwbx1N/h4tjiH2PtpHG0K+D5
+                EF0C3dg6kdZ5tuoMVLDE3RBo2LWJhoY6Al9F8Vze0fO3e7mg6Hv+kTUTGaexR6XhSaSiYJliwdjW
+                O27zY21k1WRvRTe1MQulq7X4nlpOjQa0RSWoOLac6B+PgzizsAeH3pQUlf5IdG6cZWlKQk8UEg04
+                rynRXjeBnxYeHwF/jByYFtUkFl1Pj11m+dN9I0hfjP/w9V+TlXjLUPx41Wq8wNN+ZXzKdznQPTpS
+                nKr44mDbygWPKacX+JsCB+5/ptwG0E9/ZhXUvbqZZLkbQKRgQElfkNPgKygGlLYib6sdxKHgJ8jg
+                IEpNa+Fj7eXaJMGpdppzhECMuDe0hTDhGdFbBWK1QUPfwNQTmfomUu4fPCdu/Qnh7leoJ8pAYlC6
+                y6ASaVlEicLoIw7CBWBAqmmHFIeuKQvwbII7IroXkXnACFfOr0jnYjQ8iq0qeVve2blNlT07tMgj
+                sYpVG/MP5AnfOytuLVwJJtq/OI28QjbLe9ynMnSwh9AAwY4vbm/86YR6qbHcJLAPRtw6UyMNEoEg
+                Umi5OtBxUVsRk+BhD+z7uTBOdbd2J021WsuFa4GDpMBImvoET2hn4gO1QKXlwpYdBXpUKU1lKR0N
+                YG61BcUxI9bolPZOyRU0TlmN28e2KXEInET0YA/SsZy8z3nBOoBWfcr6KtxWbL438DhfSvGHbSYJ
+                663T4B3ibVP6ylTIv5jEsqzK13J1lg7DjdpT98IqX7LspRcc5HRk2LyzWpJVJWyBTRXHf4SSC06O
+                fLHq/AbFi5osMJcR+1Kgn64KyUvC6twYH0vCe+aKt+tIhy5qpuyQHeNvWkgwWoFQwr+iYYUxifS0
+                jjDYYHGisubbUKFnve8QuPeQb8x9n9NbIWtnwMXQD8mia9Dz/GTVdC35Wh8qhM/kdXsyl3MjYisw
+                JY+NxEf2seH3Yu7lmTIzb9k1XihchKvU7ppvIRk/Jv0JMMneyEfp6kcc7DZj/7nDk3IWDhLX0RRR
+                FSUfJlal9GvSUWhvSGfO9F17P1o6vH9dzPghIm06hsYuqkZiMCmWbH9jD2C0EtEEHRb8Eb/7/qGR
+                sWpX3cBPV0cY49MXOvF/B577o3m3kw+KZtl8YwpL4mSxeIPxS9P41xE+ugq7AOgSiPHnve/4UWVW
+                2cNB9AYzwgds7MQfORzDQO1Xo4w0ouaYt2ght8U1weoEDmr2v3vxq1c5UZ9KpKCiKP5alBJn/q8k
+                BMZFzdd+wxFj5YjegtxMgp//EudqYNE0PhQY+TOtZHcu3s44tjt5Rf8g1sEvc+PaUkMgtXa0d73Y
+                jFkgkB0U6tL/l5+sZzQ/18HMBtpz7BqO4LYSxRyDF7UeMDPPZ2sEjDUW9oGnxJhvgLkfO+kUDUIN
+                28ipoIGJeudktfWkT5KG77QkuXsNE+62bol0h1P0E/zOT30aU/k6v71p/Gr0isSbq2o5VhU7hxZW
+                l2Yyurvn1AK7cDgN0kuPgA7J89P0Mq55+Bl2v85LqwwW7ZwS9fLPGricTdYT13DP8nK2Vev8F8/W
+                UW8UuAEfKFrghw7MOoAnaGVByvAOA0eCLJ7ysSsLkpIJID27r/Z4Jv1p5mrYA+0GXqeE1ILOdgIG
+                b+uACo/cytgOzh/vQqVGQk7RdVC+9Tv928sLw4a9Wi9SjaRB+uIFXlHgsZOdJ8WXKl/smitfs6Q5
+                sGocdwO7VW+HqmfqBF0X3Vl7B0hLPraYwkMpqlOInIm2ZXJlOMaTzVI+rrgIyy+BtJCZKTG4KNCE
+                d2eqhnaVC8RpzXImbDgoQc89fDMqi/NULrccunz6Ctgrx8a1d+L5oJN/k/kavNxaCYpIXuVNylmG
+                l1SX9G4+evIYDqnqfuo/L6xuxCywsDZCyHKBzWpfrUpDv1lh4grdfEguno8USgLIrR6wBLZIIJ8j
+                QpZw45rF3CeyOHWsgo7a+bhHxpJ3OKUnks7okLdypIf+00rarWQwVv+tGJOwL9vO8q1EP0+7ULL0
+                r4g9Ycjuco8mHVRB57R3PfZ7RpTEF+fqNJFZvMj/SFoxQ937YJ5NCK5GGYrKkoMtTTKz2YKFht+1
+                iHyHETWpzSavwRXEOVbveMSp3davtf0Ad1R44/0WHyvjOAEK3+lSO3QoL4r80LCRBC8KQSGuqv9b
+                Ni0W9ks/k+xL2T5BWreULzPCWH8PtgjdEZK62CbsDAW9+j5pcavP/Kp8TVJ4Jw3gr+w3yLDqRyYe
+                D73B5Ug4wwt8GbkjByNRkI4xaDsIUpe13zNjTALamIEbWkjHTDKRo5E8ze2O+x1V+A3AN8h+B0eF
+                tR43+vjwn9jECkWRsu+NJOAk7ytolu3qTeaxhi386LG2le9RwA1XLVrYeDV2nE0JxoBmKxKE0ccI
+                NOc7ApyPLBrz4ZcAhP2q+eHNIfz2AZ66CsRqZ8zd/Kdeyjt/aPlpkKR++3GDXrfMTuAhBJe/wJK6
+                ZDk3hlCnJCKDtMEReOys1OZ+nJglD+bNWC8mpgACsg6DUhH8MKEHEbM38KNKKpH689kQlFF5Ufxl
+                nwdAsJNYgjCsFgsKGyUxIFIMDsGI5jrpw0Gq0rnAMkwEZBj5+k8fwXU+nef1zrCKaJvmzLkyQazi
+                xD3cuXhMqPXmcYOKrs6J1tSPZ5WuohftdpijXTJrVw/HdBhLCCJx+HnXZOGhQxxXcLtDLUuDZiB2
+                MbIVKVECpyUV7DKNwQY9d8cA7aBdhv8TAGFexlmihoJ/yAG0DduWDqABFEILU8HPAcpoEp+mVPCL
+                BnXmLpPRM+VOwnLnTv4RQDaucW611k/OEaZrPkGENu3WkEdV7/sifbV2qXsqKXZ/rj9R/YbcvlJf
+                PzItSiYUh3j9yQ0OKB0sorOQgZf0lw48fduKPoIcdTlxVvwGSM/Ic4COoiQIP3vHxZHmMeEPAT1j
+                nkrfw0dbGwv5691cJZL67KJXBFASnsAT+4nVBzM5Z/JsFB5+xO4/r6wyw0UM/T34wz1vR+Y6xxWt
+                BoTTe+WAPEci16FGJIG1o5m8jMxzfXdb0+uApn1Sz8e4AqTWb7Tnhb2T8/lmPgvCMQoQWtBc3wkz
+                3htWDKyNW+/kFFNF2XNPOQNPTLbE1bWZ5k1j3dQNkm5LeqSZf0PwRHN9zzzvo7bB2agS0GlRT/qb
+                lra6f0iXGm1TGRDxQJyisA0ROBeqQGkyZB8wiOxsFO1X6340aUZCIfjoUfy8IdJx6A4CeapzfQ5j
+                QyVXxhW8WjZvWptZZgHcWv+3C88Aft3rXrs/peqMJZN+bFAomREfkPvvWallZSLdArwJ6+r6uspt
+                SJ1lkxgEUxIiHDziN5/D/NiPfE5ZTbV523VNfciBCErhdf8zLImupciuW/Va82L+w/ftAMAtRg3x
+                2CYxlC4J+i5QYzvLMhZyG6ZRalhg/NES538VlpcLXlrvjkqhs3kR41BlwOO0oQL7GS4iK/QlhFha
+                Fksg4gYUDJ+gR4f8/PisbWQ4Vz+Q0785FDCbCOUIbI70WSqyiKVvQ39pd0/UPQH8YEnt4WP/l5My
+                TZ1sUj4VrzIXtM9FDT4zUrkYftb0pamEFhMRI/eZYZ7+nmSS/UiTNmM10FH55ALzcbtHsVd4SDqA
+                HZEL1c1mGf2ACUnDw2ymmPcbbzzZc8f7zZb3BMiqPcus5nDCCVoc8eyNp0E5pSRYlhzXrpWcMIT9
+                cTn5ZUjuI+Km8pm9xxd5GHFQyH8eYCLt3kW/M+BZA7BWUGTSSysk72fGdKls9RlRt9zj58bshL6c
+                NQoHC4rEAYmYjfEO0SoQ/EzU1+MSLjaCHG+4V46bVtvrvlvVFmwHDwElAMpbsKytikhknoAUEVgX
+                DmgmnZBE2fhC6vdRQRkliH5fldE6kHGeNV8rJNrmem82IkqgMbWcsYkPuXrB39K4CISwWq/a8NoY
+                Dyk9Obcviwn2u4CjnLaU5TfeK76u6KYaK/5X3Jr5E/kpg1Z3RFOPzuEwGF93XGIJJx0jkpeoquFy
+                ND3vE33b84Z9bod0gnrWZxARadoADkdBjt7DFRsY7ZQOmFu8zhqeA0Cka38c79AuKXSiptHpOAqi
+                QBMlOBBnAAj7SQ3AUbohl9cSD2MA/r0f3RaR4xDVEr9FU9K6YKpYrDs5JceFd0hsylMTlE/l8mLt
+                dtSjLttnyguOxk6fWpY4+7TTZxXNpws3qk42KBfDjijg2iyKKTi1fd0Qxuk2/g5RMHhAM4GC8mm7
+                fRVA7qY1lWoDjUtKI/maIfK2XI4eaE9Dm37lN7hbGyKLgZZaQZlitoSFaYTvAxbyU/LZb1XsVuwF
+                ADjb05Gj+8XP79pTGlEUKITLhV/vbquL1nYyzz5I2Q5IK8SkaA/ddVJxHM/+E39O+GO98JEr9f7R
+                +x5Ot47OxjR7weqQWKM/49ZUqnC1z/D1oCeKrMJS8xDFdm1149uSg4fsaX/68HgJXtiWcmJVaQfY
+                U+Ddqf77rMPCNnpjQKj9418WFcFVo4s+sDGXfUOxnWFpy0cM6nHDQMHRIhZ+P6KldzV+/YBLfWm2
+                FFs51myjFfWPUKGW3DIgmskQ5elEgdaJ30Yw78XjGxGbJghEpUKTxb12Hv6NhqQKHyLxtzLaO8/d
+                uYsbYGA3drw0GT8sm5XT6U9D0DcjwwHSXUVbThNVTeoGNv+yK4909KCSz+7b8oQHcpiiMWDF/OD8
+                r7chY8htUAVv4gUcMgGW0sDJAiK27CjQcMt77N41iagnDqPL5DsxV0A7rGpJtMhZx3qsxkc6EQd4
+                1PwJP95WOPwLk5W9F1OD3UyLEwladV1iarfWM1NunjLMRwrdLK73PvrDvy6aGqZZlDRORm/6Ij7S
+                ZlMo7FvPrjbg3C5yHiWqktHcEgP9kJr/+bAbSHZEnq0Gm7muOCZNI7Nzd3PilvQ1KasQCU/VMORn
+                HSdCbgkOFpy4qqgA3QajMhOiUh5pN3i58to5rXDZFmNcVNMV9d9c9u5hi0AXYS2Yjs2o8VmlH4IQ
+                mpZhO8U+OFiUIr9to/CRDyXtrYZmNaLrcxWtRc0i/XQKNYGElontXEH8qxYEPm/j9adk5I8pk5UT
+                XLnJHGu6VEv0lPpyQ1nYNNechij1f5/HnKUfas/RhL3fVUKi0SoZvdM8gyTKAnle0V/1TAf6X9Uw
+                s+0WSa0z/TM+hgSU0qxF71Xk1Vpm55SrvnvpGG9ifJoQiXF0Z9W+iKfNhc/r7FJGUgYmfTw9PyXl
+                WbMY0Oe3/CppVpcm0KYDTuuzmQkoxG2YbVDjqMV1a/blbs2pDD54bJQQJPH9rZhuTxYkeNbQV3w4
+                v0QMKf18BEUsbUeNp4mhKYidiZEgOvVJr3NHq4cYpxKX7jYSuZ6NarrA87yI5D1+47cFXdBzHy1w
+                XzpmJQucaWUSRm7J8o0bFPZkMwi2gieA/QOW+0Ipv6A57QKKpYe0SlQWQ6hruiJAvGFWJVwib52y
+                hV0rSIMwq/YRvFGbk94gVb1bed7tcXB1QyEx4oMmksBhRVzY/TrxOloKUTizbdTV/ir2CMgLFgm3
+                0cltG5IBg1LJs6m69z0Vzo7MfqrOcATRytgFaaOx+wATzc2gYp1pgAC+5uPwyXlsuNS9kHPHo8vZ
+                M89/xT91C4nr7yYY7tH0Ue/gh3R76Xp9oIKhDOcETVXxg5caldJHn88XzXcY2olAd3bTde9pgQsp
+                PwFsFGICvxD/ADtTghenCH/27PIEx9CkiY8HAiVqkbx8ltOGKM7zF1aK5HrfCATXxNxhYAZh5J0I
+                NZuvy8OjbaT+7qpuF9eBZaSv21THjMlciOjTGX5nAgI7VBJ8/OC4uXZ8jm44RKlyVhEGSNyb6B2H
+                BTfWLBnKhNmIWyd0giWtGLmPyW6Hh7q6KvPlfpx6N1GVzRk9GvUlfkqjfrWrWgwDcqFGYmae4iVF
+                vlYNAg3+zNprWZoO2AJtq0AO8MEfYGtlw5XobbAhvMuIFcD9/LvgHf7nYVjGGORf9F5dDjwah/P8
+                ucDXZMG4D+NPSEsg5RZWVcu5huMdnVaaQIfGwUH1Fv3Cb+Opx4SWRcTOG0q7kLoAhvTam2u2geVt
+                8YnCgMzFQbHSHRbyxGbJ3E2obGhgLk6mAbPtAaJRcUmdj+uAJVqRBKYffUpwRlsE9tLB/S1RR6le
+                SKtQtk3Xuppz0ICxOJR8DvfwFM51fAwwPWTObYdkhkOV1ZuGGr0Wh9w83mrX95+n3Hi1qgIHtwR4
+                3uPvFq3JJBpCapNKHonIspsF+g6Hi5A1qvDN1UxZQ+jqOmnS9z5gYJfi8F63FkvfS4E84qMCEHGb
+                gj6/ctM2eVTDR90Fojaf6JIX6/LGMQZFQ6Jo3Im5QDnXcpN0Lz7tZPBjDs790TNR6EMLBSgxrssT
+                UGI0GKGE+TBWkNlpPwFBeD6WR7PYw10LpBC3yOaU6zrajJhTLz1Uw/npepAb5gcrCwOLcqwq+dq8
+                aEgnD0atMwif6/t6jS3RQMcwnyB58V/FzJd7vna5zwguujwr8w+HX99rnehjqyAat+r/x+T6In/8
+                DUYDFS+UCqrgPGl95/T865GfBdAxW6GiHhCJ6s18Rv+raUTLFiMPMva3s6plxpovQnuuln4z1EFv
+                M1WUSdQwMM1aG9WHp2USQQYa2YqRCDRjyhCut/MKoqQUvfpV0R+5+rUvxJajVoGd8cHM1O9viYne
+                B1gstxUjCPMbxMFp7tLsqX9gszQLzPl5W0VUkY/bRARROWwyOM6fMtM4/BWIMn3WAv0M8XP2Z/Dx
+                Tj0gi4cR6lv6TbAtJcsiFeq1vDu6j4BhC+fd25rlYky9X8MY9HrTYOP7SoxUNvbUZDZBfcbFwUMr
+                lL/Kd+iDUEqo50pGx2VKhp0lDmt0ghgWjZZ8rn9zh+kQKnME8oDxbZzMGox7MRPlROiSpZknV682
+                a/Iibq5Vyo6acfzURgmc/iqKs0iiCqEOGwgXvBsCMWknXNiL0EboWxRJc1FtusxXLltDBLKQeddi
+                /CpdXvGXmhSNP8LD49jOibRJDbCNRbWHlsMeTYdlXACnp3phWtwQmnJdtX8s7GQ7tR7xslnEcuB3
+                RizZYbADZBan8RMBwI/0PVu7mm0g6/Wps+h5IaV9tpQu2FWAtNRs5OqPG7zDZs4rj/+Ghg0qEkot
+                7q4BD9HmCCUdYgPR2d0y5FNbIiUn8dWZOwukFbohRfrkm3WPFTImFFcOT5aFdiBPtV2vAXNYcRKA
+                wt25COWGlDPEaTEYNmAaV2ADM7b8ksSCKidM1yv5JMyznLL6xueWDqljB+ec6Nly5QQnLbTcjNAi
+                dAOb23B5BMlK9GyM/9eyQ3ii+SQx8gubE1B4ztEzn+jk1xsccA2JStZtldMr8RMs384eBqOfYifj
+                jsqegDsPAWXiDZq8l+Veoja2j9GN2j3mZPzeWqqfiRtD3Im+T1pVuNRHofihbVSZHt1eT12tvcEg
+                GWqKWuMkU1dBhKpim2DvlXxEJfoBU0+Zz5F69zhU6gWpQWobcj0fToycCnfPl5Gq7GRlnsABLRcc
+                rVNhaPs4C6P3+1WEjhcV3Jq3QYUCGYeXbaZgvixQKjpnyTSmldlA4bAiX+v6K5KZOqS8tHkRYTYQ
+                AT1qnXxrX/RWxRMTqaaBp6iSYpAIXCzzb/6V+DbzrjEr9J1A0cgwp94Lh8EEjWgIRFZjtUzGrB03
+                lgRLogOHfhlKEQnOIAG/+2QTWIka49Lb9muHYOa3M6JQ+xq2x0fqKA331vWfHhf/FhZ7xje5c2YN
+                Z3dYgjt/ugrwz1wnsAL3UiElbDH+SQn5dssSavB5DHBB3KmMfagSiQmVG8jbal87QqAqZ5/dSaDD
+                Mx2PKyNv0BGxIviHXNkS7KWm5MKyVBcbfLY0xDCcASbKFptgqwpNkeF90N4M95oh0/bggQR4SDcJ
+                0HxQ/mQEGjip6qVpl0joXTS99rj1HDTRuUjfY60gRcXzxZ03hvHLI0Vkpa+a0e9oF+wfswQe96nQ
+                2nqj4X6LOC0+Jcsad5pQGmYM72rg8K4HKgXi0BEeCcrATwW29vPbsmZwYYEr5kr7b+Yjv2uhB/yc
+                qg+XbExjhVlVcSiT7CEdWc6vvcq9F7KYzdFkEb8oyHwgLScLdKASXyxv/F2c0hy5m2oDDVKu9Hyx
+                4DDdnN0dXcW1/cn0kk+/2DhEpiFIhhs6ZIkt4pYhyrMBtYy97omFWfhE/8/wAe9YTH22uxAJw5Nv
+                9ywJYV++xcQpo+sDgK6dSH0F8tRKtBdqsY9WSkCPy+o7GZMLlY/WNDOFTVigWHdFtEB/4NjsZfYe
+                9XLtelcWI8dtHim0raw6BU1+lbmNQT8hGfsnNovIJUNhTbnmaZHKPNkVgl2r80FF8oGaSII874Da
+                6jmYefMI1qhM/HJaqjVZqyLy4qjbyX0wp0MhsxmlXZ/jNWbYHOsngG+gcZyI5WL4jC3gN21O6ZZw
+                5OaepApTsmaZD/U0ZGjOZ3BSrq0lqrM6raQX6p7LrBQRXxfbXkl3WgXTvVS1LIWpK0hCit9LFKzj
+                8Ko7ySPo8TCNV76Xqa+on9r3cmAuXQe7KhPYtgZWn2yXCH0bU38fOzrzMHaSZ+GDIanzzMhYG/Nv
+                guijJRB7Ha+wf/lalXC/jQXcySXoxuwFakzm/gf2Z5LPcQs/aAwv8hRzyCqAFkugbCBDVQgjM7jE
+                4VUxKSUxCi4/iPTf8hTtZ+HpGXUsuuwBXB35qIoXjHfMfP3euksC/Yf8ZQwblAdqNGpBe14Vs3oj
+                XPisdqlzVpqheIseNNJjYAIQAwWEDGfxArXlUc+W/Q1J8X7XSKQBpFfaV0QwG/+3WJiuopvw5OVi
+                8sTyqrXgRc7ML48WTIYLD/ClTgMY71TfYlP5ybEzMhPd81a9+2728UbqJvb2Qba0fWPMe5snci1b
+                tt+UU3cKDzC9niwxETXEyibpu9huM2Jo4zmtdpbhySVvqu5QrB7K4LK3OUJlLxah9MEEudcGMTro
+                SDc4inVCb3r6BatSJUAkMY8JxSx/RCO0uUNnvY9+23XB2EDtohFDkxglrct85yfRfteyQaLnkAzr
+                IiA0OiyRq+f+73ksUPL2b4CQXXILlZgy+zlxe9a8V5HocgzC/uLnfCxDP34AydS3hH4y2t9yyTH8
+                tJwoXV8QEfiNzCLDahlWzFdc9SYuuLvonlnEP3+kDbb4snpVY4Zj4NNoZ9urbW9QOVxU9TKdEYAy
+                j0+KU1WpFhuHe5lLZL+BYj0tzOKoAAs7Ieg+tYjivVczJmMyIRVrTsF8/73SWRTwYejIjSBM7cET
+                Pm6GTW4PDoO+5TkPXwHT6zX3LgUegULzvk7GN3qjYA7teEGZdka3b4t7nED/9Xfvfi2PylJCaaRF
+                Nz+ekOpLnLrTe6JKJ+4LghMjqcqiE4ZPEUcnRD5AaolfUAt/jJ5X2z0j3J/q72wnatuUh1IP3Uk+
+                7KF6PHA43zU6i0Hc+HTpH/kaQMsr9nkqwKm3ZHLtnam4akVLaDQfb/wyJCRaNrTEAJegSB+3bReu
+                qrz8KOkbXbCewze4+z/drjX4xYW0Y3Qsto5M5wS/uWLGptw4k5mwyqe3AIOXBr14gXEK2kUlZCiM
+                EtZ0H/3VQ9SbTRGpxzACoAZkeMuT9kUz9n411gaqvW6wFTcAEz3AKry03NfCtr8k9djayfi8bir8
+                8JG11bOS8zxKxB9U2WRnMyTzcKfKSbVVKSKEmMBpZlvNdVfjZSxoV6lq2600ndH05QhhGHjWqFZv
+                9sLWEZfgi3hHh2QjwvmQi53o7+XKY2MwIbyQXr5e2iZ6hZY6bqulYLB2aybza80S0s8u43GIbQN8
+                +tR3PvgI/Fl3EYhzdmlRUrw6kiBt7mgaQBXV7/3nIAD5pkygZ3/d/qF8q74WkBYfw8Frx5zgO62t
+                KWKvweeDWsqyK3S0FaWFU0S6xMiuSt0uG0ZY4uc9ZGd43sJEMHY3upcloLWbsreiHlmdsoOV5JKR
+                0Qv4Frz0AURJI0xRtb81fWnwgGrZLEHo1FVKNxO2vafK8IFEiSQ4E+oqKxUoPdDDEu7KIWtoBXuD
+                iklqU5l5J4DwKmQFIAoy+2e4guTeyYtLuWA085mQEtJfShZb72zqO0+5Jk5UDsymTjJvyyf9OPxe
+                ThIP7VDWl1m4MiM5SXA8okbAbDX8K1kTwt8eRPXBQRVj6k9miQknJ8IJ8xAncLd4ZSNmY0Vr1xpq
+                iBI2N2nuWji3uqJjaeZ1UjMzD4fCA2r5vzCo1eQAXEUwR1zbRri0JLy18K9r3wvH5uq8nxmdeu/u
+                TUAvLVbs+XtFyZQ2RA++6VmFfsvOI3QlzQ9eqjKKC1wRE9tvojiUQ+B9sNdYZ7q6ip9mW8yTAGhe
+                quvDWuAcxksFMEdj/hffT5cLvXS9o8sK5bdqsN5nZHgHAGm1mM0viEFc33mitlf0/tG6sqprdQmz
+                jqZjcuCJFgP/0GJ/UbTkrMgPVCBdyFM1KNzehnA47gZ2t83spEG+ckb7jHID6EQA0GX9SSuBRZTS
+                cpf9E3rDL0aGiEaXLvaFmBnkwvDNYBo4NOv2aUQwZ5Y8lThYrP4rCEcdXELl7GAwfxCYvgWEIcgW
+                7ljVa9fNv6C2XhfnvXCmuFIa/GQBpkvnQ6Ggivmd8Dkgt/93uN9NpIGTlwCd3UjxdPJjHqeqonwP
+                /FjYm3vFQ1w4PADqGtd5hGmQKIiMo4YnUmGBUDAjUkyRlmVVqa4PA4nK1empKycy9WFNSzy5sdv3
+                +Fda2iKoNWieyEZeLveNczqpJVb2FaPpzSw/uQy2DMxgfZpDQM9wHAZmaVHdrFYRf5mc91x4d+UM
+                6Jb215v7W2oLlVdX9llasRKaYx/OJZMSJTbxacSWylJZf5N39jHjBW4wLBhlkKSu/zAG125AGoJP
+                mt42pznM/o+sCzR6i7Mkv570nY9AHdYwKjk/De+w0+oG7+nQyC+9RyKbU8eJKK7HBbffKGwg15oU
+                I4DNfCQ+P/xsXbS5MKl4mrhuSM1An4X7txvmAsr8siOXcbfWlUTPesahE0M2dKi5n1JUt/uWqVLi
+                8HqQb8UdoT5fqCb2mRhQDF5IZUCVFpJCWEYZL4uBPZPR0XcI6YRyf2JTHGRFFCaHbZ9uOZqvP7wp
+                fhsYVbLctcsTS7/t1ZfUCnaoZTTpeNuFhw0rqXH8+ZFYOAvchmujdCfOtZAmlboEZnk6wMEkqswe
+                /BnqWleYQA2IDF8LUiV/zBjsBumB2EoItLigUNaolC7n+piNuWLJ92YVO/exkhUpOkQu5quE3/Ue
+                PDNgEKJG4Hf1j2Dz+jsA6MKZJmkOE1s4TKR1xr2i2tXgzs3psD/BGdcsgGZBvDB/jrqr78T9qPRa
+                bFbqp4RrsBiOkGAytD4vcdNIlblmOf/pBg6YZCWIOz1M3LotrOVoXCFYujWmTT3qd7CsEgYgLwT4
+                s+YlxZ1ZbjQ1Aj6qaFlyhGqcsjSQYsF38+P3OyWTGJVZ7NpxFivMWdz5r68byAgSRwokybAdHVi3
+                D4J9FNH6Wz2j/kj1wlXLhabAcE20dJsRw0iwF9BrsEP4eVi9FlaoL2qq5fo6t5NS7Ub/3gbzw4KH
+                hH2QvzO6TRge6OnD9r+KHzOxY7AoiO+y6Y8na79fldpeqdnRVB/3K2mXc37MhYdeltxYlGxYTRjC
+                +ND12eDIwdcQrcjegklqTt+OXiOcJ+mAev+RtnCMYCPi3vfU8zEaIE+W/fUZFkgEuS0QHlnq6cWw
+                xC8OsdDrOP5msXogPcoAVD+bXwi/DCvzslZqen+A0wG7X2pW+5ygYtthpBQT+o+1UHjVnsan5+YS
+                w4LLFKs+T0P0nw6JGdbFOkQNca7Y9vyed6ED/o7qtJ41M8R8NvzyeNJtVmbcI7o7elQRBB5QvCnR
+                FNeiOIz+Hk7tUJgukRgxZ74fOMAtlupy21w1CHIRcUIMXdcVGUTv8Ad51UHgP9naD2V9fXxtZwdM
+                04eZnfPJ+CnhdujISh6oti0cHGtJfDee5wAS9e3GCDO8qxt23awxWwoZ2eTATLIcEbMF3aHQ0P8Q
+                1DpZj3us3LF5Q1kfx4Za94E+MNXIf+0YyUGaeypE5LBqng87w7xbIAEEo9Uuw24s3+ebMhECrW4+
+                03mkIPiRF7QTf41CVZB/8LgW0WK8Ixre7yXMfeW43StR77goRLrhxlyh/wVFqgjp3SvC986eNlLQ
+                y5fP0tqasG+4toaW7iiqIZxdSjhqgceVNIzvjOtwoHBoqUYiWcs28HOV69uzgT5CIoiuYLNHgaOZ
+                T3Dbbz+gYUECkzzUBGJwdX1yMYgGae3tilEUcCRu8tk723wcnaBoMF51fBfjvbUENwGvzNk2M6PQ
+                FSTWUQVDC/d5vkfA4MF3x9RmoL6O+b8TB6j3DZhKxSHUit60R11R4N24S8ZRqykjo84FK0CTxup5
+                DckuDVmJF6K2Q18vQIrgGv2fxqGvy6aDt2woRW3N3QMQYCwLpm9I1UYVMCYKpEflMnOIeKdwYRoF
+                3pTWtxJkeY8+Oh//PMRHEZtUG197bl8t4mYe9CsPZA+OYmVfFlyvDxommr/w0jj7uEvvZB1YfzP4
+                4dDOs4vY9pVhYl81RkgUNmfeEcghJcdorpQNz80p4K3F0P4YeJODwa5OdevmuEANjoVWj5XgKRC8
+                71Oj9CCRYWlbpTugHy2BHQ4HAwVI38aDHQN4CJjIyi2cvWRrSxeLX5wD2WgfWsoBqc/CSRjv8Z68
+                npf47SyoCUJ2QX5bnT875EbjvfPHZKpNzPtRiKjbbAnx+zLjoUTCU2AqIsUhnOnQrDqEG/UFE51M
+                kPXxsCYBFK0pV5Ryn0FNfxuhJOb8MTrFgL6vmBMANSSfEqXCj101yI5H46BErU7L9BbSGLKp0+T2
+                EEab/Yut/CM3VCdH4vmrK9y/cNIqDiGpyhiCXMhnYDx7q8yNDHkJ0DfFNM2+3Gqto/pdlhDHGe7/
+                R1fdCDFLo6PzutoEQMlBLKUqETZrUeXqZzi7/C97s4oppGjYetDbc3KBPgB73PFENkZZUJwMd+p2
+                VCt2eGGmukFhwBydGXi6Zj3bul0/K8oSyXS0zSazot9iRt5qryOcoBWOZm7ifhwuADUB7HDBjnnB
+                3gik/tqglY6KBZw1vvXkxSHrrqjDlawxggM5rDPvZlf9mb+xvjHiJGJWaOh9qnu9RYpBjnm/P4M7
+                S8K+nqj2afwnHIn8ECBRtSWKNp2wZBwnm+bGh+VBe+SMLDyH9fZAVqNVVWMDBScO+vyAUaN4Ohgi
+                zs/Kkltxare9pR4xxArrz0cXRbHNs3MJ8cbVek/ADBu8yLU1Oax3afSZ0VVYiYI3/fn7okw4hZOP
+                4EEuNCOOu2PjkEcntKj3BxYUHWJDqdP25n3N9taa/Qz4K1bA2nOtC6sSS1IHOeBmN6X+hCa3NxYc
+                NYxblX9ejUmd+uTqpzo+X4ND3bVfHrqR/Tj2uJ6Yvlv/W+KNRvO9Rxmb6pUmXx7aYZzOKOtGBgHz
+                vwtCCKGNo5c3ePglmvQCOyb6DqyiAFf2hgPS+l7vvj0k2LB5Az039cO9SKWASDKbbDMbaD66pCCA
+                OthMgZFGgP1Y3Buv+AkPTFA7ehbj+wPUfaKKN2whCM8danRCxFADdyBMJA+VrGK2/ssCY2g2M6NF
+                iNacwbg90uPfDvap4HlG47RhPT46yTjzxJ10ygSY0emJBD1+8aH809jajS21TK32rthLq+5w2s+k
+                5yZM+N23ixiUEQK34fQwplBY+43fqrJYifPVEgFK4AWYqAzej3gAflVgj0gpYLzy3PtnWyLqW8O9
+                JPe7LkazqpmBQQQKczT1PQ/bASxWDt+8gaVEJn6YfKav5PCRhH+4LMcGttJOV+uo5fnHsPcNQ+V3
+                H1MUtPFTq56WHsX5zZCJjvnXmNlSE412cIi4HL4jYzMoCSvrKIIbpKCw4mtaLgcA3n6As+BFSsPS
+                2NkjgcwYsEy8vsmkoc4CX/gLfqDfba26/hU60eUmYKxy49qyiNJkayi/7l9IewFR3xrLsZD/O2TQ
+                7dqUxsoi+BR6DvMUor8B7HFTKsZtI89n40WooV1MzO8buLXVzuXJ0fCiVQIdDSd9U/PWIB/XHrYf
+                ARWvsaovCLTqfXpVVmRe4WZ7WoUxDKp2IcBk7Hs/UCQOCPd0gLAx+hmfUmc0KNpZnb3pYPW7JJzH
+                EMqVVF+ZrbrlM7MZPaFew9YZZCejaeOs0pBHziZN7jzOPa1NPgmmsJOXXjDjCjCCc3AtLwIwN3XI
+                kQ3hkk3ZcLwJnYfCzH8PbJ6cn6swpwmw1HIPsm6e1Q+HWNDUSSWG2RH4sisz36MB7yhCsO2YYq4O
+                YZ4yB+VcpEl5JeJdX9sXaO90knIxHv5gZWC6cCl73cGVAa4wric5sClG6pBxqiEjcF8cJ52UxbZL
+                gzMX7q1IW/d9OwgrroCEgwy4CXDStgNIKbgyWRLtRwT5ypRh1EYNG0nJ3/fVxdXLkcjxOEIE8xCJ
+                ysZpwoRKqJtu4PMjSc+R0VJpf7fXiL2xlxzjVBuExPtToyHwNT1SF0Rle5eCt/q78LqbPtnY9Qpo
+                umBS9W1CBynEkiAPyu+BNUt1NmekNlxILeRBi9bec3/iYiQQe6hE4RcbInJbQSbkpcUenigfAbqf
+                URfbdvAVS2lYSy0FCVYsMO46U/x1zOdEQ6pDpqFdrkE7WuwlPxIwMNQ9vZvzMocgnf+iSE/rwQBN
+                pkqimtUOrEaGZfuZpqvSDcFKk6MF30VAN32CdC5H2x/LgzZ8MpCMAbRpYYnQEVaN96o2prY7NXrW
+                +SQ8AEUrI9be4cILDe+RWe/E77toDLZO24XSyEqBjKWodsvXJhUIavxGs00Tqx1aCxlNLmfS0dfa
+                NfC2qCQnYWKmzClGLaVx2jBRYV8Gx8zb/I5P2aYnMIZUx87LfNyZSQJf6lgpMohpdqvsaUXl1wL7
+                j9xPlEYGj+tJlR19S+ChhMPER5r19AavEOOtBP899Cg3PiKW/4/tFkE7m6ekp+Hyf7OdzD786bOb
+                USc2Z0aBgTPgFd2aipQq7EYUSQ5Gx+A/0fxAHehxkEB+fsCaNY1SuRfPOkTPaYp/sp83vdQ7Ne+z
+                IlrDgabf+W+VugVr5ZtlnXCtO8YY0PxgWD7p7WvBs3URa40kTvfVfIu9xzGfGLBy2E8zKvWOhpt6
+                ipnBskn0K2rZr3QuGPhnVg6kwhcKotatr+8XnZbicth9LofqWuKbOAqOd2eeebHhqax0420J4K/F
+                9fXbKbZNOfafwwZ49LVSrLZ3MfYsRhryOxdEPMS0qCYer628d00xnBgcqgqbKRdjP1UaUO+3Jksn
+                Nfd0pOjSJgPdnxIcPzxS9s/vWsJgNUaAIowvd97hfd3ftso6bmoHvgeGKASQbj1h9Z7tubIZmvHh
+                K8Orpmdix5417ncUf4OhCrvA/Pvwg+ylLDb76rN4SL0xeIRlfGpaP9/z4huVwDFJLntVs2MoIKGq
+                9VjR2TzBRdf/674zrZwoq5qpKMxBJNXmHMY99FuXnCc6/bb3xpwlQrdgTn9OrStqH58lZUJkqULM
+                EEeL0SjbCCpD98AqRICF74B0HP4/9sD47qWVieta2zLT5gwa8GDz7SBbv1T6NSVe95EX/6oAohCj
+                lZD4t3GAHPsJFyNCcosYhGzIXg6I/FzSGaMGxTJIdiM2f/t4WRrFxAmI6kzuIF1Va7XGiePjMJGu
+                z0Q9tOvAvW8n8A2ukel2EmTq5h451JBWMFXESmjmdXPMGfKJx2LHXwsdwvoDYR9EeKvIyEX+2Uev
+                okKJh6ntU4r+xnYanXBdr6LkL9k+e64vQwo9I8sd8+rgfdP09/NEmUha5iPWkPocYqQHNzPeRl/i
+                42bKJJk71bqPawHE2GKucmeuC/FI6hXgf4M8lB4anQ6ZsmBAebLJ/eGySi9YzFPAuXypOAxQlyiC
+                +zJDpzh9i5KIR9XlSb9PZ7opR64uEVnR2aDVq7WEWvFZxN8kes2yii9CVepX9GMiGuFALsXL6eHv
+                rOBzrQNjskwJ+LRmip4swqyAwSeVdt/p0J8mNWIgQyWVFmbXsGQq8cUvSkolN0/7vJz+eHZ3c7Y3
+                jY9duzr9qZ46iC+dmAqXA+ES2sMFcdJrTQuUebXIDEZB9qwwYLBKrqBXJP2yAChG+6CzbUfNSUGp
+                fNmrJasxXjlvRfBZszXi5xjZI00RB7W+j6e40ITkc312BdGF8jPbBHLPjqBuuZvRyGvL1xroA98X
+                YVI/RTUsSQQks9pUdWS/1tD7Dr8kZF13zAvMA8V5JgfsU9eq4JHsCIgbWJIjoig2lKEZJNciHIn+
+                ryaISHz4E1uENPqdPbvvTdm6yzAgHTu0FmCb5GCWFUfkJD0Pf9CT2UrOQHHnvG4fhH10iffGn7SG
+                GRdhUHQOF/PbTRFiWzoDMOpOTxfvRwgsMgY5ywH281OcdumDuezdRyIgR84CwTpvl7DFJ+nJdEfU
+                smQRwG4ltDpWEcFiwr7H/4jbw55kk+nKvV+pZvWUNkv/qbbJabJTikCdxYcBV0HlKB2H0Abf/6GU
+                MuHcnU6vmcJQCfj548wfRUyHjyBrWQIdW/2B3e+X+IbejlnQ4LMg6XX49GYd6khtN6kjLV8ZvwfM
+                2HmAWSbAaZmAw6IQGH4QN19H1QChiCqlTxykzb7Em7z789NMFZ2fVW5+a0z3qtxcdagG73+1IKWr
+                8lKEgi/M7NNwUPQl3y1fB6YiigUkrnVW26iWKxbmSJ3h4ib4ia8dQm2rruiLk7iujAknDrhgKQcw
+                MMLcaaScQlweJ9fHQQC0KeUcTUvmLtFvY22H82FYp1R1PHUI3ltX/GtdnW6snZOK/ih4cmbDulQn
+                rL0RvCWjZWyTXsnMuuOncNnEj3+fhBLMJn04BEjAmdlEGJDm23fdgQ/ckia5BImUs9UPnEosVBpe
+                i3fP90da9TlMAIOoisYLlyiItNyGmspGHQLF81CLxAwo6exZy1m8JF2RuL36v5fMk5InW8Ly+HRv
+                prgktm8XMXCIhBUwPKZHkoiLWqIrgp8iL1c8B6bDGlvzoWf8cVi0K5rqDVUrIXwihHc8jWQVINaW
+                AHbzlBG8BSEd22LuWVAatpm/Q891FlRiwGqAvgGVHam2kN8i50SEouzzIwRqS5baQ6f9xKJHrAF2
+                0Xes6VHLKxw807UGyUQKTsXETYXeq0ZLpNjiA6XcKOZFojKqYAVBV4bwn2FA189XqsB9iTbzvjXO
+                Q8rb80iC2Vvzt0M8uITVOAr1TQIJO/hw5GczCONNeXo/GYFkAB14Q3BXCkaZA4FPOpGEDRm21Yk5
+                aCzYuGlLSOoT/3dzhEvvRqQuZAPCz26XbxeVyuSQAkbHc9XJrrPI8qFTl0MBXmr5Q/r0W1EAg65Y
+                kIj+0ySpjUgbHbfKSlcztuszOpR9TIgN/jrUe6TLxjNFsw3ZhSD13YvrBxq4wTZHaUcF6B27dJLw
+                YKs4cv+qqeXn4HE74yMH3OGAlE50Rh4d7x/FUGK8QPronIBpEQr9NOi79VmVXf2xih+T6XT+Zq4w
+                w/caEMcxGbeBi5Im5/qfXIVGhfO30ophib8S+a5OwiAqJ+YKtud/rGLLdnzdTM29zz7/qou1RQYM
+                4/htfWg/Hz/+SKUKt8GtFI+IrDlcxpaQp2p3QZrdyA==
+              </msg:EncryptedMessage>
+            </SOAP:Body>
+          </SOAP:Envelope>
+        </Request>
+      </Requests>
+    </service>
+
+    <service name="INBOX">
+      <Description>Rozhraní pro práci s Inboxem v CSUIS</Description>
+      <TestUrl>https://portal5.statnipokladna.cz/csuis/wstest/inbox</TestUrl>
+      <TestUrlx>http://localhost:8080/csuis/wstest/inbox</TestUrlx>
+      <Url>https://portal3.statnipokladna.cz/csuis/ws/inbox</Url>
+      <Module>CSUIS</Module>
+      <UserName>2000000002</UserName>
+      <Password>lr3zr6c5</Password>
+      <Requests>
+        <Request name="Výpis zpráv z inboxu">
+          <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:m0="urn:cz:mfcr:iissp:schemas:Common:v1">
+            <SOAP-ENV:Body>
+              <m:Envelope xmlns:m="urn:cz:mfcr:iissp:schemas:Messaging:v1">
+                <m:EnvelopeHeader>
+                  <m0:TransactionId>001bf00022985f03a12a2009f15a54</m0:TransactionId>
+                  <m:DateTimeCreated>2011-05-03T15:52:07.0Z</m:DateTimeCreated>
+                  <m:Sender>
+                    <m0:IC>48318264</m0:IC>
+                    <m0:SubjectName>Tibor Stuchlik</m0:SubjectName>
+                    <m0:ResponsiblePerson>
+                      <m0:PersonName>Tibor Stuchlik</m0:PersonName>
+                      <m0:Email>tibor@seznam.cz</m0:Email>
+                      <m0:PersonId>2000000002</m0:PersonId>
+                    </m0:ResponsiblePerson>
+                  </m:Sender>
+                  <m:Recipient>
+                    <m0:IC>00006947</m0:IC>
+                    <m0:SubjectName>Ministerstvo financi CR</m0:SubjectName>
+                    <m0:Module>CSUIS</m0:Module>
+                  </m:Recipient>
+                </m:EnvelopeHeader>
+                <m:EnvelopeBody>
+                  <m:Inbox>
+                    <m:SeznamZpravPozadavek>
+                      <m:ZobrazitHromadneZpravy>1</m:ZobrazitHromadneZpravy>
+                      <m:ZpravaDatumVytvoreniOd>2011-06-01</m:ZpravaDatumVytvoreniOd>
+                    </m:SeznamZpravPozadavek>
+                  </m:Inbox>
+                </m:EnvelopeBody>
+              </m:Envelope>
+            </SOAP-ENV:Body>
+          </SOAP-ENV:Envelope>
+        </Request>
+        <Request name="Výpis jedné zprávy z inboxu podle ID">
+          <SOAP:Envelope xmlns:SOAP="http://schemas.xmlsoap.org/soap/envelope/" xmlns:msg="urn:cz:mfcr:iissp:schemas:Messaging:v1">
+            <SOAP:Body>
+              <Envelope xmlns="urn:cz:mfcr:iissp:schemas:Messaging:v1">
+                <EnvelopeHeader>
+                  <TransactionId>001bf00022985f03a12a2009f15a54</TransactionId>
+                  <DateTimeCreated>2009-12-03T15:52:07.0Z</DateTimeCreated>
+                  <Sender>
+                    <IC>48318264</IC>
+                    <SubjectName>Tibor Stuchlik</SubjectName>
+                    <ResponsiblePerson>
+                      <PersonName>Tibor Stuchlik</PersonName>
+                      <Email>tibor@seznam.cz</Email>
+                      <PersonId>2000000002</PersonId>
+                    </ResponsiblePerson>
+                  </Sender>
+                  <Recipient>
+                    <IC>00006947</IC>
+                    <SubjectName>Ministerstvo financi CR</SubjectName>
+                    <Module>CSUIS</Module>
+                  </Recipient>
+                </EnvelopeHeader>
+                <EnvelopeBody>
+                  <Inbox>
+                    <ZpravaPozadavek>
+                      <ZpravaId></ZpravaId>
+                    </ZpravaPozadavek>
+                  </Inbox>
+                </EnvelopeBody>
+              </Envelope>
+            </SOAP:Body>
+          </SOAP:Envelope>
+        </Request>
+      </Requests>
+    </service>
+
+    <service name="B_EKIS_SP_INBOX">
+      <Description>Rozhraní pro zasílání žádosti do IISSP INBOX na předání dat / informací o zpracování</Description>
+      <TestUrl>https://testportal3.statnipokladna.cz/risre/ws/INBOX</TestUrl>
+      <Url>https://portal3.statnipokladna.cz/risre/ws/INBOX</Url>
+      <Module>RISRE</Module>
+      <UserName></UserName>
+      <Password></Password>
+      <Requests>
+        <Request name="Vse z Inboxu">
+          <SOAP:Envelope xmlns:SOAP="http://schemas.xmlsoap.org/soap/envelope/">
+            <SOAP:Body>
+              <msg:Envelope xmlns:msg="urn:cz:mfcr:iissp:schemas:Messaging:v1" xmlns:cmn="urn:cz:mfcr:iissp:schemas:Common:v1">
+                <msg:EnvelopeHeader>
+                  <cmn:TransactionId>00000000000000000001</cmn:TransactionId>
+                  <msg:DateTimeCreated>2010-06-11T00:00:00Z</msg:DateTimeCreated>
+                  <msg:Sender>
+                    <cmn:IC>00164801</cmn:IC>
+                    <cmn:SubjectName>IN-SY-CO Test system</cmn:SubjectName>
+                    <cmn:ResponsiblePerson>
+                      <cmn:PersonName>Beneš Jiří</cmn:PersonName>
+                      <cmn:Email>benes@insyco.cz</cmn:Email>
+                      <cmn:PersonId>EU1620000273</cmn:PersonId>
+                    </cmn:ResponsiblePerson>
+                  </msg:Sender>
+                  <msg:Recipient>
+                    <cmn:IC>00006947</cmn:IC>
+                    <cmn:SubjectName>Ministerstvo financí</cmn:SubjectName>
+                    <cmn:Module>RISRE</cmn:Module>
+                  </msg:Recipient>
+                </msg:EnvelopeHeader>
+                <msg:EnvelopeBody>
+                  <msg:Inbox>
+                    <msg:SeznamZpravPozadavek>
+                      <msg:ZobrazitHromadneZpravy>true</msg:ZobrazitHromadneZpravy>
+                      <msg:ZpravaDatumVytvoreniOd>2010-01-01</msg:ZpravaDatumVytvoreniOd>
+                      <msg:ZpravaDatumVytvoreniDo>2010-12-31</msg:ZpravaDatumVytvoreniDo>
+                    </msg:SeznamZpravPozadavek>
+                  </msg:Inbox>
+                </msg:EnvelopeBody>
+              </msg:Envelope>
+            </SOAP:Body>
+          </SOAP:Envelope>
+        </Request>
+        <Request name="Jedna zprava z Inboxu podle ID">
+          <SOAP:Envelope xmlns:SOAP="http://schemas.xmlsoap.org/soap/envelope/">
+            <SOAP:Body>
+              <msg:Envelope xmlns:msg="urn:cz:mfcr:iissp:schemas:Messaging:v1" xmlns:cmn="urn:cz:mfcr:iissp:schemas:Common:v1">
+                <msg:EnvelopeHeader>
+                  <cmn:TransactionId>00000000000000000001</cmn:TransactionId>
+                  <msg:DateTimeCreated>2010-06-11T00:00:00Z</msg:DateTimeCreated>
+                  <msg:Sender>
+                    <cmn:IC>00164801</cmn:IC>
+                    <cmn:SubjectName>IN-SY-CO Test system</cmn:SubjectName>
+                    <cmn:ResponsiblePerson>
+                      <cmn:PersonName>Beneš Jiří</cmn:PersonName>
+                      <cmn:Email>benes@insyco.cz</cmn:Email>
+                      <cmn:PersonId>EU1620000273</cmn:PersonId>
+                    </cmn:ResponsiblePerson>
+                  </msg:Sender>
+                  <msg:Recipient>
+                    <cmn:IC>00006947</cmn:IC>
+                    <cmn:SubjectName>Ministerstvo financí</cmn:SubjectName>
+                    <cmn:Module>RISRE</cmn:Module>
+                  </msg:Recipient>
+                </msg:EnvelopeHeader>
+                <msg:EnvelopeBody>
+                  <msg:Inbox>
+                    <msg:ZpravaPozadavek>
+                      <msg:ZpravaId>tady bude id</msg:ZpravaId>
+                    </msg:ZpravaPozadavek>
+                  </msg:Inbox>
+                </msg:EnvelopeBody>
+              </msg:Envelope>
+            </SOAP:Body>
+          </SOAP:Envelope>
+        </Request>
+      </Requests>
+    </service>
+
+    <service name="B_SP_EKIS_FMMD">
+      <Description>Rozhraní pro automatickou distribuci rozpočtových kmenových dat na vyžádání</Description>
+      <TestUrl>https://testportal3.statnipokladna.cz/risre/ws/B_SP_EKIS_FMMD</TestUrl>
+      <Url>https://portal3.statnipokladna.cz/risre/ws/B_SP_EKIS_FMMD</Url>
+      <Module>RISRE</Module>
+      <UserName></UserName>
+      <Password></Password>
+      <Requests>
+        <Request name="Žádost o číselník">
+          <SOAP:Envelope xmlns:SOAP="http://schemas.xmlsoap.org/soap/envelope/">
+            <SOAP:Body>
+              <msg:Envelope xmlns:msg="urn:cz:mfcr:iissp:schemas:Messaging:v1" xmlns:cmn="urn:cz:mfcr:iissp:schemas:Common:v1" xmlns:risre="urn:cz:mfcr:iissp:schemas:Risre:v1">
+                <msg:EnvelopeHeader>
+                  <cmn:TransactionId>00000000000000000001</cmn:TransactionId>
+                  <msg:DateTimeCreated>2010-06-11T00:00:00Z</msg:DateTimeCreated>
+                  <msg:Sender>
+                    <cmn:IC>00164801</cmn:IC>
+                    <cmn:SubjectName>IN-SY-CO Test system</cmn:SubjectName>
+                    <cmn:ResponsiblePerson>
+                      <cmn:PersonName>Beneš Jiří</cmn:PersonName>
+                      <cmn:Email>benes@insyco.cz</cmn:Email>
+                      <cmn:PersonId>EU1620000273</cmn:PersonId>
+                    </cmn:ResponsiblePerson>
+                  </msg:Sender>
+                  <msg:Recipient>
+                    <cmn:IC>00006947</cmn:IC>
+                    <cmn:SubjectName>Ministerstvo financí</cmn:SubjectName>
+                    <cmn:Module>RISRE</cmn:Module>
+                  </msg:Recipient>
+                </msg:EnvelopeHeader>
+                <msg:EnvelopeBody>
+                  <risre:ZpravaRisre xmlns:msg="urn:cz:mfcr:iissp:schemas:Messaging:v1" xmlns:cmn="urn:cz:mfcr:iissp:schemas:Common:v1" xmlns:risre="urn:cz:mfcr:iissp:schemas:Risre:v1">
+                    <risre:DataKmenovaRozpoctovaDotaz>
+                      <risre:ProgramRozpoctovy>
+                        <risre:Kapitola>304</risre:Kapitola>
+                        <risre:DatumPlatnostiOd>2009-01-01</risre:DatumPlatnostiOd>
+                        <risre:DatumPlatnostiDo>2009-12-31</risre:DatumPlatnostiDo>
+                        <risre:ProgramRozpoctovyRozsah>
+                          <risre:ZahrnutiVyrazeniKod>E</risre:ZahrnutiVyrazeniKod>
+                          <risre:IntervalKod>3</risre:IntervalKod>
+                          <risre:RozsahOd>204V0110</risre:RozsahOd>
+                          <risre:RozsahDo>204V0120</risre:RozsahDo>
+                        </risre:ProgramRozpoctovyRozsah>
+                        <risre:DatumCasUdrzbaPosledniRozsah>
+                          <risre:ZahrnutiVyrazeniKod>E</risre:ZahrnutiVyrazeniKod>
+                          <risre:IntervalKod>3</risre:IntervalKod>
+                          <risre:DatumCasRozsahOd>2009-01-01T00:00:00Z</risre:DatumCasRozsahOd>
+                          <risre:DatumCasRozsahDo>2009-12-31T00:00:00Z</risre:DatumCasRozsahDo>
+                        </risre:DatumCasUdrzbaPosledniRozsah>
+                      </risre:ProgramRozpoctovy>
+                    </risre:DataKmenovaRozpoctovaDotaz>
+                  </risre:ZpravaRisre>
+                </msg:EnvelopeBody>
+              </msg:Envelope>
+            </SOAP:Body>
+          </SOAP:Envelope>
+        </Request>
+      </Requests>
+    </service>
+
+    <service name="B_SP_EKIS_ROP">
+      <Description>Rozhraní pro přenos rozpočtových opatření (ROP)</Description>
+      <TestUrl>https://testportal3.statnipokladna.cz/risre/ws/B_SP_EKIS_ROP</TestUrl>
+      <Url>https://portal3.statnipokladna.cz/risre/ws/B_SP_EKIS_FMMD</Url>
+      <Module>RISRE</Module>
+      <UserName></UserName>
+      <Password></Password>
+      <Requests>
+        <Request>
+        </Request>
+      </Requests>
+    </service>
+
+    <service name="B_EKIS_SP_ROP_ATT">
+      <Description>Rozhraní pro zaslání příloh k rozpočtovému opatření</Description>
+      <TestUrl>https://testportal3.statnipokladna.cz/risre/ws/B_EKIS_SP_ROP_ATT</TestUrl>
+      <Url>https://portal3.statnipokladna.cz/risre/ws/B_EKIS_SP_ROP_ATT</Url>
+      <Module>RISRE</Module>
+      <UserName></UserName>
+      <Password></Password>
+      <Requests>
+          <Request name="Žádost o číselník">
+            <SOAP:Envelope xmlns:SOAP="http://schemas.xmlsoap.org/soap/envelope/">
+              <SOAP:Body>
+                <msg:Envelope xmlns:msg="urn:cz:mfcr:iissp:schemas:Messaging:v1" xmlns:cmn="urn:cz:mfcr:iissp:schemas:Common:v1" xmlns:risre="urn:cz:mfcr:iissp:schemas:Risre:v1">
+                  <msg:EnvelopeHeader>
+                    <cmn:TransactionId>00000000000000000001</cmn:TransactionId>
+                    <msg:DateTimeCreated>2009-07-01T00:00:00Z</msg:DateTimeCreated>
+                    <msg:Sender>
+                      <cmn:IC>00164801</cmn:IC>
+                      <cmn:SubjectName>Fiktivní OSS</cmn:SubjectName>
+                      <cmn:ResponsiblePerson>
+                        <cmn:PersonName>Frantisek Novak</cmn:PersonName>
+                        <cmn:Email>fn@neco.com</cmn:Email>
+                        <cmn:PersonId>10000041</cmn:PersonId>
+                      </cmn:ResponsiblePerson>
+                    </msg:Sender>
+                    <msg:Recipient>
+                      <cmn:IC>00006947</cmn:IC>
+                      <cmn:SubjectName>Ministerstvo financí</cmn:SubjectName>
+                      <cmn:Module>RISRE</cmn:Module>
+                    </msg:Recipient>
+                  </msg:EnvelopeHeader>
+                  <msg:EnvelopeBody>
+                    <risre:ZpravaRisre>
+                      <risre:RozpoctoveOpatreniPriloha>
+                        <risre:Kapitola>304</risre:Kapitola>
+                        <risre:RozpoctoveOpatreniRok>2009</risre:RozpoctoveOpatreniRok>
+                        <risre:RozpoctoveOpatreniCislo>0000101827</risre:RozpoctoveOpatreniCislo>
+                      </risre:RozpoctoveOpatreniPriloha>
+                    </risre:ZpravaRisre>
+                  </msg:EnvelopeBody>
+                </msg:Envelope>
+
+              </SOAP:Body>
+            </SOAP:Envelope>
+          </Request>
+      </Requests>
+    </service>
+
+  </services>
+</Tiba>

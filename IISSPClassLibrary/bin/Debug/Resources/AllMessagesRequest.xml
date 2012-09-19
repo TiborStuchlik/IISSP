@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<SOAP-ENV:Envelope xmlns:SOAP="http://schemas.xmlsoap.org/soap/envelope/" xmlns:msg="urn:cz:mfcr:iissp:schemas:Messaging:v1">
+  <SOAP-ENV:Body>
+    <Envelope xmlns="urn:cz:mfcr:iissp:schemas:Messaging:v1">
+      <EnvelopeHeader>
+        <TransactionId>001bf00022985f03a12a2009f15a54</TransactionId>
+        <DateTimeCreated>2009-12-03T15:52:07.0Z</DateTimeCreated>
+        <Sender>
+          <IC>48318264</IC>
+          <SubjectName>Tibor Stuchlik</SubjectName>
+          <ResponsiblePerson>
+            <PersonName>Tibor Stuchlik</PersonName>
+            <Email>tibor@seznam.cz</Email>
+            <PersonId>2000000002</PersonId>
+          </ResponsiblePerson>
+        </Sender>
+        <Recipient>
+          <IC>00006947</IC>
+          <SubjectName>Ministerstvo financi CR</SubjectName>
+          <Module>CSUIS</Module>
+        </Recipient>
+      </EnvelopeHeader>
+      <EnvelopeBody>
+        <Inbox>
+          <SeznamZpravPozadavek>
+          </SeznamZpravPozadavek>
+        </Inbox>
+      </EnvelopeBody>
+    </Envelope>
+  </SOAP-ENV:Body>
+</SOAP-ENV:Envelope>

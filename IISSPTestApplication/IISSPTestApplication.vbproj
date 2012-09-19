@@ -80,7 +80,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="IISSPClassLibrary">
-      <HintPath>..\IISSPClassLibrary\bin\Debug\IISSPClassLibrary.dll</HintPath>
+      <HintPath>..\IISSPClassLibrary\obj\Debug\IISSPClassLibrary.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.VisualBasic.PowerPacks.Vs, Version=10.0.0.0" />
     <Reference Include="System" />
@@ -274,6 +274,7 @@
     <Content Include="Settings\TestMessage1.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="version.txt" />
   </ItemGroup>
   <ItemGroup>
     <PublishFile Include="settings.xml">

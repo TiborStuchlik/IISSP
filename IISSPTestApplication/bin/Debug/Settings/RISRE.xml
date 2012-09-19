@@ -1,0 +1,22 @@
+﻿<risre:ZpravaRisre xmlns:msg="urn:cz:mfcr:iissp:schemas:Messaging:v1" xmlns:cmn="urn:cz:mfcr:iissp:schemas:Common:v1" xmlns:risre="urn:cz:mfcr:iissp:schemas:Risre:v1">
+  <risre:DataKmenovaRozpoctovaDotaz>
+    <risre:ciselnik>
+      <risre:Kapitola>304</risre:Kapitola>
+      <risre:RokFiskalni>2009</risre:RokFiskalni>
+      <risre:DatumPlatnostiOd>2009-01-01</risre:DatumPlatnostiOd>
+      <risre:DatumPlatnostiDo>2009-12-31</risre:DatumPlatnostiDo>
+      <risre:ciselnikRozsah>
+        <risre:ZahrnutiVyrazeniKod>I</risre:ZahrnutiVyrazeniKod>
+        <risre:IntervalKod>3</risre:IntervalKod>
+        <risre:RozsahOd>101008002</risre:RozsahOd>
+        <risre:RozsahDo>101500000</risre:RozsahDo>
+      </risre:ciselnikRozsah>
+      <risre:DatumCasUdrzbaPosledniRozsah>
+        <risre:ZahrnutiVyrazeniKod>I</risre:ZahrnutiVyrazeniKod>
+        <risre:IntervalKod>3</risre:IntervalKod>
+        <risre:DatumCasRozsahOd>2009-01-01T00:00:00Z</risre:DatumCasRozsahOd>
+        <risre:DatumCasRozsahDo>2009-12-31T00:00:00Z</risre:DatumCasRozsahDo>
+      </risre:DatumCasUdrzbaPosledniRozsah>
+    </risre:ciselnik>
+  </risre:DataKmenovaRozpoctovaDotaz>
+</risre:ZpravaRisre>
