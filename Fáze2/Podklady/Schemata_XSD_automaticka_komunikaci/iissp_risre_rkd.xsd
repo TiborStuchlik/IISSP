@@ -1,0 +1,335 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns="urn:cz:mfcr:iissp:schemas:Risre:Rkd:v1" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:dcterm="http://purl.org/dc/terms/" xmlns:xml="http://www.w3.org/XML/1998/namespace" xmlns:rt="urn:cz:mfcr:iissp:schemas:Risre:Types:v1" targetNamespace="urn:cz:mfcr:iissp:schemas:Risre:Rkd:v1" elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.00" xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+    <xs:annotation>
+        <xs:documentation xml:lang="cz">Definice XML schématu se strukturami číselníků kmenových dat rozpočtu</xs:documentation>
+        <xs:appinfo>
+            <rdf:RDF>
+                <rdf:Description rdf:about="urn:cz:mfcr:iissp:schemas:Risre:Rkd:v1" xml:lang="cz">
+                    <dc:creator>Tomas Toth (ttoth@email.cz)</dc:creator>
+                	<dc:contributor>TOTHT 2011-08-30T12:00:00Z</dc:contributor>
+                	<dc:description>Definice XML schéma se strukturami číselníků kmenových dat rozpočtu</dc:description>
+                    <dc:identifier>urn:cz:mfcr:iissp:schemas:Risre:Rkd:v1</dc:identifier>
+                	<dc:publisher>Ministerstvo financí ČR</dc:publisher>
+                    <dc:rights>Ministerstvo financí ČR</dc:rights>
+                	<dc:type>XML Schema</dc:type>
+                	<dcterm:created>20110830</dcterm:created>
+                	<dc:subject>Element a odkaz na strukturu číselníků kmenových dat rozpočtu</dc:subject>
+					<dc:format>application/xml</dc:format>
+                </rdf:Description>
+            </rdf:RDF>
+        </xs:appinfo>
+    </xs:annotation>
+    <xs:import namespace="urn:cz:mfcr:iissp:schemas:Risre:Types:v1" schemaLocation="iissp_risre_types.xsd"/>
+    <xs:import namespace="http://www.w3.org/2000/09/xmldsig#" schemaLocation="xmldsig.xsd"/>
+    <xs:element name="DataKmenovaRozpoctovaCiselnik">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:choice>
+                    <xs:element name="ProgramRozpoctovy" type="DataKmenovaRozpoctovaProgramRozpoctovyCiselnikType">
+                        <xs:annotation>
+                            <xs:documentation>Kmenová data: Rozpočtový program</xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element name="Zdroj" type="DataKmenovaRozpoctovaZdrojCiselnikType">
+                        <xs:annotation>
+                            <xs:documentation>Kmenová data: Zdroj</xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element name="Ucel" type="DataKmenovaRozpoctovaUcelCiselnikType">
+                        <xs:annotation>
+                            <xs:documentation>Kmenová data: Účel</xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element name="Paragraf" type="DataKmenovaRozpoctovaParagrafCiselnikType">
+                        <xs:annotation>
+                            <xs:documentation>Kmenová data: Paragraf</xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element name="MistoFinancni" type="DataKmenovaRozpoctovaMistoFinancniCiselnikType">
+                        <xs:annotation>
+                            <xs:documentation>Kmenová data: Finanční místo</xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element name="PolozkaRozpoctova" type="DataKmenovaRozpoctovaPolozkaRozpoctovaCiselnikType">
+                        <xs:annotation>
+                            <xs:documentation>Kmenová data: Rozpočtová položka</xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element name="StrukturaPrijmovaVydajova" type="DataKmenovaRozpoctovaStrukturaPrijmovaVydajovaCiselnikType">
+                        <xs:annotation>
+                            <xs:documentation>Kmenová data: Příjmová a výdajová struktrura (PVS)</xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element name="JednotkaUzemni" type="DataKmenovaRozpoctovaJednotkaUzemniCiselnikType">
+                        <xs:annotation>
+                            <xs:documentation>Kmenová data: Územní jednotka (LAU)</xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element name="ZnakUcelovy" type="DataKmenovaRozpoctovaZnakUcelovyCiselnikType">
+                        <xs:annotation>
+                            <xs:documentation>Kmenová data: Účelový znak</xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element name="JednotkaZaznamova" type="DataKmenovaRozpoctovaJednotkaZaznamovaCiselnikType">
+                        <xs:annotation>
+                            <xs:documentation>Kmenová data: Záznamová jednotka</xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element name="UkazatelZavazny" type="DataKmenovaRozpoctovaUkazatelZavaznyCiselnikType">
+                        <xs:annotation>
+                            <xs:documentation>Kmenová data: Závazný ukazatel</xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                </xs:choice>
+                <xs:element minOccurs="0" ref="ds:Signature"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:complexType name="DataKmenovaRozpoctovaPolozkaRozpoctovaCiselnikType">
+        <xs:sequence>
+            <xs:element maxOccurs="unbounded" minOccurs="0" name="Polozka" type="PolozkaPolozkaRozpoctovaType"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="DataKmenovaRozpoctovaJednotkaUzemniCiselnikType">
+        <xs:sequence>
+            <xs:element maxOccurs="unbounded" minOccurs="0" name="Polozka" type="PolozkaJednotkaUzemniType"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="DataKmenovaRozpoctovaJednotkaZaznamovaCiselnikType">
+        <xs:sequence>
+            <xs:element maxOccurs="unbounded" minOccurs="0" name="Polozka" type="PolozkaJednotkaZaznamovaType"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="DataKmenovaRozpoctovaMistoFinancniCiselnikType">
+        <xs:sequence>
+            <xs:element maxOccurs="unbounded" minOccurs="0" name="Polozka" type="PolozkaMistoFinancniType">
+                <xs:annotation>
+                    <xs:documentation>Počet položek maximálně 65535.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="DataKmenovaRozpoctovaParagrafCiselnikType">
+        <xs:sequence>
+            <xs:element maxOccurs="unbounded" minOccurs="0" name="Polozka" type="PolozkaParagrafType">
+                <xs:annotation>
+                    <xs:documentation>Počet položek maximálně 65535.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="DataKmenovaRozpoctovaProgramRozpoctovyCiselnikType">
+        <xs:sequence>
+            <xs:element maxOccurs="unbounded" minOccurs="0" name="Polozka" type="PolozkaProgramRozpoctovyType">
+                <xs:annotation>
+                    <xs:documentation>Počet položek maximálně 65535.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="DataKmenovaRozpoctovaStrukturaPrijmovaVydajovaCiselnikType">
+        <xs:sequence>
+            <xs:element maxOccurs="unbounded" minOccurs="0" name="Polozka" type="PolozkaStrukturaPrijmovaVydajovaType"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="DataKmenovaRozpoctovaUkazatelZavaznyCiselnikType">
+        <xs:sequence>
+            <xs:element minOccurs="0" name="Polozka" type="PolozkaUkazatelZavaznyType" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="DataKmenovaRozpoctovaZdrojCiselnikType">
+        <xs:sequence>
+            <xs:element maxOccurs="unbounded" minOccurs="0" name="Polozka" type="PolozkaZdrojType">
+                <xs:annotation>
+                    <xs:documentation>Počet položek maximálně 65535.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="DataKmenovaRozpoctovaZnakUcelovyCiselnikType">
+        <xs:sequence>
+            <xs:element maxOccurs="unbounded" minOccurs="0" name="Polozka" type="PolozkaZnakUcelovyType"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="DataKmenovaRozpoctovaUcelCiselnikType">
+        <xs:sequence>
+            <xs:element maxOccurs="unbounded" minOccurs="0" name="Polozka" type="PolozkaUcelType">
+                <xs:annotation>
+                    <xs:documentation>Počet položek maximálně 65535.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="PolozkaJednotkaUzemniType">
+        <xs:sequence>
+            <xs:element name="JednotkaUzemni" type="rt:JednotkaUzemni1Type"/>
+            <xs:element maxOccurs="unbounded" minOccurs="1" name="Text" type="TextType"/>
+            <xs:element name="DatumPlatnostiOd" type="rt:DatumPlatnostiType"/>
+            <xs:element name="DatumPlatnostiDo" type="rt:DatumPlatnostiType"/>
+            <xs:element name="DatumCasUdrzbaPosledni" type="rt:DatumCasUdrzbaPosledniType"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="PolozkaJednotkaZaznamovaType">
+        <xs:sequence>
+            <xs:element form="qualified" name="JednotkaZaznamova" type="rt:JednotkaZaznamova1Type"/>
+            <xs:element maxOccurs="unbounded" minOccurs="1" name="Text" type="TextType"/>
+            <xs:element name="DatumPlatnostiOd" type="rt:DatumPlatnostiType"/>
+            <xs:element name="DatumPlatnostiDo" type="rt:DatumPlatnostiType"/>
+            <xs:element name="DatumCasUdrzbaPosledni" type="rt:DatumCasUdrzbaPosledniType"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="PolozkaMistoFinancniType">
+        <xs:sequence>
+            <xs:element name="MistoFinancni" type="rt:MistoFinancniType"/>
+            <xs:element minOccurs="0" name="MistoFinancniNadrazene" type="rt:MistoFinancniType"/>
+            <xs:element name="MistoFinancniTyp" type="rt:MistoFinancniTypType">
+                <xs:annotation>
+                    <xs:documentation>Typ finančního místa:
+1 - Kapitola,
+2 - Meziúroveň,
+3 - OSS,
+X - Neurčeno.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="RozpoctovatelnePriznak" type="rt:PriznakType"/>
+            <xs:element name="UctovatelnePriznak" type="rt:PriznakType"/>
+            <xs:element maxOccurs="unbounded" minOccurs="1" name="Text" type="TextType"/>
+            <xs:element name="DatumPlatnostiOd" type="rt:DatumPlatnostiType"/>
+            <xs:element name="DatumPlatnostiDo" type="rt:DatumPlatnostiType"/>
+            <xs:element name="DatumCasUdrzbaPosledni" type="rt:DatumCasUdrzbaPosledniType"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="PolozkaParagrafType">
+        <xs:sequence>
+            <xs:element name="Paragraf" type="rt:ParagrafType"/>
+            <xs:element minOccurs="0" name="ParagrafNadrazeny" type="rt:ParagrafType"/>
+            <xs:element name="RozpoctovatelnePriznak" type="rt:PriznakType"/>
+            <xs:element name="UctovatelnePriznak" type="rt:PriznakType"/>
+            <xs:element maxOccurs="unbounded" minOccurs="1" name="Text" type="TextType"/>
+            <xs:element name="DatumPlatnostiOd" type="rt:DatumPlatnostiType"/>
+            <xs:element name="DatumPlatnostiDo" type="rt:DatumPlatnostiType"/>
+            <xs:element name="DatumCasUdrzbaPosledni" type="rt:DatumCasUdrzbaPosledniType"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="PolozkaPolozkaRozpoctovaType">
+        <xs:sequence>
+            <xs:element name="PolozkaRozpoctova" type="rt:PolozkaRozpoctovaType"/>
+            <xs:element minOccurs="0" name="PolozkaRozpoctovaNadrazena" type="rt:PolozkaRozpoctovaType"/>
+            <xs:element name="RozpoctovatelnePriznak" type="rt:PriznakType"/>
+            <xs:element name="UctovatelnePriznak" type="rt:PriznakType"/>
+            <xs:element maxOccurs="unbounded" minOccurs="1" name="Text" type="TextType"/>
+            <xs:element name="DatumPlatnostiOd" type="rt:DatumPlatnostiType"/>
+            <xs:element name="DatumPlatnostiDo" type="rt:DatumPlatnostiType"/>
+            <xs:element name="DatumCasUdrzbaPosledni" type="rt:DatumCasUdrzbaPosledniType"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="PolozkaProgramRozpoctovyType">
+        <xs:sequence>
+            <xs:element name="Kapitola" type="rt:KapitolaType"/>
+            <xs:element name="ProgramRozpoctovy" type="rt:ProgramRozpoctovyType"/>
+            <xs:element name="RozpoctovatelnePriznak" type="rt:PriznakType"/>
+            <xs:element name="UctovatelnePriznak" type="rt:PriznakType"/>
+            <xs:element maxOccurs="unbounded" minOccurs="1" name="Text" type="TextType"/>
+            <xs:element name="DatumPlatnostiOd" type="rt:DatumPlatnostiType"/>
+            <xs:element name="DatumPlatnostiDo" type="rt:DatumPlatnostiType"/>
+            <xs:element name="DatumCasUdrzbaPosledni" type="rt:DatumCasUdrzbaPosledniType"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="PolozkaStrukturaPrijmovaVydajovaType">
+        <xs:sequence>
+            <xs:element name="Kapitola" type="rt:KapitolaType"/>
+            <xs:element name="StrukturaPrijmovaVydajova" type="rt:StrukturaPrijmovaVydajovaType"/>
+            <xs:element name="PrijemPriznak" type="rt:PriznakType"/>
+            <xs:element name="VydejPriznak" type="rt:PriznakType"/>
+            <xs:element name="RozpoctovatelnePriznak" type="rt:PriznakType"/>
+            <xs:element name="UctovatelnePriznak" type="rt:PriznakType"/>
+            <xs:element name="UkazatelSpecifickyPriznak" type="rt:PriznakType"/>
+            <xs:element minOccurs="0" name="Nadrizeny" type="rt:StrukturaPrijmovaVydajovaType"/>
+            <xs:element minOccurs="0" name="Zdroj" type="rt:ZdrojType"/>
+            <xs:element minOccurs="0" name="MistoFinancni" type="rt:MistoFinancniType"/>
+            <xs:element maxOccurs="unbounded" minOccurs="1" name="Text" type="TextType"/>
+            <xs:element name="DatumPlatnostiOd" type="rt:DatumPlatnostiType"/>
+            <xs:element name="DatumPlatnostiDo" type="rt:DatumPlatnostiType"/>
+            <xs:element name="DatumCasUdrzbaPosledni" type="rt:DatumCasUdrzbaPosledniType"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="PolozkaUkazatelZavaznyType">
+        <xs:sequence>
+            <xs:element name="Kapitola" type="rt:KapitolaType"/>
+            <xs:element name="UkazatelZavazny" type="rt:UkazatelZavaznyType"/>
+            <xs:element name="Typ" type="rt:UkazatelZavaznyTypType"/>
+            <xs:element minOccurs="0" name="Nadrizeny" type="rt:UkazatelZavaznyType"/>
+            <xs:element minOccurs="0" name="RadkaFinancni" type="rt:RadkaFinancniType"/>
+            <xs:element minOccurs="0" name="KlicTridici" type="rt:KlicTridiciType"/>
+            <xs:element maxOccurs="unbounded" minOccurs="1" name="Text" type="TextType"/>
+            <xs:element name="DatumPlatnostiOd" type="rt:DatumPlatnostiType"/>
+            <xs:element name="DatumPlatnostiDo" type="rt:DatumPlatnostiType"/>
+            <xs:element name="DatumCasUdrzbaPosledni" type="rt:DatumCasUdrzbaPosledniType"/>
+            <xs:element maxOccurs="unbounded" name="Algoritmus" type="UkazatelZavaznyAlgoritmusPolozkaType"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="PolozkaZdrojType">
+        <xs:sequence>
+            <xs:element name="Zdroj" type="rt:ZdrojType"/>
+            <xs:element name="RozpoctovatelnePriznak" type="rt:PriznakType"/>
+            <xs:element name="UctovatelnePriznak" type="rt:PriznakType"/>
+            <xs:element name="PripravaRozpocetPriznak" type="rt:PriznakType"/>
+            <xs:element maxOccurs="unbounded" minOccurs="1" name="Text" type="TextType"/>
+            <xs:element name="DatumPlatnostiOd" type="rt:DatumPlatnostiType"/>
+            <xs:element name="DatumPlatnostiDo" type="rt:DatumPlatnostiType"/>
+            <xs:element name="DatumCasUdrzbaPosledni" type="rt:DatumCasUdrzbaPosledniType"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="PolozkaZnakUcelovyType">
+        <xs:sequence>
+            <xs:element name="ZnakUcelovy" type="rt:ZnakUcelovy1Type"/>
+            <xs:element maxOccurs="unbounded" minOccurs="1" name="Text" type="TextType"/>
+            <xs:element name="DatumPlatnostiOd" type="rt:DatumPlatnostiType"/>
+            <xs:element name="DatumPlatnostiDo" type="rt:DatumPlatnostiType"/>
+            <xs:element name="DatumCasUdrzbaPosledni" type="rt:DatumCasUdrzbaPosledniType"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="PolozkaUcelType">
+        <xs:sequence>
+            <xs:element name="Ucel" type="rt:Ucel1Type"/>
+            <xs:element name="RozpoctovatelnePriznak" type="rt:PriznakType"/>
+            <xs:element name="UctovatelnePriznak" type="rt:PriznakType"/>
+            <xs:element maxOccurs="unbounded" minOccurs="1" name="Text" type="TextType"/>
+            <xs:element name="DatumPlatnostiOd" type="rt:DatumPlatnostiType"/>
+            <xs:element name="DatumPlatnostiDo" type="rt:DatumPlatnostiType"/>
+            <xs:element name="DatumCasUdrzbaPosledni" type="rt:DatumCasUdrzbaPosledniType"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="TextType">
+        <xs:sequence>
+            <xs:element minOccurs="1" name="Nazev" type="rt:DataKmenovaRozpoctovaNazev20Type" maxOccurs="1"/>
+            <xs:element minOccurs="1" name="Popis" type="rt:DataKmenovaRozpoctovaPopis60Type" maxOccurs="1"/>
+            <xs:element maxOccurs="1" minOccurs="1" name="PopisDlouhy" type="rt:DataKmenovaRozpoctovaPopis255Type"/>
+        </xs:sequence>
+        <xs:attribute name="DatumPlatnostiOd" type="xs:date" use="required">
+            <xs:annotation>
+                <xs:documentation>
+                    Spodní hranice platnosti sady textů.
+                </xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="DatumPlatnostiDo" type="xs:date" use="required">
+            <xs:annotation>
+                <xs:documentation>
+                    Horní hranice platnosti sady textů.
+                </xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+    </xs:complexType>
+    <xs:complexType name="UkazatelZavaznyAlgoritmusPolozkaType">
+        <xs:sequence>
+            <xs:element name="Znamenko" type="rt:ZnamenkoType"/>
+            <xs:element name="PolozkaRozpoctova" type="rt:PolozkaRozpoctovaType"/>
+            <xs:element name="MistoFinancni" type="rt:MistoFinancniType"/>
+            <xs:element name="Zdroj" type="rt:ZdrojType"/>
+            <xs:element name="Paragraf" type="rt:ParagrafType"/>
+            <xs:element name="EdsSmvsAkce" type="rt:EdsSmvsAkceType"/>
+            <xs:element name="StrukturaPrijmovaVydajova" type="rt:StrukturaPrijmovaVydajovaType"/>
+        </xs:sequence>
+    </xs:complexType>
+</xs:schema>

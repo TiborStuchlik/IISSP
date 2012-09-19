@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+    xmlns="urn:cz:mfcr:iissp:schemas:RisrePortalAplikace:v1"
+    xmlns:rt="urn:cz:mfcr:iissp:schemas:Risre:Types:v1"
+    xmlns:cct="urn:cz:isvs:micr:schemas:CoreComponentTypes:v1"
+    xmlns:dc="http://purl.org/dc/elements/1.1/"
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dcterm="http://purl.org/dc/terms/"
+    attributeFormDefault="unqualified" elementFormDefault="qualified"
+    targetNamespace="urn:cz:mfcr:iissp:schemas:RisrePortalAplikace:v1" version="1.00"
+    xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:risre="urn:cz:mfcr:iissp:schemas:Risre:v1">
+    <xs:annotation>
+        <xs:documentation xml:lang="cz">Definice XML schématu se strukturou pro přenos dat přeúčtování skutečnosti</xs:documentation>
+        <xs:appinfo>
+            <rdf:RDF>
+                <rdf:Description rdf:about="urn:cz:mfcr:iissp:schemas:RisrePortalAplikace:v1" xml:lang="cz">
+                    <dc:creator>Tomas Toth (ttoth@email.cz)</dc:creator>
+                    <dc:contributor>TOTHT 2012-07-12T12:00:00Z</dc:contributor>
+                    <dc:description>Definice XML schématu se strukturou pro přenos dat přeúčtování skutečnosti</dc:description>
+                    <dc:identifier>urn:cz:mfcr:iissp:schemas:RisrePortalAplikace:v1</dc:identifier>
+                    <dc:publisher>Ministerstvo financí ČR</dc:publisher>
+                    <dc:rights>Ministerstvo financí ČR</dc:rights>
+                    <dc:type>XML Schema</dc:type>
+                    <dcterm:created>20120712</dcterm:created>
+                    <dc:subject>Datové prvky; Informační systémy veřejné správy; IISSP;</dc:subject>
+                    <dc:format>application/xml</dc:format>
+                </rdf:Description>
+            </rdf:RDF>
+        </xs:appinfo>
+    </xs:annotation>
+    <xs:import namespace="urn:cz:mfcr:iissp:schemas:Risre:Types:v1"
+        schemaLocation="iissp_risre_types.xsd"/>
+    <xs:import namespace="urn:cz:isvs:micr:schemas:CoreComponentTypes:v1"
+        schemaLocation="CoreComponentTypes.xsd"/>
+    <xs:import namespace="http://www.w3.org/2000/09/xmldsig#" schemaLocation="xmldsig.xsd"/>
+    <xs:import namespace="urn:cz:mfcr:iissp:schemas:Risre:v1" schemaLocation="iissp_risre.xsd"/>
+    <xs:element name="DataRozpocetSkutecnostPreuctovani"
+        type="DataRozpocetSkutecnostPreuctovaniType"/>
+    <xs:element name="DataRozpocetSkutecnostPreuctovaniVysledek"
+        type="DataRozpocetSkutecnostPreuctovaniVysledekType"/>
+    <xs:complexType name="DataRozpocetSkutecnostPreuctovaniType">
+        <xs:sequence>
+            <xs:element name="RozpocetSkutecnostPreuctovani"
+                type="RozpocetSkutecnostPreuctovaniType">
+                <xs:annotation>
+                    <xs:documentation>Root element, pro který se vytváří digitální podpis.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element minOccurs="0" ref="ds:Signature" maxOccurs="1"/>
+        </xs:sequence>
+        <xs:attribute name="DavkaID" type="xs:ID" use="required">
+            <xs:annotation>
+                <xs:documentation>Identifikátor dávky požadavků přeúčtování skutečnosti.</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+    </xs:complexType>
+    <xs:complexType name="RozpocetSkutecnostPreuctovaniType">
+        <xs:sequence>
+            <xs:element name="Polozka" type="RozpocetSkutecnostPreuctovaniPolozkaType"
+                maxOccurs="unbounded"/>
+        </xs:sequence>
+        <xs:attribute name="ID" type="xs:ID" use="optional">
+            <xs:annotation>
+                <xs:documentation>Identifikátor části zprávy pro použití v digitálním podpisu</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+    </xs:complexType>
+    <xs:complexType name="RozpocetSkutecnostPreuctovaniPolozkaType">
+        <xs:sequence>
+            <xs:element name="Druh" type="DruhType"/>
+            <xs:element name="IdentifikatorExterni" type="IdentifikatorExterniType"/>
+            <xs:element minOccurs="0" name="Poznamka" type="PoznamkaType"/>
+            <xs:element name="Datum" type="cct:DatumType"/>
+            <xs:element maxOccurs="999" minOccurs="1" name="Polozka" type="PreuctovaniPolozkaType"/>
+        </xs:sequence>
+        <xs:attribute name="Cislo" type="xs:positiveInteger" use="required">
+            <xs:annotation>
+                <xs:documentation>Pořadové číslo položky</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+    </xs:complexType>
+    <xs:complexType name="DruhType">
+        <xs:simpleContent>
+            <xs:restriction base="cct:TextType">
+                <xs:minLength value="2"/>
+                <xs:maxLength value="2"/>
+            </xs:restriction>
+        </xs:simpleContent>
+    </xs:complexType>
+    <xs:complexType name="IdentifikatorExterniType">
+        <xs:simpleContent>
+            <xs:restriction base="cct:TextType">
+                <xs:minLength value="1"/>
+                <xs:maxLength value="20"/>
+            </xs:restriction>
+        </xs:simpleContent>
+    </xs:complexType>
+    <xs:complexType name="PoznamkaType">
+        <xs:simpleContent>
+            <xs:restriction base="cct:TextType">
+                <xs:minLength value="1"/>
+                <xs:maxLength value="80"/>
+            </xs:restriction>
+        </xs:simpleContent>
+    </xs:complexType>
+    <xs:complexType name="PreuctovaniPolozkaType">
+        <xs:sequence>
+            <xs:element name="Cislo" type="PolozkaCisloType"/>
+            <xs:element minOccurs="0" name="Odesilatel" type="rt:PriznakType"/>
+            <xs:element minOccurs="0" name="Prijemce" type="rt:PriznakType"/>
+            <xs:element name="Castka" type="rt:CastkaType"/>
+            <xs:element minOccurs="0" name="Text" type="PolozkaTextType"/>
+            <xs:element name="MistoFinancni" type="rt:MistoFinancniType"/>
+            <xs:element name="Zdroj" type="rt:ZdrojType"/>
+            <xs:element name="Paragraf" type="rt:ParagrafType"/>
+            <xs:element name="PolozkaRozpoctova" type="rt:PolozkaRozpoctovaType"/>
+            <xs:element minOccurs="0" name="EdsSmvsAkce" type="rt:EdsSmvsAkce1Type"/>
+            <xs:element minOccurs="1" name="StrukturaPrijmovaVydajova"
+                type="rt:StrukturaPrijmovaVydajovaType"/>
+            <xs:element minOccurs="0" name="Ucel" type="rt:Ucel1Type"/>
+            <xs:element minOccurs="0" name="JednotkaZaznamova" type="rt:JednotkaZaznamova1Type"/>
+            <xs:element minOccurs="0" name="JednotkaUzemni" type="rt:JednotkaUzemni1Type"/>
+            <xs:element minOccurs="0" name="ZnakUcelovy" type="rt:ZnakUcelovy1Type"/>
+            <xs:element name="RezervaceCislo" type="rt:RezervaceCislo1Type" minOccurs="0"/>
+            <xs:element name="RezervacePolozkaCislo" type="rt:RezervacePolozkaCisloType"
+                minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="PolozkaCisloType">
+        <xs:simpleContent>
+            <xs:restriction base="cct:TextType">
+                <xs:minLength value="1"/>
+                <xs:maxLength value="3"/>
+            </xs:restriction>
+        </xs:simpleContent>
+    </xs:complexType>
+    <xs:complexType name="PolozkaTextType">
+        <xs:simpleContent>
+            <xs:restriction base="cct:TextType">
+                <xs:minLength value="1"/>
+                <xs:maxLength value="60"/>
+            </xs:restriction>
+        </xs:simpleContent>
+    </xs:complexType>
+    <xs:complexType name="UcetBankovni">
+        <xs:simpleContent>
+            <xs:restriction base="cct:TextType">
+                <xs:minLength value="1"/>
+                <xs:maxLength value="20"/>
+            </xs:restriction>
+        </xs:simpleContent>
+    </xs:complexType>
+    <xs:complexType name="DataRozpocetSkutecnostPreuctovaniVysledekType">
+        <xs:sequence>
+            <xs:element name="RozpocetSkutecnostPreuctovaniVysledek"
+                type="RozpocetSkutecnostPreuctovaniVysledekType"/>
+            <xs:element minOccurs="0" ref="ds:Signature"/>
+        </xs:sequence>
+        <xs:attribute name="DavkaID" type="xs:ID" use="required">
+            <xs:annotation>
+                <xs:documentation>Původní identifikátor dávky požadavků přeúčtování skutečnosti.</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+    </xs:complexType>
+    <xs:complexType name="RozpocetSkutecnostPreuctovaniVysledekType">
+        <xs:sequence>
+            <xs:element maxOccurs="unbounded" name="Polozka"
+                type="RozpocetSkutecnostPreuctovaniPolozkaVysledekType"/>
+        </xs:sequence>
+        <xs:attribute name="ID" type="xs:ID" use="optional">
+            <xs:annotation>
+                <xs:documentation>Identifikátor části zprávy pro použití v digitálním podpisu</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+    </xs:complexType>
+    <xs:complexType name="RozpocetSkutecnostPreuctovaniPolozkaVysledekType">
+        <xs:sequence>
+            <xs:element name="PreuctovaniSkutecnostiVysledek"
+                type="PreuctovaniSkutecnostiVysledekType"/>
+        </xs:sequence>
+        <xs:attribute name="Cislo" type="xs:positiveInteger" use="required">
+            <xs:annotation>
+                <xs:documentation>Pořadové číslo položky. Číslování položek je shodné s číslování v seznamu s daty pro přeúčtování skutečnosti (XPath /DataRozpocetSkutecnostPreuctovani/RozpocetSkutecnostPreuctovani/Polozka/@Cislo) a je určené pro párování výsledků zpracování a původních dat. </xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+    </xs:complexType>
+    <xs:complexType name="PreuctovaniSkutecnostiVysledekType">
+        <xs:sequence>
+            <xs:element minOccurs="0" name="PreuctovaniSkutecnostiIdentifikace"
+                type="PreuctovaniSkutecnostiIdentifikaceType"/>
+            <xs:element minOccurs="1" name="ZpracovaniVysledek" type="risre:ZpracovaniHlaseniType"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="PreuctovaniSkutecnostiIdentifikaceType">
+        <xs:sequence>
+            <xs:element name="DokladCislo" type="DokladCisloType"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="DokladCisloType">
+        <xs:simpleContent>
+            <xs:restriction base="cct:TextType">
+                <xs:minLength value="1"/>
+                <xs:maxLength value="10"/>
+            </xs:restriction>
+        </xs:simpleContent>
+    </xs:complexType>
+</xs:schema>

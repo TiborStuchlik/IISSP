@@ -1,0 +1,64 @@
+﻿<msg:Envelope xmlns:msg="urn:cz:mfcr:iissp:schemas:Messaging:v1" xmlns:cmn="urn:cz:mfcr:iissp:schemas:Common:v1" xmlns:risre="urn:cz:mfcr:iissp:schemas:Risre:v1">
+    <msg:EnvelopeHeader>
+        <cmn:TransactionId>00000000000000000001</cmn:TransactionId>
+        <msg:DateTimeCreated>2011-05-01T00:00:00Z</msg:DateTimeCreated>
+        <msg:Sender>
+            <cmn:IC>00006947</cmn:IC>
+            <cmn:SubjectName>Fiktivní EKIS_TEST</cmn:SubjectName>
+            <cmn:ResponsiblePerson>
+                <cmn:PersonName>Jan Novak</cmn:PersonName>
+                <cmn:Email>Jan.Novak@mfcr.cz</cmn:Email>
+                <cmn:PersonId>MU0999000035</cmn:PersonId>
+            </cmn:ResponsiblePerson>
+        </msg:Sender>
+        <msg:Recipient>
+            <cmn:IC>00006947</cmn:IC>
+            <cmn:SubjectName>Ministerstvo financí</cmn:SubjectName>
+            <cmn:Module>RISRE</cmn:Module>
+        </msg:Recipient>
+    </msg:EnvelopeHeader>
+    <msg:EnvelopeBody>
+        <risre:ZpravaRisre>
+            <risre:Rezervace>
+                <risre:RezervaceTyp>3</risre:RezervaceTyp>
+                <risre:RezervaceDruh>RP</risre:RezervaceDruh>
+                <!-- bude nahrazeno konkrétní hodnotou z odesílajícího systému -->
+                <risre:DokladPuvodniCislo>0000000006</risre:DokladPuvodniCislo>
+                <!-- bude nahrazeno konkrétní hodnotou z odesílajícího systému -->
+                <risre:RozpocetAktualizaceDatum>2011-12-01</risre:RozpocetAktualizaceDatum>
+                <!-- bude nahrazeno konkrétní hodnotou z odesílajícího systému -->
+                <risre:Popis>Rezervace - inkaso - Voda</risre:Popis>
+                <!-- bude nahrazeno konkrétní hodnotou z odesílajícího systému -->
+                <risre:KontrolaRidiciPriznak>true</risre:KontrolaRidiciPriznak>
+                <!-- bude nahrazeno konkrétní hodnotou z odesílajícího systému -->
+                <risre:RezervaceInkasniPriznak>true</risre:RezervaceInkasniPriznak>
+                <!-- bude nahrazeno konkrétní hodnotou z odesílajícího systému -->
+                <risre:OrganizaceInkasujiciUcetBankovniCislo>99999999</risre:OrganizaceInkasujiciUcetBankovniCislo>
+                <!-- bude nahrazeno konkrétní hodnotou z odesílajícího systému -->
+                <risre:OrganizaceInkasujiciUcetBankaKod>0300</risre:OrganizaceInkasujiciUcetBankaKod>
+                <!-- bude nahrazeno konkrétní hodnotou z odesílajícího systému -->
+                <risre:SymbolVariabilni>123456789</risre:SymbolVariabilni>
+                <!-- bude nahrazeno konkrétní hodnotou z odesílajícího systému -->
+                <risre:SymbolSpecificky>0308</risre:SymbolSpecificky>
+                <risre:Polozka>
+                    <!-- bude nahrazeno konkrétní hodnotou z odesílajícího systému -->
+                    <risre:Cislo>1</risre:Cislo>
+                    <!-- bude nahrazeno konkrétní hodnotou z odesílajícího systému -->
+                    <risre:SplatnostDatum>2011-12-31</risre:SplatnostDatum>
+                    <!-- bude nahrazeno konkrétní hodnotou z odesílajícího systému -->
+                    <risre:Castka menaKod="CZK">100000</risre:Castka>
+                    <!-- bude nahrazeno konkrétní hodnotou z odesílajícího systému -->
+                    <risre:MistoFinancni>3120003</risre:MistoFinancni>
+                    <!-- bude nahrazeno konkrétní hodnotou z odesílajícího systému -->
+                    <risre:Zdroj>1100000</risre:Zdroj>
+                    <!-- bude nahrazeno konkrétní hodnotou z odesílajícího systému -->
+                    <risre:Paragraf>614300</risre:Paragraf>
+                    <!-- bude nahrazeno konkrétní hodnotou z odesílajícího systému -->
+                    <risre:PolozkaRozpoctova>5151</risre:PolozkaRozpoctova>
+                    <!-- bude nahrazeno konkrétní hodnotou z odesílajícího systému -->
+                    <risre:StrukturaPrijmovaVydajova>5030020011</risre:StrukturaPrijmovaVydajova>
+                </risre:Polozka>
+            </risre:Rezervace>
+        </risre:ZpravaRisre>
+    </msg:EnvelopeBody>
+</msg:Envelope>

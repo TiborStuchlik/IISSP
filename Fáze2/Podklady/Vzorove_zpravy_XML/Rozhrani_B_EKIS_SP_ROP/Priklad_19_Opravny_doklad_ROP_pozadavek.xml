@@ -1,0 +1,85 @@
+﻿<msg:Envelope xmlns:msg="urn:cz:mfcr:iissp:schemas:Messaging:v1" xmlns:cmn="urn:cz:mfcr:iissp:schemas:Common:v1" xmlns:risre="urn:cz:mfcr:iissp:schemas:Risre:v1">
+    <msg:EnvelopeHeader>
+        <cmn:TransactionId>00000000000000000001</cmn:TransactionId>
+        <msg:DateTimeCreated>2011-05-01T00:00:00Z</msg:DateTimeCreated>
+        <msg:Sender>
+            <cmn:IC>00006947</cmn:IC>
+            <cmn:SubjectName>Fiktivní EKIS_TEST</cmn:SubjectName>
+            <cmn:ResponsiblePerson>
+                <cmn:PersonName>Jan Novak</cmn:PersonName>
+                <cmn:Email>Jan.Novak@mfcr.cz</cmn:Email>
+                <cmn:PersonId>MU0999000035</cmn:PersonId>
+            </cmn:ResponsiblePerson>
+        </msg:Sender>
+        <msg:Recipient>
+            <cmn:IC>00006947</cmn:IC>
+            <cmn:SubjectName>Ministerstvo financí</cmn:SubjectName>
+            <cmn:Module>RISRE</cmn:Module>
+        </msg:Recipient>
+    </msg:EnvelopeHeader>
+    <msg:EnvelopeBody>
+        <risre:ZpravaRisre>
+            <risre:RozpoctoveOpatreni>
+                <!-- bude nahrazeno konkrétní hodnotou z odesílajícího systému -->
+                <risre:Kapitola>312</risre:Kapitola>
+                <!-- bude nahrazeno konkrétní hodnotou z odesílajícího systému -->
+                <risre:Rok>2011</risre:Rok>
+                <!-- bude nahrazeno konkrétní hodnotou z odesílajícího systému -->
+                <risre:DokladPuvodniCislo>1252031</risre:DokladPuvodniCislo>
+                <!-- bude nahrazeno konkrétní hodnotou z odesílajícího systému -->
+                <risre:DokladPuvodniDatum>2011-03-01</risre:DokladPuvodniDatum>
+                <!-- pro tento typ zprávy vyplněna konstanta --> 
+                <risre:OperaceTyp>4</risre:OperaceTyp>
+                <!-- bude nahrazeno konkrétní hodnotou z odesílajícího systému -->
+                <risre:CisloJednaciOrganizacniSlozkaStatu>1122334455</risre:CisloJednaciOrganizacniSlozkaStatu>
+                <!-- bude nahrazeno konkrétní hodnotou z odesílajícího systému -->
+                <risre:PracovnikOrganizacniSlozkaStatu>Jan Novák</risre:PracovnikOrganizacniSlozkaStatu>
+                <!-- bude nahrazeno konkrétní hodnotou z odesílajícího systému -->
+                <risre:DokladText>Snížení RP 5011 a navýšení RP 5012 - STORNO</risre:DokladText>
+                <!-- bude nahrazeno konkrétní hodnotou z odesílajícího systému -->
+                <risre:TextDoprovodny>Snížení RP 5011 a navýšení RP 5012 - STORNO</risre:TextDoprovodny>
+                <risre:DokladOpravnyCislo>1252014</risre:DokladOpravnyCislo>
+                <risre:Polozka>
+                    <!-- bude nahrazeno konkrétní hodnotou z odesílajícího systému -->
+                    <risre:Cislo>1</risre:Cislo>
+                    <!-- bude nahrazeno konkrétní hodnotou z odesílajícího systému -->
+                    <risre:Castka menaKod="CZK">1000</risre:Castka>
+                    <!-- bude nahrazeno konkrétní hodnotou z odesílajícího systému -->
+                    <risre:PolozkaRozpoctova>5011</risre:PolozkaRozpoctova>
+                    <!-- bude nahrazeno konkrétní hodnotou z odesílajícího systému -->
+                    <risre:MistoFinancni>3120002</risre:MistoFinancni>
+                    <!-- bude nahrazeno konkrétní hodnotou z odesílajícího systému -->
+                    <risre:Zdroj>1100000</risre:Zdroj>
+                    <!-- bude nahrazeno konkrétní hodnotou z odesílajícího systému -->
+                    <risre:Paragraf>6145</risre:Paragraf>
+                    <!-- pro tento typ zprávy vyplněna konstanta -->
+                    <risre:RozpocetDruh>RZ</risre:RozpocetDruh>
+                    <!-- bude nahrazeno konkrétní hodnotou z odesílajícího systému -->
+                    <risre:StrukturaPrijmovaVydajova>5010010011</risre:StrukturaPrijmovaVydajova>
+                    <!-- bude nahrazeno konkrétní hodnotou z odesílajícího systému -->
+                    <risre:Text>Polozka 1</risre:Text>
+                </risre:Polozka>
+                <risre:Polozka>
+                    <!-- bude nahrazeno konkrétní hodnotou z odesílajícího systému -->
+                    <risre:Cislo>2</risre:Cislo>
+                    <!-- bude nahrazeno konkrétní hodnotou z odesílajícího systému -->
+                    <risre:Castka menaKod="CZK">-1000</risre:Castka>
+                    <!-- bude nahrazeno konkrétní hodnotou z odesílajícího systému -->
+                    <risre:PolozkaRozpoctova>5012</risre:PolozkaRozpoctova>
+                    <!-- bude nahrazeno konkrétní hodnotou z odesílajícího systému -->
+                    <risre:MistoFinancni>3120002</risre:MistoFinancni>
+                    <!-- bude nahrazeno konkrétní hodnotou z odesílajícího systému -->
+                    <risre:Zdroj>1100000</risre:Zdroj>
+                    <!-- bude nahrazeno konkrétní hodnotou z odesílajícího systému -->
+                    <risre:Paragraf>6145</risre:Paragraf>
+                    <!-- pro tento typ zprávy vyplněna konstanta -->
+                    <risre:RozpocetDruh>RZ</risre:RozpocetDruh>
+                    <!-- bude nahrazeno konkrétní hodnotou z odesílajícího systému -->
+                    <risre:StrukturaPrijmovaVydajova>5010010011</risre:StrukturaPrijmovaVydajova>
+                    <!-- bude nahrazeno konkrétní hodnotou z odesílajícího systému -->
+                    <risre:Text>Polozka 2</risre:Text>
+                </risre:Polozka>
+            </risre:RozpoctoveOpatreni>
+        </risre:ZpravaRisre>
+    </msg:EnvelopeBody>
+</msg:Envelope>

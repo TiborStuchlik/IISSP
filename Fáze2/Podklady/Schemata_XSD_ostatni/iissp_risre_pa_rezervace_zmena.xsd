@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+    xmlns="urn:cz:mfcr:iissp:schemas:RisrePortalAplikace:v1"
+    xmlns:dc="http://purl.org/dc/elements/1.1/"
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dcterm="http://purl.org/dc/terms/"
+    attributeFormDefault="unqualified" elementFormDefault="qualified"
+    targetNamespace="urn:cz:mfcr:iissp:schemas:RisrePortalAplikace:v1" version="1.00"
+    xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:risre="urn:cz:mfcr:iissp:schemas:Risre:v1">
+    <xs:annotation>
+        <xs:documentation xml:lang="cz">Definice XML schématu se strukturou pro přenos dat pro změnu rezervace</xs:documentation>
+        <xs:appinfo>
+            <rdf:RDF>
+                <rdf:Description rdf:about="urn:cz:mfcr:iissp:schemas:RisrePortalAplikace:v1" xml:lang="cz">
+                    <dc:creator>Tomas Toth (ttoth@email.cz)</dc:creator>
+                    <dc:contributor>TOTHT 2012-07-12T12:00:00Z</dc:contributor>
+                    <dc:description>Definice XML schématu se strukturou pro přenos dat pro změnu rezervace</dc:description>
+                    <dc:identifier>urn:cz:mfcr:iissp:schemas:RisrePortalAplikace:v1</dc:identifier>
+                    <dc:publisher>Ministerstvo financí ČR</dc:publisher>
+                    <dc:rights>Ministerstvo financí ČR</dc:rights>
+                    <dc:type>XML Schema</dc:type>
+                    <dcterm:created>20120712</dcterm:created>
+                    <dc:subject>Datové prvky; Informační systémy veřejné správy; IISSP;</dc:subject>
+                    <dc:format>application/xml</dc:format>
+                </rdf:Description>
+            </rdf:RDF>
+        </xs:appinfo>
+    </xs:annotation>
+    <xs:import namespace="urn:cz:mfcr:iissp:schemas:Risre:v1" schemaLocation="iissp_risre.xsd"/>
+    <xs:import namespace="http://www.w3.org/2000/09/xmldsig#" schemaLocation="xmldsig.xsd"/>
+    <xs:element name="DataRezervaceZmena" type="DataRezervaceZmenaType"/>
+    <xs:element name="DataRezervaceZmenaVysledek" type="DataRezervaceZmenaVysledekType"/>
+    <xs:complexType name="DataRezervaceZmenaType">
+        <xs:sequence>
+            <xs:element name="RezervaceZmenaSeznam" type="RezervaceZmenaSeznamType">
+                <xs:annotation>
+                    <xs:documentation>Root element, pro který se vytváří digitální podpis.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element minOccurs="1" ref="ds:Signature"/>
+        </xs:sequence>
+        <xs:attribute name="DavkaID" type="xs:ID" use="required">
+            <xs:annotation>
+                <xs:documentation>Identifikátor dávky požadavků na změnu rezervací.</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+    </xs:complexType>
+    <xs:complexType name="RezervaceZmenaSeznamType">
+        <xs:sequence>
+            <xs:element maxOccurs="100" name="Polozka" type="RezervaceZmenaSeznamPolozkaType"/>
+        </xs:sequence>
+        <xs:attribute name="ID" type="xs:ID" use="optional">
+            <xs:annotation>
+                <xs:documentation>Identifikátor části zprávy pro použití v digitálním podpisu</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+    </xs:complexType>
+    <xs:complexType name="RezervaceZmenaSeznamPolozkaType">
+        <xs:sequence>
+            <xs:element ref="risre:RezervaceZmena"/>
+        </xs:sequence>
+        <xs:attribute name="Cislo" type="xs:positiveInteger" use="required">
+            <xs:annotation>
+                <xs:documentation>Pořadové číslo položky</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+    </xs:complexType>
+    <xs:complexType name="DataRezervaceZmenaVysledekType">
+        <xs:sequence>
+            <xs:element name="RezervaceZmenaSeznamVysledek" type="RezervaceZmenaSeznamVysledekType"/>
+            <xs:element minOccurs="0" ref="ds:Signature"/>
+        </xs:sequence>
+        <xs:attribute name="DavkaID" type="xs:ID" use="required">
+            <xs:annotation>
+                <xs:documentation>Původní identifikátor dávky požadavků na změnu rezervací.</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+    </xs:complexType>
+    <xs:complexType name="RezervaceZmenaSeznamVysledekType">
+        <xs:sequence>
+            <xs:element maxOccurs="100" name="Polozka"
+                type="RezervaceZmenaSeznamPolozkaVysledekType"/>
+        </xs:sequence>
+        <xs:attribute name="ID" type="xs:ID" use="optional">
+            <xs:annotation>
+                <xs:documentation>Identifikátor části zprávy pro použití v digitálním podpisu</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+    </xs:complexType>
+    <xs:complexType name="RezervaceZmenaSeznamPolozkaVysledekType">
+        <xs:sequence>
+            <xs:element ref="risre:RezervaceZmenaVysledek"/>
+        </xs:sequence>
+        <xs:attribute name="Cislo" type="xs:positiveInteger" use="required">
+            <xs:annotation>
+                <xs:documentation>Pořadové číslo položky. Číslování položek je shodné s číslování v seznamu s daty pro aktualizace rezervací (XPath /DataRezervaceZmena/RezervaceZmenaSeznam/Polozka/@Cislo) a je určené pro párování výsledků zpracování a původních dat. </xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+    </xs:complexType>
+</xs:schema>

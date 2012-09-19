@@ -1,0 +1,735 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	xmlns="urn:cz:mfcr:iissp:schemas:Risre:Types:v1"
+	xmlns:cct="urn:cz:isvs:micr:schemas:CoreComponentTypes:v1"
+	xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+	xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:dcterm="http://purl.org/dc/terms/"
+	xmlns:xml="http://www.w3.org/XML/1998/namespace"
+	targetNamespace="urn:cz:mfcr:iissp:schemas:Risre:Types:v1" elementFormDefault="qualified"
+	attributeFormDefault="unqualified" version="1.00">
+	<xs:import namespace="urn:cz:isvs:micr:schemas:CoreComponentTypes:v1"
+		schemaLocation="CoreComponentTypes.xsd"/>
+	<xs:annotation>
+		<xs:documentation xml:lang="cz">Definice typů pro XSD schémata IISSP RISRE</xs:documentation>
+		<xs:appinfo>
+			<rdf:RDF>
+				<rdf:Description rdf:about="urn:cz:isvs:mfcr:schemas:Risre:v1" xml:lang="cz">
+					<dc:creator>Tomáš Tóth (ttoth@email.cz)</dc:creator>
+					<dc:contributor>TOTHT 2011-06-17T08:45:00Z</dc:contributor>
+					<dc:description>Definice typů pro XSD schémata IISSP RISRE</dc:description>
+					<dc:identifier>urn:cz:mfcr:iissp:schemas:Risre:Types:v1</dc:identifier>
+					<dc:publisher>Ministerstvo financí ČR</dc:publisher>
+					<dc:rights>Ministerstvo financí</dc:rights>
+					<dc:type>XML Schema</dc:type>
+					<dcterm:created>20110617</dcterm:created>
+					<dc:subject>Datové prvky; Informační systémy veřejné správy; IISSP;</dc:subject>
+					<dc:format>application/xml</dc:format>
+				</rdf:Description>
+			</rdf:RDF>
+		</xs:appinfo>
+	</xs:annotation>
+	<xs:complexType name="AplikaceHlavickaCisloType">
+		<xs:simpleContent>
+			<xs:restriction base="cct:TextType">
+				<xs:minLength value="1"/>
+				<xs:maxLength value="10"/>
+			</xs:restriction>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="AplikaceHlavickaRokType">
+		<xs:simpleContent>
+			<xs:restriction base="RokType"/>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="CastkaType">
+		<xs:simpleContent>
+			<xs:restriction base="cct:CenaType">
+				<xs:totalDigits value="17"/>
+				<xs:fractionDigits value="2"/>
+			</xs:restriction>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="CisloJednaciType">
+		<xs:simpleContent>
+			<xs:restriction base="cct:TextType">
+				<xs:maxLength value="50"/>
+				<xs:minLength value="1"/>
+			</xs:restriction>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="DataKmenovaRozpoctovaNazev20Type">
+		<xs:simpleContent>
+			<xs:restriction base="cct:TextType">
+				<xs:maxLength value="20"/>
+			</xs:restriction>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="DataKmenovaRozpoctovaPopis255Type">
+		<xs:simpleContent>
+			<xs:restriction base="cct:TextType">
+				<xs:maxLength value="255"/>
+			</xs:restriction>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="DataKmenovaRozpoctovaPopis60Type">
+		<xs:simpleContent>
+			<xs:restriction base="cct:TextType">
+				<xs:maxLength value="60"/>
+			</xs:restriction>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="DatumType">
+		<xs:annotation>
+			<xs:documentation>Obecné datum, vycházející z xs:date, které omezuje rozsah hodnot na 1.1.1900 - 31.12.2099 a speciální hodnotu 31.12.9999. Formát rrrr-mm-dd.</xs:documentation>
+			<xs:appinfo>
+				<rdf:RDF>
+					<rdf:Description>
+						<dc:creator>autor (e-mail)</dc:creator>
+						<dc:description>Obecné datum s omezením rozsahu přípustných hodnot</dc:description>
+						<dc:title>OBECNÉ DATUM S OMEZENÝM ROZSAHEM HODNOT</dc:title>
+						<dcterm:created>20111014</dcterm:created>
+						<dcterm:modified>20111014</dcterm:modified>
+					</rdf:Description>
+				</rdf:RDF>
+			</xs:appinfo>
+		</xs:annotation>
+		<xs:simpleContent>
+			<xs:restriction base="cct:DatumType">
+				<xs:pattern
+					value="((9){4}\-[1][2]\-[3][1])|((((20|19))\d{2})\-((02\-([0][1-9]|[1-2]\d))|(04|06|09|11)\-(30|[0][1-9]|[1-2]\d)|(01|03|05|07|08|10|12)\-(30|31|[0][1-9]|[1-2]\d)))"
+				/>
+			</xs:restriction>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="DatumCasRozsahDoType">
+		<xs:simpleContent>
+			<xs:restriction base="cct:DatumCasType"/>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="DatumCasRozsahOdType">
+		<xs:simpleContent>
+			<xs:restriction base="cct:DatumCasType"/>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="DatumCasUdrzbaPosledniType">
+		<xs:simpleContent>
+			<xs:extension base="cct:DatumCasType"/>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="DatumPlatnostiType">
+		<xs:simpleContent>
+			<xs:restriction base="DatumType"/>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="DokladDatumType">
+		<xs:simpleContent>
+			<xs:restriction base="DatumType"/>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="DokladDruhType">
+		<xs:simpleContent>
+			<xs:restriction base="cct:NazevType">
+				<xs:minLength value="1"/>
+				<xs:maxLength value="1"/>
+			</xs:restriction>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="DokladOpravnyCisloType">
+		<xs:simpleContent>
+			<xs:restriction base="cct:TextType">
+				<xs:maxLength value="20"/>
+				<xs:minLength value="1"/>
+			</xs:restriction>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="DokladPuvodniCisloType">
+		<xs:simpleContent>
+			<xs:restriction base="cct:TextType">
+				<xs:maxLength value="20"/>
+				<xs:minLength value="0"/>
+			</xs:restriction>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="DokladPuvodniCislo1Type">
+		<xs:simpleContent>
+			<xs:restriction base="DokladPuvodniCisloType">
+				<xs:minLength value="1"/>
+			</xs:restriction>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="DokladStatusType">
+		<xs:simpleContent>
+			<xs:restriction base="cct:TextType">
+				<xs:maxLength value="1"/>
+				<xs:minLength value="1"/>
+			</xs:restriction>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="DokladTextType">
+		<xs:simpleContent>
+			<xs:restriction base="cct:TextType">
+				<xs:maxLength value="50"/>
+				<xs:minLength value="1"/>
+			</xs:restriction>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="EdsSmvsAkceType">
+		<xs:simpleContent>
+			<xs:restriction base="cct:TextType">
+				<xs:minLength value="0"/>
+				<xs:maxLength value="15"/>
+			</xs:restriction>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="EdsSmvsAkce1Type">
+		<xs:simpleContent>
+			<xs:restriction base="EdsSmvsAkceType">
+				<xs:minLength value="1"/>
+			</xs:restriction>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="EdsSmvsDokladCisloType">
+		<xs:simpleContent>
+			<xs:restriction base="cct:TextType">
+				<xs:maxLength value="30"/>
+				<xs:minLength value="0"/>
+			</xs:restriction>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="EdsSmvsDokladCislo1Type">
+		<xs:simpleContent>
+			<xs:restriction base="EdsSmvsDokladCisloType">
+				<xs:minLength value="1"/>
+			</xs:restriction>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="IntervalKodType">
+		<xs:simpleContent>
+			<xs:restriction base="cct:TextType">
+				<xs:minLength value="1"/>
+				<xs:maxLength value="1"/>
+				<xs:enumeration value="1">
+					<xs:annotation>
+						<xs:documentation>Hodnota rovna spodí hranici výběru (RozsahOd) S touto volbou lze
+              využít zadávání přes hvězdičkovou '*'</xs:documentation>
+					</xs:annotation>
+				</xs:enumeration>
+				<xs:enumeration value="3">
+					<xs:annotation>
+						<xs:documentation>Hodnoty mezi spodní (RozsahOd) a horní (RozsahDo) hranicí
+              výběru</xs:documentation>
+					</xs:annotation>
+				</xs:enumeration>
+				<xs:enumeration value="6">
+					<xs:annotation>
+						<xs:documentation>Hodnoty menší než spodní hranice výběru (RozsahOd)</xs:documentation>
+					</xs:annotation>
+				</xs:enumeration>
+				<xs:enumeration value="7">
+					<xs:annotation>
+						<xs:documentation>Hodnoty menší nebo rovna spodní hranici výběru
+              (RozsahOd)</xs:documentation>
+					</xs:annotation>
+				</xs:enumeration>
+				<xs:enumeration value="8">
+					<xs:annotation>
+						<xs:documentation>Hodnoty větší než spodní hranice výběru (RozsahOd)</xs:documentation>
+					</xs:annotation>
+				</xs:enumeration>
+				<xs:enumeration value="9">
+					<xs:annotation>
+						<xs:documentation>Hodnoty větší nebo rovna spodní hranici výběru
+              (RozsahOd)</xs:documentation>
+					</xs:annotation>
+				</xs:enumeration>
+			</xs:restriction>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="JednotkaUzemniType">
+		<xs:simpleContent>
+			<xs:restriction base="cct:TextType">
+				<xs:maxLength value="6"/>
+				<xs:minLength value="0"/>
+			</xs:restriction>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="JednotkaUzemni1Type">
+		<xs:simpleContent>
+			<xs:restriction base="JednotkaUzemniType">
+				<xs:minLength value="1"/>
+			</xs:restriction>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="JednotkaZaznamovaType">
+		<xs:simpleContent>
+			<xs:restriction base="cct:TextType">
+				<xs:minLength value="0"/>
+				<xs:maxLength value="3"/>
+			</xs:restriction>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="JednotkaZaznamova1Type">
+		<xs:simpleContent>
+			<xs:restriction base="JednotkaZaznamovaType">
+				<xs:minLength value="1"/>
+			</xs:restriction>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="KapitolaType">
+		<xs:simpleContent>
+			<xs:restriction base="cct:TextType">
+				<xs:maxLength value="4"/>
+				<xs:minLength value="1"/>
+			</xs:restriction>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="KlicTridiciType">
+		<xs:simpleContent>
+			<xs:restriction base="cct:TextType">
+				<xs:minLength value="1"/>
+				<xs:maxLength value="4"/>
+			</xs:restriction>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="MistoFinancniType">
+		<xs:simpleContent>
+			<xs:restriction base="cct:TextType">
+				<xs:maxLength value="16"/>
+				<xs:minLength value="1"/>
+			</xs:restriction>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="MistoFinancniTypType">
+		<xs:simpleContent>
+			<xs:restriction base="cct:TextType">
+				<xs:maxLength value="1"/>
+				<xs:minLength value="1"/>
+			</xs:restriction>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="NarokDruhType">
+		<xs:simpleContent>
+			<xs:restriction base="cct:TextType">
+				<xs:maxLength value="1"/>
+				<xs:minLength value="1"/>
+			</xs:restriction>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="OperaceTypType">
+		<xs:simpleContent>
+			<xs:restriction base="cct:TextType">
+				<xs:maxLength value="2"/>
+				<xs:minLength value="1"/>
+			</xs:restriction>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="OrganizaceInkasujiciUcetBankaKodType">
+		<xs:simpleContent>
+			<xs:restriction base="cct:TextType">
+				<xs:minLength value="0"/>
+				<xs:maxLength value="4"/>
+			</xs:restriction>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="OrganizaceInkasujiciUcetBankaKod1Type">
+		<xs:simpleContent>
+			<xs:restriction base="OrganizaceInkasujiciUcetBankaKodType">
+				<xs:minLength value="1"/>
+			</xs:restriction>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="OrganizaceInkasujiciUcetBankovniCisloType">
+		<xs:simpleContent>
+			<xs:restriction base="cct:TextType">
+				<xs:minLength value="0"/>
+				<xs:maxLength value="16"/>
+			</xs:restriction>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="OrganizaceInkasujiciUcetBankovniCislo1Type">
+		<xs:simpleContent>
+			<xs:restriction base="OrganizaceInkasujiciUcetBankovniCisloType">
+				<xs:minLength value="1"/>
+			</xs:restriction>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="ParagrafType">
+		<xs:simpleContent>
+			<xs:restriction base="cct:TextType">
+				<xs:maxLength value="16"/>
+				<xs:minLength value="1"/>
+			</xs:restriction>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="PolozkaRozpoctovaType">
+		<xs:simpleContent>
+			<xs:restriction base="cct:TextType">
+				<xs:maxLength value="24"/>
+				<xs:minLength value="1"/>
+			</xs:restriction>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="PopisType">
+		<xs:simpleContent>
+			<xs:restriction base="cct:TextType">
+				<xs:minLength value="0"/>
+				<xs:maxLength value="4096"/>
+			</xs:restriction>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="Popis1Type">
+		<xs:simpleContent>
+			<xs:restriction base="PopisType">
+				<xs:minLength value="1"/>
+			</xs:restriction>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="PoznamkaType">
+		<xs:simpleContent>
+			<xs:restriction base="cct:TextType">
+				<xs:minLength value="0"/>
+				<xs:maxLength value="80"/>
+			</xs:restriction>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="Poznamka1Type">
+		<xs:simpleContent>
+			<xs:restriction base="PoznamkaType">
+				<xs:minLength value="1"/>
+			</xs:restriction>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="PracovnikKapitolaType">
+		<xs:simpleContent>
+			<xs:restriction base="cct:TextType">
+				<xs:maxLength value="50"/>
+				<xs:minLength value="1"/>
+			</xs:restriction>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="PracovnikOrganizacniSlozkaStatuType">
+		<xs:simpleContent>
+			<xs:restriction base="cct:TextType">
+				<xs:maxLength value="50"/>
+				<xs:minLength value="1"/>
+			</xs:restriction>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="PriznakType">
+		<xs:simpleContent>
+			<xs:restriction base="cct:IndikatorXmlType"/>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="ProgramRozpoctovyType">
+		<xs:simpleContent>
+			<xs:restriction base="cct:TextType">
+				<xs:minLength value="1"/>
+				<xs:maxLength value="24"/>
+			</xs:restriction>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="RadkaFinancniType">
+		<xs:simpleContent>
+			<xs:restriction base="cct:TextType">
+				<xs:minLength value="1"/>
+				<xs:maxLength value="4"/>
+			</xs:restriction>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="RezervaceCisloType">
+		<xs:simpleContent>
+			<xs:restriction base="cct:TextType">
+				<xs:maxLength value="10"/>
+				<xs:minLength value="0"/>
+			</xs:restriction>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="RezervaceCislo1Type">
+		<xs:simpleContent>
+			<xs:restriction base="RezervaceCisloType">
+				<xs:minLength value="1"/>
+			</xs:restriction>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="RezervaceDruhType">
+		<xs:simpleContent>
+			<xs:restriction base="cct:TextType">
+				<xs:minLength value="2"/>
+				<xs:maxLength value="2"/>
+			</xs:restriction>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="RezervacePolozkaCisloType">
+		<xs:simpleContent>
+			<xs:restriction base="cct:PocetType">
+				<xs:totalDigits value="3"/>
+				<xs:minInclusive value="1"/>
+				<xs:maxInclusive value="999"/>
+			</xs:restriction>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="RezervacePolozkaTextType">
+		<xs:simpleContent>
+			<xs:restriction base="cct:TextType">
+				<xs:minLength value="0"/>
+				<xs:maxLength value="60"/>
+			</xs:restriction>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="RezervacePolozkaText1Type">
+		<xs:simpleContent>
+			<xs:restriction base="RezervacePolozkaTextType">
+				<xs:minLength value="1"/>
+			</xs:restriction>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="RezervaceTypType">
+		<xs:simpleContent>
+			<xs:restriction base="cct:TextType">
+				<xs:minLength value="1"/>
+				<xs:maxLength value="1"/>
+			</xs:restriction>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="RokFiskalniType">
+		<xs:simpleContent>
+			<xs:restriction base="cct:PocetType">
+				<xs:maxInclusive value="2200"/>
+				<xs:minInclusive value="1900"/>
+			</xs:restriction>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="RokType">
+		<xs:simpleContent>
+			<xs:restriction base="cct:PocetType">
+				<xs:minInclusive value="1900"/>
+				<xs:maxInclusive value="2200"/>
+			</xs:restriction>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="RozpocetAktualizaceDatumType">
+		<xs:simpleContent>
+			<xs:extension base="cct:DatumType"/>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="RozpocetDruhType">
+		<xs:simpleContent>
+			<xs:restriction base="cct:TextType">
+				<xs:minLength value="1"/>
+				<xs:maxLength value="4"/>
+			</xs:restriction>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="RozpoctoveOpatreniCisloSystemZdrojovyType">
+		<xs:simpleContent>
+			<xs:restriction base="cct:TextType">
+				<xs:maxLength value="30"/>
+				<xs:minLength value="1"/>
+			</xs:restriction>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="RozpoctoveOpatreniCisloType">
+		<xs:simpleContent>
+			<xs:restriction base="cct:TextType">
+				<xs:maxLength value="10"/>
+				<xs:minLength value="1"/>
+			</xs:restriction>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="RozpoctoveOpatreniPolozkaCisloType">
+		<xs:simpleContent>
+			<xs:restriction base="cct:PocetType">
+				<xs:totalDigits value="5"/>
+				<xs:minInclusive value="1"/>
+				<xs:maxInclusive value="65535"/>
+			</xs:restriction>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="RozpoctoveOpatreniPolozkaTextType">
+		<xs:simpleContent>
+			<xs:restriction base="cct:TextType">
+				<xs:minLength value="1"/>
+				<xs:maxLength value="50"/>
+			</xs:restriction>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="SplatnostDatumType">
+		<xs:simpleContent>
+			<xs:restriction base="cct:DatumType"/>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="StrukturaPrijmovaVydajovaType">
+		<xs:simpleContent>
+			<xs:restriction base="cct:TextType">
+				<xs:minLength value="1"/>
+				<xs:maxLength value="10"/>
+			</xs:restriction>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="SymbolSpecifickyType">
+		<xs:simpleContent>
+			<xs:restriction base="cct:TextType">
+				<xs:minLength value="0"/>
+				<xs:maxLength value="10"/>
+			</xs:restriction>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="SymbolSpecificky1Type">
+		<xs:simpleContent>
+			<xs:restriction base="SymbolSpecifickyType">
+				<xs:minLength value="1"/>
+			</xs:restriction>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="SymbolVariabilniType">
+		<xs:simpleContent>
+			<xs:restriction base="cct:TextType">
+				<xs:minLength value="0"/>
+				<xs:maxLength value="10"/>
+			</xs:restriction>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="SymbolVariabilni1Type">
+		<xs:simpleContent>
+			<xs:restriction base="SymbolVariabilniType">
+				<xs:minLength value="1"/>
+			</xs:restriction>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="TextDoprovodnyType">
+		<xs:simpleContent>
+			<xs:restriction base="cct:TextType">
+				<xs:minLength value="1"/>
+				<xs:maxLength value="16384"/>
+			</xs:restriction>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="UcelType">
+		<xs:simpleContent>
+			<xs:restriction base="cct:TextType">
+				<xs:maxLength value="9"/>
+				<xs:minLength value="0"/>
+			</xs:restriction>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="Ucel1Type">
+		<xs:simpleContent>
+			<xs:restriction base="UcelType">
+				<xs:minLength value="1"/>
+			</xs:restriction>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="UkazatelZavaznyTypType">
+		<xs:simpleContent>
+			<xs:restriction base="cct:TextType">
+				<xs:minLength value="1"/>
+				<xs:maxLength value="2"/>
+			</xs:restriction>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="UkazatelZavaznyType">
+		<xs:simpleContent>
+			<xs:restriction base="cct:TextType">
+				<xs:minLength value="1"/>
+				<xs:maxLength value="12"/>
+			</xs:restriction>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="ZahrnutiVyrazeniKodType">
+		<xs:simpleContent>
+			<xs:restriction base="cct:TextType">
+				<xs:minLength value="1"/>
+				<xs:maxLength value="1"/>
+				<xs:enumeration value="I">
+					<xs:annotation>
+						<xs:documentation>Příznak pro "zahrnutí" hodnoty do vyhledávání</xs:documentation>
+					</xs:annotation>
+				</xs:enumeration>
+				<xs:enumeration value="E">
+					<xs:annotation>
+						<xs:documentation>Příznak pro "vyřazení" hodnoty z vyhledávání</xs:documentation>
+					</xs:annotation>
+				</xs:enumeration>
+			</xs:restriction>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="ZakazkaVerejnaCisloEvidencniType">
+		<xs:simpleContent>
+			<xs:restriction base="cct:TextType">
+				<xs:minLength value="0"/>
+				<xs:maxLength value="8"/>
+			</xs:restriction>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="ZakazkaVerejnaCisloEvidencni1Type">
+		<xs:simpleContent>
+			<xs:restriction base="ZakazkaVerejnaCisloEvidencniType">
+				<xs:minLength value="8"/>
+			</xs:restriction>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="ZdrojType">
+		<xs:simpleContent>
+			<xs:restriction base="cct:TextType">
+				<xs:maxLength value="10"/>
+				<xs:minLength value="1"/>
+			</xs:restriction>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="ZnakUcelovyType">
+		<xs:simpleContent>
+			<xs:restriction base="cct:TextType">
+				<xs:minLength value="0"/>
+				<xs:maxLength value="7"/>
+			</xs:restriction>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="ZnakUcelovy1Type">
+		<xs:simpleContent>
+			<xs:restriction base="ZnakUcelovyType">
+				<xs:minLength value="1"/>
+			</xs:restriction>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="ZnamenkoType">
+		<xs:simpleContent>
+			<xs:restriction base="cct:TextType">
+				<xs:enumeration value="+"/>
+				<xs:enumeration value="-"/>
+				<xs:minLength value="1"/>
+				<xs:maxLength value="1"/>
+			</xs:restriction>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="ZpracovaniVysledekIDType">
+		<xs:simpleContent>
+			<xs:restriction base="cct:TextType">
+				<xs:maxLength value="40"/>
+				<xs:minLength value="1"/>
+			</xs:restriction>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="ZpracovaniVysledekPolozkaType">
+		<xs:sequence>
+			<xs:element minOccurs="0" name="Typ" type="ZpracovaniVysledekTypType"/>
+			<xs:element minOccurs="0" name="ID" type="ZpracovaniVysledekIDType"/>
+			<xs:element name="Text" type="ZpracovaniVysledekTextType"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ZpracovaniVysledekTextType">
+		<xs:simpleContent>
+			<xs:restriction base="cct:TextType">
+				<xs:maxLength value="200"/>
+				<xs:minLength value="1"/>
+			</xs:restriction>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="ZpracovaniVysledekTypType">
+		<xs:simpleContent>
+			<xs:restriction base="cct:TextType">
+				<xs:minLength value="1"/>
+				<xs:maxLength value="1"/>
+			</xs:restriction>
+		</xs:simpleContent>
+	</xs:complexType>
+</xs:schema>

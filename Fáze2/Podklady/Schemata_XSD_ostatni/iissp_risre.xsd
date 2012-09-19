@@ -1,0 +1,343 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="urn:cz:mfcr:iissp:schemas:Risre:v1"
+	xmlns:rt="urn:cz:mfcr:iissp:schemas:Risre:Types:v1"
+	xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+	xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:dcterm="http://purl.org/dc/terms/"
+	xmlns:xml="http://www.w3.org/XML/1998/namespace"
+	targetNamespace="urn:cz:mfcr:iissp:schemas:Risre:v1" elementFormDefault="qualified"
+	attributeFormDefault="unqualified" version="1.00">
+	<xs:import namespace="urn:cz:mfcr:iissp:schemas:Risre:Types:v1"
+		schemaLocation="iissp_risre_types.xsd"/>
+	<xs:annotation>
+		<xs:documentation xml:lang="cz">Definice XML schématu se strukturami komunikace mezi IISSP RISRE a systemy EKIS</xs:documentation>
+		<xs:appinfo>
+			<rdf:RDF>
+				<rdf:Description rdf:about="urn:cz:isvs:mfcr:schemas:Risre:v1" xml:lang="cz">
+					<dc:creator>Tomas Toth (ttoth@email.cz)</dc:creator>
+					<dc:contributor>TOTHT 2012-07-02T12:00:00Z</dc:contributor>
+					<dc:description>Definice XML schématu se strukturami komunikace mezi IISSP RISRE a systemy EKIS</dc:description>
+					<dc:identifier>urn:cz:mfcr:iissp:schemas:Risre:v1</dc:identifier>
+					<dc:publisher>Ministerstvo financí ČR</dc:publisher>
+					<dc:rights>Ministerstvo financí</dc:rights>
+					<dc:type>XML Schema</dc:type>
+					<dcterm:created>20120702</dcterm:created>
+					<dc:subject>Datové prvky; Informační systémy veřejné správy; IISSP; Výkazy</dc:subject>
+					<dc:format>application/xml</dc:format>
+				</rdf:Description>
+			</rdf:RDF>
+		</xs:appinfo>
+	</xs:annotation>
+	<xs:element name="ZpravaRisre" type="RisreZpravaType">
+		<xs:annotation>
+			<xs:documentation>Kořenový element komunikace IISSP RISRE a EKIS.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="RozpoctoveOpatreni" type="RozpoctoveOpatreniType">
+		<xs:annotation>
+			<xs:documentation>Hlavní element pro přenos požadavku na založení rozpočtového opatření.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="RozpoctoveOpatreniOdpoved" type="RozpoctoveOpatreniOdpovedType">
+		<xs:annotation>
+			<xs:documentation>Hlavní element pro přenos výsledku založení rozpočtového opatření.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="RozpoctoveOpatreniDotaz" type="RozpoctoveOpatreniIdentifikaceType">
+		<xs:annotation>
+			<xs:documentation>Hlavní element pro přenos dotazu na stav rozpočtového opatření.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="RozpoctoveOpatreniVypis" type="RozpoctoveOpatreniVypisType">
+		<xs:annotation>
+			<xs:documentation>Hlavní element pro přenos dat a aktuálního stavu rozpočtového opatření.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="RozpoctoveOpatreniVysledek" type="RozpoctoveOpatreniOdpovedType">
+		<xs:annotation>
+			<xs:documentation>Element pro přenos výsledku dávkového založení rozpočtového opatření.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="Rezervace" type="RezervaceType">
+		<xs:annotation>
+			<xs:documentation>Hlavní element pro přenos požadavku na založení rezervace.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="RezervaceOdpoved" type="RezervaceOdpovedType">
+		<xs:annotation>
+			<xs:documentation>Hlavní element pro přenos výsledku založení rezervace.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="RezervaceZmena" type="RezervaceZmenaType">
+		<xs:annotation>
+			<xs:documentation>Hlavní element pro přenos požadavku na změnu rezervace.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="RezervaceZmenaOdpoved" type="RezervaceZmenaOdpovedType">
+		<xs:annotation>
+			<xs:documentation>Hlavní element pro přenos výsledku změny rezervace.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="ZpracovaniChyba" type="ZpracovaniHlaseniType">
+		<xs:annotation>
+			<xs:documentation>Hlavní element pro přenos hlášení o chybě při zpracování.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="RezervaceVysledek" type="RezervaceOdpovedType">
+		<xs:annotation>
+			<xs:documentation>Element pro přenos výsledku dávkového založení rezervace.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="RezervaceZmenaVysledek" type="RezervaceZmenaOdpovedType">
+		<xs:annotation>
+			<xs:documentation>Element pro přenos výsledku dávkové změny rezervace.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:complexType name="RisreZpravaType">
+		<xs:choice>
+			<xs:element ref="RozpoctoveOpatreni"/>
+			<xs:element ref="RozpoctoveOpatreniOdpoved"/>
+			<xs:element ref="RozpoctoveOpatreniDotaz"/>
+			<xs:element ref="RozpoctoveOpatreniVypis"/>
+			<xs:element ref="Rezervace"/>
+			<xs:element ref="RezervaceOdpoved"/>
+			<xs:element ref="RezervaceZmena"/>
+			<xs:element ref="RezervaceZmenaOdpoved"/>
+			<xs:element ref="ZpracovaniChyba"/>
+		</xs:choice>
+	</xs:complexType>
+	<xs:complexType name="RozpoctoveOpatreniIdentifikaceType">
+		<xs:sequence>
+			<xs:element name="Kapitola" type="rt:KapitolaType"/>
+			<xs:element name="Rok" type="rt:RokType"/>
+			<xs:choice>
+				<xs:element name="RozpoctoveOpatreniCislo" type="rt:RozpoctoveOpatreniCisloType"/>
+				<xs:element name="DokladPuvodniCislo" type="rt:DokladPuvodniCislo1Type"/>
+			</xs:choice>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="DokladRozpoctovyType">
+		<xs:sequence>
+			<xs:element name="Kapitola" type="rt:KapitolaType"/>
+			<xs:element name="Rok" type="rt:RokType"/>
+			<xs:element name="RozpoctoveOpatreniCislo" type="rt:RozpoctoveOpatreniCisloType"/>
+			<xs:element minOccurs="0" name="RozpoctoveOpatreniCisloKapitola"
+				type="rt:RozpoctoveOpatreniCisloType"/>
+			<xs:element name="DokladPuvodniCislo" type="rt:DokladPuvodniCislo1Type"/>
+			<xs:element name="DokladPuvodniDatum" type="rt:DokladDatumType"/>
+			<xs:element name="DokladDatum" type="rt:DokladDatumType"/>
+			<xs:element minOccurs="1" name="DokladStatus" type="rt:DokladStatusType"/>
+			<xs:element name="DokladDruh" type="rt:DokladDruhType"/>
+			<xs:element name="OperaceTyp" type="rt:OperaceTypType"/>
+			<xs:element name="CisloJednaciOrganizacniSlozkaStatu" type="rt:CisloJednaciType"
+				minOccurs="0"/>
+			<xs:element name="CisloJednaciKapitola" type="rt:CisloJednaciType" minOccurs="0"/>
+			<xs:element name="PracovnikOrganizacniSlozkaStatu"
+				type="rt:PracovnikOrganizacniSlozkaStatuType" minOccurs="0"/>
+			<xs:element name="PracovnikKapitola" type="rt:PracovnikKapitolaType" minOccurs="0"/>
+			<xs:element minOccurs="0" name="DokladText" type="rt:DokladTextType"/>
+			<xs:element name="TextDoprovodny" type="rt:TextDoprovodnyType" minOccurs="0"/>
+			<xs:element name="AplikaceHlavickaCislo" type="rt:AplikaceHlavickaCisloType"
+				minOccurs="0"/>
+			<xs:element name="AplikaceHlavickaRok" type="rt:AplikaceHlavickaRokType" minOccurs="0"/>
+			<xs:element name="DokladOpravnyCislo" type="rt:DokladOpravnyCisloType" minOccurs="0"/>
+			<xs:element name="Polozka" type="RozpoctoveOpatreniPolozkaType" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="DokladRozpoctovyStavType">
+		<xs:sequence>
+			<xs:element name="Kapitola" type="rt:KapitolaType"/>
+			<xs:element name="Rok" type="rt:RokType"/>
+			<xs:element name="RozpoctoveOpatreniCislo" type="rt:RozpoctoveOpatreniCisloType"/>
+			<xs:element name="DokladDatum" type="rt:DokladDatumType"/>
+			<xs:element minOccurs="1" name="DokladStatus" type="rt:DokladStatusType"/>
+			<xs:element name="DokladDruh" type="rt:DokladDruhType"/>
+			<xs:element minOccurs="0" name="RozpoctoveOpatreniCisloKapitola"
+				type="rt:RozpoctoveOpatreniCisloType"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="RozpoctoveOpatreniOdpovedType">
+		<xs:sequence>
+			<xs:element name="DokladRozpoctovyStav" type="DokladRozpoctovyStavType" minOccurs="0"/>
+			<xs:element name="ZpracovaniVysledek" type="ZpracovaniHlaseniType" minOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="RozpoctoveOpatreniPolozkaType">
+		<xs:sequence>
+			<xs:element name="Cislo" type="rt:RozpoctoveOpatreniPolozkaCisloType"/>
+			<xs:element name="Castka" type="rt:CastkaType"/>
+			<xs:element name="PolozkaRozpoctova" type="rt:PolozkaRozpoctovaType"/>
+			<xs:element name="MistoFinancni" type="rt:MistoFinancniType"/>
+			<xs:element name="Zdroj" type="rt:ZdrojType"/>
+			<xs:element minOccurs="0" name="Ucel" type="rt:Ucel1Type"/>
+			<xs:element name="EdsSmvsAkce" type="rt:EdsSmvsAkce1Type" minOccurs="0"/>
+			<xs:element name="Paragraf" type="rt:ParagrafType"/>
+			<xs:element name="RozpocetDruh" type="rt:RozpocetDruhType"/>
+			<xs:element name="StrukturaPrijmovaVydajova" type="rt:StrukturaPrijmovaVydajovaType"/>
+			<xs:element name="Text" type="rt:RozpoctoveOpatreniPolozkaTextType" minOccurs="0"/>
+			<xs:element name="NarokDruh" type="rt:NarokDruhType" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="RozpoctoveOpatreniType">
+		<xs:sequence>
+			<xs:element name="Kapitola" type="rt:KapitolaType"/>
+			<xs:element name="Rok" type="rt:RokType"/>
+			<xs:element name="DokladPuvodniCislo" type="rt:DokladPuvodniCislo1Type"/>
+			<xs:element name="DokladPuvodniDatum" type="rt:DokladDatumType"/>
+			<xs:element name="DokladDatumZaneseniEvidenceChronologicka" type="rt:DokladDatumType"
+				minOccurs="0"/>
+			<xs:element name="OperaceTyp" type="rt:OperaceTypType"/>
+			<xs:element name="CisloJednaciOrganizacniSlozkaStatu" type="rt:CisloJednaciType"
+				minOccurs="0"/>
+			<xs:element name="CisloJednaciKapitola" type="rt:CisloJednaciType" minOccurs="0"/>
+			<xs:element name="PracovnikOrganizacniSlozkaStatu"
+				type="rt:PracovnikOrganizacniSlozkaStatuType" minOccurs="0"/>
+			<xs:element name="PracovnikKapitola" type="rt:PracovnikKapitolaType" minOccurs="0"/>
+			<xs:element name="DokladText" minOccurs="0" type="rt:DokladTextType"/>
+			<xs:element name="TextDoprovodny" type="rt:TextDoprovodnyType" minOccurs="0"/>
+			<xs:element name="AplikaceHlavickaCislo" type="rt:AplikaceHlavickaCisloType"
+				minOccurs="0"/>
+			<xs:element name="AplikaceHlavickaRok" type="rt:AplikaceHlavickaRokType" minOccurs="0"/>
+			<xs:element name="DokladOpravnyCislo" type="rt:DokladOpravnyCisloType" minOccurs="0"/>
+			<xs:element name="Polozka" type="RozpoctoveOpatreniPolozkaType" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="RozpoctoveOpatreniVypisType">
+		<xs:sequence>
+			<xs:element name="DokladRozpoctovy" type="DokladRozpoctovyType" minOccurs="0"/>
+			<xs:element name="ZpracovaniVysledek" type="ZpracovaniHlaseniType" minOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="RezervaceType">
+		<xs:sequence>
+			<xs:element name="RezervaceTyp" type="rt:RezervaceTypType"/>
+			<xs:element name="RezervaceDruh" type="rt:RezervaceDruhType"/>
+			<xs:element name="DokladPuvodniCislo" type="rt:DokladPuvodniCislo1Type" minOccurs="0"/>
+			<xs:element name="RozpocetAktualizaceDatum" type="rt:RozpocetAktualizaceDatumType"
+				minOccurs="0"/>
+			<xs:element name="Poznamka" type="rt:Poznamka1Type" minOccurs="0"/>
+			<xs:element minOccurs="0" name="Popis" type="rt:Popis1Type"/>
+			<xs:element name="ZakazkaVerejnaCisloEvidencni"
+				type="rt:ZakazkaVerejnaCisloEvidencni1Type" minOccurs="0"/>
+			<xs:element name="KontrolaRidiciPriznak" type="rt:PriznakType" minOccurs="1"/>
+			<xs:element minOccurs="0" name="RezervaceInkasniPriznak" type="rt:PriznakType"/>
+			<xs:element minOccurs="0" name="OrganizaceInkasujiciUcetBankovniCislo"
+				type="rt:OrganizaceInkasujiciUcetBankovniCislo1Type"/>
+			<xs:element minOccurs="0" name="OrganizaceInkasujiciUcetBankaKod"
+				type="rt:OrganizaceInkasujiciUcetBankaKod1Type"/>
+			<xs:element minOccurs="0" name="SymbolVariabilni" type="rt:SymbolVariabilni1Type"/>
+			<xs:element minOccurs="0" name="SymbolSpecificky" type="rt:SymbolSpecificky1Type"/>
+			<xs:element name="Polozka" type="RezervacePolozkaType" minOccurs="1"
+				maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="RezervacePolozkaType">
+		<xs:sequence>
+			<xs:element name="Cislo" type="rt:RezervacePolozkaCisloType"/>
+			<xs:element minOccurs="0" name="ReferenceRezervaceViceleta"
+				type="RezervaceViceletaIdentifikaceType"/>
+			<xs:element name="SplatnostDatum" type="rt:SplatnostDatumType"/>
+			<xs:element name="Castka" type="rt:CastkaType"/>
+			<xs:element name="Text" type="rt:RezervacePolozkaText1Type" minOccurs="0"/>
+			<xs:element name="MistoFinancni" type="rt:MistoFinancniType"/>
+			<xs:element name="Zdroj" type="rt:ZdrojType"/>
+			<xs:element name="Paragraf" type="rt:ParagrafType"/>
+			<xs:element name="PolozkaRozpoctova" type="rt:PolozkaRozpoctovaType"/>
+			<xs:element name="EdsSmvsAkce" type="rt:EdsSmvsAkce1Type" minOccurs="0"/>
+			<xs:element name="StrukturaPrijmovaVydajova" type="rt:StrukturaPrijmovaVydajovaType"
+				minOccurs="1"/>
+			<xs:element name="Ucel" type="rt:Ucel1Type" minOccurs="0"/>
+			<xs:element name="JednotkaZaznamova" type="rt:JednotkaZaznamova1Type" minOccurs="0"/>
+			<xs:element name="JednotkaUzemni" type="rt:JednotkaUzemni1Type" minOccurs="0"/>
+			<xs:element name="ZnakUcelovy" type="rt:ZnakUcelovy1Type" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="RezervaceOdpovedType">
+		<xs:sequence>
+			<xs:element name="RezervaceIdentifikace" type="RezervaceIdentifikaceType" minOccurs="0"/>
+			<xs:element name="ZpracovaniVysledek" type="ZpracovaniHlaseniType" minOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="RezervaceIdentifikaceType">
+		<xs:sequence>
+			<xs:element name="RezervaceCislo" type="rt:RezervaceCislo1Type"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="RezervaceViceletaIdentifikaceType">
+		<xs:sequence>
+			<xs:element name="Cislo" type="rt:RezervaceCislo1Type"/>
+			<xs:element name="PolozkaCislo" type="rt:RezervacePolozkaCisloType"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="RezervaceViceletaIdentifikaceZmenaType">
+		<xs:sequence>
+			<xs:element name="Cislo" type="rt:RezervaceCisloType"/>
+			<xs:element name="PolozkaCislo" type="rt:RezervacePolozkaCisloType" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="RezervaceZmenaType">
+		<xs:sequence>
+			<xs:element name="RezervaceCislo" type="rt:RezervaceCislo1Type"/>
+			<xs:element name="RezervaceUzavreniPriznak" type="rt:PriznakType" minOccurs="0"/>
+			<xs:element name="DokladPuvodniCislo" type="rt:DokladPuvodniCisloType" minOccurs="0"/>
+			<xs:element name="Poznamka" type="rt:PoznamkaType" minOccurs="0"/>
+			<xs:element minOccurs="0" name="Popis" type="rt:PopisType"/>
+			<xs:element name="ZakazkaVerejnaCisloEvidencni"
+				type="rt:ZakazkaVerejnaCisloEvidencniType" minOccurs="0"/>
+			<xs:element name="KontrolaRidiciPriznak" type="rt:PriznakType" minOccurs="0"/>
+			<xs:element minOccurs="0" name="RezervaceInkasniPriznak" type="rt:PriznakType"/>
+			<xs:element minOccurs="0" name="OrganizaceInkasujiciUcetBankovniCislo"
+				type="rt:OrganizaceInkasujiciUcetBankovniCisloType"/>
+			<xs:element minOccurs="0" name="OrganizaceInkasujiciUcetBankaKod"
+				type="rt:OrganizaceInkasujiciUcetBankaKodType"/>
+			<xs:element minOccurs="0" name="SymbolVariabilni" type="rt:SymbolVariabilniType"/>
+			<xs:element minOccurs="0" name="SymbolSpecificky" type="rt:SymbolSpecifickyType"/>
+			<xs:element name="Polozka" type="RezervaceZmenaPolozkaType" minOccurs="0"
+				maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="RezervaceZmenaPolozkaType">
+		<xs:sequence>
+			<xs:element name="Cislo" type="rt:RezervacePolozkaCisloType"/>
+			<xs:element name="PolozkaUzavreniPriznak" type="rt:PriznakType" minOccurs="0"/>
+			<xs:element minOccurs="0" name="ReferenceRezervaceViceleta"
+				type="RezervaceViceletaIdentifikaceZmenaType"/>
+			<xs:element minOccurs="0" name="SplatnostDatum" type="rt:SplatnostDatumType"/>
+			<xs:element name="Castka" type="rt:CastkaType" minOccurs="0"/>
+			<xs:element name="Text" type="rt:RezervacePolozkaTextType" minOccurs="0"/>
+			<xs:element name="MistoFinancni" type="rt:MistoFinancniType" minOccurs="0"/>
+			<xs:element name="Zdroj" type="rt:ZdrojType" minOccurs="0"/>
+			<xs:element name="Paragraf" type="rt:ParagrafType" minOccurs="0"/>
+			<xs:element name="PolozkaRozpoctova" type="rt:PolozkaRozpoctovaType" minOccurs="0"/>
+			<xs:element name="EdsSmvsAkce" type="rt:EdsSmvsAkceType" minOccurs="0"/>
+			<xs:element name="StrukturaPrijmovaVydajova" type="rt:StrukturaPrijmovaVydajovaType"
+				minOccurs="0"/>
+			<xs:element name="Ucel" type="rt:UcelType" minOccurs="0"/>
+			<xs:element name="JednotkaZaznamova" type="rt:JednotkaZaznamovaType" minOccurs="0"/>
+			<xs:element name="JednotkaUzemni" type="rt:JednotkaUzemniType" minOccurs="0"/>
+			<xs:element name="ZnakUcelovy" type="rt:ZnakUcelovyType" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="RezervaceZmenaOdpovedType">
+		<xs:sequence>
+			<xs:element name="RezervaceAktualizovanaPriznak" type="rt:PriznakType"/>
+			<xs:element name="ZpracovaniVysledek" type="ZpracovaniHlaseniType" minOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ZpracovaniHlaseniType">
+		<xs:group ref="ZpracovaniHlaseniGroup"/>
+	</xs:complexType>
+	<xs:group name="ZpracovaniHlaseniGroup">
+		<xs:sequence>
+			<xs:element minOccurs="1" name="TypMaximum" type="rt:ZpracovaniVysledekTypType"/>
+			<xs:element maxOccurs="unbounded" minOccurs="1" name="Polozka">
+				<xs:complexType>
+					<xs:sequence maxOccurs="1" minOccurs="1">
+						<xs:element minOccurs="0" name="Typ" type="rt:ZpracovaniVysledekTypType"/>
+						<xs:element minOccurs="0" name="ID" type="rt:ZpracovaniVysledekIDType"/>
+						<xs:element name="Text" type="rt:ZpracovaniVysledekTextType"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+	</xs:group>
+</xs:schema>

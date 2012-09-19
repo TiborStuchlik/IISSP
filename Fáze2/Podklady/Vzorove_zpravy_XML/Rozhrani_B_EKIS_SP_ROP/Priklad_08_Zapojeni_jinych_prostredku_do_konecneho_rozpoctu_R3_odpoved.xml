@@ -1,0 +1,46 @@
+﻿<msg:Envelope xmlns:msg="urn:cz:mfcr:iissp:schemas:Messaging:v1">
+    <msg:EnvelopeHeader>
+        <cmn:TransactionId xmlns:cmn="urn:cz:mfcr:iissp:schemas:Common:v1">00000000000000004129</cmn:TransactionId>
+        <msg:DateTimeCreated>2011-05-12T11:53:00Z</msg:DateTimeCreated>
+        <msg:Sender>
+            <cmn:IC xmlns:cmn="urn:cz:mfcr:iissp:schemas:Common:v1">00006947</cmn:IC>
+            <cmn:SubjectName xmlns:cmn="urn:cz:mfcr:iissp:schemas:Common:v1">Ministerstvo financí</cmn:SubjectName>
+            <cmn:Module xmlns:cmn="urn:cz:mfcr:iissp:schemas:Common:v1">RISRE</cmn:Module>
+            <cmn:ResponsiblePerson xmlns:cmn="urn:cz:mfcr:iissp:schemas:Common:v1">
+                <cmn:PersonName>Kompetencni centrum</cmn:PersonName>
+                <cmn:PersonId>KC</cmn:PersonId>
+            </cmn:ResponsiblePerson>
+        </msg:Sender>
+        <msg:Recipient>
+            <cmn:IC xmlns:cmn="urn:cz:mfcr:iissp:schemas:Common:v1">00006947</cmn:IC>
+            <cmn:SubjectName xmlns:cmn="urn:cz:mfcr:iissp:schemas:Common:v1">Fiktivní EKIS_TEST</cmn:SubjectName>
+            <cmn:ResponsiblePerson xmlns:cmn="urn:cz:mfcr:iissp:schemas:Common:v1">
+                <cmn:PersonName>Jan Novak</cmn:PersonName>
+                <cmn:Email>Jan.Novak@mfcr.cz</cmn:Email>
+                <cmn:PersonId>MU0999000035</cmn:PersonId>
+            </cmn:ResponsiblePerson>
+        </msg:Recipient>
+    </msg:EnvelopeHeader>
+    <msg:EnvelopeBody>
+        <risre:ZpravaRisre xmlns:risre="urn:cz:mfcr:iissp:schemas:Risre:v1">
+            <risre:RozpoctoveOpatreniOdpoved>
+                <risre:DokladRozpoctovyStav>
+                    <risre:Kapitola>312</risre:Kapitola>
+                    <risre:Rok>2011</risre:Rok>
+                    <risre:RozpoctoveOpatreniCislo>3120000268</risre:RozpoctoveOpatreniCislo>
+                    <risre:DokladDatum>2011-03-01</risre:DokladDatum>
+                    <risre:DokladStatus>1</risre:DokladStatus>
+                    <risre:DokladDruh>0</risre:DokladDruh>
+                </risre:DokladRozpoctovyStav>
+                <risre:ZpracovaniVysledek>
+                    <risre:TypMaximum>I</risre:TypMaximum>
+                    <risre:Polozka>
+                        <risre:Typ>I</risre:Typ>
+                        <risre:ID>118(ZZRE)</risre:ID>
+                        <risre:Text>Doklad 31220113120000268 byl založen do chronologické evidence ROP.</risre:Text>
+                    </risre:Polozka>
+                </risre:ZpracovaniVysledek>
+            </risre:RozpoctoveOpatreniOdpoved>
+        </risre:ZpravaRisre>
+    </msg:EnvelopeBody>
+</msg:Envelope>

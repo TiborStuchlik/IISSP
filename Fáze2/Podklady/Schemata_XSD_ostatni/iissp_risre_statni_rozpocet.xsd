@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="urn:cz:mfcr:iissp:schemas:RisreRozpocet:v1" xmlns:cct="urn:cz:isvs:micr:schemas:CoreComponentTypes:v1"
+    xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dcterm="http://purl.org/dc/terms/"
+    attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="urn:cz:mfcr:iissp:schemas:RisreRozpocet:v1" version="1.00">
+    <xs:import schemaLocation="CoreComponentTypes.XSD" namespace="urn:cz:isvs:micr:schemas:CoreComponentTypes:v1"/>
+    <xs:annotation>
+        <xs:documentation xml:lang="cz">Definice XML schématu se strukturou pro přenos dat státního rozpočtu</xs:documentation>
+        <xs:appinfo>
+            <rdf:RDF>
+                <rdf:Description rdf:about="urn:cz:mfcr:iissp:schemas:RisreRozpocet:v1" xml:lang="cz">
+                    <dc:creator>Tomas Toth (ttoth@email.cz)</dc:creator>
+                    <dc:contributor>TOTHT 2009-11-19T18:00:00Z</dc:contributor>
+                    <dc:description>Definice XML schématu se strukturou pro přenos dat státního rozpočtu</dc:description>
+                    <dc:identifier>urn:cz:mfcr:iissp:schemas:RisreRozpocet:v1</dc:identifier>
+                    <dc:publisher>Ministerstvo financí ČR</dc:publisher>
+                    <dc:rights>Ministerstvo financí ČR</dc:rights>
+                    <dc:type>XML Schema</dc:type>
+                    <dcterm:created>20091119</dcterm:created>
+                    <dc:subject>Datové prvky; Informační systémy veřejné správy; IISSP;</dc:subject>
+                    <dc:format>application/xml</dc:format>
+                </rdf:Description>
+            </rdf:RDF>
+        </xs:appinfo>
+    </xs:annotation>
+    <xs:element name="Rozpocet" type="RozpocetType"/>
+    <xs:complexType name="RozpocetType">
+        <xs:sequence maxOccurs="1">
+            <xs:element maxOccurs="unbounded" minOccurs="1" name="RozpocetPolozka"
+                type="RozpocetPolozkaType"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="RozpocetPolozkaType">
+        <xs:sequence>
+            <xs:element name="Kapitola" type="KapitolaType"/>
+            <xs:element name="Rok" type="RokType"/>
+            <xs:element name="MistoFinancni" type="MistoFinancniType"/>
+            <xs:element name="StrukturaPrijmovaVydajova"
+                type="StrukturaPrijmovaVydajovaType"/>
+            <xs:element name="Paragraf" type="ParagrafType"/>
+            <xs:element name="PolozkaRozpoctova" type="PolozkaRozpoctovaType"/>
+            <xs:element name="Zdroj" type="ZdrojType"/>
+            <xs:element minOccurs="1" name="EdsSmvsAkce" type=" EdsSmvsAkceType"/>
+            <xs:element name="Castka" type="CastkaType"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="KapitolaType">
+        <xs:simpleContent>
+            <xs:restriction base="cct:TextType">
+                <xs:maxLength value="4"/>
+                <xs:minLength value="3"/>
+            </xs:restriction>
+        </xs:simpleContent>
+    </xs:complexType>
+    <xs:complexType name="RokType">
+        <xs:simpleContent>
+            <xs:restriction base="cct:PocetType">
+                <xs:minInclusive value="1900"/>
+                <xs:maxInclusive value="2200"/>
+            </xs:restriction>
+        </xs:simpleContent>
+    </xs:complexType>
+    <xs:complexType name="CastkaType">
+        <xs:simpleContent>
+            <xs:restriction base="cct:CenaType">
+                <xs:totalDigits value="17"/>
+                <xs:fractionDigits value="2"/>
+            </xs:restriction>
+        </xs:simpleContent>
+    </xs:complexType>
+    <xs:complexType name="PolozkaRozpoctovaType">
+        <xs:simpleContent>
+            <xs:restriction base="cct:TextType">
+                <xs:maxLength value="24"/>
+                <xs:minLength value="8"/>
+            </xs:restriction>
+        </xs:simpleContent>
+    </xs:complexType>
+    <xs:complexType name="MistoFinancniType">
+        <xs:simpleContent>
+            <xs:restriction base="cct:TextType">
+                <xs:maxLength value="16"/>
+                <xs:minLength value="1"/>
+            </xs:restriction>
+        </xs:simpleContent>
+    </xs:complexType>
+    <xs:complexType name="ZdrojType">
+        <xs:simpleContent>
+            <xs:restriction base="cct:TextType">
+                <xs:maxLength value="10"/>
+                <xs:minLength value="9"/>
+            </xs:restriction>
+        </xs:simpleContent>
+    </xs:complexType>
+    <xs:complexType name=" EdsSmvsAkceType">
+        <xs:simpleContent>
+            <xs:restriction base="cct:TextType">
+                <xs:minLength value="6"/>
+                <xs:maxLength value="24"/>
+            </xs:restriction>
+        </xs:simpleContent>
+    </xs:complexType>
+    <xs:complexType name="ParagrafType">
+        <xs:simpleContent>
+            <xs:restriction base="cct:TextType">
+                <xs:maxLength value="16"/>
+                <xs:minLength value="6"/>
+            </xs:restriction>
+        </xs:simpleContent>
+    </xs:complexType>
+    <xs:complexType name="StrukturaPrijmovaVydajovaType">
+        <xs:simpleContent>
+            <xs:restriction base="cct:TextType">
+                <xs:minLength value="8"/>
+                <xs:maxLength value="10"/>
+            </xs:restriction>
+        </xs:simpleContent>
+    </xs:complexType>
+</xs:schema>

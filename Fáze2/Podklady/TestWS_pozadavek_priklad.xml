@@ -1,0 +1,61 @@
+<msg:Envelope xmlns:msg="urn:cz:mfcr:iissp:schemas:Messaging:v1" xmlns:cmn="urn:cz:mfcr:iissp:schemas:Common:v1" xmlns:risre="urn:cz:mfcr:iissp:schemas:Risre:v1">
+    <msg:EnvelopeHeader>
+        <cmn:TransactionId>00000000000000000000001</cmn:TransactionId>
+        <msg:DateTimeCreated>2010-05-01T01:00:00Z</msg:DateTimeCreated>
+        <msg:Sender>
+            <cmn:IC>12345678</cmn:IC>
+            <cmn:SubjectName>Fiktivní EKIS_TEST</cmn:SubjectName>
+            <cmn:ResponsiblePerson>
+                <cmn:PersonName>Jan Novak</cmn:PersonName>
+                <cmn:Email>Jan.Novak@abc.cz</cmn:Email>
+                <cmn:PersonId>MUxxxxxxxx</cmn:PersonId>
+            </cmn:ResponsiblePerson>
+        </msg:Sender>
+        <msg:Recipient>
+            <cmn:IC>00006947</cmn:IC>
+            <cmn:SubjectName>Ministerstvo financí</cmn:SubjectName>
+            <cmn:Module>RISRE</cmn:Module>
+        </msg:Recipient>
+    </msg:EnvelopeHeader>
+    <msg:EnvelopeBody>
+        <msg:ZpravaRisreTestovaci>
+            <msg:DataTestovaci>
+                <msg:Text>Test</msg:Text>
+                <!--<msg:Datum objektID="?">?</msg:Datum>
+                    <msg:DatumCas objektID="?">?</msg:DatumCas>
+                    <msg:Castka menaKod="?" menaCiselnikID="?" objektID="?">?</msg:Castka>
+                    <msg:Priznak objektID="?">?</msg:Priznak>-->
+            </msg:DataTestovaci>
+        </msg:ZpravaRisreTestovaci>
+    </msg:EnvelopeBody>
+    <msg:EnvelopeFooter>
+    <sig:Signature xmlns:sig="http://www.w3.org/2000/09/xmldsig#"><sig:SignedInfo><sig:CanonicalizationMethod Algorithm="http://www.w3.org/TR/2001/REC-xml-c14n-20010315"/><sig:SignatureMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha256"/><sig:Reference URI=""><sig:Transforms><sig:Transform Algorithm="http://www.w3.org/2002/06/xmldsig-filter2"><XPath xmlns="http://www.w3.org/2002/06/xmldsig-filter2" Filter="intersect">//msg:EnvelopeBody</XPath></sig:Transform></sig:Transforms><sig:DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"/><sig:DigestValue>64XXOqD3dYW7dSoamOsvqLH5ywfjDyMCgqmF9gV6JVk=</sig:DigestValue></sig:Reference></sig:SignedInfo><sig:SignatureValue>oP+M/aOCTdHYG1raF7B3qCm8EtrKRysKjbFib1M/hUQ8ZXnQbX040JHpA2yFOmf23qkRd7Mlyt6T
+H48aIxrADzhuep9IlQdSbm7+BYZ8gtTM6od4zxkwN0NqwawVteSW3gN6PkPMv9Tw0Nk4vWxT+CRq
+MCtVjVUOYuzL30WnmX6r1ShMJIPPNtaG5b+VG0CGEmOwtW4crjfsIkCxKrImV7wZUCd+VT6Vz9c8
+wzZOFDYGq2iSRw8ZCOHIUWiujE1LmY3NKwWn0QLtmPYkafMsDeGsM+jyY3sPaDHJxeyXYCJtku1y
+mpRsjwm7zCeLftFFL5ITUW+ILP7xMJdu2+golA==</sig:SignatureValue><sig:KeyInfo><sig:KeyValue><sig:RSAKeyValue><sig:Modulus>yX8ws8c3+e5CfAVYpQe5lNw65pp2wcrCtKUZeNfwuTnt6sR8T1luaPCrfVoGp0DEK+01EzGeApFj
+Aw7A3tqsfJkuW+RVcjxinqAW2tVx/xYqStw5qqffSfWExOYDdHzxukTjy8T7TkHJl5eITsy6D6ds
+aUQpjbofJq5BKIThp89WCUN+fepGr0JPrpPl+O0RdVaNj9cLn2oKI1IKw5pAq8nzursa8LiNSIf7
+q2oKwTSn7pWbNkTf+ARgc5VWth4dxYW+uHFoxhrABWiy4butCyPN1AH/V6ESCbh35NZIsr04XpvO
+F+0MQ7AMGGYRpfLHTgZxK3oPm0+BtKx7DLb3zw==</sig:Modulus><sig:Exponent>AQAB</sig:Exponent></sig:RSAKeyValue></sig:KeyValue><sig:X509Data><sig:X509IssuerSerial><sig:X509IssuerName>OU=I.CA - Accredited Provider of Certification Services,O=První certifikaèní autorita\, a.s.,CN=I.CA – Test Qualified Certification Authority\, 01/2010,C=CZ</sig:X509IssuerName><sig:X509SerialNumber>10033527</sig:X509SerialNumber></sig:X509IssuerSerial><sig:X509SubjectName>2.5.4.5=#130e494341202d203130303038343839,CN=Tomas Toth,C=CZ</sig:X509SubjectName><sig:X509Certificate>MIIEejCCA2KgAwIBAgIEAJkZdzANBgkqhkiG9w0BAQsFADCBvjELMAkGA1UEBhMCQ1oxQTA/BgNV
+BAMMOEkuQ0Eg4oCTIFRlc3QgUXVhbGlmaWVkIENlcnRpZmljYXRpb24gQXV0aG9yaXR5LCAwMS8y
+MDEwMS0wKwYDVQQKDCRQcnZuw60gY2VydGlmaWthxI1uw60gYXV0b3JpdGEsIGEucy4xPTA7BgNV
+BAsMNEkuQ0EgLSBBY2NyZWRpdGVkIFByb3ZpZGVyIG9mIENlcnRpZmljYXRpb24gU2VydmljZXMw
+HhcNMTExMDI1MTQyMTA0WhcNMTExMTI0MTQyMTA0WjA7MQswCQYDVQQGEwJDWjETMBEGA1UEAwwK
+VG9tYXMgVG90aDEXMBUGA1UEBRMOSUNBIC0gMTAwMDg0ODkwggEiMA0GCSqGSIb3DQEBAQUAA4IB
+DwAwggEKAoIBAQDJfzCzxzf57kJ8BVilB7mU3DrmmnbBysK0pRl41/C5Oe3qxHxPWW5o8Kt9Wgan
+QMQr7TUTMZ4CkWMDDsDe2qx8mS5b5FVyPGKeoBba1XH/FipK3Dmqp99J9YTE5gN0fPG6ROPLxPtO
+QcmXl4hOzLoPp2xpRCmNuh8mrkEohOGnz1YJQ3596kavQk+uk+X47RF1Vo2P1wufagojUgrDmkCr
+yfO6uxrwuI1Ih/uragrBNKfulZs2RN/4BGBzlVa2Hh3Fhb64cWjGGsAFaLLhu60LI83UAf9XoRIJ
+uHfk1kiyvThem84X7QxDsAwYZhGl8sdOBnEreg+bT4G0rHsMtvfPAgMBAAGjggEAMIH9MA4GA1Ud
+DwEB/wQEAwIGwDAfBgNVHSMEGDAWgBTyWBDY0vn5VAaIwLQHT6FOf+pldzAdBgNVHQ4EFgQUbuT+
+jiawPj2WI9Qz8j1z+nfO/C8wXwYDVR0gBFgwVjBUBg0rBgEEAYG4SAEDHgMBMEMwQQYIKwYBBQUH
+AgIwNRozVGVudG8gY2VydGlmaWthdCAoUUMpIGplIHZ5ZGFuIHBybyB0ZXN0b3ZhY2kgdWNlbHku
+MBgGCCsGAQUFBwEDBAwwCjAIBgYEAI5GAQEwMAYDVR0fBCkwJzAloCOgIYYfaHR0cDovL3Rlc3Rx
+LmljYS5jei90cWljYTEwLmNybDANBgkqhkiG9w0BAQsFAAOCAQEAswOjT1nXxh+NtJ/DzY9C5TJO
+4OTaikFpCG0a96ox/vGERx/Sbfze53gcZW8MNDtPIk0xl2jDhS8bltgWftjlfsGFzQ3EIrk6+FBD
+z3YTZ1UyUb/sYc+96F2VBmLx+0aw4TgBHLncmiVtaB1p/j6RwTAI1kt+b/WjHrYRkfGjYcnkjmKm
+WK7mCSmNQ/o62GXQpgivPQP21HGBmPURnbzT+KrPwIcN6XHPdoDYIxdz1hDvRi0K90kXaKMBCFyq
+34kiR9s9auSNXfPR9okJ+OgGANen8enqO0kn8hB6ca3d/JvnnV0ms3wkNqAQ6wDcb7Rbt5e017rz
+btP8eDZIv7Lopw==</sig:X509Certificate></sig:X509Data></sig:KeyInfo></sig:Signature></msg:EnvelopeFooter>
+</msg:Envelope>

@@ -1,0 +1,577 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	xmlns="urn:cz:mfcr:iissp:schemas:Common:v1"
+	xmlns:bus="urn:cz:isvs:micr:schemas:BusinessTypes:v2"
+	xmlns:cmn="urn:cz:isvs:micr:schemas:CommonTypes:v1"
+	xmlns:cct="urn:cz:isvs:micr:schemas:CoreComponentTypes:v1"
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:dcterm="http://purl.org/dc/terms/"
+	targetNamespace="urn:cz:mfcr:iissp:schemas:Common:v1" elementFormDefault="qualified"
+	attributeFormDefault="unqualified" xmlns:spc="urn:cz:isvs:micr:schemas:SpaceTypes:v1">
+	<xs:import schemaLocation="CoreComponentTypes.xsd"    namespace="urn:cz:isvs:micr:schemas:CoreComponentTypes:v1"/>
+	<xs:import namespace="urn:cz:isvs:micr:schemas:CommonTypes:v1" schemaLocation="isvs_common.xsd"/>
+	<xs:import namespace="urn:cz:isvs:micr:schemas:BusinessTypes:v2"
+		schemaLocation="isvs_business.xsd"/>
+	<xs:import schemaLocation="isvs_space.xsd" namespace="urn:cz:isvs:micr:schemas:SpaceTypes:v1"/>
+	<xs:annotation>
+		<xs:documentation xml:lang="cz">Definice XML schématu s definicemi základních datových typů použitých pro komunikace mezi IISSP a systemy EKIS</xs:documentation>
+		<xs:appinfo>
+			<rdf:RDF>
+				<rdf:Description rdf:about="urn:cz:mfcr:iissp:schemas:Common:v1" xml:lang="cz">
+					<dc:creator>jméno (e-mail)</dc:creator>
+					<dc:contributor></dc:contributor>
+					<dc:description>Definice XML schématu s definicemi základních datových typů použitých pro komunikace mezi IISSP a systemy EKIS</dc:description>
+					<dc:identifier>urn:cz:mfcr:iissp:schemas:Common:v1</dc:identifier>
+					<dc:publisher>Ministerstvo financí ČR</dc:publisher>
+					<dc:rights>Ministerstvo financí</dc:rights>
+					<dc:type>XML Schema</dc:type>
+					<dcterm:created>20091127</dcterm:created>
+					<dc:subject>Datové prvky; Informační systémy veřejné správy; IISSP</dc:subject>
+					<dc:format>application/xml</dc:format>
+				</rdf:Description>
+			</rdf:RDF>
+		</xs:appinfo>
+	</xs:annotation>
+	<xs:element name="TransactionId" type="MessageIdType">
+		<xs:annotation>
+			<xs:documentation>Jednoznačné identifikační číslo přenosu - přidělováno odesílatelem</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="DateTimeCreated" type="cct:DatumCasType">
+		<xs:annotation>
+			<xs:documentation>Datum a čas vytvoření (zprávy)</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:complexType name="MessageIdType">
+		<xs:simpleContent>
+			<xs:restriction  base="cct:IdentifikatorType">
+				<xs:pattern value="[a-fA-F0-9]+"/>
+				<xs:maxLength value="32"/>
+				<xs:minLength value="1"/>
+			</xs:restriction>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="ModuleType">
+		<xs:simpleContent>
+			<xs:restriction  base="cct:IdentifikatorType">
+				<xs:enumeration value="CSUIS">
+					<xs:annotation>
+						<xs:documentation>CSUIS</xs:documentation>
+					</xs:annotation>
+				</xs:enumeration>
+				<xs:enumeration value="MIS">
+					<xs:annotation>
+						<xs:documentation>MIS</xs:documentation>
+					</xs:annotation>
+				</xs:enumeration>
+				<xs:enumeration value="RISRE">
+					<xs:annotation>
+						<xs:documentation>RISRE</xs:documentation>
+					</xs:annotation>
+				</xs:enumeration>
+				<xs:enumeration value="RISPR">
+					<xs:annotation>
+						<xs:documentation>RISPR</xs:documentation>
+					</xs:annotation>
+				</xs:enumeration>
+			</xs:restriction>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:element name="ResponsiblePerson" type="PersonType">
+		<xs:annotation>
+			<xs:documentation>Identifikační a kontaktní údaje zodpovědné osoby</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:complexType name="PersonType">
+		<xs:sequence>
+			<xs:element ref="PersonName" minOccurs="0"/>
+			<xs:element ref="Email" minOccurs="0"/>
+			<xs:element ref="PersonId"/>
+			<xs:element ref="UserName" minOccurs="0"/>
+			<xs:element name="CertificateId" minOccurs="0" type="cct:KodType"></xs:element>
+			<xs:element ref="PhoneNumber" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="Module" type="ModuleType">
+		<xs:annotation>
+			<xs:documentation>Identifikace modulu či aplikačního systému IISSP</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:complexType name="TransactionIdType">
+		<xs:simpleContent>
+			<xs:restriction base="cct:IdentifikatorType">
+				<xs:minLength value="1"/>
+				<xs:maxLength value="40"/>
+			</xs:restriction>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="SubjectIdType">
+		<xs:simpleContent>
+			<xs:restriction  base="cct:IdentifikatorType">
+				<xs:maxLength value="10"/>
+				<xs:minLength value="1"/>
+			</xs:restriction>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="SubjectUnitIdType">
+		<xs:simpleContent>
+			<xs:restriction  base="cct:TextType">
+				<xs:maxLength value="10"/>
+				<xs:minLength value="1"/>
+			</xs:restriction>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="PersonIdType">
+		<xs:simpleContent>
+			<xs:restriction  base="cct:IdentifikatorType">
+				<xs:maxLength value="15"/>
+				<xs:minLength value="1"/>
+			</xs:restriction>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:element name="MessageId" type="MessageIdType">
+		<xs:annotation>
+			<xs:documentation>Jednoznačná systémová identifikace zprávy pomocí GUID</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="BatchId" type="MessageIdType">
+		<xs:annotation>
+			<xs:documentation>Označení dávky, pokud datová výměna obsahuje více než jednu zprávu. Označení je jednoznačné číslo přidělované odesílatelem.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:complexType name="TypDatoveZpravyType">
+		<xs:simpleContent>
+			<xs:restriction  base="cct:KodType">
+				<xs:maxLength value="4"/>
+				<xs:minLength value="4"/>
+				<xs:enumeration value="C001">
+					<xs:annotation>
+						<xs:documentation>Rozvaha</xs:documentation>
+					</xs:annotation>
+				</xs:enumeration>
+				<xs:enumeration value="C002">
+					<xs:annotation>
+						<xs:documentation>Vysledovka</xs:documentation>
+					</xs:annotation>
+				</xs:enumeration>
+				<xs:enumeration value="C003">
+					<xs:annotation>
+						<xs:documentation>Přehled o peněžních tocích a změnách vlastního kapitálu</xs:documentation>
+					</xs:annotation>
+				</xs:enumeration>
+				<xs:enumeration value="C004">
+					<xs:annotation>
+						<xs:documentation>Příloha</xs:documentation>
+					</xs:annotation>
+				</xs:enumeration>
+				<xs:enumeration value="C005">
+					<xs:annotation>
+						<xs:documentation>Pomocný konsolidační přehled k účetní závěrce</xs:documentation>
+					</xs:annotation>
+				</xs:enumeration>
+				<xs:enumeration value="C006">
+					<xs:annotation>
+						<xs:documentation>Výkaz majetku a závazků za DKCS</xs:documentation>
+					</xs:annotation>
+				</xs:enumeration>
+				<xs:enumeration value="C007">
+					<xs:annotation>
+						<xs:documentation>Výkaz nákladů a výnosů za DKCS</xs:documentation>
+					</xs:annotation>
+				</xs:enumeration>
+				<xs:enumeration value="C008">
+					<xs:annotation>
+						<xs:documentation>Výkaz peněžních toků za DKCS</xs:documentation>
+					</xs:annotation>
+				</xs:enumeration>
+				<xs:enumeration value="C009">
+					<xs:annotation>
+						<xs:documentation>Příloha účetního výkazu za DKCS</xs:documentation>
+					</xs:annotation>
+				</xs:enumeration>
+				<xs:enumeration value="C010">
+					<xs:annotation>
+						<xs:documentation>Pomocný konsolidační přehled dílčího konsolidačního celku</xs:documentation>
+					</xs:annotation>
+				</xs:enumeration>
+				<xs:enumeration value="C011">
+					<xs:annotation>
+						<xs:documentation>Pomocný statistický přehled</xs:documentation>
+					</xs:annotation>
+				</xs:enumeration>
+				<xs:enumeration value="C012">
+					<xs:annotation>
+						<xs:documentation>Vyžádaný primární účetní záznam z účetních knih</xs:documentation>
+					</xs:annotation>
+				</xs:enumeration>
+				<xs:enumeration value="C013">
+					<xs:annotation>
+						<xs:documentation>Vyžádaný jiný účetní záznam</xs:documentation>
+					</xs:annotation>
+				</xs:enumeration>
+				<xs:enumeration value="C014">
+					<xs:annotation>
+						<xs:documentation>Inventarizační zpráva</xs:documentation>
+					</xs:annotation>
+				</xs:enumeration>
+				<xs:enumeration value="C015">
+					<xs:annotation>
+						<xs:documentation>Vyžádaný konkrétní účetní doklad</xs:documentation>
+					</xs:annotation>
+				</xs:enumeration>
+				<xs:enumeration value="C016">
+					<xs:annotation>
+						<xs:documentation>Vyžádaný seznam primárních účetních záznamů a účetních dokla</xs:documentation>
+					</xs:annotation>
+				</xs:enumeration>
+				<xs:enumeration value="C017">
+					<xs:annotation>
+						<xs:documentation>Soupis pohledávek</xs:documentation>
+					</xs:annotation>
+				</xs:enumeration>
+				<xs:enumeration value="C018">
+					<xs:annotation>
+						<xs:documentation>Soupis závazků</xs:documentation>
+					</xs:annotation>
+				</xs:enumeration>
+				<xs:enumeration value="C019">
+					<xs:annotation>
+						<xs:documentation>Soupis podmíněných pohledávek</xs:documentation>
+					</xs:annotation>
+				</xs:enumeration>
+				<xs:enumeration value="C020">
+					<xs:annotation>
+						<xs:documentation>Soupis podmíněných závazků</xs:documentation>
+					</xs:annotation>
+				</xs:enumeration>
+				<xs:enumeration value="C021">
+					<xs:annotation>
+						<xs:documentation>Peněžní prostředky</xs:documentation>
+					</xs:annotation>
+				</xs:enumeration>
+				<xs:enumeration value="C022">
+					<xs:annotation>
+						<xs:documentation>Disponibilní majetek</xs:documentation>
+					</xs:annotation>
+				</xs:enumeration>
+				<xs:enumeration value="C023">
+					<xs:annotation>
+						<xs:documentation>Rozvaha dle Vyhlášky 503</xs:documentation>
+					</xs:annotation>
+				</xs:enumeration>
+				<xs:enumeration value="C024">
+					<xs:annotation>
+						<xs:documentation>Výsledovka dle Vyhlášky 503</xs:documentation>
+					</xs:annotation>
+				</xs:enumeration>
+				<xs:enumeration value="C025">
+					<xs:annotation>
+						<xs:documentation>Příloha dle Vyhlášky 503</xs:documentation>
+					</xs:annotation>
+				</xs:enumeration>
+				<xs:enumeration value="C051">
+					<xs:annotation>
+						<xs:documentation>Fin 2-12 M</xs:documentation>
+					</xs:annotation>
+				</xs:enumeration>
+				<xs:enumeration value="C052">
+					<xs:annotation>
+						<xs:documentation>FIN 204</xs:documentation>
+					</xs:annotation>
+				</xs:enumeration>
+				<xs:enumeration value="C053">
+					<xs:annotation>
+						<xs:documentation>Výkaz o nárocích z nespotřebovaných výdajů OSS</xs:documentation>
+					</xs:annotation>
+				</xs:enumeration>
+				<xs:enumeration value="C054">
+					<xs:annotation>
+						<xs:documentation>Přehled rozpočtových opatření</xs:documentation>
+					</xs:annotation>
+				</xs:enumeration>
+				<xs:enumeration value="C055">
+					<xs:annotation>
+						<xs:documentation>Přehled o rozpočtu nákladů a výnosů SPO</xs:documentation>
+					</xs:annotation>
+				</xs:enumeration>
+				<xs:enumeration value="C056">
+					<xs:annotation>
+						<xs:documentation>Příloha ke komentáři k finančnímu výkazu pro hodnocení PR</xs:documentation>
+					</xs:annotation>
+				</xs:enumeration>
+				<xs:enumeration value="C057">
+					<xs:annotation>
+						<xs:documentation>Přehled o rozpočtu nákladů a výnosů SPO pro RISPR</xs:documentation>
+					</xs:annotation>
+				</xs:enumeration>
+				<xs:enumeration value="C058">
+					<xs:annotation>
+						<xs:documentation>Fin 2-04 U Schválený rozpočet</xs:documentation>
+					</xs:annotation>
+				</xs:enumeration>
+				<xs:enumeration value="C101">
+					<xs:annotation>
+						<xs:documentation>Stavová zpráva o výsledcích zpracování</xs:documentation>
+					</xs:annotation>
+				</xs:enumeration>
+				<xs:enumeration value="C102">
+					<xs:annotation>
+						<xs:documentation>Požadavek na zaslání účetních záznamů</xs:documentation>
+					</xs:annotation>
+				</xs:enumeration>
+				<xs:enumeration value="C103">
+					<xs:annotation>
+						<xs:documentation>Urgence</xs:documentation>
+					</xs:annotation>
+				</xs:enumeration>
+				<xs:enumeration value="C104">
+					<xs:annotation>
+						<xs:documentation>Zabezpečovací a identifikační údaje ZO</xs:documentation>
+					</xs:annotation>
+				</xs:enumeration>
+				<xs:enumeration value="C105">
+					<xs:annotation>
+						<xs:documentation>Stav registrace ZO/NZO</xs:documentation>
+					</xs:annotation>
+				</xs:enumeration>
+				<xs:enumeration value="C106">
+					<xs:annotation>
+						<xs:documentation>Výpis aktuálních registračních údajů</xs:documentation>
+					</xs:annotation>
+				</xs:enumeration>
+				<xs:enumeration value="R001">
+					<xs:annotation>
+						<xs:documentation>Rezervace</xs:documentation>
+					</xs:annotation>
+				</xs:enumeration>
+				<xs:enumeration value="R002">
+					<xs:annotation>
+						<xs:documentation>Rezervace - storno</xs:documentation>
+					</xs:annotation>
+				</xs:enumeration>
+				<xs:enumeration value="R010">
+					<xs:annotation>
+						<xs:documentation>Úhrada závazku - požadavek</xs:documentation>
+					</xs:annotation>
+				</xs:enumeration>
+				<xs:enumeration value="R011">
+					<xs:annotation>
+						<xs:documentation>Úhrada závazku - potvrzení požadavku</xs:documentation>
+					</xs:annotation>
+				</xs:enumeration>
+				<xs:enumeration value="R012">
+					<xs:annotation>
+						<xs:documentation>Úhrada závazku - provedení</xs:documentation>
+					</xs:annotation>
+				</xs:enumeration>
+				<xs:enumeration value="R013">
+					<xs:annotation>
+						<xs:documentation>Úhrada závazku - storno</xs:documentation>
+					</xs:annotation>
+				</xs:enumeration>
+				<xs:enumeration value="R020">
+					<xs:annotation>
+						<xs:documentation>Rozpočtová opatření do IISSP</xs:documentation>
+					</xs:annotation>
+				</xs:enumeration>
+				<xs:enumeration value="R021">
+					<xs:annotation>
+						<xs:documentation>Rozpočtová opatření do IISSP - storno</xs:documentation>
+					</xs:annotation>
+				</xs:enumeration>
+				<xs:enumeration value="R022">
+					<xs:annotation>
+						<xs:documentation>Rozpočtová opatření z IISSP</xs:documentation>
+					</xs:annotation>
+				</xs:enumeration>
+				<xs:enumeration value="R023">
+					<xs:annotation>
+						<xs:documentation>Rozpočtová kmenová data</xs:documentation>
+					</xs:annotation>
+				</xs:enumeration>
+				<xs:enumeration value="R024">
+					<xs:annotation>
+						<xs:documentation>Přenos a založení rozpočtových kmenových dat</xs:documentation>
+					</xs:annotation>
+				</xs:enumeration>
+				<xs:enumeration value="R025">
+				   <xs:annotation>
+					  <xs:documentation>
+					  Rozpočtová opatření do IISSP - příloha
+					  </xs:documentation>
+				   </xs:annotation>
+				</xs:enumeration>
+				<xs:enumeration value="R030">
+					<xs:annotation>
+						<xs:documentation>Limitka</xs:documentation>
+					</xs:annotation>
+				</xs:enumeration>
+				<xs:enumeration value="R040">
+					<xs:annotation>
+						<xs:documentation>Výkaz čerpání rozpočtu</xs:documentation>
+					</xs:annotation>
+				</xs:enumeration>
+				<xs:enumeration value="R041">
+					<xs:annotation>
+						<xs:documentation>Výkaz čerpání rozpočtu - potvrzení</xs:documentation>
+					</xs:annotation>
+				</xs:enumeration>
+				<xs:enumeration value="R125">
+				   <xs:annotation>
+					  <xs:documentation>
+					  Rozpočtová opatření do IISSP - příloha - stavová zpráva
+					  </xs:documentation>
+				   </xs:annotation>
+				</xs:enumeration>
+				<xs:enumeration value="K001">
+					<xs:annotation>
+						<xs:documentation>Kmenová data - účty</xs:documentation>
+					</xs:annotation>
+				</xs:enumeration>
+				<xs:enumeration value="K002">
+					<xs:annotation>
+						<xs:documentation>Kmenová data - komitenti</xs:documentation>
+					</xs:annotation>
+				</xs:enumeration>
+				<xs:enumeration value="B001">
+					<xs:annotation>
+						<xs:documentation>Matrika kartotéky 1</xs:documentation>
+					</xs:annotation>
+				</xs:enumeration>
+				<xs:enumeration value="B002">
+					<xs:annotation>
+						<xs:documentation>Matrika kartotéky 2</xs:documentation>
+					</xs:annotation>
+				</xs:enumeration>
+				<xs:enumeration value="B003">
+					<xs:annotation>
+						<xs:documentation>Položkové obraty</xs:documentation>
+					</xs:annotation>
+				</xs:enumeration>
+				<xs:enumeration value="B004">
+					<xs:annotation>
+						<xs:documentation>Účetní metriky</xs:documentation>
+					</xs:annotation>
+				</xs:enumeration>
+				<xs:enumeration value="B005">
+					<xs:annotation>
+						<xs:documentation>Souhrnný účet státní pokladny - obraty a zůstatky</xs:documentation>
+					</xs:annotation>
+				</xs:enumeration>
+				<xs:enumeration value="X000">
+					<xs:annotation>
+						<xs:documentation>Nedefinovaný typ</xs:documentation>
+					</xs:annotation>
+				</xs:enumeration>
+			</xs:restriction>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:element name="TypDatoveZpravy" type="TypDatoveZpravyType"></xs:element>
+	<xs:complexType name="AdresaType">
+		<xs:sequence>
+			<xs:element ref="Ulice"/>
+			<xs:element ref="Obec"/>
+			<xs:element ref="PSC"/>
+			<xs:element ref="StatNazev"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="Email" type="cmn:EmailType">
+		<xs:annotation>
+			<xs:documentation>Emailová adresa</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="PersonId" type="PersonIdType">
+		<xs:annotation>
+			<xs:documentation>Identifikace zodpovědné osoby</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="UserName" type="UserNameType">
+		<xs:annotation>
+			<xs:documentation>Identifikace uživatele - uživatelské jméno</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:complexType name="BankaType">
+		<xs:sequence>
+			<xs:element ref="BankaNazev" minOccurs="0"/>
+			<xs:element ref="cmn:BankaKod"/>
+			<xs:element ref="BankaTypKodu" minOccurs="0"/>
+			<xs:element ref="Adresa" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="Banka" type="BankaType">
+		<xs:annotation>
+			<xs:documentation>Identifikace banky</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="PhoneNumber" type="cmn:FaxTelefonCisloType">
+		<xs:annotation>
+			<xs:documentation>Kontaktní telefonní číslo</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="ReferenceTransactionId" type="MessageIdType">
+		<xs:annotation>
+			<xs:documentation>Identifikace odkazované zprávy</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="IC" type="bus:SubjektICOType"></xs:element>
+	<xs:element name="SubjectId" type="SubjectIdType">
+		<xs:annotation>
+			<xs:documentation>Identifikace subjektu pomocí jiného identifikátoru než je IČ</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="SubjectUnitId" type="SubjectUnitIdType">
+		<xs:annotation>
+			<xs:documentation>Identifikace části organizační jednotky</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="SubjectName" type="cct:TextType">
+		<xs:annotation>
+			<xs:documentation>Název subjektu (organizace)</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="PersonName" type="cct:TextType">
+		<xs:annotation>
+			<xs:documentation>Jméno a příjmení osoby</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="BankaNazev" type="cct:TextType">
+		<xs:annotation>
+			<xs:documentation>Název banky</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="BankaTypKodu" type="cct:TextType"></xs:element>
+	<xs:element name="Adresa" type="AdresaType"></xs:element>
+	<xs:element name="PSC" type="spc:PSCType"></xs:element>
+	<xs:element name="Ulice" type="spc:UliceNazevType"></xs:element>
+	<xs:element name="Obec" type="spc:ObecNazevType"></xs:element>
+	<xs:element name="StatNazev" type="spc:StatType"></xs:element>
+	<xs:complexType name="SubjectType">
+		<xs:sequence>
+			<xs:choice>
+				<xs:element ref="IC"/>
+				<xs:element ref="SubjectId"/>
+			</xs:choice>
+			<xs:element ref="SubjectUnitId" minOccurs="0"/>
+			<xs:element ref="SubjectName"/>
+			<xs:element ref="Module" minOccurs="0"/>
+			<xs:element ref="ResponsiblePerson" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="UserNameType">
+		<xs:simpleContent>
+			<xs:restriction  base="cct:TextType">
+				<xs:minLength value="1"/>
+				<xs:maxLength value="12"/>
+			</xs:restriction>
+		</xs:simpleContent>
+	</xs:complexType>
+</xs:schema>
+
+
+
+
+
+
+
+
+
+

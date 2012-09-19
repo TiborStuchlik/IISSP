@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+    xmlns="urn:cz:mfcr:iissp:schemas:RisrePortalAplikace:v1"
+    xmlns:rt="urn:cz:mfcr:iissp:schemas:Risre:Types:v1" xmlns:dc="http://purl.org/dc/elements/1.1/"
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dcterm="http://purl.org/dc/terms/"
+    attributeFormDefault="unqualified" elementFormDefault="qualified"
+    targetNamespace="urn:cz:mfcr:iissp:schemas:RisrePortalAplikace:v1" version="1.00"
+    xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+    <xs:annotation>
+        <xs:documentation xml:lang="cz">Definice XML schématu se strukturou pro přenos dat pro změnu rezervace</xs:documentation>
+        <xs:appinfo>
+            <rdf:RDF>
+                <rdf:Description rdf:about="urn:cz:mfcr:iissp:schemas:RisrePortalAplikace:v1" xml:lang="cz">
+                    <dc:creator>Tomas Toth (ttoth@email.cz)</dc:creator>
+                    <dc:contributor>TOTHT 2012-07-12T12:00:00Z</dc:contributor>
+                    <dc:description>Definice XML schématu se strukturou pro přenos dat pro změnu rezervace</dc:description>
+                    <dc:identifier>urn:cz:mfcr:iissp:schemas:RisrePortalAplikace:v1</dc:identifier>
+                    <dc:publisher>Ministerstvo financí ČR</dc:publisher>
+                    <dc:rights>Ministerstvo financí ČR</dc:rights>
+                    <dc:type>XML Schema</dc:type>
+                    <dcterm:created>20120712</dcterm:created>
+                    <dc:subject>Datové prvky; Informační systémy veřejné správy; IISSP;</dc:subject>
+                    <dc:format>application/xml</dc:format>
+                </rdf:Description>
+            </rdf:RDF>
+        </xs:appinfo>
+    </xs:annotation>
+    <xs:import namespace="urn:cz:mfcr:iissp:schemas:Risre:Types:v1"
+        schemaLocation="iissp_risre_types.xsd"/>
+    <xs:import namespace="http://www.w3.org/2000/09/xmldsig#" schemaLocation="xmldsig.xsd"/>
+    <xs:element name="DataRezervace" type="DataRezervaceType"/>
+    <xs:complexType name="DataRezervaceType">
+        <xs:sequence>
+            <xs:element name="RezervaceSeznam" type="RezervaceSeznamType"/>
+            <xs:element minOccurs="0" ref="ds:Signature"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="RezervaceSeznamType">
+        <xs:sequence>
+            <xs:element maxOccurs="unbounded" name="Rezervace" type="RezervaceSeznamPolozkaType"/>
+        </xs:sequence>
+        <xs:attribute name="ID" type="xs:ID" use="optional">
+            <xs:annotation>
+                <xs:documentation>Identifikátor části zprávy pro použití v digitálním podpisu</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+    </xs:complexType>
+    <xs:complexType name="RezervaceSeznamPolozkaType">
+        <xs:sequence>
+            <xs:element name="RezervaceCislo" type="rt:RezervaceCislo1Type"/>
+            <xs:element name="RezervaceTyp" type="rt:RezervaceTypType"/>
+            <xs:element name="RezervaceDruh" type="rt:RezervaceDruhType"/>
+            <xs:element minOccurs="0" name="UzavreniPriznak" type="rt:PriznakType"/>
+            <xs:element minOccurs="0" name="DokladPuvodniCislo" type="rt:DokladPuvodniCislo1Type"/>
+            <xs:element minOccurs="0" name="Poznamka" type="rt:Poznamka1Type"/>
+            <xs:element maxOccurs="1" minOccurs="0" name="Popis" type="rt:Popis1Type"/>
+            <xs:element minOccurs="0" name="RizeniVyberovePriznak" type="rt:PriznakType"/>
+            <xs:element minOccurs="0" name="ZakazkaVerejnaCisloEvidencni"
+                type="rt:ZakazkaVerejnaCisloEvidencni1Type"/>
+            <xs:element minOccurs="0" name="KontrolaRidiciPriznak" type="rt:PriznakType"/>
+            <xs:element minOccurs="0" name="RezervaceInkasniPriznak" type="rt:PriznakType"/>
+            <xs:element minOccurs="0" name="OrganizaceInkasujiciUcetBankovniCislo"
+                type="rt:OrganizaceInkasujiciUcetBankovniCislo1Type"/>
+            <xs:element minOccurs="0" name="OrganizaceInkasujiciUcetBankaKod"
+                type="rt:OrganizaceInkasujiciUcetBankaKod1Type"/>
+            <xs:element minOccurs="0" name="SymbolVariabilni" type="rt:SymbolVariabilni1Type"/>
+            <xs:element minOccurs="0" name="SymbolSpecificky" type="rt:SymbolSpecificky1Type"/>
+            <xs:element maxOccurs="999" minOccurs="1" name="Polozka" type="RezervacePolozkaType"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="RezervacePolozkaType">
+        <xs:sequence>
+            <xs:element name="Cislo" type="rt:RezervacePolozkaCisloType"/>
+            <xs:element minOccurs="0" name="ReferenceRezervaceViceleta"
+                type="RezervaceViceletaIdentifikaceType"/>
+            <xs:element minOccurs="0" name="PolozkaUzavreniPriznak" type="rt:PriznakType"/>
+            <xs:element minOccurs="0" name="SplatnostDatum" type="rt:SplatnostDatumType"/>
+            <xs:element minOccurs="0" name="Castka" type="rt:CastkaType"/>
+            <xs:element minOccurs="0" name="Text" type="rt:RezervacePolozkaText1Type"/>
+            <xs:element minOccurs="0" name="MistoFinancni" type="rt:MistoFinancniType"/>
+            <xs:element minOccurs="0" name="Zdroj" type="rt:ZdrojType"/>
+            <xs:element minOccurs="0" name="Paragraf" type="rt:ParagrafType"/>
+            <xs:element minOccurs="0" name="PolozkaRozpoctova" type="rt:PolozkaRozpoctovaType"/>
+            <xs:element minOccurs="0" name="EdsSmvsAkce" type="rt:EdsSmvsAkce1Type"/>
+            <xs:element minOccurs="0" name="StrukturaPrijmovaVydajova"
+                type="rt:StrukturaPrijmovaVydajovaType"/>
+            <xs:element minOccurs="0" name="Ucel" type="rt:Ucel1Type"/>
+            <xs:element minOccurs="0" name="JednotkaZaznamova" type="rt:JednotkaZaznamova1Type"/>
+            <xs:element minOccurs="0" name="JednotkaUzemni" type="rt:JednotkaUzemni1Type"/>
+            <xs:element minOccurs="0" name="ZnakUcelovy" type="rt:ZnakUcelovy1Type"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="RezervaceViceletaIdentifikaceType">
+        <xs:sequence>
+            <xs:element name="Cislo" type="rt:RezervaceCislo1Type"/>
+            <xs:element name="PolozkaCislo" type="rt:RezervacePolozkaCisloType"/>
+        </xs:sequence>
+    </xs:complexType>
+</xs:schema>

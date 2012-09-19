@@ -1,0 +1,237 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:ds="http://www.w3.org/2000/09/xmldsig#"
+	xmlns:iissp="urn:cz:mfcr:iissp:schemas:Common:v1"
+	xmlns:cmn="urn:cz:isvs:micr:schemas:CommonTypes:v1"
+	xmlns:risre="urn:cz:mfcr:iissp:schemas:Risre:v1" xmlns="urn:cz:mfcr:iissp:schemas:Messaging:v1"
+	xmlns:cct="urn:cz:isvs:micr:schemas:CoreComponentTypes:v1"
+	xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+	xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:dcterm="http://purl.org/dc/terms/"
+	targetNamespace="urn:cz:mfcr:iissp:schemas:Messaging:v1" elementFormDefault="qualified"
+	attributeFormDefault="unqualified">
+	<xs:import namespace="urn:cz:mfcr:iissp:schemas:Risre:v1" schemaLocation="iissp_risre.xsd"/>
+	<xs:import namespace="urn:cz:mfcr:iissp:schemas:Common:v1" schemaLocation="iissp_common.xsd"/>
+	<xs:import namespace="urn:cz:isvs:micr:schemas:CoreComponentTypes:v1"
+		schemaLocation="CoreComponentTypes.xsd"/>
+	<xs:import namespace="http://www.w3.org/2000/09/xmldsig#" schemaLocation="xmldsig.xsd"/>
+	<xs:annotation>
+		<xs:documentation xml:lang="cz">Definice XML schématu se strukturami komunikace mezi IISSP a systemy EKIS</xs:documentation>
+		<xs:appinfo>
+			<rdf:RDF>
+				<rdf:Description rdf:about="urn:cz:mfcr:iissp:schemas:Messaging:v1" xml:lang="cz">
+					<dc:creator>Tomas Toth (ttoth@email.cz)</dc:creator>
+					<dc:contributor>TOTHT 2012-07-02T12:00:00Z</dc:contributor>
+					<dc:description>Definice XML schématu se strukturami komunikace mezi IISSP RISRE a systemy EKIS</dc:description>
+					<dc:identifier>urn:cz:mfcr:iissp:schemas:Risre:v1</dc:identifier>
+					<dc:publisher>Ministerstvo financí ČR</dc:publisher>
+					<dc:rights>Ministerstvo financí</dc:rights>
+					<dc:type>XML Schema</dc:type>
+					<dcterm:created>20120702</dcterm:created>
+					<dc:subject>Datové prvky; Informační systémy veřejné správy; IISSP; Výkazy</dc:subject>
+					<dc:format>application/xml</dc:format>
+				</rdf:Description>
+			</rdf:RDF>
+		</xs:appinfo>
+	</xs:annotation>
+
+	<xs:complexType name="RecipientSubjectType">
+		<xs:sequence>
+			<xs:choice>
+				<xs:element ref="iissp:IC"/>
+				<xs:element ref="iissp:SubjectId"/>
+			</xs:choice>
+			<xs:element ref="iissp:SubjectUnitId" minOccurs="0"/>
+			<xs:element ref="iissp:SubjectName"/>
+			<xs:element ref="iissp:Module" minOccurs="0"/>
+			<xs:element ref="iissp:ResponsiblePerson" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="SenderSubjectType">
+		<xs:sequence>
+			<xs:choice>
+				<xs:element ref="iissp:IC"/>
+				<xs:element ref="iissp:SubjectId"/>
+			</xs:choice>
+			<xs:element ref="iissp:SubjectUnitId" minOccurs="0"/>
+			<xs:element ref="iissp:SubjectName"/>
+			<xs:element ref="iissp:Module" minOccurs="0"/>
+			<xs:element ref="iissp:ResponsiblePerson" minOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="Envelope" type="EnvelopeType"/>
+	<xs:complexType name="EnvelopeType">
+		<xs:annotation>
+			<xs:documentation>Komunikační obálka používaná pro výměnu zpráv libovolného druhu mezi IISSP a externími subjekty</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element ref="EnvelopeHeader"/>
+			<xs:element ref="EnvelopeBody"/>
+			<xs:element ref="EnvelopeFooter" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="ZpravaDatumVytvoreniDo" type="cct:DatumType">
+		<xs:annotation>
+			<xs:documentation>Koncový datum a čas intervalu pro výběr zpráv z virtuálního inboxu</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="ZpravaDatumVytvoreniOd" type="cct:DatumType">
+		<xs:annotation>
+			<xs:documentation>Počáteční datum a čas intervalu pro výběr zpráv z virtuálního inboxu</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="EnvelopeHeader" type="EnvelopeHeaderType">
+		<xs:annotation>
+			<xs:documentation>Hlavička přenosové obálky sloužící pro metadata přenosu</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="EnvelopeBody" type="EnvelopeBodyType">
+		<xs:annotation>
+			<xs:documentation>Tělo přenosové obálky, ve kterém jsou přenášena aplikační data.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="EnvelopeFooter" type="EnvelopeFooterType">
+		<xs:annotation>
+			<xs:documentation>Patička přenosové obálky sloužící pro kontrolní data</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:complexType name="EnvelopeHeaderType">
+		<xs:sequence>
+			<xs:element ref="iissp:TransactionId"/>
+			<xs:element ref="iissp:ReferenceTransactionId" minOccurs="0"/>
+			<xs:element ref="DateTimeCreated"/>
+			<xs:element ref="Sender"/>
+			<xs:element ref="Recipient"/>
+			<xs:element ref="Authentication" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="DateTimeCreated" type="cct:DatumCasType">
+		<xs:annotation>
+			<xs:documentation>Datum a čas vytvoření (zprávy)</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="Authentication" type="AuthenticationType">
+		<xs:annotation>
+			<xs:documentation>Identifikační a autentizační údaje uživatele pro přihlášení k systému IISSP.
+Je nutné vyplnit pouze v případě, je-li to vyžadováno daným rozhraním.
+			</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:complexType name="AuthenticationType">
+		<xs:sequence>
+			<xs:element name="Identification" type="TextType"/>
+			<xs:element name="Password" type="TextType"/>
+			<xs:element name="Method" type="TextType"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="EnvelopeBodyType">
+		<xs:sequence>
+			<xs:element ref="risre:ZpravaRisre"/>
+		</xs:sequence>
+		<xs:attribute name="ID" type="xs:ID" use="optional">
+			<xs:annotation>
+				<xs:documentation>Identifikátor části zprávy pro použití v digitálním podpisu</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+	</xs:complexType>
+	<xs:complexType name="EnvelopeFooterType">
+		<xs:sequence>
+			<xs:element minOccurs="0" ref="ds:Signature"/>
+			<xs:element ref="Processing" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="SeverityType">
+		<xs:simpleContent>
+			<xs:restriction base="cct:IdentifikatorType">
+				<xs:enumeration value="ERROR">
+					<xs:annotation>
+						<xs:documentation>Chyba</xs:documentation>
+					</xs:annotation>
+				</xs:enumeration>
+				<xs:enumeration value="WARNING">
+					<xs:annotation>
+						<xs:documentation>Varování</xs:documentation>
+					</xs:annotation>
+				</xs:enumeration>
+				<xs:enumeration value="INFO">
+					<xs:annotation>
+						<xs:documentation>Informativní hlášení</xs:documentation>
+					</xs:annotation>
+				</xs:enumeration>
+			</xs:restriction>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="ComponentNameType">
+		<xs:simpleContent>
+			<xs:restriction base="cct:IdentifikatorType">
+				<xs:annotation>
+					<xs:documentation>Komponenta / část procesu, kde bylo hlášení generováno.</xs:documentation>
+				</xs:annotation>
+				<xs:enumeration value="AE_CHECKSUM">
+					<xs:annotation>
+						<xs:documentation>Kontrola kontrolního součtu</xs:documentation>
+					</xs:annotation>
+				</xs:enumeration>
+				<xs:enumeration value="AE_CRYPTO">
+					<xs:annotation>
+						<xs:documentation>Šifrování/dešifrování</xs:documentation>
+					</xs:annotation>
+				</xs:enumeration>
+				<xs:enumeration value="AE_RESPERSON">
+					<xs:annotation>
+						<xs:documentation>Kontrola oprávněné osoby</xs:documentation>
+					</xs:annotation>
+				</xs:enumeration>
+				<xs:enumeration value="AE_SIGN">
+					<xs:annotation>
+						<xs:documentation>Vytváření/kontrola elektronického podpisu</xs:documentation>
+					</xs:annotation>
+				</xs:enumeration>
+				<xs:enumeration value="AE_XMLCHECK">
+					<xs:annotation>
+						<xs:documentation>Kontrola validity XML</xs:documentation>
+					</xs:annotation>
+				</xs:enumeration>
+				<xs:enumeration value="APPL_DATACHECK">
+					<xs:annotation>
+						<xs:documentation>Kontrola věcné správnosti aplikačních dat</xs:documentation>
+					</xs:annotation>
+				</xs:enumeration>
+				<xs:enumeration value="OTHER">
+					<xs:annotation>
+						<xs:documentation>JIná komponenta</xs:documentation>
+					</xs:annotation>
+				</xs:enumeration>
+				<xs:enumeration value="AE_MODULE">
+					<xs:annotation>
+						<xs:documentation>Jiný modul Adapter Engine</xs:documentation>
+					</xs:annotation>
+				</xs:enumeration>
+				<xs:enumeration value="IS">
+					<xs:annotation>
+						<xs:documentation>Integrační server</xs:documentation>
+					</xs:annotation>
+				</xs:enumeration>
+				<xs:enumeration value="APPL">
+					<xs:annotation>
+						<xs:documentation>Aplikace</xs:documentation>
+					</xs:annotation>
+				</xs:enumeration>
+			</xs:restriction>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="TextType">
+		<xs:annotation>
+			<xs:documentation>Datový typ pro uvedení textového řetězce bez omezení</xs:documentation>
+		</xs:annotation>
+		<xs:simpleContent>
+			<xs:restriction base="cct:TextType"/>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:element name="Sender" type="SenderSubjectType"/>
+	<xs:element name="Recipient" type="RecipientSubjectType"/>
+	<xs:complexType name="ProcessingType">
+		<xs:sequence>
+			<xs:any/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="Processing" type="ProcessingType"/>
+</xs:schema>

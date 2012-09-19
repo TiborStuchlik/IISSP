@@ -1,0 +1,77 @@
+﻿<msg:Envelope xmlns:msg="urn:cz:mfcr:iissp:schemas:Messaging:v1">
+    <msg:EnvelopeHeader>
+        <cmn:TransactionId xmlns:cmn="urn:cz:mfcr:iissp:schemas:Common:v1">00000000000000003850</cmn:TransactionId>
+        <msg:DateTimeCreated>2010-04-28T17:01:18Z</msg:DateTimeCreated>
+        <msg:Sender>
+            <cmn:IC xmlns:cmn="urn:cz:mfcr:iissp:schemas:Common:v1">00006947</cmn:IC>
+            <cmn:SubjectName xmlns:cmn="urn:cz:mfcr:iissp:schemas:Common:v1">Ministerstvo financí</cmn:SubjectName>
+            <cmn:Module xmlns:cmn="urn:cz:mfcr:iissp:schemas:Common:v1">RISRE</cmn:Module>
+            <cmn:ResponsiblePerson xmlns:cmn="urn:cz:mfcr:iissp:schemas:Common:v1">
+                <cmn:PersonName>Kompetencni centrum</cmn:PersonName>
+                <cmn:PersonId>KC</cmn:PersonId>
+            </cmn:ResponsiblePerson>
+        </msg:Sender>
+        <msg:Recipient>
+            <cmn:IC xmlns:cmn="urn:cz:mfcr:iissp:schemas:Common:v1">00006947</cmn:IC>
+            <cmn:SubjectName xmlns:cmn="urn:cz:mfcr:iissp:schemas:Common:v1">Fiktivní EKIS_TEST</cmn:SubjectName>
+            <cmn:ResponsiblePerson xmlns:cmn="urn:cz:mfcr:iissp:schemas:Common:v1">
+                <cmn:PersonName>Jan Novak</cmn:PersonName>
+                <cmn:Email>Jan.Novak@mfcr.cz</cmn:Email>
+                <cmn:PersonId>MU0999000035</cmn:PersonId>
+            </cmn:ResponsiblePerson>
+        </msg:Recipient>
+    </msg:EnvelopeHeader>
+    <msg:EnvelopeBody>
+        <risre:ZpravaRisre xmlns:risre="urn:cz:mfcr:iissp:schemas:Risre:v1">
+            <risre:RozpoctoveOpatreniVypis>
+                <risre:DokladRozpoctovy>
+                    <risre:Kapitola>312</risre:Kapitola>
+                    <risre:Rok>2011</risre:Rok>
+                    <risre:RozpoctoveOpatreniCislo>3120000261</risre:RozpoctoveOpatreniCislo> 
+                    <risre:DokladPuvodniCislo>1252015</risre:DokladPuvodniCislo>
+                    <risre:DokladPuvodniDatum>2011-03-01</risre:DokladPuvodniDatum>
+                    <risre:DokladDatum>2011-05-01</risre:DokladDatum>
+                    <risre:DokladStatus>2</risre:DokladStatus>
+                    <risre:DokladDruh>2</risre:DokladDruh>
+                    <risre:OperaceTyp>4</risre:OperaceTyp>
+                    <risre:CisloJednaciOrganizacniSlozkaStatu>1122334455</risre:CisloJednaciOrganizacniSlozkaStatu>
+                    <risre:PracovnikOrganizacniSlozkaStatu>Jan Novák</risre:PracovnikOrganizacniSlozkaStatu>
+                    <risre:DokladText>Snížení RP 5169 a navýšení RP 5011</risre:DokladText>
+                    <risre:TextDoprovodny>Snížení RP 5169 a navýšení RP 5011</risre:TextDoprovodny>
+                    <risre:AplikaceHlavickaCislo>2011000171</risre:AplikaceHlavickaCislo>
+                    <risre:AplikaceHlavickaRok>2011</risre:AplikaceHlavickaRok>
+                    <risre:Polozka>
+                        <risre:Cislo>000001</risre:Cislo>
+                        <risre:Castka menaKod="CZK">-1000.0</risre:Castka>
+                        <risre:PolozkaRozpoctova>5169</risre:PolozkaRozpoctova>
+                        <risre:MistoFinancni>3120002</risre:MistoFinancni>
+                        <risre:Zdroj>1100000</risre:Zdroj>
+                        <risre:Paragraf>6145</risre:Paragraf>
+                        <risre:RozpocetDruh>RZ</risre:RozpocetDruh>
+                        <risre:StrukturaPrijmovaVydajova>5010010011</risre:StrukturaPrijmovaVydajova>
+                        <risre:Text>Polozka 1</risre:Text>
+                    </risre:Polozka>
+                    <risre:Polozka>
+                        <risre:Cislo>000002</risre:Cislo>
+                        <risre:Castka menaKod="CZK">1000.0</risre:Castka>
+                        <risre:PolozkaRozpoctova>5011</risre:PolozkaRozpoctova>
+                        <risre:MistoFinancni>3120002</risre:MistoFinancni>
+                        <risre:Zdroj>1100000</risre:Zdroj>
+                        <risre:Paragraf>6145</risre:Paragraf>
+                        <risre:RozpocetDruh>RZ</risre:RozpocetDruh>
+                        <risre:StrukturaPrijmovaVydajova>5010010011</risre:StrukturaPrijmovaVydajova>
+                        <risre:Text>Polozka 2</risre:Text>
+                    </risre:Polozka>
+                </risre:DokladRozpoctovy>
+                <risre:ZpracovaniVysledek>
+                    <risre:TypMaximum>I</risre:TypMaximum>
+                    <risre:Polozka>
+                        <risre:Typ>I</risre:Typ>
+                        <risre:ID>007(PSM_ESOA)</risre:ID>
+                        <risre:Text>Operace úspěšně uzavřena</risre:Text>
+                    </risre:Polozka>
+                </risre:ZpracovaniVysledek>
+            </risre:RozpoctoveOpatreniVypis>
+        </risre:ZpravaRisre>
+    </msg:EnvelopeBody>
+</msg:Envelope>
