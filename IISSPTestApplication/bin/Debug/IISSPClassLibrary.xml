@@ -1,0 +1,472 @@
+﻿<?xml version="1.0"?>
+<doc>
+<assembly>
+<name>
+IISSPClassLibrary
+</name>
+</assembly>
+<members>
+<member name="M:IISSPClassLibrary.IISSPCrypto.Encrypt(System.String,System.String)">
+	<summary>
+ Zajistí Identifikátor celistvosti a zakódování xml dokumentu.
+ </summary>
+	<param name="XmlString">Xml dokument ve formátu string</param>
+	<param name="FullPath">Úplná cesta k souboru typu AESKEY.DEC Soubor se může jmenovat libovolně.</param>
+	<returns>Řetězec v Base64</returns>
+	<remarks></remarks>
+</member><member name="M:IISSPClassLibrary.IISSPCrypto.Decrypt(System.String,System.String)">
+	<summary>
+ Zajistí rozkódování Xml dokumentu
+ </summary>
+	<param name="b64String">Zakódovaný dokument</param>
+	<param name="FullPath">Úplná cesta k souboru typu AESKEY.DEC Soubor se může jmenovat libovolně.</param>
+	<returns>Rozkódovaný dokument</returns>
+	<remarks></remarks>
+</member><member name="M:IISSPClassLibrary.IISSPCrypto.GetAESKEY(System.String)">
+	<summary>
+ Načte klíč z AESKEY
+ </summary>
+	<param name="FullPath">Úplná cesta k souboru typu AESKEY.DEC Soubor se může jmenovat libovolně.</param>
+	<returns>Šifrovací klíč</returns>
+	<remarks></remarks>
+</member><member name="T:IISSPClassLibrary.IISSPCrypto">
+	<summary>
+ Tato třída poskytuje kryptografické funkce.
+ Vytváří kontrolní podpis - identifikátor celistvosti, šifruje a dešifruje xml dokument.
+ </summary>
+	<remarks></remarks>
+</member><member name="P:IISSPClassLibrary.IISSPGeneral.Url">
+	<summary>
+ Url služby
+ </summary>
+	<value>Hodnota</value>
+	<returns>Url aktuálně definované služby.</returns>
+	<remarks>V případě, že bude volána vlastnot <see cref="P:IISSPClassLibrary.IISSPGeneral.Service"/>, není potřeba tuto vlastnost nastavovat.
+ Pokud nebude nastavene, načte se její hodnota z nastavení, kde je uložena posleně použitá hodnota.</remarks>
+</member><member name="P:IISSPClassLibrary.IISSPGeneral.Service">
+	<summary>
+ Tuto vlastnost voláme pro nastavení parametrů služby z definice.
+ </summary>
+	<value>Cesta k WSDL definici služby.</value>
+	<remarks>Tato vlastnost neni v současné době implementována</remarks>
+</member><member name="P:IISSPClassLibrary.IISSPGeneral.ClientCertificatePath">
+	<summary>
+ Tato vlastnost umožňuje nastavit cestu a jméno, kde se nachází klientský certifikát potřebný pro SSL/TLS spojení. např. C:\IISSP\CERT\MujCertif.pfx
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:IISSPClassLibrary.IISSPGeneral.ClientCertificatePWD">
+	<summary>
+ Tato vlastnost umožňuje nastavit heslo ke klientskému certifikatu
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:IISSPClassLibrary.IISSPGeneral.UserName">
+	<summary>
+ Zadáváme nebo čteme uživatelské jméno pokud je vyžadováno volanou službou.
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:IISSPClassLibrary.IISSPGeneral.Password">
+	<summary>
+ Zadáváme nebo čteme heslo pokud je vyžadováno volanou službou.
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:IISSPClassLibrary.IISSPGeneral.SenderResponsiblePersonEmail">
+	<summary>
+ Zadáváme nebo čteme SenderResponsiblePersonEmail pokud je vyžadováno volanou službou.
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:IISSPClassLibrary.IISSPGeneral.SenderResponsiblePersonId">
+	<summary>
+ Zadáváme nebo čteme SenderResponsiblePersonId pokud je vyžadováno volanou službou.
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:IISSPClassLibrary.IISSPGeneral.SenderResponsiblePersonName">
+	<summary>
+ Zadáváme nebo čteme SenderResponsiblePersonName pokud je vyžadováno volanou službou.
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:IISSPClassLibrary.IISSPGeneral.SenderIc">
+	<summary>
+ Zadáváme nebo čteme SenderIc pokud je vyžadováno volanou službou.
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:IISSPClassLibrary.IISSPGeneral.SenderSubjectName">
+	<summary>
+ Zadáváme nebo čteme SenderSubjectName pokud je vyžadováno volanou službou.
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:IISSPClassLibrary.IISSPGeneral.RecipientIc">
+	<summary>
+ Zadáváme nebo čteme RecipientIc pokud je vyžadováno volanou službou.
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:IISSPClassLibrary.IISSPGeneral.RecipientModule">
+	<summary>
+ Zadáváme nebo čteme RecipientModule pokud je vyžadováno volanou službou.
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:IISSPClassLibrary.IISSPGeneral.RecipientSubjectName">
+	<summary>
+ Zadáváme nebo čteme RecipientSubjectName pokud je vyžadováno volanou službou.
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:IISSPClassLibrary.IISSPGeneral.Url_FMMD">
+	<summary>
+ Zadáváme nebo čteme Url pro FMMD např. https://testportal3.statnipokladna.cz/risre/ws/B_SP_EKIS_FMMD pokud je vyžadováno volanou službou.
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:IISSPClassLibrary.IISSPGeneral.Url_EKIS_SP_ROP">
+	<summary>
+ Zadáváme nebo čteme Url pro FMMD např. https://testportal3.statnipokladna.cz/risre/ws/B_EKIS_SP_ROP pokud je vyžadováno volanou službou.
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:IISSPClassLibrary.IISSPGeneral.Url_SP_EKIS_ROP">
+	<summary>
+ Zadáváme nebo čteme Url pro FMMD např. https://testportal3.statnipokladna.cz/risre/ws/B_SP_EKIS_ROP pokud je vyžadováno volanou službou.
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:IISSPClassLibrary.IISSPGeneral.Url_EKIS_SP_ROP_ATT">
+	<summary>
+ Zadáváme nebo čteme Url pro FMMD např. https://testportal3.statnipokladna.cz/risre/ws/B_EKIS_ROP_ATT pokud je vyžadováno volanou službou.
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:IISSPClassLibrary.IISSPGeneral.WorkingDirectory">
+	<summary>
+ Název kořenové pracovní složky knihovny.
+ </summary>
+	<value>Řetězec jako název složky</value>
+	<returns>Vrací název kořenové pracovní složky knihovny jako <c>String</c></returns>
+	<remarks>V této složce se vytvářejí posložky. Např \log pro logovací soubory, \Settings pro nastavení a pod.</remarks>
+</member><member name="P:IISSPClassLibrary.IISSPGeneral.Loging">
+	<summary>
+ Tato vlastnost určuje zda je aktivní logování či nikoli.
+ </summary>
+	<value>Nastavením vlastnosti na <c>True</c> zapneme logování. <c>False</c>, logování vypnuto</value>
+	<returns><c>True</c>, jestli je logování zapnuto. <c>False</c>, jeli logování vypnuto</returns>
+	<remarks></remarks>
+</member><member name="P:IISSPClassLibrary.IISSPGeneral.MyRequest">
+	<summary>
+ Zadáváme nebo čteme MyRequest pokud je vyžadováno volanou službou.
+ Řetězcová reprezentace Xml dotazu zasílaná jako tělo dotazu po volání <see cref="M:IISSPClassLibrary.IISSPGeneral.Request(System.Boolean)"></see>
+ Po vykonání dotazu je do ní uložen výsledek.
+ </summary>
+	<value>Řetězcová reprezentace Xml dotazu</value>
+	<returns>Řetězcová reprezentace Xml odpovědi</returns>
+	<remarks></remarks>
+</member><member name="P:IISSPClassLibrary.IISSPGeneral.TimeOut">
+	<summary>
+ Nastavujeme časovou prodlevu dotazu v milisekundách. Pokud nebude ve stanoveném čase doručena odpověď, 
+ bude vygenerována interní chybová zpráva nesoucí popis systémové vyjímky.
+ </summary>
+	<value>Délka v milisekundách</value>
+	<returns><para>Integer</para>, jako délka v milisekundách</returns>
+	<remarks></remarks>
+</member><member name="P:IISSPClassLibrary.IISSPGeneral.NamespaceManager">
+	<summary>
+ Defaulní nastavení názvových prostorů používaných při komunikaci s IISSP.
+ </summary>
+	<returns>Všechny názvové prostory, v objektu NamespaceManager</returns>
+	<remarks></remarks>
+</member><member name="P:IISSPClassLibrary.IISSPGeneral.RefGuid">
+	<summary>
+ Pouze ke čtení. Po vygenerování komunikační obálky, kdy je generován jedinečný identifikátor <see cref="T:System.Guid"></see> se 
+ zde GUID uloží. Slouží pro pozdější spárování s odpověďmi. 
+ </summary>
+	<returns>GUID posledně vygenerované během sestavení dotazu.</returns>
+	<remarks></remarks>
+</member><member name="M:IISSPClassLibrary.IISSPGeneral.Log(System.String,System.Object)">
+	<summary>
+ Zápis do logu knihovny. 
+ </summary>
+	<param name="MsgTxt">Text <paramref name="MsgTxt"/>, který se zapíše do logu.</param>
+	<param name="O">Objekt <paramref name="O"/> jehož HashCode bude přiřazen k příslušnému záznamu v logu.</param>
+	<returns><c>True</c> jestli jestli je záznam úspěšně zalogován,
+ <c>False</c> jestli se zápis nezdařil.</returns>
+	<remarks>Zápis do logu je povolen nastavením vlastnosti <see cref="P:IISSPClassLibrary.IISSPGeneral.Loging"/> na <c>True</c>. 
+ A cesta k souboru "Log.txt" se nastavuje ve vlastnosti <see cref="P:IISSPClassLibrary.IISSPGeneral.WorkingDirectory"/> ve které se vytvoří složka "log".
+ <seealso cref="P:IISSPClassLibrary.IISSPGeneral.Loging"/><seealso cref="P:IISSPClassLibrary.IISSPGeneral.WorkingDirectory"/></remarks>
+</member><member name="M:IISSPClassLibrary.IISSPGeneral.FormatXml(System.Xml.XmlDocument)">
+	<summary>
+ Naformátuje Xml.
+ </summary>
+	<param name="InXml">Vstupní Xml dokument</param>
+	<returns>Naformátované Xml</returns>
+</member><member name="M:IISSPClassLibrary.IISSPGeneral.GetGuid">
+	<summary>
+ Vygeneruje GUID
+ </summary>
+	<returns>32 znaků dlouhé unikátní číslo</returns>
+</member><member name="M:IISSPClassLibrary.IISSPGeneral.GetDateTime(System.DateTime)">
+	<summary>
+ Vrátí datum a čas ve formátu, který vyžaduje IISSP
+ </summary>
+	<param name="DatumCas">Pokud je parametr prázdný, bude vrácen aktuální datum a čas.</param>
+	<returns>Aktuální datum ve formátu "yyyy-mm-ddThh:mm:ssZ"</returns>
+	<remarks></remarks>
+</member><member name="M:IISSPClassLibrary.IISSPGeneral.GetDate(System.DateTime)">
+	<summary>
+ Vrátí datum ve formátu, který vyžaduje IISSP
+ </summary>
+	<param name="Datum">Pokud je parametr prázdný, bude vrácen aktuální datum.</param>
+	<returns>Aktuální datum ve formátu "yyyy-mm-dd"</returns>
+</member><member name="M:IISSPClassLibrary.IISSPGeneral.MakeErrorAnswer(System.Int32,System.String,System.String)">
+	<summary>
+ Vytvoří xml hlášení podle parametrů
+ </summary>
+	<param name="number">Interní číslo zprávy</param>
+	<param name="name">Interní název zprávy</param>
+	<param name="popis">Externí hlášení</param>
+	<returns>Vrátí hlášení</returns>
+	<remarks></remarks>
+</member><member name="M:IISSPClassLibrary.IISSPGeneral.SignXml(System.Xml.XmlDocument,System.String,System.String,System.String)">
+	<summary>
+ Vytvoří digitální podpis xml dokumentu, elementu "EnvelopeBody"
+ Podpis se realizuje soukromým klíčem z certifikátu, definovaným parametry.
+ Vícenásobné volání této funkce je povoleno a přidává další podpisy.
+ </summary>
+	<param name="InXml">XmlDocument, který má být podepsaný</param>
+	<param name="crt">Fyzická cesta k certifikátu</param>
+	<param name="pwd">Heslo k certifikátu</param>
+	<param name="xpath">XPath výraz pro transformaci.</param>
+	<returns>Vrátí podepsaný XmlDokument</returns>
+	<remarks>V podepisované části xml dokumentu, při použití defaultního XPath výrazu, se nesmí vyskytovat komentáře. Asi bug MS v XPath transformaci. Předpokládam že Apache Xml Security na straně serveru je podle definic.</remarks>
+</member><member name="M:IISSPClassLibrary.IISSPGeneral.Requestback">
+	<summary>
+ Vlastní volání dotazu. Předpokládá správné nastavení všech vlastností ovlivňující přenos.
+ Tělo dotazu načítá z vlastnosti <see cref="P:IISSPClassLibrary.IISSPGeneral.MyRequest"></see>
+	</summary>
+	<returns>Řetězcovou reprezentaci Xml dokumentu</returns>
+	<remarks>Výsledek také ukláda do <see cref="P:IISSPClassLibrary.IISSPGeneral.MyRequest"></see></remarks>
+</member><member name="M:IISSPClassLibrary.IISSPGeneral.Request(System.Boolean)">
+	<summary>
+ Vlastní volání dotazu. Předpokládá správné nastavení všech vlastností ovlivňující přenos.
+ Tělo dotazu načítá z vlastnosti <see cref="P:IISSPClassLibrary.IISSPGeneral.MyRequest"></see>. Je nutné zasílat i s SOAP obálkou.
+ </summary>
+	<returns>Řetězcovou reprezentaci Xml dokumentu</returns>
+	<remarks>Výsledek také ukláda do <see cref="P:IISSPClassLibrary.IISSPGeneral.MyRequest"></see></remarks>
+</member><member name="M:IISSPClassLibrary.IISSPGeneral.MakeSoapEnvelopeXml(System.Xml.XmlElement)">
+	<summary>
+ Vygeneruje Soap obálku a do těla vloží parametr.
+ </summary>
+	<param name="InElement"> jako tělo dotazu</param>
+	<returns>XmlDocument</returns>
+	<remarks>Samostatně se tato funce uplatní především ve fázi II. Odesílání dokumentů do CSUIS.</remarks>
+</member><member name="M:IISSPClassLibrary.IISSPGeneral.MakeIisspEnvelopeXml(System.Xml.XmlElement)">
+	<summary>
+ Vytvoří iissp obálku a do těla vloží předaný element. Nastaví hlavičku podle předem definovaných vlastností.
+ Generuje <see cref="M:IISSPClassLibrary.IISSPGeneral.GetGuid">GUID</see> jako jedinečný identifikátor zprávy, kterým naplní vlastnost
+ <see cref="P:IISSPClassLibrary.IISSPGeneral.RefGuid"></see> pro případnou referenci na odpověď. 
+ </summary>
+	<param name="InElement">XmlElement, který bude vložen do komunikační obálky iissp.</param>
+	<returns>Vrací XmlDokument doplněný o dostupné vlastnosti.</returns>
+	<remarks>Doplní také údaje o odesílateli a příjemci, předem definovaných pomocí vlastností třídy</remarks>
+</member><member name="M:IISSPClassLibrary.IISSPGeneral.SetMyRequestToIisspXml(System.Xml.XmlElement)">
+	<summary>
+ Vytvoří kompletní dotaz a uloží ho do vlastnosti <see cref="P:IISSPClassLibrary.IISSPGeneral.MyRequest"></see>. Příkazem <see cref="M:IISSPClassLibrary.IISSPGeneral.Request(System.Boolean)"></see> 
+ se dotaz vykoná.
+ </summary>
+	<param name="InElement">Vlasní tělo dotazu předáváme jako parametr.</param>
+	<remarks>V případě nutnosti vykonání dotazu s parametrem jako String, je možné volat funkci <see cref="M:IISSPClassLibrary.IISSPGeneral.SetMyRequestToIisspStrig(System.String)"></see>.</remarks>
+</member><member name="M:IISSPClassLibrary.IISSPGeneral.SetMyRequestToIisspStrig(System.String)">
+	<summary>
+ Vytvoří kompletní dotaz a uloží ho do vlastnosti <see cref="P:IISSPClassLibrary.IISSPGeneral.MyRequest"></see>. Příkazem <see cref="M:IISSPClassLibrary.IISSPGeneral.Request(System.Boolean)"></see> 
+ se dotaz vykoná.
+ </summary>
+	<param name="InElement">Vlasní tělo dotazu předáváme jako parametr.</param>
+	<remarks>V případě nutnosti vykonání dotazu s parametrem jako XmlElement, je možné volat funkci <see cref="M:IISSPClassLibrary.IISSPGeneral.SetMyRequestToIisspXml(System.Xml.XmlElement)"></see>.</remarks>
+</member><member name="M:IISSPClassLibrary.IISSPGeneral.SetClientCertificate(System.String,System.String)">
+	<summary>
+ Vytvoří objekt klientský certifikát z cesty uložení a hesla 
+ Slouží pro interní zpracování v dll
+ </summary>
+</member><member name="T:IISSPClassLibrary.IISSPGeneral">
+	<summary> 
+ Základní třída komponenty. Umožňuje obecné volání služeb, buď přímo, pro podrobněji nedefinované služby, nebo 
+ především pomocí jiných tříd, které přesněji specifikují dotaz a třídu General využívají jako komunikační
+ prostředek. Například třída <see cref="T:IISSPClassLibrary.IISSPInbox"></see>. Ty třídy disponují vlastnosí General, která je instancí IISSPGeneral.
+ Pomocí vlastností třídy se nastaví parametry služby a pomocí fce <see cref="M:IISSPClassLibrary.IISSPGeneral.Request(System.Boolean)"></see> se vykonná dotaz.
+ Definuje další funkce jako <see cref="M:IISSPClassLibrary.IISSPGeneral.FormatXml(System.Xml.XmlDocument)">formátování Xml</see>, generuje <see cref="M:IISSPClassLibrary.IISSPGeneral.GetGuid">GUID</see>, vrací <see cref="M:IISSPClassLibrary.IISSPGeneral.GetDateTime(System.DateTime)">
+ datum a čas</see>, nebo <see cref="M:IISSPClassLibrary.IISSPGeneral.GetDate(System.DateTime)">datum</see> ve správném formátu atd.
+ Zajišťuje cryptografické funkce jako <see cref="M:IISSPClassLibrary.IISSPGeneral.SignXml(System.Xml.XmlDocument,System.String,System.String,System.String)">digitální podepisování</see>.
+ </summary>
+</member><member name="P:IISSPClassLibrary.IISSPInbox.General">
+	<summary>
+ Instance třídy <see cref="T:IISSPClassLibrary.IISSPGeneral"></see>. Zajišťuje vlastní přenos dotazů.
+ Pomocí vlastností tohoto objektu nastavujeme parametry vlastního přenosu. 
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:IISSPClassLibrary.IISSPInbox.#ctor(System.String)">
+	<summary>
+ Pokud vytvoříme instanci objektu pomocí tohoto konstruktoru, budou její vlastnosti
+ automaticky nastaveny z naposledy uložených hodnot dle parametru <paramref name="Name"></paramref>. 
+ Tyto hodnoty se do standartního umístění uloží vždy před deaktivací objektu.
+ </summary>
+	<param name="Name">Název pod kterým bude možné identifikovat položku v nastavení</param>
+	<remarks></remarks>
+</member><member name="M:IISSPClassLibrary.IISSPInbox.MakeErrorAnswer(System.Int32,System.String,System.String)">
+	<summary>
+ Vytvoření interního hlášení
+ </summary>
+	<param name="number">Interní číslo hlášení</param>
+	<param name="name">Interní název hlášení</param>
+	<param name="popis">Převezme systémovou, nebo extrní vyjímku.</param>
+	<returns>XmlDocument, kde je root element <c>error</c></returns>
+	<remarks>Doporučujeme používat ve všech částech komponenty pro jednotná hlášení</remarks>
+</member><member name="M:IISSPClassLibrary.IISSPInbox.MakeRISRERequestXml(System.Xml.XmlElement)">
+	<summary>
+ zde vytvorime kompletni XmlDokument s pozadavekem na RISRE
+ </summary>
+	<param name="InboxRequestElement">Element, který bude vložen do těla dotazu.</param>
+	<returns>XmlDokument s odpovědí</returns>
+	<remarks>Tato funkce bude později přesunuta</remarks>
+</member><member name="M:IISSPClassLibrary.IISSPInbox.MakeInboxRequestXml(System.Xml.XmlElement)">
+	<summary>
+ Čeká na odstranění. Je nahrazena.
+ </summary>
+	<param name="InboxRequestElement"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:IISSPClassLibrary.IISSPInbox.SendRequest(System.String,System.String,System.String,System.Xml.XmlDocument)">
+	<summary>
+ jiz nepodporovano, po odstraneni vsech volani teto funkce bude odstranena
+ </summary>
+	<param name="Urlx"></param>
+	<param name="User"></param>
+	<param name="Password"></param>
+	<param name="MyXml"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:IISSPClassLibrary.IISSPInbox.ReadInbox(System.Xml.XmlDocument)">
+	<summary>
+ Z historickych duvodu - bude smazana
+ </summary>
+	<param name="MyXml"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:IISSPClassLibrary.IISSPInbox.GetMessageById(System.String)">
+	<summary>
+ Stahuje tělo zprávy.
+ </summary>
+	<param name="id">Identifikační číslo zprávy získané pomocí <see cref="M:IISSPClassLibrary.IISSPInbox.GetMessagesHeaders(System.String,System.String,System.String,System.String,System.String)"></see></param>
+	<returns>Řetězcová repreyentace Xml dokumentu podle definic IISSP</returns>
+	<remarks>Tuto funkci je možné využít pro stahohování zpráv jak z CSUIS Inbox tak RIS Inbox</remarks>
+</member><member name="M:IISSPClassLibrary.IISSPInbox.GetMessagesHeaders(System.String,System.String,System.String,System.String,System.String)">
+	<summary>
+ Stáhne hlavičky zpráv dle parametrů
+ </summary>
+	<param name="HromadneZpravy">musí být '1' nebo '0'</param>
+	<param name="DatumVytvoreniOd">musí být ve tvaru 'rrrr-mm-dd'</param>
+	<param name="DatumVytvoreniDo">musí být ve tvaru 'rrrr-mm-dd'</param>
+	<param name="ZpravaStatus">'R'- přečtené 'N' - nepřečtené ''</param>
+	<param name="TypDatoveZpravy"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:IISSPClassLibrary.IISSPInbox.GetTestRequest(System.String,System.String,System.String,System.Xml.XmlDocument)">
+	<summary>
+ z testovních dúvodú, bude odstraněna
+ </summary>
+	<param name="Url"></param>
+	<param name="User"></param>
+	<param name="Password"></param>
+	<param name="Msg"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:IISSPClassLibrary.IISSPInbox.SendCSUISEncryptedMessage(System.String)">
+	<summary>
+ Odešle enkryptovaný soubor do Inbox
+ </summary>
+	<param name="EncryptedString"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="T:IISSPClassLibrary.IISSPInbox">
+	<summary>
+ Tato třída obsluhuje Inboxy IISSP. A to CSUIS Inbox a RIS Inbox. Pomocí funkce <see cref="M:IISSPClassLibrary.IISSPInbox.GetMessagesHeaders(System.String,System.String,System.String,System.String,System.String)"></see>
+ , stáhne hlavičky zpráv a pomocí funkce <see cref="M:IISSPClassLibrary.IISSPInbox.GetMessageById(System.String)"></see> stáhne tělo zprávy. IISSPInbox
+ disponuje třídou <see cref="T:IISSPClassLibrary.IISSPGeneral">General</see> zajistí samotný dotaz s předem nadefinovanými parametry přenosu.
+ </summary>
+	<remarks>V současné době zajišťuje také žádosti o číselníky pomocí funkce <see cref="M:IISSPClassLibrary.IISSPInbox.MakeRISRERequestXml(System.Xml.XmlElement)"></see>
+ . Tato funkce bude v budoucnu přesunuta pod třídu zajišťující podobné funkce. Sledujte "Co je nového"</remarks>
+</member><member name="P:IISSPClassLibrary.IISSPROP.General">
+	<summary>
+ Instance třídy <see cref="T:IISSPClassLibrary.IISSPGeneral"></see>. Zajišťuje vlastní přenos dotazů.
+ Pomocí vlastností tohoto objektu nastavujeme parametry vlastního přenosu. 
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:IISSPClassLibrary.IISSPROP.#ctor(System.String)">
+	<summary>
+ Pokud vytvoříme instanci objektu pomocí tohoto konstruktoru, budou její vlastnosti
+ automaticky nastaveny z naposledy uložených hodnot dle parametru <paramref name="Name"></paramref>. 
+ Tyto hodnoty se do standartního umístění uloží vždy před deaktivací objektu.
+ </summary>
+	<param name="Name">Název pod ktrým bude možné identifikovat položku v nastavení</param>
+	<remarks></remarks>
+</member><member name="M:IISSPClassLibrary.IISSPROP.GetEKIS_SP_ROP(System.String)">
+	<summary>
+Generuje dotaz na RISRE pro zaslání požadavku na rozpočtové opatření) viz. IISSP - Integrace s modulem IISSP RIS Realizace rozpočtu kapitola 3.2.1
+ vstupní parametr - vlastní XML dotaz (bez 1. řádky ?xml version = "1.0" encoding="UTF-8"?)
+</summary>
+</member><member name="M:IISSPClassLibrary.IISSPROP.GetFMMD_CISELNIK(System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String)">
+	<summary>
+Generuje dotaz na RISRE pro získání Rozpočtových kmenových dat (čísleníků) viz. IISSP - Integrace s modulem IISSP RIS Realizace rozpočtu kapitola 4
+</summary>
+</member><member name="M:IISSPClassLibrary.IISSPROP.GetSP_EKIS_ROP(System.String,System.String,System.String)">
+	<summary>
+Generuje dotaz na RISRE pro přenášení informací o ROP z IISSP RISRE do OOS(EKIS)  viz. IISSP - Integrace s modulem IISSP RIS Realizace rozpočtu kapitola 3.2.2
+</summary>
+</member><member name="M:IISSPClassLibrary.IISSPROP.GetEKIS_SP_ROP_ATT(System.String,System.String,System.String,System.String)">
+	<summary>
+Generuje dotaz na RISRE pro zaslání přílohy k rozpočtové opatření) viz. IISSP - Integrace s modulem IISSP RIS Realizace rozpočtu kapitola 3.2.1.2
+ strFileName - pln8 cesta k souboru přílohy např. c:\Test\Priloha.txt
+ Velikost souboru je omezena 5 MB
+</summary>
+</member><member name="P:IISSPClassLibrary.My.Resources.Resources.ResourceManager">
+	<summary>
+  Returns the cached ResourceManager instance used by this class.
+</summary>
+</member><member name="P:IISSPClassLibrary.My.Resources.Resources.Culture">
+	<summary>
+  Overrides the current thread's CurrentUICulture property for all
+  resource lookups using this strongly typed resource class.
+</summary>
+</member><member name="T:IISSPClassLibrary.My.Resources.Resources">
+	<summary>
+  A strongly-typed resource class, for looking up localized strings, etc.
+</summary>
+</member>
+</members>
+</doc>
