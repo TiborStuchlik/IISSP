@@ -67,6 +67,9 @@ Public Class IISSPTestApplication
             CBRequests.Items.Add(n.Attributes("name").Value)
         Next
 
+        CBRequests.SelectedIndex = 0
+        CBInbox.SelectedIndex = 0
+
         ' nastavime obecne vlastnosti pro dotazy
         Inbox.General.Loging = True
         Inbox.General.TimeOut = 10000
@@ -78,9 +81,12 @@ Public Class IISSPTestApplication
         Inbox.General.RecipientIc = "00006947"
         Inbox.General.RecipientSubjectName = "Ministerstvo financí"
         Inbox.General.WorkingDirectory = Application.StartupPath + "\"
+        Inbox.General.Url = "https://portal5.statnipokladna.cz/csuis/wstest/inbox"
+        Inbox.General.UserName = "0010000050"
+        Inbox.General.Password = "nl7jbu5o"
+        Inbox.General.RecipientModule = "CSUIS"
 
-        CBRequests.SelectedIndex = 0
-        CBInbox.SelectedIndex = 0
+
         Log("Spouštím request")
         BackgroundWorker1.RunWorkerAsync()
 
@@ -253,7 +259,7 @@ Public Class IISSPTestApplication
             LRozhraniContext.Text = .SelectSingleNode("Description").InnerXml
             GUserName = .SelectSingleNode("UserName").InnerText
             GPassword = .SelectSingleNode("Password").InnerText
-            LRozhraniTestUrl.Text = "TestUrl: " + .SelectSingleNode("TestUrl").InnerXml
+            LRozhraniTestUrl.Text = .SelectSingleNode("TestUrl").InnerXml
             GUrl = .SelectSingleNode("TestUrl").InnerText
             GModule = .SelectSingleNode("Module").InnerText
             CBRozhraniDotaz.Items.Clear()
@@ -290,25 +296,32 @@ Public Class IISSPTestApplication
         ' Nejprve je potřeba nastavit proměné
         ' pokud se neshodují s posledně nastavenými (uchovávajíse v settings aplikace)
         Dim IG As IISSPGeneral = New IISSPGeneral
-        IG.Loging = True
+        'IG.Loging = True
+        'Dim xd As XmlDocument = New XmlDocument
+        'xd.PreserveWhitespace = True
+        'xd.LoadXml(TBSource.Text)
+        'xd = IG.MakeSoapEnvelopeXml(xd.DocumentElement)
         IG.MyRequest = TBSource.Text
-        IG.UserName = GUserName
-        IG.Password = GPassword
-        IG.Url = GUrl
+        'IG.MyRequest = xd.OuterXml
+        IG.UserName = "0010000050" 'GUserName
+        IG.Password = "nl7jbu5o" 'GPassword
+        IG.Url = LRozhraniTestUrl.Text
+        IG.SetClientCertificate(TextBox3.Text, TextBox5.Text)
+        'New X509Certificate2(My.Resources.insytest, "intel")
         IG.TimeOut = 25000
-        IG.RecipientModule = GModule
-        IG.SenderResponsiblePersonEmail = "benes@insyco.cz"
-        IG.SenderResponsiblePersonId = "EU1620000273"
-        IG.SenderResponsiblePersonName = "Beneš Jiří"
-        IG.SenderIc = "00164801"
-        IG.SenderSubjectName = "IN-SY-CO"
-        IG.RecipientIc = "00006947"
-        IG.RecipientSubjectName = "Ministerstvo financí"
+        'IG.RecipientModule = GModule
+        'IG.SenderResponsiblePersonEmail = "benes@insyco.cz"
+        'IG.SenderResponsiblePersonId = "EU8598098824" ' "EU1620000273"
+        'IG.SenderResponsiblePersonName = "Beneš Jiří"
+        'IG.SenderIc = "00164801"
+        'IG.SenderSubjectName = "IN-SY-CO"
+        'IG.RecipientIc = "00006947"
+        'IG.RecipientSubjectName = "Ministerstvo financí"
 
         ' zatim se automaticky nacita pri inicializaci General z resource
-        ' IG.ClientCertificate = New X509Certificate2("tiba.pfx", "tiba")
+        ' IG.ClientCertificate = New X509Certificate2("c:\insytest.pfx", "intel")
         Dim OutXml As New XmlDocument
-        OutXml.LoadXml(IG.Request())
+        OutXml.LoadXml(IG.Request(True))
         OutXml.Save("output.xml")
         WebBrowser1.Navigate(My.Application.Info.DirectoryPath + "\output.xml")
     End Sub
@@ -357,12 +370,20 @@ Public Class IISSPTestApplication
     Private Sub Button3_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button3.Click
         Dim Xml As XmlDocument = New XmlDocument
         Xml.PreserveWhitespace = True
+        Dim nsmgr As XmlNamespaceManager = New XmlNamespaceManager(Xml.NameTable)
+        nsmgr.AddNamespace("msg", "urn:cz:mfcr:iissp:schemas:Messaging:v1")
+
         Xml.LoadXml(TBSignedSource.Text)
         Dim IG As IISSPGeneral = New IISSPGeneral
-        IG.SetClientCertificate("settings\tiba.pfx", "tiba")
-        Xml = IG.SignXml(Xml)
-        Xml = IG.FormatXml(Xml)
+        Dim IC As IISSPCrypto = New IISSPCrypto
+        IG.SetClientCertificate("c:\insytest.pfx", "intel")
+        'Dim s As String
+        's = IC.SignXmlString(TBSignedSource.Text) 'TBSignElm.Text
+        'Xml = IG.SignXml(Xml)
+        'Xml = IG.FormatXml(Xml)
         TBSignedSource.Text = Xml.OuterXml
+
+
     End Sub
 
     Private Sub Button6_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button6.Click
@@ -459,7 +480,7 @@ Public Class IISSPTestApplication
 
         Dim IC As IISSPCrypto = New IISSPCrypto
         Dim aa As String
-        Dim bb As String
+        'Dim bb As String
 
         Dim FullPath = Application.StartupPath
 
@@ -483,22 +504,42 @@ Public Class IISSPTestApplication
         '' IG.SenderSubjectName = "IN-SY-CO"
         ''  IG.RecipientIc = "00006947"
         ''    IG.RecipientSubjectName = "Ministerstvo financí"
-
-
-
-
         TBSource.Text = Inbox.SendCSUISEncryptedMessage(aa)
         WebBrowser1.Navigate(My.Application.Info.DirectoryPath + "\output.xml")
-
-        Exit Sub
-
-        
-
+        'Exit Sub
         ' zatim se automaticky nacita pri inicializaci General z resource
         ' IG.ClientCertificate = New X509Certificate2("tiba.pfx", "tiba")
-        Dim OutXml As New XmlDocument
-        OutXml.LoadXml(IG.Request())
-        OutXml.Save("output.xml")
-        WebBrowser1.Navigate(My.Application.Info.DirectoryPath + "\output.xml")
+        'Dim OutXml As New XmlDocument
+        'OutXml.LoadXml(IG.Request())
+        'OutXml.Save("output.xml")
+        'WebBrowser1.Navigate(My.Application.Info.DirectoryPath + "\output.xml")
+    End Sub
+
+    ' podepsat universal request
+    Private Sub Button12_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button12.Click
+        Dim Xml As XmlDocument = New XmlDocument
+        Xml.PreserveWhitespace = True
+        Xml.LoadXml(TBSource.Text)
+        Dim IG As IISSPGeneral = New IISSPGeneral
+        ' IG.SetClientCertificate("c:\insytest.pfx", "intel")
+        ' IG.SetClientCertificate("c:\tibaic.pfx", "tiba")
+        Xml = IG.SignXml(Xml, TextBox2.Text, TextBox4.Text, TBSignElm.Text)
+        'Xml = IG.FormatXml(Xml)
+        TBSource.Text = Xml.OuterXml
+    End Sub
+
+    Private Sub Button13_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button13.Click
+        OpenFileDialog1.InitialDirectory = TextBox2.Text
+
+
+        If OpenFileDialog1.ShowDialog() = System.Windows.Forms.DialogResult.OK Then
+            TextBox2.Text = OpenFileDialog1.FileName
+        End If
+    End Sub
+
+    Private Sub Button14_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button14.Click
+        OpenFileDialog1.InitialDirectory = TextBox3.Text
+        OpenFileDialog1.ShowDialog()
+        TextBox3.Text = OpenFileDialog1.FileName
     End Sub
 End Class

@@ -38,6 +38,7 @@ Public Class IISSPCrypto
     ''' <param name="FullPath">Úplná cesta k souboru typu AESKEY.DEC Soubor se může jmenovat libovolně.</param>
     ''' <returns>Řetězec v Base64</returns>
     ''' <remarks></remarks>
+    ''' 
     Public Function Encrypt(ByVal XmlString As String, ByVal FullPath As String) As String
         'Public Function Encrypt(ByVal XmlString As String, ByVal keyBytes() As Byte) As String
 
@@ -112,7 +113,6 @@ Public Class IISSPCrypto
     ''' <param name="FullPath">Úplná cesta k souboru typu AESKEY.DEC Soubor se může jmenovat libovolně.</param>
     ''' <returns>Rozkódovaný dokument</returns>
     ''' <remarks></remarks>
-
     Public Function Decrypt(ByVal b64String As String, ByVal FullPath As String) As String
         'Public Function Decrypt(ByVal b64String As String, ByVal Key() As Byte) As String
         Dim aes As New System.Security.Cryptography.RijndaelManaged()
@@ -121,7 +121,7 @@ Public Class IISSPCrypto
 
         Dim key() As Byte
         key = GetAESKEY(FullPath)
-        aes.Key = Key
+        aes.Key = key
         Dim iv() As Byte = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0}
         aes.IV = iv
         'odstranime whitespace a prevedeme z base64
@@ -148,7 +148,7 @@ Public Class IISSPCrypto
         Return doc.InnerXml
     End Function
 
-    Private Function SignXmlString(ByVal Xml As String) As String
+    Public Function SignXmlString(ByVal Xml As String) As String
         ' vytvorime xml
         Dim doc As New XmlDocument()
         ' nechame prazdna mista jak jsou, stejne jako sifrovaci utilita
@@ -199,6 +199,7 @@ Public Class IISSPCrypto
 
         Return doc.InnerXml
     End Function
+
     ''' <summary>
     ''' Načte klíč z AESKEY
     ''' </summary>
@@ -220,12 +221,10 @@ Public Class IISSPCrypto
                 oFileStream.Read(fileData, 0, lBytes)
                 oFileStream.Close()
                 Return fileData
-
-
-
         End If
-
+        Return Nothing
     End Function
+
 End Class
 
 

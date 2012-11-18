@@ -303,7 +303,7 @@ Public Class IISSPROP
         General.MyRequest = doc.InnerXml
         General.Url = General.Url_EKIS_SP_ROP_ATT
         'Return General.Request_ATT(strFileName)
-        'Return doc.InnerXml
+        Return doc.InnerXml
         'Return General.MyRequest
     End Function
 End Class

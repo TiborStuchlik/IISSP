@@ -23,6 +23,11 @@ C:\Users\Administrator\Documents\GitHub\IISSP\UploadHelper\bin\Debug\Krystalware
 C:\Users\Administrator\Documents\GitHub\IISSP\UploadHelper\obj\Debug\ResolveAssemblyReference.cache
 C:\Users\Administrator\Documents\GitHub\IISSP\UploadHelper\obj\Debug\Krystalware.UploadHelper.dll
 C:\Users\Administrator\Documents\GitHub\IISSP\UploadHelper\obj\Debug\Krystalware.UploadHelper.pdb
+C:\Users\Administrator\Documents\GitHub\IISSP TEST\IISSP\UploadHelper\bin\Debug\Krystalware.UploadHelper.dll
+C:\Users\Administrator\Documents\GitHub\IISSP TEST\IISSP\UploadHelper\bin\Debug\Krystalware.UploadHelper.pdb
+C:\Users\Administrator\Documents\GitHub\IISSP TEST\IISSP\UploadHelper\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\Administrator\Documents\GitHub\IISSP TEST\IISSP\UploadHelper\obj\Debug\Krystalware.UploadHelper.dll
+C:\Users\Administrator\Documents\GitHub\IISSP TEST\IISSP\UploadHelper\obj\Debug\Krystalware.UploadHelper.pdb
 W:\IISSP\UploadHelper\bin\Debug\Krystalware.UploadHelper.dll
 W:\IISSP\UploadHelper\bin\Debug\Krystalware.UploadHelper.pdb
 W:\IISSP\UploadHelper\obj\Debug\ResolveAssemblyReference.cache

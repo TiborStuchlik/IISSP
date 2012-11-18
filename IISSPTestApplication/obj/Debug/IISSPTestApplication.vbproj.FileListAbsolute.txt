@@ -1,55 +1,40 @@
-C:\Users\Administrator\Documents\GitHub\IISSP\IISSPTestApplication\bin\Debug\IISSPTestApplication.exe.config
-C:\Users\Administrator\Documents\GitHub\IISSP\IISSPTestApplication\obj\Debug\ResolveAssemblyReference.cache
-C:\Users\Administrator\Documents\GitHub\IISSP\IISSPTestApplication\obj\Debug\IISSPTestApplication.IISSPTestApplication.resources
-C:\Users\Administrator\Documents\GitHub\IISSP\IISSPTestApplication\obj\Debug\IISSPTestApplication.Resources.resources
-C:\Users\Administrator\Documents\GitHub\IISSP\IISSPTestApplication\obj\Debug\GenerateResource-ResGen.read.1.tlog
-C:\Users\Administrator\Documents\GitHub\IISSP\IISSPTestApplication\obj\Debug\GenerateResource-ResGen.write.1.tlog
-C:\Users\Administrator\Documents\GitHub\IISSP\IISSPTestApplication\obj\Debug\IISSPTestApplication.exe.licenses
-C:\Users\Administrator\Documents\GitHub\IISSP\IISSPTestApplication\bin\Debug\black_cat_runs.gif
-C:\Users\Administrator\Documents\GitHub\IISSP\IISSPTestApplication\bin\Debug\IISSP.ico
-C:\Users\Administrator\Documents\GitHub\IISSP\IISSPTestApplication\bin\Debug\Progress.htm
-C:\Users\Administrator\Documents\GitHub\IISSP\IISSPTestApplication\bin\Debug\settings.xml
-C:\Users\Administrator\Documents\GitHub\IISSP\IISSPTestApplication\bin\Debug\Settings\AllMessagesRequest.xml
-C:\Users\Administrator\Documents\GitHub\IISSP\IISSPTestApplication\bin\Debug\Settings\attachment-by-tyba.xml
-C:\Users\Administrator\Documents\GitHub\IISSP\IISSPTestApplication\bin\Debug\Settings\body.xml
-C:\Users\Administrator\Documents\GitHub\IISSP\IISSPTestApplication\bin\Debug\Settings\CsuisInboxGetMessagesHeadersLayout.xml
-C:\Users\Administrator\Documents\GitHub\IISSP\IISSPTestApplication\bin\Debug\Settings\ErrorRequest.xml
-C:\Users\Administrator\Documents\GitHub\IISSP\IISSPTestApplication\bin\Debug\Settings\GlobalInboxRequest.xml
-C:\Users\Administrator\Documents\GitHub\IISSP\IISSPTestApplication\bin\Debug\Settings\InboxGetMessagesByIdLayout.xml
-C:\Users\Administrator\Documents\GitHub\IISSP\IISSPTestApplication\bin\Debug\Settings\MessageByIdRequest.xml
-C:\Users\Administrator\Documents\GitHub\IISSP\IISSPTestApplication\bin\Debug\Settings\MessageEnvelope.xml
-C:\Users\Administrator\Documents\GitHub\IISSP\IISSPTestApplication\bin\Debug\Settings\MessageRequest.xml
-C:\Users\Administrator\Documents\GitHub\IISSP\IISSPTestApplication\bin\Debug\Settings\RISRE.xml
-C:\Users\Administrator\Documents\GitHub\IISSP\IISSPTestApplication\bin\Debug\Settings\RisreCsuisEnvelopeLayout.xml
-C:\Users\Administrator\Documents\GitHub\IISSP\IISSPTestApplication\bin\Debug\Settings\RISREEnvelope.xml
-C:\Users\Administrator\Documents\GitHub\IISSP\IISSPTestApplication\bin\Debug\Settings\RisreInboxGetMessagesHeadersLayout.xml
-C:\Users\Administrator\Documents\GitHub\IISSP\IISSPTestApplication\bin\Debug\Settings\RISRE_EKIS_ROP.xml
-C:\Users\Administrator\Documents\GitHub\IISSP\IISSPTestApplication\bin\Debug\Settings\SoapEnvelope.xml
-C:\Users\Administrator\Documents\GitHub\IISSP\IISSPTestApplication\bin\Debug\Settings\TestMessage.xml
-C:\Users\Administrator\Documents\GitHub\IISSP\IISSPTestApplication\bin\Debug\Settings\TestMessage1.xml
-C:\Users\Administrator\Documents\GitHub\IISSP\IISSPTestApplication\bin\Debug\AESKEY.DEC
-C:\Users\Administrator\Documents\GitHub\IISSP\IISSPTestApplication\bin\Debug\Settings\postsignum_qca2_root.cer
-C:\Users\Administrator\Documents\GitHub\IISSP\IISSPTestApplication\bin\Debug\Settings\postsignum_vca2_sub.cer
-C:\Users\Administrator\Documents\GitHub\IISSP\IISSPTestApplication\bin\Debug\Settings\testportal.cer
-C:\Users\Administrator\Documents\GitHub\IISSP\IISSPTestApplication\bin\Debug\Settings\tiba.pfx
-C:\Users\Administrator\Documents\GitHub\IISSP\IISSPTestApplication\bin\Debug\IISSPTestApplication.exe.manifest
-C:\Users\Administrator\Documents\GitHub\IISSP\IISSPTestApplication\bin\Debug\IISSPTestApplication.application
-C:\Users\Administrator\Documents\GitHub\IISSP\IISSPTestApplication\bin\Debug\IISSPTestApplication.exe
-C:\Users\Administrator\Documents\GitHub\IISSP\IISSPTestApplication\bin\Debug\IISSPTestApplication.pdb
-C:\Users\Administrator\Documents\GitHub\IISSP\IISSPTestApplication\bin\Debug\IISSPTestApplication.xml
-C:\Users\Administrator\Documents\GitHub\IISSP\IISSPTestApplication\bin\Debug\IISSPClassLibrary.dll
-C:\Users\Administrator\Documents\GitHub\IISSP\IISSPTestApplication\bin\Debug\IISSPClassLibrary.pdb
-C:\Users\Administrator\Documents\GitHub\IISSP\IISSPTestApplication\bin\Debug\IISSPClassLibrary.xml
-C:\Users\Administrator\Documents\GitHub\IISSP\IISSPTestApplication\obj\Debug\IISSPTestApplication.TrustInfo.xml
-C:\Users\Administrator\Documents\GitHub\IISSP\IISSPTestApplication\obj\Debug\IISSPTestApplication.exe.manifest
-C:\Users\Administrator\Documents\GitHub\IISSP\IISSPTestApplication\obj\Debug\IISSPTestApplication.application
-C:\Users\Administrator\Documents\GitHub\IISSP\IISSPTestApplication\obj\Debug\IISSPTestApplication.exe
-C:\Users\Administrator\Documents\GitHub\IISSP\IISSPTestApplication\obj\Debug\IISSPTestApplication.xml
-C:\Users\Administrator\Documents\GitHub\IISSP\IISSPTestApplication\obj\Debug\IISSPTestApplication.pdb
+C:\Users\Administrator\Documents\GitHub\IISSP TEST\IISSP\IISSPTestApplication\bin\Debug\black_cat_runs.gif
+C:\Users\Administrator\Documents\GitHub\IISSP TEST\IISSP\IISSPTestApplication\bin\Debug\IISSP.ico
+C:\Users\Administrator\Documents\GitHub\IISSP TEST\IISSP\IISSPTestApplication\bin\Debug\Progress.htm
+C:\Users\Administrator\Documents\GitHub\IISSP TEST\IISSP\IISSPTestApplication\bin\Debug\settings.xml
+C:\Users\Administrator\Documents\GitHub\IISSP TEST\IISSP\IISSPTestApplication\bin\Debug\AESKEY.DEC
+C:\Users\Administrator\Documents\GitHub\IISSP TEST\IISSP\IISSPTestApplication\bin\Debug\insytest.pfx
+C:\Users\Administrator\Documents\GitHub\IISSP TEST\IISSP\IISSPTestApplication\bin\Debug\tibaic.pfx
+C:\Users\Administrator\Documents\GitHub\IISSP TEST\IISSP\IISSPTestApplication\bin\Debug\IISSPTestApplication.exe.config
+C:\Users\Administrator\Documents\GitHub\IISSP TEST\IISSP\IISSPTestApplication\bin\Debug\IISSPTestApplication.exe.manifest
+C:\Users\Administrator\Documents\GitHub\IISSP TEST\IISSP\IISSPTestApplication\bin\Debug\IISSPTestApplication.application
+C:\Users\Administrator\Documents\GitHub\IISSP TEST\IISSP\IISSPTestApplication\bin\Debug\IISSPTestApplication.exe
+C:\Users\Administrator\Documents\GitHub\IISSP TEST\IISSP\IISSPTestApplication\bin\Debug\IISSPTestApplication.pdb
+C:\Users\Administrator\Documents\GitHub\IISSP TEST\IISSP\IISSPTestApplication\bin\Debug\IISSPTestApplication.xml
+C:\Users\Administrator\Documents\GitHub\IISSP TEST\IISSP\IISSPTestApplication\bin\Debug\IISSPClassLibrary.dll
+C:\Users\Administrator\Documents\GitHub\IISSP TEST\IISSP\IISSPTestApplication\bin\Debug\IISSPClassLibrary.pdb
+C:\Users\Administrator\Documents\GitHub\IISSP TEST\IISSP\IISSPTestApplication\bin\Debug\IISSPClassLibrary.xml
+C:\Users\Administrator\Documents\GitHub\IISSP TEST\IISSP\IISSPTestApplication\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\Administrator\Documents\GitHub\IISSP TEST\IISSP\IISSPTestApplication\obj\Debug\IISSPTestApplication.IISSPTestApplication.resources
+C:\Users\Administrator\Documents\GitHub\IISSP TEST\IISSP\IISSPTestApplication\obj\Debug\IISSPTestApplication.Resources.resources
+C:\Users\Administrator\Documents\GitHub\IISSP TEST\IISSP\IISSPTestApplication\obj\Debug\GenerateResource-ResGen.read.1.tlog
+C:\Users\Administrator\Documents\GitHub\IISSP TEST\IISSP\IISSPTestApplication\obj\Debug\GenerateResource-ResGen.write.1.tlog
+C:\Users\Administrator\Documents\GitHub\IISSP TEST\IISSP\IISSPTestApplication\obj\Debug\IISSPTestApplication.exe.licenses
+C:\Users\Administrator\Documents\GitHub\IISSP TEST\IISSP\IISSPTestApplication\obj\Debug\IISSPTestApplication.TrustInfo.xml
+C:\Users\Administrator\Documents\GitHub\IISSP TEST\IISSP\IISSPTestApplication\obj\Debug\IISSPTestApplication.exe.manifest
+C:\Users\Administrator\Documents\GitHub\IISSP TEST\IISSP\IISSPTestApplication\obj\Debug\IISSPTestApplication.application
+C:\Users\Administrator\Documents\GitHub\IISSP TEST\IISSP\IISSPTestApplication\obj\Debug\IISSPTestApplication.exe
+C:\Users\Administrator\Documents\GitHub\IISSP TEST\IISSP\IISSPTestApplication\obj\Debug\IISSPTestApplication.xml
+C:\Users\Administrator\Documents\GitHub\IISSP TEST\IISSP\IISSPTestApplication\obj\Debug\IISSPTestApplication.pdb
 W:\IISSP\IISSPTestApplication\bin\Debug\IISSPTestApplication.exe.config
-W:\IISSP\IISSPTestApplication\obj\Debug\IISSPTestApplication.exe
-W:\IISSP\IISSPTestApplication\obj\Debug\IISSPTestApplication.xml
-W:\IISSP\IISSPTestApplication\obj\Debug\IISSPTestApplication.pdb
+W:\IISSP\IISSPTestApplication\obj\Debug\ResolveAssemblyReference.cache
+W:\IISSP\IISSPTestApplication\obj\Debug\IISSPTestApplication.IISSPTestApplication.resources
+W:\IISSP\IISSPTestApplication\obj\Debug\IISSPTestApplication.Resources.resources
+W:\IISSP\IISSPTestApplication\obj\Debug\GenerateResource-ResGen.read.1.tlog
+W:\IISSP\IISSPTestApplication\obj\Debug\GenerateResource-ResGen.write.1.tlog
+W:\IISSP\IISSPTestApplication\obj\Debug\IISSPTestApplication.exe.licenses
+W:\IISSP\IISSPTestApplication\bin\Debug\insytest.pfx
+W:\IISSP\IISSPTestApplication\bin\Debug\tibaic.pfx
 W:\IISSP\IISSPTestApplication\bin\Debug\black_cat_runs.gif
 W:\IISSP\IISSPTestApplication\bin\Debug\IISSP.ico
 W:\IISSP\IISSPTestApplication\bin\Debug\Progress.htm
@@ -84,12 +69,10 @@ W:\IISSP\IISSPTestApplication\bin\Debug\IISSPTestApplication.pdb
 W:\IISSP\IISSPTestApplication\bin\Debug\IISSPTestApplication.xml
 W:\IISSP\IISSPTestApplication\bin\Debug\IISSPClassLibrary.dll
 W:\IISSP\IISSPTestApplication\bin\Debug\IISSPClassLibrary.pdb
-W:\IISSP\IISSPTestApplication\obj\Debug\ResolveAssemblyReference.cache
-W:\IISSP\IISSPTestApplication\obj\Debug\IISSPTestApplication.IISSPTestApplication.resources
-W:\IISSP\IISSPTestApplication\obj\Debug\IISSPTestApplication.Resources.resources
-W:\IISSP\IISSPTestApplication\obj\Debug\GenerateResource-ResGen.read.1.tlog
-W:\IISSP\IISSPTestApplication\obj\Debug\GenerateResource-ResGen.write.1.tlog
-W:\IISSP\IISSPTestApplication\obj\Debug\IISSPTestApplication.exe.licenses
+W:\IISSP\IISSPTestApplication\bin\Debug\IISSPClassLibrary.xml
 W:\IISSP\IISSPTestApplication\obj\Debug\IISSPTestApplication.TrustInfo.xml
 W:\IISSP\IISSPTestApplication\obj\Debug\IISSPTestApplication.exe.manifest
 W:\IISSP\IISSPTestApplication\obj\Debug\IISSPTestApplication.application
+W:\IISSP\IISSPTestApplication\obj\Debug\IISSPTestApplication.exe
+W:\IISSP\IISSPTestApplication\obj\Debug\IISSPTestApplication.xml
+W:\IISSP\IISSPTestApplication\obj\Debug\IISSPTestApplication.pdb

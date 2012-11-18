@@ -60,9 +60,9 @@ Namespace My.Resources
             End Set
         End Property
         
-        Friend ReadOnly Property tiba() As Byte()
+        Friend ReadOnly Property insytest() As Byte()
             Get
-                Dim obj As Object = ResourceManager.GetObject("tiba", resourceCulture)
+                Dim obj As Object = ResourceManager.GetObject("insytest", resourceCulture)
                 Return CType(obj,Byte())
             End Get
         End Property

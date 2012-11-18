@@ -12,7 +12,7 @@ Imports System.Runtime.InteropServices
 <Assembly: AssemblyDescription("Knihovna pro komunikaci s IISSP")> 
 <Assembly: AssemblyCompany("Stuchlik & Kobr")> 
 <Assembly: AssemblyProduct("IISSPClassLibrary")> 
-<Assembly: AssemblyCopyright("Copyright ©  2010")> 
+<Assembly: AssemblyCopyright("Copyright ©  2012")> 
 <Assembly: AssemblyTrademark("")> 
 
 <Assembly: ComVisible(True)> 

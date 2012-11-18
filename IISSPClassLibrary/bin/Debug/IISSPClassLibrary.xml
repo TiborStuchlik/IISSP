@@ -178,7 +178,7 @@ IISSPClassLibrary
 </member><member name="P:IISSPClassLibrary.IISSPGeneral.MyRequest">
 	<summary>
  Zadáváme nebo čteme MyRequest pokud je vyžadováno volanou službou.
- Řetězcová reprezentace Xml dotazu zasílaná jako tělo dotazu po volání <see cref="M:IISSPClassLibrary.IISSPGeneral.Request"></see>
+ Řetězcová reprezentace Xml dotazu zasílaná jako tělo dotazu po volání <see cref="M:IISSPClassLibrary.IISSPGeneral.Request(System.Boolean)"></see>
  Po vykonání dotazu je do ní uložen výsledek.
  </summary>
 	<value>Řetězcová reprezentace Xml dotazu</value>
@@ -249,14 +249,18 @@ IISSPClassLibrary
 	<param name="popis">Externí hlášení</param>
 	<returns>Vrátí hlášení</returns>
 	<remarks></remarks>
-</member><member name="M:IISSPClassLibrary.IISSPGeneral.SignXml(System.Xml.XmlDocument)">
+</member><member name="M:IISSPClassLibrary.IISSPGeneral.SignXml(System.Xml.XmlDocument,System.String,System.String,System.String)">
 	<summary>
  Vytvoří digitální podpis xml dokumentu, elementu "EnvelopeBody"
- Podpis se realizuje soukromým klíčem z certifikátu <see cref="P:IISSPClassLibrary.IISSPGeneral.ClientCertificate"></see>
-	</summary>
+ Podpis se realizuje soukromým klíčem z certifikátu, definovaným parametry.
+ Vícenásobné volání této funkce je povoleno a přidává další podpisy.
+ </summary>
 	<param name="InXml">XmlDocument, který má být podepsaný</param>
+	<param name="crt">Fyzická cesta k certifikátu</param>
+	<param name="pwd">Heslo k certifikátu</param>
+	<param name="xpath">XPath výraz pro transformaci.</param>
 	<returns>Vrátí podepsaný XmlDokument</returns>
-	<remarks>Zatím nebyl zveřejněn přesný formát podpisu. Transformace a formát je nastaven jako v případě Identifikátoru celistvosti.</remarks>
+	<remarks>V podepisované části xml dokumentu, při použití defaultního XPath výrazu, se nesmí vyskytovat komentáře. Asi bug MS v XPath transformaci. Předpokládam že Apache Xml Security na straně serveru je podle definic.</remarks>
 </member><member name="M:IISSPClassLibrary.IISSPGeneral.Requestback">
 	<summary>
  Vlastní volání dotazu. Předpokládá správné nastavení všech vlastností ovlivňující přenos.
@@ -264,11 +268,11 @@ IISSPClassLibrary
 	</summary>
 	<returns>Řetězcovou reprezentaci Xml dokumentu</returns>
 	<remarks>Výsledek také ukláda do <see cref="P:IISSPClassLibrary.IISSPGeneral.MyRequest"></see></remarks>
-</member><member name="M:IISSPClassLibrary.IISSPGeneral.Request">
+</member><member name="M:IISSPClassLibrary.IISSPGeneral.Request(System.Boolean)">
 	<summary>
  Vlastní volání dotazu. Předpokládá správné nastavení všech vlastností ovlivňující přenos.
- Tělo dotazu načítá z vlastnosti <see cref="P:IISSPClassLibrary.IISSPGeneral.MyRequest"></see>
-	</summary>
+ Tělo dotazu načítá z vlastnosti <see cref="P:IISSPClassLibrary.IISSPGeneral.MyRequest"></see>. Je nutné zasílat i s SOAP obálkou.
+ </summary>
 	<returns>Řetězcovou reprezentaci Xml dokumentu</returns>
 	<remarks>Výsledek také ukláda do <see cref="P:IISSPClassLibrary.IISSPGeneral.MyRequest"></see></remarks>
 </member><member name="M:IISSPClassLibrary.IISSPGeneral.MakeSoapEnvelopeXml(System.Xml.XmlElement)">
@@ -289,14 +293,14 @@ IISSPClassLibrary
 	<remarks>Doplní také údaje o odesílateli a příjemci, předem definovaných pomocí vlastností třídy</remarks>
 </member><member name="M:IISSPClassLibrary.IISSPGeneral.SetMyRequestToIisspXml(System.Xml.XmlElement)">
 	<summary>
- Vytvoří kompletní dotaz a uloží ho do vlastnosti <see cref="P:IISSPClassLibrary.IISSPGeneral.MyRequest"></see>. Příkazem <see cref="M:IISSPClassLibrary.IISSPGeneral.Request"></see> 
+ Vytvoří kompletní dotaz a uloží ho do vlastnosti <see cref="P:IISSPClassLibrary.IISSPGeneral.MyRequest"></see>. Příkazem <see cref="M:IISSPClassLibrary.IISSPGeneral.Request(System.Boolean)"></see> 
  se dotaz vykoná.
  </summary>
 	<param name="InElement">Vlasní tělo dotazu předáváme jako parametr.</param>
 	<remarks>V případě nutnosti vykonání dotazu s parametrem jako String, je možné volat funkci <see cref="M:IISSPClassLibrary.IISSPGeneral.SetMyRequestToIisspStrig(System.String)"></see>.</remarks>
 </member><member name="M:IISSPClassLibrary.IISSPGeneral.SetMyRequestToIisspStrig(System.String)">
 	<summary>
- Vytvoří kompletní dotaz a uloží ho do vlastnosti <see cref="P:IISSPClassLibrary.IISSPGeneral.MyRequest"></see>. Příkazem <see cref="M:IISSPClassLibrary.IISSPGeneral.Request"></see> 
+ Vytvoří kompletní dotaz a uloží ho do vlastnosti <see cref="P:IISSPClassLibrary.IISSPGeneral.MyRequest"></see>. Příkazem <see cref="M:IISSPClassLibrary.IISSPGeneral.Request(System.Boolean)"></see> 
  se dotaz vykoná.
  </summary>
 	<param name="InElement">Vlasní tělo dotazu předáváme jako parametr.</param>
@@ -311,10 +315,10 @@ IISSPClassLibrary
  Základní třída komponenty. Umožňuje obecné volání služeb, buď přímo, pro podrobněji nedefinované služby, nebo 
  především pomocí jiných tříd, které přesněji specifikují dotaz a třídu General využívají jako komunikační
  prostředek. Například třída <see cref="T:IISSPClassLibrary.IISSPInbox"></see>. Ty třídy disponují vlastnosí General, která je instancí IISSPGeneral.
- Pomocí vlastností třídy se nastaví parametry služby a pomocí fce <see cref="M:IISSPClassLibrary.IISSPGeneral.Request"></see> se vykonná dotaz.
+ Pomocí vlastností třídy se nastaví parametry služby a pomocí fce <see cref="M:IISSPClassLibrary.IISSPGeneral.Request(System.Boolean)"></see> se vykonná dotaz.
  Definuje další funkce jako <see cref="M:IISSPClassLibrary.IISSPGeneral.FormatXml(System.Xml.XmlDocument)">formátování Xml</see>, generuje <see cref="M:IISSPClassLibrary.IISSPGeneral.GetGuid">GUID</see>, vrací <see cref="M:IISSPClassLibrary.IISSPGeneral.GetDateTime(System.DateTime)">
  datum a čas</see>, nebo <see cref="M:IISSPClassLibrary.IISSPGeneral.GetDate(System.DateTime)">datum</see> ve správném formátu atd.
- Zajišťuje cryptografické funkce jako <see cref="M:IISSPClassLibrary.IISSPGeneral.SignXml(System.Xml.XmlDocument)">digitální podepisování</see>.
+ Zajišťuje cryptografické funkce jako <see cref="M:IISSPClassLibrary.IISSPGeneral.SignXml(System.Xml.XmlDocument,System.String,System.String,System.String)">digitální podepisování</see>.
  </summary>
 </member><member name="P:IISSPClassLibrary.IISSPInbox.General">
 	<summary>

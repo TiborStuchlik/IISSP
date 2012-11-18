@@ -1,45 +1,44 @@
-<Error>
-  <Number>500</Number>
-  <Nazev>Chyba při odesílání</Nazev>
-  <Popis>The remote server returned an error: (401) Unauthorized. :: &lt;soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"&gt;&lt;soapenv:Body&gt;&lt;soapenv:Fault&gt;&lt;faultcode xmlns:ns1="http://xml.apache.org/axis/"&gt;ns1:Server.Unauthenticated&lt;/faultcode&gt;&lt;faultstring&gt;com.sap.engine.services.security.exceptions.BaseLoginException: Authentication did not succeed.&lt;/faultstring&gt;&lt;detail&gt;&lt;ns2:stackTrace xmlns:ns2="http://xml.apache.org/axis/"&gt;com.sap.engine.services.security.exceptions.BaseLoginException: Authentication did not succeed.
-	at com.sap.engine.services.security.server.jaas.BasicPasswordLoginModule.login(BasicPasswordLoginModule.java:177)
-	at com.sap.engine.services.security.login.LoginModuleLoggingWrapperImpl.login(LoginModuleLoggingWrapperImpl.java:220)
-	at com.sap.engine.services.security.login.ModulesProcessAction.run(ModulesProcessAction.java:70)
-	at java.security.AccessController.doPrivileged(Native Method)
-	at com.sap.engine.services.security.login.FastLoginContext.login(FastLoginContext.java:218)
-	at com.sap.aii.adapter.axis.web.ServletReceiverCore.handleLogin(ServletReceiverCore.java:965)
-	at com.sap.aii.adapter.axis.web.ServletReceiverCore.doPost(ServletReceiverCore.java:225)
-	at com.sap.aii.adapter.axis.web.MessageServlet.doPost(MessageServlet.java:392)
-	at javax.servlet.http.HttpServlet.service(HttpServlet.java:727)
-	at javax.servlet.http.HttpServlet.service(HttpServlet.java:820)
-	at com.sap.engine.services.servlets_jsp.server.Invokable.invoke(Invokable.java:66)
-	at com.sap.engine.services.servlets_jsp.server.Invokable.invoke(Invokable.java:32)
-	at com.sap.engine.services.servlets_jsp.server.HttpHandlerImpl.runServlet(HttpHandlerImpl.java:431)
-	at com.sap.engine.services.servlets_jsp.server.HttpHandlerImpl.handleRequest(HttpHandlerImpl.java:289)
-	at com.sap.engine.services.httpserver.server.RequestAnalizer.startServlet(RequestAnalizer.java:387)
-	at com.sap.engine.services.httpserver.server.RequestAnalizer.startServlet(RequestAnalizer.java:376)
-	at com.sap.engine.services.servlets_jsp.filters.ServletSelector.process(ServletSelector.java:85)
-	at com.sap.engine.services.httpserver.chain.AbstractChain.process(AbstractChain.java:71)
-	at com.sap.engine.services.servlets_jsp.filters.ApplicationSelector.process(ApplicationSelector.java:160)
-	at com.sap.engine.services.httpserver.chain.AbstractChain.process(AbstractChain.java:71)
-	at com.sap.engine.services.httpserver.filters.WebContainerInvoker.process(WebContainerInvoker.java:67)
-	at com.sap.engine.services.httpserver.chain.HostFilter.process(HostFilter.java:9)
-	at com.sap.engine.services.httpserver.chain.AbstractChain.process(AbstractChain.java:71)
-	at com.sap.engine.services.httpserver.filters.ResponseLogWriter.process(ResponseLogWriter.java:60)
-	at com.sap.engine.services.httpserver.chain.HostFilter.process(HostFilter.java:9)
-	at com.sap.engine.services.httpserver.chain.AbstractChain.process(AbstractChain.java:71)
-	at com.sap.engine.services.httpserver.filters.DefineHostFilter.process(DefineHostFilter.java:27)
-	at com.sap.engine.services.httpserver.chain.ServerFilter.process(ServerFilter.java:12)
-	at com.sap.engine.services.httpserver.chain.AbstractChain.process(AbstractChain.java:71)
-	at com.sap.engine.services.httpserver.filters.MonitoringFilter.process(MonitoringFilter.java:29)
-	at com.sap.engine.services.httpserver.chain.ServerFilter.process(ServerFilter.java:12)
-	at com.sap.engine.services.httpserver.chain.AbstractChain.process(AbstractChain.java:71)
-	at com.sap.engine.services.httpserver.server.Processor.chainedRequest(Processor.java:295)
-	at com.sap.engine.services.httpserver.server.Processor$FCAProcessorThread.run(Processor.java:222)
-	at com.sap.engine.core.thread.impl3.ActionObject.run(ActionObject.java:37)
-	at java.security.AccessController.doPrivileged(Native Method)
-	at com.sap.engine.core.thread.impl3.SingleThread.execute(SingleThread.java:152)
-	at com.sap.engine.core.thread.impl3.SingleThread.run(SingleThread.java:247)
-
-&lt;/ns2:stackTrace&gt;&lt;ns3:hostname xmlns:ns3="http://xml.apache.org/axis/"&gt;t1tc1t&lt;/ns3:hostname&gt;&lt;/detail&gt;&lt;/soapenv:Fault&gt;&lt;/soapenv:Body&gt;&lt;/soapenv:Envelope&gt;</Popis>
-</Error>
+﻿<?xml version="1.0" encoding="utf-8"?>
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <soapenv:Body>
+    <msg:Envelope xmlns:msg="urn:cz:mfcr:iissp:schemas:Messaging:v1">
+      <msg:EnvelopeHeader>
+        <cmn:TransactionId xmlns:cmn="urn:cz:mfcr:iissp:schemas:Common:v1">00000000000000024119</cmn:TransactionId>
+        <msg:DateTimeCreated>2012-11-18T11:01:47+01:00</msg:DateTimeCreated>
+        <msg:Sender>
+          <cmn:IC xmlns:cmn="urn:cz:mfcr:iissp:schemas:Common:v1">00006947</cmn:IC>
+          <cmn:SubjectName xmlns:cmn="urn:cz:mfcr:iissp:schemas:Common:v1">Ministerstvo financí</cmn:SubjectName>
+          <cmn:Module xmlns:cmn="urn:cz:mfcr:iissp:schemas:Common:v1">RISRE</cmn:Module>
+          <cmn:ResponsiblePerson xmlns:cmn="urn:cz:mfcr:iissp:schemas:Common:v1">
+            <cmn:PersonName>Kompetenční centrum</cmn:PersonName>
+            <cmn:PersonId>KC</cmn:PersonId>
+          </cmn:ResponsiblePerson>
+        </msg:Sender>
+        <msg:Recipient>
+          <cmn:IC xmlns:cmn="urn:cz:mfcr:iissp:schemas:Common:v1">00164801</cmn:IC>
+          <cmn:SubjectName xmlns:cmn="urn:cz:mfcr:iissp:schemas:Common:v1">IN-SY-CO</cmn:SubjectName>
+          <cmn:ResponsiblePerson xmlns:cmn="urn:cz:mfcr:iissp:schemas:Common:v1">
+            <cmn:PersonName>Tibor Stuchlik</cmn:PersonName>
+            <cmn:Email>tibor@stuchlik.info</cmn:Email>
+            <cmn:PersonId>EU8598098824</cmn:PersonId>
+          </cmn:ResponsiblePerson>
+        </msg:Recipient>
+      </msg:EnvelopeHeader>
+      <msg:EnvelopeBody>
+        <msg:ZpravaRisreTestovaci>
+          <msg:DataTestovaciOdpoved>
+            <msg:TextZaslany>Test</msg:TextZaslany>
+            <msg:ZpracovaniVysledek>
+              <msg:TypMaximum>I</msg:TypMaximum>
+              <msg:Polozka>
+                <msg:Typ>I</msg:Typ>
+                <msg:ID>ZZPITECH|900</msg:ID>
+                <msg:Text>Volání testovací webové služby IISSP RISRE proběhlo v pořádku.</msg:Text>
+              </msg:Polozka>
+            </msg:ZpracovaniVysledek>
+          </msg:DataTestovaciOdpoved>
+        </msg:ZpravaRisreTestovaci>
+      </msg:EnvelopeBody>
+    </msg:Envelope>
+  </soapenv:Body>
+</soapenv:Envelope>

@@ -1,24 +1,17 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <asmv1:assembly xsi:schemaLocation="urn:schemas-microsoft-com:asm.v1 assembly.adaptive.xsd" manifestVersion="1.0" xmlns:asmv3="urn:schemas-microsoft-com:asm.v3" xmlns:dsig="http://www.w3.org/2000/09/xmldsig#" xmlns:co.v1="urn:schemas-microsoft-com:clickonce.v1" xmlns:co.v2="urn:schemas-microsoft-com:clickonce.v2" xmlns="urn:schemas-microsoft-com:asm.v2" xmlns:asmv1="urn:schemas-microsoft-com:asm.v1" xmlns:asmv2="urn:schemas-microsoft-com:asm.v2" xmlns:xrml="urn:mpeg:mpeg21:2003:01-REL-R-NS" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <assemblyIdentity name="IISSPTestApplication.application" version="1.0.0.108" publicKeyToken="0000000000000000" language="cs-CZ" processorArchitecture="msil" xmlns="urn:schemas-microsoft-com:asm.v1" />
+  <assemblyIdentity name="IISSPTestApplication.application" version="2.0.0.115" publicKeyToken="0000000000000000" language="cs-CZ" processorArchitecture="msil" xmlns="urn:schemas-microsoft-com:asm.v1" />
   <description asmv2:publisher="Tibor Stuchlik, Ivan Kobr" asmv2:product="IISSP Test Aplikace" asmv2:supportUrl="http://iissp.stuchlik.info/" xmlns="urn:schemas-microsoft-com:asm.v1" />
-  <deployment install="true" mapFileExtensions="true">
-    <subscription>
-      <update>
-        <beforeApplicationStartup />
-      </update>
-    </subscription>
-    <deploymentProvider codebase="http://iissp.stuchlik.info/IISSPTestApplication.application" />
-  </deployment>
+  <deployment install="true" mapFileExtensions="true" co.v1:createDesktopShortcut="true" />
   <dependency>
-    <dependentAssembly dependencyType="install" codebase="IISSPTestApplication.exe.manifest" size="14808">
-      <assemblyIdentity name="IISSPTestApplication.exe" version="1.0.0.108" publicKeyToken="0000000000000000" language="cs-CZ" processorArchitecture="msil" type="win32" />
+    <dependentAssembly dependencyType="install" codebase="IISSPTestApplication.exe.manifest" size="15520">
+      <assemblyIdentity name="IISSPTestApplication.exe" version="2.0.0.115" publicKeyToken="0000000000000000" language="cs-CZ" processorArchitecture="msil" type="win32" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>1HRPzJzPiW3KttHI7teuORPBvZk=</dsig:DigestValue>
+        <dsig:DigestValue>wXQybJ4ljkx2YP+6cJ1AgPc/eD8=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

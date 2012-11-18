@@ -9,10 +9,10 @@
       <Value Profile="(Default)" />
     </Setting>
     <Setting Name="UserName" Type="System.String" Scope="User">
-      <Value Profile="(Default)">2000000002</Value>
+      <Value Profile="(Default)">0010000050</Value>
     </Setting>
     <Setting Name="Password" Type="System.String" Scope="User">
-      <Value Profile="(Default)">lr3zr6c5</Value>
+      <Value Profile="(Default)">nl7jbu5o</Value>
     </Setting>
     <Setting Name="ServerCertificate" Type="System.Security.Cryptography.X509Certificates.X509Certificate2" Scope="User">
       <Value Profile="(Default)" />

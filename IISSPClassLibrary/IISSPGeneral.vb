@@ -5,7 +5,8 @@ Imports System.IO
 Imports System.Xml
 Imports System.Net
 Imports System.Text
-Imports Krystalware.UploadHelper
+'Imports Krystalware.UploadHelper
+'Imports Security.Cryptography.Xml
 
 ''' <summary> 
 ''' Základní třída komponenty. Umožňuje obecné volání služeb, buď přímo, pro podrobněji nedefinované služby, nebo 
@@ -639,38 +640,116 @@ Public Class IISSPGeneral
 
     ''' <summary>
     ''' Vytvoří digitální podpis xml dokumentu, elementu "EnvelopeBody"
-    ''' Podpis se realizuje soukromým klíčem z certifikátu <see cref="ClientCertificate"></see>
+    ''' Podpis se realizuje soukromým klíčem z certifikátu, definovaným parametry.
+    ''' Vícenásobné volání této funkce je povoleno a přidává další podpisy.
     ''' </summary>
     ''' <param name="InXml">XmlDocument, který má být podepsaný</param>
+    ''' <param name="crt">Fyzická cesta k certifikátu</param>
+    ''' <param name="pwd">Heslo k certifikátu</param>
+    ''' <param name="xpath">XPath výraz pro transformaci.</param>
     ''' <returns>Vrátí podepsaný XmlDokument</returns>
-    ''' <remarks>Zatím nebyl zveřejněn přesný formát podpisu. Transformace a formát je nastaven jako v případě Identifikátoru celistvosti.</remarks>
-    Public Function SignXml(ByVal InXml As XmlDocument) As XmlDocument
+    ''' <remarks>V podepisované části xml dokumentu, při použití defaultního XPath výrazu, se nesmí vyskytovat komentáře. Asi bug MS v XPath transformaci. Předpokládam že Apache Xml Security na straně serveru je podle definic.</remarks>
+    Public Function SignXml(ByVal InXml As XmlDocument, ByVal crt As String, ByVal pwd As String, Optional ByVal xpath As String = "ancestor-or-self::msg:EnvelopeBody") As XmlDocument
+
+        Dim cert As X509Certificate2 = New X509Certificate2(crt, pwd)
         ' vytvorime root element z naseho xml
-        Dim root As XmlElement = InXml.DocumentElement
+        Dim root As XmlNode = InXml.SelectSingleNode("//msg:Envelope", _NamespaceManager)
+        Dim MeXmlNode As XmlNode = InXml.SelectSingleNode("//msg:EnvelopeBody", _NamespaceManager)
+        Dim envFooter As XmlNode = InXml.SelectSingleNode("//msg:EnvelopeFooter", _NamespaceManager)
+        'Dim MeXmlNodeList As XmlNodeList = InXml.SelectNodes("//msg:EnvelopeBody", _NamespaceManager)
+        Dim px As XmlDocument = New XmlDocument()
+
+
+        'px.PreserveWhitespace = True
+        px.LoadXml(MeXmlNode.OuterXml)
         ' vytvorime si node
-        Dim EnvelopeFooter As XmlElement = InXml.CreateElement("msg", "EnvelopeFooter", "urn:cz:mfcr:iissp:schemas:Messaging:v1")
-        ' a celej footer element vlozime do dokumentu
-        EnvelopeFooter.InnerText = ""
-        root.AppendChild(EnvelopeFooter)
-        ' vytvorime podpisovy element pro nas dokument
+        If (envFooter Is Nothing) Then
+            Dim EnvelopeFooter As XmlElement = InXml.CreateElement("msg", "EnvelopeFooter", "urn:cz:mfcr:iissp:schemas:Messaging:v1")
+            ' a celej footer element vlozime do dokumentu
+            EnvelopeFooter.InnerText = ""
+            root.AppendChild(EnvelopeFooter)
+            envFooter = EnvelopeFooter 'InXml.SelectSingleNode("//msg:EnvelopeFooter", _NamespaceManager)
+            ' vytvorime podpisovy element pro nas dokument
+            ' Dim SignedXml As New SignedXml(px)
+        End If
+
         Dim SignedXml As New SignedXml(InXml)
-        SignedXml.SigningKey = ClientCertificate.PrivateKey
+
+        SignedXml.SigningKey = cert.PrivateKey
         ' nastavime predepsane id podpisu
-        SignedXml.Signature.Id = "ElektronickyPodpis"
+        ' SignedXml.Signature.Id = "ElektronickyPodpis"
         ' Specifikujeme kanonikalizacni metodu
-        SignedXml.SignedInfo.CanonicalizationMethod = SignedXml.XmlDsigExcC14NWithCommentsTransformUrl
+        'SignedXml.SignedInfo.CanonicalizationMethod = SignedXml.XmlDsigC14NWithCommentsTransformUrl
+        SignedXml.SignedInfo.CanonicalizationMethod = SignedXml.XmlDsigExcC14NTransformUrl
         ' Vytvarime reference na cely xml dokument
+        ' SignedXml.SignedInfo.SignatureLength = 128
         Dim reference As New Reference("")
-        ' vyjmeme signature
-        reference.AddTransform(New XmlDsigEnvelopedSignatureTransform())
+        ' pridavame transformace
+        ' reference.AddTransform(New XmlDsigEnvelopedSignatureTransform())
         ' aplikujeme kanonikalizaci
-        reference.AddTransform(New XmlDsigExcC14NWithCommentsTransform())
+        reference.AddTransform(New XmlDsigExcC14NTransform())
+        'reference.AddTransform(New XmlDsigC14NTransform())
+        reference.DigestMethod = EncryptedXml.XmlEncSHA256Url
+        ' xpath filter
+        Dim xx As XmlDocument = New XmlDocument
+        xx.LoadXml("<XPath></XPath>")
+        Dim xPathElem As XmlElement = xx.DocumentElement
+        'xPathElem.SetAttribute("Filter", "intersect")
+        'xPathElem.SetAttribute("xmlns", "tiba")
+        xPathElem.InnerText = xpath
+        'Log(xPathElem.InnerXml, xPathElem)
+
+        Dim XPathTransform As New XmlDsigXPathTransform
+
+        'XPathTransform.Algorithm = "http://www.w3.org/2002/06/xmldsig-filter2"
+        XPathTransform.LoadInnerXml(xPathElem.SelectNodes("."))
+
+        reference.AddTransform(XPathTransform)
+        Dim dict As Dictionary(Of String, String) = New Dictionary(Of String, String)
+        dict("msg") = "urn:cz:mfcr:iissp:schemas:Messaging:v1"
+        'Dim XPathTransform As New XmlDsigXPathWithNamespacesTransform(xpath, Nothing, dict)
+        'reference.AddTransform(XPathTransform)
+
         ' pridavame reference do elementu s podpisem.
         SignedXml.AddReference(reference)
+
+        Dim keyInfo As KeyInfo = New KeyInfo()
+        Dim keyx509Data As KeyInfoX509Data = New KeyInfoX509Data(cert)
+        Dim xserial As X509IssuerSerial
+
+        xserial.IssuerName = cert.IssuerName.Name
+        xserial.SerialNumber = cert.SerialNumber
+
+        keyx509Data.AddIssuerSerial(xserial.IssuerName, xserial.SerialNumber)
+
+        keyInfo.AddClause(keyx509Data)
+
+        keyInfo.AddClause(New RSAKeyValue(CType(cert.PrivateKey, RSA)))
+        ' Log(keyx509Data.GetXml.InnerXml, keyx509Data)
+
+        SignedXml.KeyInfo = keyInfo
+
+        ' Dim hm As New HMACSHA256(ClientCertificate.PrivateKey.)
         ' vytvorime podpis.
         SignedXml.ComputeSignature()
-        ' vlozime do nej podpis
-        EnvelopeFooter.AppendChild(InXml.ImportNode(SignedXml.GetXml(), True))
+        ' do footeru vlozime podpis
+        envFooter.AppendChild(InXml.ImportNode(SignedXml.GetXml(), True))
+
+        'Dim ChXml As New XmlDocument
+        'ChXml.PreserveWhitespace = True
+        'ChXml.LoadXml(InXml.OuterXml)
+        'Dim sXml As New SignedXml(ChXml)
+
+        ' Find the "Signature" node and create a new 
+        ' XmlNodeList object. 
+        'Dim nodeList As XmlNodeList = ChXml.GetElementsByTagName("Signature")
+
+        ' Load the signature node.
+        'sXml.LoadXml(CType(nodeList(0), XmlElement))
+
+        ' Check the signature and return the result. 
+        ' Log("Kontrola podpisu: " + sXml.CheckSignature(ClientCertificate, True).ToString, sXml)
+
         Return InXml
     End Function
 
@@ -705,15 +784,15 @@ Public Class IISSPGeneral
             'Dim reqStream As Stream = Rq.GetRequestStream()
             'reqStream.Write(reqBuff, 0, reqBuff.Length)
 
-            Dim files() As UploadFile = {New UploadFile("c:\iissp\settings\body.xml", "hokuspokus", "text/xml;charset=utf-8"),
-                                         New UploadFile("c:\iissp\settings\attachment-by-tyba.xml", Nothing, "text/xml;charset=utf-8")}
+            'Dim files() As UploadFile = {New UploadFile("c:\iissp\settings\body.xml", "hokuspokus", "text/xml;charset=utf-8"),
+            '                             New UploadFile("c:\iissp\settings\attachment-by-tyba.xml", Nothing, "text/xml;charset=utf-8")}
             Dim colec As Specialized.NameValueCollection = New Specialized.NameValueCollection()
             'colec.Add("pok", "pook")
 
             Log("Request odeslán:", Me)
             Dim rqx As HttpWebRequest = WebRequest.Create(Url)
-            Dim Response As HttpWebResponse = HttpUploadHelper.Upload(Rq, files, colec)
-            'Dim Response As HttpWebResponse = CType(Rq.GetResponse(), HttpWebResponse)
+            'Dim Response As HttpWebResponse = HttpUploadHelper.Upload(Rq, files, colec)
+            Dim Response As HttpWebResponse = CType(Rq.GetResponse(), HttpWebResponse)
             Dim memStream As MemoryStream = New MemoryStream()
             Const BUFFER_SIZE As Integer = 4096
             Dim iRead As Integer = 0
@@ -764,16 +843,25 @@ Public Class IISSPGeneral
         Return HisXml.OuterXml
     End Function
 
+
     ''' <summary>
     ''' Vlastní volání dotazu. Předpokládá správné nastavení všech vlastností ovlivňující přenos.
-    ''' Tělo dotazu načítá z vlastnosti <see cref="MyRequest"></see>
+    ''' Tělo dotazu načítá z vlastnosti <see cref="MyRequest"></see>. Je nutné zasílat i s SOAP obálkou.
     ''' </summary>
     ''' <returns>Řetězcovou reprezentaci Xml dokumentu</returns>
     ''' <remarks>Výsledek také ukláda do <see cref="MyRequest"></see></remarks>
-    Public Function Request() As String
+    Public Function Request(Optional ByVal soap As Boolean = False) As String
         Log("Dotazuji (Request): ", Me)
         Dim HisXml As XmlDocument = New XmlDocument
         HisXml.LoadXml(MyRequest)
+        If (soap) Then
+            Dim px As XmlDocument = New XmlDocument
+            px.PreserveWhitespace = True
+            px.LoadXml(MyRequest)
+            px = MakeSoapEnvelopeXml(px.DocumentElement)
+            MyRequest = px.OuterXml
+            HisXml.LoadXml(MyRequest)
+        End If
         Try
             Dim Rq As HttpWebRequest = WebRequest.Create(Url)
             Rq.Method = "POST"
@@ -781,7 +869,7 @@ Public Class IISSPGeneral
             Rq.Headers.Add("Accept-Encoding", "deflate")
             'Rq.MaximumResponseHeadersLength = 512
             Rq.ContentType = "text/xml;charset=utf-8"
-            Rq.UserAgent = "INSYCO Client 2.0.0.1"
+            Rq.UserAgent = "INSYCO Client 2.0.0.2"
             Rq.ServicePoint.Expect100Continue = False
             'Rq.PreAuthenticate = True
             'Rq.AuthenticationLevel = Security.AuthenticationLevel.MutualAuthRequested
@@ -789,8 +877,9 @@ Public Class IISSPGeneral
             Rq.ContentLength = reqBuff.Length
             Rq.Timeout = TimeOut
             Rq.Credentials = New NetworkCredential(UserName, Password, "")
-
-            '' Rq.ClientCertificates.Add(New X509Certificate2(My.Resources.tiba, "tiba"))
+            If (ClientCertificate IsNot Nothing) Then
+                Rq.ClientCertificates.Add(ClientCertificate)
+            End If
             Dim reqStream As Stream = Rq.GetRequestStream()
             reqStream.Write(reqBuff, 0, reqBuff.Length)
             Log("Request odeslán:", Me)
@@ -991,40 +1080,38 @@ Public Class IISSPGeneral
 
         Try
             SetClientCertificate = New X509Certificate2(strCertPath, strPWD)
+            ClientCertificate = SetClientCertificate
         Catch ex As Exception
             Log(ex.Message, Me)
         End Try
 
-        ClientCertificate = SetClientCertificate
-
-
-        Return SetClientCertificate
+        Return ClientCertificate
     End Function
 
     Public Function SetServerCertificate(ByVal strCertPath As String, ByVal strPWD As String) As X509Certificate2
 
         Try
             SetServerCertificate = New X509Certificate2(strCertPath, strPWD)
+            ServerCertificate = SetServerCertificate
         Catch ex As Exception
             Log(ex.Message, Me)
         End Try
 
-        ServerCertificate = SetServerCertificate
 
-        Return SetServerCertificate
+        Return ServerCertificate
     End Function
 
     Public Function SetCACertificate(ByVal strCertPath As String, ByVal strPWD As String) As X509Certificate2
 
         Try
             SetCACertificate = New X509Certificate2(strCertPath, strPWD)
+            CAServer = SetCACertificate
         Catch ex As Exception
             Log(ex.Message, Me)
         End Try
 
-        CAServer = SetCACertificate
 
-        Return SetCACertificate
+        Return CAServer
     End Function
 
 End Class

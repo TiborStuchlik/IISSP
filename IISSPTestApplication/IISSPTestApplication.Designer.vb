@@ -23,11 +23,11 @@ Partial Class IISSPTestApplication
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim DataGridViewCellStyle6 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle7 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle9 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle10 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle8 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(IISSPTestApplication))
         Me.TabControl1 = New System.Windows.Forms.TabControl()
         Me.TabPage1 = New System.Windows.Forms.TabPage()
@@ -158,14 +158,28 @@ Partial Class IISSPTestApplication
         Me.Panel8 = New System.Windows.Forms.Panel()
         Me.Label26 = New System.Windows.Forms.Label()
         Me.Panel6 = New System.Windows.Forms.Panel()
+        Me.Label50 = New System.Windows.Forms.Label()
+        Me.TextBox5 = New System.Windows.Forms.TextBox()
+        Me.Label49 = New System.Windows.Forms.Label()
+        Me.TextBox4 = New System.Windows.Forms.TextBox()
+        Me.Button14 = New System.Windows.Forms.Button()
+        Me.Label47 = New System.Windows.Forms.Label()
+        Me.TextBox3 = New System.Windows.Forms.TextBox()
+        Me.LRozhraniTestUrl = New System.Windows.Forms.TextBox()
+        Me.Button13 = New System.Windows.Forms.Button()
+        Me.Label45 = New System.Windows.Forms.Label()
+        Me.TextBox2 = New System.Windows.Forms.TextBox()
+        Me.Button12 = New System.Windows.Forms.Button()
+        Me.cmdSendEncryptedMsg = New System.Windows.Forms.Button()
         Me.Button5 = New System.Windows.Forms.Button()
         Me.CBRozhraniDotaz = New System.Windows.Forms.ComboBox()
         Me.Label28 = New System.Windows.Forms.Label()
-        Me.LRozhraniTestUrl = New System.Windows.Forms.Label()
         Me.LRozhraniContext = New System.Windows.Forms.Label()
         Me.Label27 = New System.Windows.Forms.Label()
         Me.CBRequests = New System.Windows.Forms.ComboBox()
         Me.TabPage8 = New System.Windows.Forms.TabPage()
+        Me.TBSignElm = New System.Windows.Forms.TextBox()
+        Me.Label44 = New System.Windows.Forms.Label()
         Me.Button3 = New System.Windows.Forms.Button()
         Me.Panel9 = New System.Windows.Forms.Panel()
         Me.TBSignedSource = New System.Windows.Forms.TextBox()
@@ -209,7 +223,7 @@ Partial Class IISSPTestApplication
         Me.DataColumn3 = New System.Data.DataColumn()
         Me.BindingSource3 = New System.Windows.Forms.BindingSource(Me.components)
         Me.IISSPEventLog = New System.Diagnostics.EventLog()
-        Me.cmdSendEncryptedMsg = New System.Windows.Forms.Button()
+        Me.OpenFileDialog1 = New System.Windows.Forms.OpenFileDialog()
         Me.TabControl1.SuspendLayout()
         Me.TabPage1.SuspendLayout()
         Me.SplitContainer1.Panel1.SuspendLayout()
@@ -275,10 +289,10 @@ Partial Class IISSPTestApplication
         '
         'TabControl1
         '
+        Me.TabControl1.Controls.Add(Me.TabPage5)
         Me.TabControl1.Controls.Add(Me.TabPage1)
         Me.TabControl1.Controls.Add(Me.TabPage4)
         Me.TabControl1.Controls.Add(Me.TabPage9)
-        Me.TabControl1.Controls.Add(Me.TabPage5)
         Me.TabControl1.Controls.Add(Me.TabPage8)
         Me.TabControl1.Controls.Add(Me.TabPage13)
         Me.TabControl1.Controls.Add(Me.TabPage12)
@@ -290,7 +304,7 @@ Partial Class IISSPTestApplication
         Me.TabControl1.Name = "TabControl1"
         Me.TabControl1.SelectedIndex = 0
         Me.TabControl1.Size = New System.Drawing.Size(1136, 510)
-        Me.TabControl1.TabIndex = 0
+        Me.TabControl1.TabIndex = 3
         '
         'TabPage1
         '
@@ -350,54 +364,54 @@ Partial Class IISSPTestApplication
         '
         Me.DataGridView1.AllowUserToAddRows = False
         Me.DataGridView1.AllowUserToDeleteRows = False
-        DataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(210, Byte), Integer), CType(CType(210, Byte), Integer))
-        Me.DataGridView1.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle6
+        DataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(210, Byte), Integer), CType(CType(210, Byte), Integer))
+        Me.DataGridView1.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle1
         Me.DataGridView1.AutoGenerateColumns = False
-        DataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control
-        DataGridViewCellStyle7.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(238, Byte))
-        DataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText
-        DataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.DataGridView1.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle7
+        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control
+        DataGridViewCellStyle2.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(238, Byte))
+        DataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.DataGridView1.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle2
         Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DataGridView1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Column1, Me.Column2})
         Me.DataGridView1.DataSource = Me.BindingSource1
-        DataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Window
-        DataGridViewCellStyle9.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(238, Byte))
-        DataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.ControlText
-        DataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.DataGridView1.DefaultCellStyle = DataGridViewCellStyle9
+        DataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window
+        DataGridViewCellStyle4.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(238, Byte))
+        DataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText
+        DataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.DataGridView1.DefaultCellStyle = DataGridViewCellStyle4
         Me.DataGridView1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.DataGridView1.ImeMode = System.Windows.Forms.ImeMode.NoControl
-        Me.DataGridView1.Location = New System.Drawing.Point(0, 27)
+        Me.DataGridView1.Location = New System.Drawing.Point(0, 0)
         Me.DataGridView1.MultiSelect = False
         Me.DataGridView1.Name = "DataGridView1"
         Me.DataGridView1.ReadOnly = True
-        DataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle10.BackColor = System.Drawing.SystemColors.Control
-        DataGridViewCellStyle10.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(238, Byte))
-        DataGridViewCellStyle10.ForeColor = System.Drawing.SystemColors.WindowText
-        DataGridViewCellStyle10.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.DataGridView1.RowHeadersDefaultCellStyle = DataGridViewCellStyle10
+        DataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control
+        DataGridViewCellStyle5.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(238, Byte))
+        DataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.DataGridView1.RowHeadersDefaultCellStyle = DataGridViewCellStyle5
         Me.DataGridView1.RowTemplate.Height = 18
         Me.DataGridView1.RowTemplate.ReadOnly = True
         Me.DataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.DataGridView1.Size = New System.Drawing.Size(272, 138)
+        Me.DataGridView1.Size = New System.Drawing.Size(272, 165)
         Me.DataGridView1.TabIndex = 5
         '
         'Column1
         '
         Me.Column1.DataPropertyName = "ZpravaDatumVytvoreni"
-        DataGridViewCellStyle8.Format = "G"
-        DataGridViewCellStyle8.NullValue = Nothing
-        Me.Column1.DefaultCellStyle = DataGridViewCellStyle8
+        DataGridViewCellStyle3.Format = "G"
+        DataGridViewCellStyle3.NullValue = Nothing
+        Me.Column1.DefaultCellStyle = DataGridViewCellStyle3
         Me.Column1.HeaderText = "Datum a čas"
         Me.Column1.Name = "Column1"
         Me.Column1.ReadOnly = True
@@ -564,14 +578,15 @@ Partial Class IISSPTestApplication
         Me.BindingNavigator1.MovePreviousItem = Me.BindingNavigatorMovePreviousItem
         Me.BindingNavigator1.Name = "BindingNavigator1"
         Me.BindingNavigator1.PositionItem = Me.BindingNavigatorPositionItem
-        Me.BindingNavigator1.Size = New System.Drawing.Size(272, 27)
+        Me.BindingNavigator1.Size = New System.Drawing.Size(272, 25)
         Me.BindingNavigator1.TabIndex = 2
         Me.BindingNavigator1.Text = "BindingNavigator1"
+        Me.BindingNavigator1.Visible = False
         '
         'BindingNavigatorCountItem
         '
         Me.BindingNavigatorCountItem.Name = "BindingNavigatorCountItem"
-        Me.BindingNavigatorCountItem.Size = New System.Drawing.Size(35, 24)
+        Me.BindingNavigatorCountItem.Size = New System.Drawing.Size(36, 22)
         Me.BindingNavigatorCountItem.Text = "of {0}"
         Me.BindingNavigatorCountItem.ToolTipText = "Total number of items"
         '
@@ -581,7 +596,7 @@ Partial Class IISSPTestApplication
         Me.BindingNavigatorMoveFirstItem.Image = CType(resources.GetObject("BindingNavigatorMoveFirstItem.Image"), System.Drawing.Image)
         Me.BindingNavigatorMoveFirstItem.Name = "BindingNavigatorMoveFirstItem"
         Me.BindingNavigatorMoveFirstItem.RightToLeftAutoMirrorImage = True
-        Me.BindingNavigatorMoveFirstItem.Size = New System.Drawing.Size(23, 24)
+        Me.BindingNavigatorMoveFirstItem.Size = New System.Drawing.Size(23, 22)
         Me.BindingNavigatorMoveFirstItem.Text = "Move first"
         '
         'BindingNavigatorMovePreviousItem
@@ -590,13 +605,13 @@ Partial Class IISSPTestApplication
         Me.BindingNavigatorMovePreviousItem.Image = CType(resources.GetObject("BindingNavigatorMovePreviousItem.Image"), System.Drawing.Image)
         Me.BindingNavigatorMovePreviousItem.Name = "BindingNavigatorMovePreviousItem"
         Me.BindingNavigatorMovePreviousItem.RightToLeftAutoMirrorImage = True
-        Me.BindingNavigatorMovePreviousItem.Size = New System.Drawing.Size(23, 24)
+        Me.BindingNavigatorMovePreviousItem.Size = New System.Drawing.Size(23, 22)
         Me.BindingNavigatorMovePreviousItem.Text = "Move previous"
         '
         'BindingNavigatorSeparator
         '
         Me.BindingNavigatorSeparator.Name = "BindingNavigatorSeparator"
-        Me.BindingNavigatorSeparator.Size = New System.Drawing.Size(6, 27)
+        Me.BindingNavigatorSeparator.Size = New System.Drawing.Size(6, 25)
         '
         'BindingNavigatorPositionItem
         '
@@ -610,7 +625,7 @@ Partial Class IISSPTestApplication
         'BindingNavigatorSeparator1
         '
         Me.BindingNavigatorSeparator1.Name = "BindingNavigatorSeparator1"
-        Me.BindingNavigatorSeparator1.Size = New System.Drawing.Size(6, 27)
+        Me.BindingNavigatorSeparator1.Size = New System.Drawing.Size(6, 25)
         '
         'BindingNavigatorMoveNextItem
         '
@@ -618,7 +633,7 @@ Partial Class IISSPTestApplication
         Me.BindingNavigatorMoveNextItem.Image = CType(resources.GetObject("BindingNavigatorMoveNextItem.Image"), System.Drawing.Image)
         Me.BindingNavigatorMoveNextItem.Name = "BindingNavigatorMoveNextItem"
         Me.BindingNavigatorMoveNextItem.RightToLeftAutoMirrorImage = True
-        Me.BindingNavigatorMoveNextItem.Size = New System.Drawing.Size(23, 24)
+        Me.BindingNavigatorMoveNextItem.Size = New System.Drawing.Size(23, 22)
         Me.BindingNavigatorMoveNextItem.Text = "Move next"
         '
         'BindingNavigatorMoveLastItem
@@ -627,13 +642,13 @@ Partial Class IISSPTestApplication
         Me.BindingNavigatorMoveLastItem.Image = CType(resources.GetObject("BindingNavigatorMoveLastItem.Image"), System.Drawing.Image)
         Me.BindingNavigatorMoveLastItem.Name = "BindingNavigatorMoveLastItem"
         Me.BindingNavigatorMoveLastItem.RightToLeftAutoMirrorImage = True
-        Me.BindingNavigatorMoveLastItem.Size = New System.Drawing.Size(23, 24)
+        Me.BindingNavigatorMoveLastItem.Size = New System.Drawing.Size(23, 22)
         Me.BindingNavigatorMoveLastItem.Text = "Move last"
         '
         'BindingNavigatorSeparator2
         '
         Me.BindingNavigatorSeparator2.Name = "BindingNavigatorSeparator2"
-        Me.BindingNavigatorSeparator2.Size = New System.Drawing.Size(6, 27)
+        Me.BindingNavigatorSeparator2.Size = New System.Drawing.Size(6, 25)
         '
         'ToolStripButton1
         '
@@ -641,14 +656,14 @@ Partial Class IISSPTestApplication
         Me.ToolStripButton1.Image = CType(resources.GetObject("ToolStripButton1.Image"), System.Drawing.Image)
         Me.ToolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.ToolStripButton1.Name = "ToolStripButton1"
-        Me.ToolStripButton1.Size = New System.Drawing.Size(54, 19)
+        Me.ToolStripButton1.Size = New System.Drawing.Size(49, 22)
         Me.ToolStripButton1.Text = "Obnovit"
         '
         'CBInbox
         '
         Me.CBInbox.Items.AddRange(New Object() {"CSUIS Inbox", "RISRE Inbox"})
         Me.CBInbox.Name = "CBInbox"
-        Me.CBInbox.Size = New System.Drawing.Size(121, 23)
+        Me.CBInbox.Size = New System.Drawing.Size(121, 21)
         '
         'PProgress
         '
@@ -1592,11 +1607,22 @@ Partial Class IISSPTestApplication
         'Panel6
         '
         Me.Panel6.BackColor = System.Drawing.SystemColors.GradientActiveCaption
+        Me.Panel6.Controls.Add(Me.Label50)
+        Me.Panel6.Controls.Add(Me.TextBox5)
+        Me.Panel6.Controls.Add(Me.Label49)
+        Me.Panel6.Controls.Add(Me.TextBox4)
+        Me.Panel6.Controls.Add(Me.Button14)
+        Me.Panel6.Controls.Add(Me.Label47)
+        Me.Panel6.Controls.Add(Me.TextBox3)
+        Me.Panel6.Controls.Add(Me.LRozhraniTestUrl)
+        Me.Panel6.Controls.Add(Me.Button13)
+        Me.Panel6.Controls.Add(Me.Label45)
+        Me.Panel6.Controls.Add(Me.TextBox2)
+        Me.Panel6.Controls.Add(Me.Button12)
         Me.Panel6.Controls.Add(Me.cmdSendEncryptedMsg)
         Me.Panel6.Controls.Add(Me.Button5)
         Me.Panel6.Controls.Add(Me.CBRozhraniDotaz)
         Me.Panel6.Controls.Add(Me.Label28)
-        Me.Panel6.Controls.Add(Me.LRozhraniTestUrl)
         Me.Panel6.Controls.Add(Me.LRozhraniContext)
         Me.Panel6.Controls.Add(Me.Label27)
         Me.Panel6.Controls.Add(Me.CBRequests)
@@ -1606,12 +1632,130 @@ Partial Class IISSPTestApplication
         Me.Panel6.Size = New System.Drawing.Size(1122, 124)
         Me.Panel6.TabIndex = 0
         '
+        'Label50
+        '
+        Me.Label50.AutoSize = True
+        Me.Label50.Location = New System.Drawing.Point(503, 82)
+        Me.Label50.Name = "Label50"
+        Me.Label50.Size = New System.Drawing.Size(34, 13)
+        Me.Label50.TabIndex = 19
+        Me.Label50.Text = "Heslo"
+        '
+        'TextBox5
+        '
+        Me.TextBox5.Location = New System.Drawing.Point(543, 79)
+        Me.TextBox5.Name = "TextBox5"
+        Me.TextBox5.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
+        Me.TextBox5.Size = New System.Drawing.Size(139, 20)
+        Me.TextBox5.TabIndex = 18
+        Me.TextBox5.Text = "intel"
+        '
+        'Label49
+        '
+        Me.Label49.AutoSize = True
+        Me.Label49.Location = New System.Drawing.Point(503, 52)
+        Me.Label49.Name = "Label49"
+        Me.Label49.Size = New System.Drawing.Size(34, 13)
+        Me.Label49.TabIndex = 17
+        Me.Label49.Text = "Heslo"
+        '
+        'TextBox4
+        '
+        Me.TextBox4.Location = New System.Drawing.Point(543, 49)
+        Me.TextBox4.Name = "TextBox4"
+        Me.TextBox4.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
+        Me.TextBox4.Size = New System.Drawing.Size(139, 20)
+        Me.TextBox4.TabIndex = 16
+        Me.TextBox4.Text = "tiba"
+        '
+        'Button14
+        '
+        Me.Button14.BackColor = System.Drawing.SystemColors.ButtonFace
+        Me.Button14.Location = New System.Drawing.Point(699, 75)
+        Me.Button14.Name = "Button14"
+        Me.Button14.Size = New System.Drawing.Size(134, 23)
+        Me.Button14.TabIndex = 15
+        Me.Button14.Text = "Vyber certifikát"
+        Me.Button14.UseVisualStyleBackColor = False
+        '
+        'Label47
+        '
+        Me.Label47.AutoSize = True
+        Me.Label47.Location = New System.Drawing.Point(105, 79)
+        Me.Label47.Name = "Label47"
+        Me.Label47.Size = New System.Drawing.Size(95, 13)
+        Me.Label47.TabIndex = 14
+        Me.Label47.Text = "Cesta k certifikátu:"
+        '
+        'TextBox3
+        '
+        Me.TextBox3.Location = New System.Drawing.Point(206, 77)
+        Me.TextBox3.Name = "TextBox3"
+        Me.TextBox3.Size = New System.Drawing.Size(277, 20)
+        Me.TextBox3.TabIndex = 13
+        Me.TextBox3.Text = "insytest.pfx"
+        '
+        'LRozhraniTestUrl
+        '
+        Me.LRozhraniTestUrl.Location = New System.Drawing.Point(394, 18)
+        Me.LRozhraniTestUrl.Name = "LRozhraniTestUrl"
+        Me.LRozhraniTestUrl.Size = New System.Drawing.Size(515, 20)
+        Me.LRozhraniTestUrl.TabIndex = 12
+        '
+        'Button13
+        '
+        Me.Button13.BackColor = System.Drawing.SystemColors.ButtonFace
+        Me.Button13.Location = New System.Drawing.Point(699, 46)
+        Me.Button13.Name = "Button13"
+        Me.Button13.Size = New System.Drawing.Size(134, 23)
+        Me.Button13.TabIndex = 11
+        Me.Button13.Text = "Vyber certifikát"
+        Me.Button13.UseVisualStyleBackColor = False
+        '
+        'Label45
+        '
+        Me.Label45.AutoSize = True
+        Me.Label45.Location = New System.Drawing.Point(105, 50)
+        Me.Label45.Name = "Label45"
+        Me.Label45.Size = New System.Drawing.Size(95, 13)
+        Me.Label45.TabIndex = 10
+        Me.Label45.Text = "Cesta k certifikátu:"
+        '
+        'TextBox2
+        '
+        Me.TextBox2.Location = New System.Drawing.Point(206, 48)
+        Me.TextBox2.Name = "TextBox2"
+        Me.TextBox2.Size = New System.Drawing.Size(277, 20)
+        Me.TextBox2.TabIndex = 9
+        Me.TextBox2.Text = "tibaic.pfx"
+        '
+        'Button12
+        '
+        Me.Button12.BackColor = System.Drawing.Color.Silver
+        Me.Button12.Location = New System.Drawing.Point(9, 45)
+        Me.Button12.Name = "Button12"
+        Me.Button12.Size = New System.Drawing.Size(96, 23)
+        Me.Button12.TabIndex = 8
+        Me.Button12.Text = "Podepsat"
+        Me.Button12.UseVisualStyleBackColor = False
+        '
+        'cmdSendEncryptedMsg
+        '
+        Me.cmdSendEncryptedMsg.BackColor = System.Drawing.SystemColors.Control
+        Me.cmdSendEncryptedMsg.Location = New System.Drawing.Point(915, 18)
+        Me.cmdSendEncryptedMsg.Name = "cmdSendEncryptedMsg"
+        Me.cmdSendEncryptedMsg.Size = New System.Drawing.Size(161, 23)
+        Me.cmdSendEncryptedMsg.TabIndex = 7
+        Me.cmdSendEncryptedMsg.Text = "Odeslat encrypt dotaz"
+        Me.cmdSendEncryptedMsg.UseVisualStyleBackColor = False
+        Me.cmdSendEncryptedMsg.Visible = False
+        '
         'Button5
         '
         Me.Button5.BackColor = System.Drawing.SystemColors.Control
-        Me.Button5.Location = New System.Drawing.Point(14, 85)
+        Me.Button5.Location = New System.Drawing.Point(9, 74)
         Me.Button5.Name = "Button5"
-        Me.Button5.Size = New System.Drawing.Size(161, 23)
+        Me.Button5.Size = New System.Drawing.Size(96, 23)
         Me.Button5.TabIndex = 6
         Me.Button5.Text = "Odeslat dotaz"
         Me.Button5.UseVisualStyleBackColor = False
@@ -1619,34 +1763,25 @@ Partial Class IISSPTestApplication
         'CBRozhraniDotaz
         '
         Me.CBRozhraniDotaz.FormattingEnabled = True
-        Me.CBRozhraniDotaz.Location = New System.Drawing.Point(111, 49)
+        Me.CBRozhraniDotaz.Location = New System.Drawing.Point(177, 18)
         Me.CBRozhraniDotaz.Name = "CBRozhraniDotaz"
-        Me.CBRozhraniDotaz.Size = New System.Drawing.Size(206, 21)
+        Me.CBRozhraniDotaz.Size = New System.Drawing.Size(211, 21)
         Me.CBRozhraniDotaz.TabIndex = 5
         '
         'Label28
         '
         Me.Label28.AutoSize = True
-        Me.Label28.Location = New System.Drawing.Point(8, 49)
+        Me.Label28.Location = New System.Drawing.Point(174, 2)
         Me.Label28.Name = "Label28"
         Me.Label28.Size = New System.Drawing.Size(93, 13)
         Me.Label28.TabIndex = 4
         Me.Label28.Text = "Ukázkové dotazy:"
         '
-        'LRozhraniTestUrl
-        '
-        Me.LRozhraniTestUrl.AutoSize = True
-        Me.LRozhraniTestUrl.Location = New System.Drawing.Point(212, 27)
-        Me.LRozhraniTestUrl.Name = "LRozhraniTestUrl"
-        Me.LRozhraniTestUrl.Size = New System.Drawing.Size(45, 13)
-        Me.LRozhraniTestUrl.TabIndex = 3
-        Me.LRozhraniTestUrl.Text = "Label28"
-        '
         'LRozhraniContext
         '
         Me.LRozhraniContext.AutoSize = True
         Me.LRozhraniContext.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(238, Byte))
-        Me.LRozhraniContext.Location = New System.Drawing.Point(212, 10)
+        Me.LRozhraniContext.Location = New System.Drawing.Point(391, -2)
         Me.LRozhraniContext.Name = "LRozhraniContext"
         Me.LRozhraniContext.Size = New System.Drawing.Size(66, 17)
         Me.LRozhraniContext.TabIndex = 2
@@ -1655,7 +1790,7 @@ Partial Class IISSPTestApplication
         'Label27
         '
         Me.Label27.AutoSize = True
-        Me.Label27.Location = New System.Drawing.Point(8, 14)
+        Me.Label27.Location = New System.Drawing.Point(6, 2)
         Me.Label27.Name = "Label27"
         Me.Label27.Size = New System.Drawing.Size(54, 13)
         Me.Label27.TabIndex = 1
@@ -1664,13 +1799,15 @@ Partial Class IISSPTestApplication
         'CBRequests
         '
         Me.CBRequests.FormattingEnabled = True
-        Me.CBRequests.Location = New System.Drawing.Point(68, 14)
+        Me.CBRequests.Location = New System.Drawing.Point(9, 18)
         Me.CBRequests.Name = "CBRequests"
-        Me.CBRequests.Size = New System.Drawing.Size(138, 21)
+        Me.CBRequests.Size = New System.Drawing.Size(162, 21)
         Me.CBRequests.TabIndex = 0
         '
         'TabPage8
         '
+        Me.TabPage8.Controls.Add(Me.TBSignElm)
+        Me.TabPage8.Controls.Add(Me.Label44)
         Me.TabPage8.Controls.Add(Me.Button3)
         Me.TabPage8.Controls.Add(Me.Panel9)
         Me.TabPage8.Location = New System.Drawing.Point(4, 22)
@@ -1680,6 +1817,23 @@ Partial Class IISSPTestApplication
         Me.TabPage8.TabIndex = 5
         Me.TabPage8.Text = "Digitální podpis"
         Me.TabPage8.UseVisualStyleBackColor = True
+        '
+        'TBSignElm
+        '
+        Me.TBSignElm.Location = New System.Drawing.Point(173, 10)
+        Me.TBSignElm.Name = "TBSignElm"
+        Me.TBSignElm.Size = New System.Drawing.Size(724, 20)
+        Me.TBSignElm.TabIndex = 3
+        Me.TBSignElm.Text = "ancestor-or-self::*[local-name()='EnvelopeBody']"
+        '
+        'Label44
+        '
+        Me.Label44.AutoSize = True
+        Me.Label44.Location = New System.Drawing.Point(131, 16)
+        Me.Label44.Name = "Label44"
+        Me.Label44.Size = New System.Drawing.Size(36, 13)
+        Me.Label44.TabIndex = 2
+        Me.Label44.Text = "XPath"
         '
         'Button3
         '
@@ -1924,7 +2078,7 @@ Partial Class IISSPTestApplication
         Me.TrackBar1.Maximum = 50
         Me.TrackBar1.Minimum = -50
         Me.TrackBar1.Name = "TrackBar1"
-        Me.TrackBar1.Size = New System.Drawing.Size(246, 45)
+        Me.TrackBar1.Size = New System.Drawing.Size(246, 42)
         Me.TrackBar1.TabIndex = 4
         '
         'TabPage2
@@ -2018,7 +2172,7 @@ Partial Class IISSPTestApplication
         Me.LAppName.Font = New System.Drawing.Font("Arial", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(238, Byte))
         Me.LAppName.Location = New System.Drawing.Point(71, 10)
         Me.LAppName.Name = "LAppName"
-        Me.LAppName.Size = New System.Drawing.Size(296, 19)
+        Me.LAppName.Size = New System.Drawing.Size(297, 19)
         Me.LAppName.TabIndex = 1
         Me.LAppName.Text = "IISSP Testovací aplikace, verze 0.0.0.1"
         '
@@ -2040,7 +2194,7 @@ Partial Class IISSPTestApplication
         Me.Label3.Font = New System.Drawing.Font("Arial", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(238, Byte))
         Me.Label3.Location = New System.Drawing.Point(126, 28)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(170, 16)
+        Me.Label3.Size = New System.Drawing.Size(171, 16)
         Me.Label3.TabIndex = 3
         Me.Label3.Text = "Tibor Stuchlík a Ivan Kobr"
         '
@@ -2091,15 +2245,11 @@ Partial Class IISSPTestApplication
         Me.IISSPEventLog.Log = "Application"
         Me.IISSPEventLog.SynchronizingObject = Me
         '
-        'cmdSendEncryptedMsg
+        'OpenFileDialog1
         '
-        Me.cmdSendEncryptedMsg.BackColor = System.Drawing.SystemColors.Control
-        Me.cmdSendEncryptedMsg.Location = New System.Drawing.Point(481, 51)
-        Me.cmdSendEncryptedMsg.Name = "cmdSendEncryptedMsg"
-        Me.cmdSendEncryptedMsg.Size = New System.Drawing.Size(161, 23)
-        Me.cmdSendEncryptedMsg.TabIndex = 7
-        Me.cmdSendEncryptedMsg.Text = "Odeslat encrypt dotaz"
-        Me.cmdSendEncryptedMsg.UseVisualStyleBackColor = False
+        Me.OpenFileDialog1.DefaultExt = "pfx"
+        Me.OpenFileDialog1.Filter = "*Certifikát pfx|*.pfx|Všechny soubory|*.*"
+        Me.OpenFileDialog1.InitialDirectory = "c:\"
         '
         'IISSPTestApplication
         '
@@ -2164,6 +2314,7 @@ Partial Class IISSPTestApplication
         Me.Panel6.ResumeLayout(False)
         Me.Panel6.PerformLayout()
         Me.TabPage8.ResumeLayout(False)
+        Me.TabPage8.PerformLayout()
         Me.Panel9.ResumeLayout(False)
         Me.Panel9.PerformLayout()
         Me.TabPage13.ResumeLayout(False)
@@ -2303,7 +2454,6 @@ Partial Class IISSPTestApplication
     Friend WithEvents CBRequests As System.Windows.Forms.ComboBox
     Friend WithEvents LRozhraniContext As System.Windows.Forms.Label
     Friend WithEvents Label27 As System.Windows.Forms.Label
-    Friend WithEvents LRozhraniTestUrl As System.Windows.Forms.Label
     Friend WithEvents Button5 As System.Windows.Forms.Button
     Friend WithEvents CBRozhraniDotaz As System.Windows.Forms.ComboBox
     Friend WithEvents Label28 As System.Windows.Forms.Label
@@ -2381,4 +2531,19 @@ Partial Class IISSPTestApplication
     Friend WithEvents TabPage14 As System.Windows.Forms.TabPage
     Friend WithEvents LogTB As System.Windows.Forms.TextBox
     Friend WithEvents cmdSendEncryptedMsg As System.Windows.Forms.Button
+    Friend WithEvents TBSignElm As System.Windows.Forms.TextBox
+    Friend WithEvents Label44 As System.Windows.Forms.Label
+    Friend WithEvents Button12 As System.Windows.Forms.Button
+    Friend WithEvents Button13 As System.Windows.Forms.Button
+    Friend WithEvents Label45 As System.Windows.Forms.Label
+    Friend WithEvents TextBox2 As System.Windows.Forms.TextBox
+    Friend WithEvents OpenFileDialog1 As System.Windows.Forms.OpenFileDialog
+    Friend WithEvents LRozhraniTestUrl As System.Windows.Forms.TextBox
+    Friend WithEvents Button14 As System.Windows.Forms.Button
+    Friend WithEvents Label47 As System.Windows.Forms.Label
+    Friend WithEvents TextBox3 As System.Windows.Forms.TextBox
+    Friend WithEvents Label50 As System.Windows.Forms.Label
+    Friend WithEvents TextBox5 As System.Windows.Forms.TextBox
+    Friend WithEvents Label49 As System.Windows.Forms.Label
+    Friend WithEvents TextBox4 As System.Windows.Forms.TextBox
 End Class
