@@ -23,13 +23,45 @@ Partial Class IISSPTestApplication
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle11 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle12 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle14 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle15 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle13 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(IISSPTestApplication))
         Me.TabControl1 = New System.Windows.Forms.TabControl()
+        Me.TabPage5 = New System.Windows.Forms.TabPage()
+        Me.SplitContainer2 = New System.Windows.Forms.SplitContainer()
+        Me.TBSource = New System.Windows.Forms.TextBox()
+        Me.Panel7 = New System.Windows.Forms.Panel()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.WebBrowser1 = New System.Windows.Forms.WebBrowser()
+        Me.Panel8 = New System.Windows.Forms.Panel()
+        Me.Label26 = New System.Windows.Forms.Label()
+        Me.Panel6 = New System.Windows.Forms.Panel()
+        Me.Button16 = New System.Windows.Forms.Button()
+        Me.TBSignum = New System.Windows.Forms.TextBox()
+        Me.Button15 = New System.Windows.Forms.Button()
+        Me.LInfo = New System.Windows.Forms.Label()
+        Me.Label50 = New System.Windows.Forms.Label()
+        Me.TextBox5 = New System.Windows.Forms.TextBox()
+        Me.Label49 = New System.Windows.Forms.Label()
+        Me.TextBox4 = New System.Windows.Forms.TextBox()
+        Me.Button14 = New System.Windows.Forms.Button()
+        Me.Label47 = New System.Windows.Forms.Label()
+        Me.TextBox3 = New System.Windows.Forms.TextBox()
+        Me.LRozhraniTestUrl = New System.Windows.Forms.TextBox()
+        Me.Button13 = New System.Windows.Forms.Button()
+        Me.Label45 = New System.Windows.Forms.Label()
+        Me.TextBox2 = New System.Windows.Forms.TextBox()
+        Me.Button12 = New System.Windows.Forms.Button()
+        Me.cmdSendEncryptedMsg = New System.Windows.Forms.Button()
+        Me.Button5 = New System.Windows.Forms.Button()
+        Me.CBRozhraniDotaz = New System.Windows.Forms.ComboBox()
+        Me.Label28 = New System.Windows.Forms.Label()
+        Me.LRozhraniContext = New System.Windows.Forms.Label()
+        Me.Label27 = New System.Windows.Forms.Label()
+        Me.CBRequests = New System.Windows.Forms.ComboBox()
         Me.TabPage1 = New System.Windows.Forms.TabPage()
         Me.SplitContainer1 = New System.Windows.Forms.SplitContainer()
         Me.PBgMsg = New System.Windows.Forms.Panel()
@@ -149,34 +181,6 @@ Partial Class IISSPTestApplication
         Me.txKapitola = New System.Windows.Forms.TextBox()
         Me.cbRopDotaz = New System.Windows.Forms.ComboBox()
         Me.Button7 = New System.Windows.Forms.Button()
-        Me.TabPage5 = New System.Windows.Forms.TabPage()
-        Me.SplitContainer2 = New System.Windows.Forms.SplitContainer()
-        Me.TBSource = New System.Windows.Forms.TextBox()
-        Me.Panel7 = New System.Windows.Forms.Panel()
-        Me.Label1 = New System.Windows.Forms.Label()
-        Me.WebBrowser1 = New System.Windows.Forms.WebBrowser()
-        Me.Panel8 = New System.Windows.Forms.Panel()
-        Me.Label26 = New System.Windows.Forms.Label()
-        Me.Panel6 = New System.Windows.Forms.Panel()
-        Me.Label50 = New System.Windows.Forms.Label()
-        Me.TextBox5 = New System.Windows.Forms.TextBox()
-        Me.Label49 = New System.Windows.Forms.Label()
-        Me.TextBox4 = New System.Windows.Forms.TextBox()
-        Me.Button14 = New System.Windows.Forms.Button()
-        Me.Label47 = New System.Windows.Forms.Label()
-        Me.TextBox3 = New System.Windows.Forms.TextBox()
-        Me.LRozhraniTestUrl = New System.Windows.Forms.TextBox()
-        Me.Button13 = New System.Windows.Forms.Button()
-        Me.Label45 = New System.Windows.Forms.Label()
-        Me.TextBox2 = New System.Windows.Forms.TextBox()
-        Me.Button12 = New System.Windows.Forms.Button()
-        Me.cmdSendEncryptedMsg = New System.Windows.Forms.Button()
-        Me.Button5 = New System.Windows.Forms.Button()
-        Me.CBRozhraniDotaz = New System.Windows.Forms.ComboBox()
-        Me.Label28 = New System.Windows.Forms.Label()
-        Me.LRozhraniContext = New System.Windows.Forms.Label()
-        Me.Label27 = New System.Windows.Forms.Label()
-        Me.CBRequests = New System.Windows.Forms.ComboBox()
         Me.TabPage8 = New System.Windows.Forms.TabPage()
         Me.TBSignElm = New System.Windows.Forms.TextBox()
         Me.Label44 = New System.Windows.Forms.Label()
@@ -224,7 +228,15 @@ Partial Class IISSPTestApplication
         Me.BindingSource3 = New System.Windows.Forms.BindingSource(Me.components)
         Me.IISSPEventLog = New System.Diagnostics.EventLog()
         Me.OpenFileDialog1 = New System.Windows.Forms.OpenFileDialog()
+        Me.Button17 = New System.Windows.Forms.Button()
         Me.TabControl1.SuspendLayout()
+        Me.TabPage5.SuspendLayout()
+        Me.SplitContainer2.Panel1.SuspendLayout()
+        Me.SplitContainer2.Panel2.SuspendLayout()
+        Me.SplitContainer2.SuspendLayout()
+        Me.Panel7.SuspendLayout()
+        Me.Panel8.SuspendLayout()
+        Me.Panel6.SuspendLayout()
         Me.TabPage1.SuspendLayout()
         Me.SplitContainer1.Panel1.SuspendLayout()
         Me.SplitContainer1.Panel2.SuspendLayout()
@@ -256,13 +268,6 @@ Partial Class IISSPTestApplication
         Me.TabControl3.SuspendLayout()
         Me.TabPage10.SuspendLayout()
         Me.Panel10.SuspendLayout()
-        Me.TabPage5.SuspendLayout()
-        Me.SplitContainer2.Panel1.SuspendLayout()
-        Me.SplitContainer2.Panel2.SuspendLayout()
-        Me.SplitContainer2.SuspendLayout()
-        Me.Panel7.SuspendLayout()
-        Me.Panel8.SuspendLayout()
-        Me.Panel6.SuspendLayout()
         Me.TabPage8.SuspendLayout()
         Me.Panel9.SuspendLayout()
         Me.TabPage13.SuspendLayout()
@@ -303,8 +308,345 @@ Partial Class IISSPTestApplication
         Me.TabControl1.Location = New System.Drawing.Point(0, 0)
         Me.TabControl1.Name = "TabControl1"
         Me.TabControl1.SelectedIndex = 0
-        Me.TabControl1.Size = New System.Drawing.Size(1136, 510)
+        Me.TabControl1.Size = New System.Drawing.Size(1146, 510)
         Me.TabControl1.TabIndex = 3
+        '
+        'TabPage5
+        '
+        Me.TabPage5.Controls.Add(Me.SplitContainer2)
+        Me.TabPage5.Controls.Add(Me.Panel6)
+        Me.TabPage5.Location = New System.Drawing.Point(4, 22)
+        Me.TabPage5.Name = "TabPage5"
+        Me.TabPage5.Padding = New System.Windows.Forms.Padding(3)
+        Me.TabPage5.Size = New System.Drawing.Size(1138, 484)
+        Me.TabPage5.TabIndex = 4
+        Me.TabPage5.Text = "Universal Request"
+        Me.TabPage5.UseVisualStyleBackColor = True
+        '
+        'SplitContainer2
+        '
+        Me.SplitContainer2.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.SplitContainer2.Location = New System.Drawing.Point(3, 127)
+        Me.SplitContainer2.Name = "SplitContainer2"
+        '
+        'SplitContainer2.Panel1
+        '
+        Me.SplitContainer2.Panel1.BackColor = System.Drawing.SystemColors.Desktop
+        Me.SplitContainer2.Panel1.Controls.Add(Me.TBSource)
+        Me.SplitContainer2.Panel1.Controls.Add(Me.Panel7)
+        '
+        'SplitContainer2.Panel2
+        '
+        Me.SplitContainer2.Panel2.Controls.Add(Me.WebBrowser1)
+        Me.SplitContainer2.Panel2.Controls.Add(Me.Panel8)
+        Me.SplitContainer2.Size = New System.Drawing.Size(1132, 354)
+        Me.SplitContainer2.SplitterDistance = 444
+        Me.SplitContainer2.TabIndex = 1
+        '
+        'TBSource
+        '
+        Me.TBSource.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.TBSource.Location = New System.Drawing.Point(0, 26)
+        Me.TBSource.Multiline = True
+        Me.TBSource.Name = "TBSource"
+        Me.TBSource.ScrollBars = System.Windows.Forms.ScrollBars.Both
+        Me.TBSource.Size = New System.Drawing.Size(444, 328)
+        Me.TBSource.TabIndex = 1
+        Me.TBSource.WordWrap = False
+        '
+        'Panel7
+        '
+        Me.Panel7.BackColor = System.Drawing.Color.Blue
+        Me.Panel7.Controls.Add(Me.Label1)
+        Me.Panel7.Dock = System.Windows.Forms.DockStyle.Top
+        Me.Panel7.Location = New System.Drawing.Point(0, 0)
+        Me.Panel7.Name = "Panel7"
+        Me.Panel7.Size = New System.Drawing.Size(444, 26)
+        Me.Panel7.TabIndex = 0
+        '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(238, Byte))
+        Me.Label1.ForeColor = System.Drawing.Color.Yellow
+        Me.Label1.Location = New System.Drawing.Point(5, 3)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(62, 20)
+        Me.Label1.TabIndex = 0
+        Me.Label1.Text = "Dotaz:"
+        '
+        'WebBrowser1
+        '
+        Me.WebBrowser1.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.WebBrowser1.Location = New System.Drawing.Point(0, 26)
+        Me.WebBrowser1.MinimumSize = New System.Drawing.Size(20, 20)
+        Me.WebBrowser1.Name = "WebBrowser1"
+        Me.WebBrowser1.Size = New System.Drawing.Size(684, 328)
+        Me.WebBrowser1.TabIndex = 0
+        Me.WebBrowser1.Url = New System.Uri("", System.UriKind.Relative)
+        '
+        'Panel8
+        '
+        Me.Panel8.BackColor = System.Drawing.Color.Blue
+        Me.Panel8.Controls.Add(Me.Label26)
+        Me.Panel8.Dock = System.Windows.Forms.DockStyle.Top
+        Me.Panel8.Location = New System.Drawing.Point(0, 0)
+        Me.Panel8.Name = "Panel8"
+        Me.Panel8.Size = New System.Drawing.Size(684, 26)
+        Me.Panel8.TabIndex = 1
+        '
+        'Label26
+        '
+        Me.Label26.AutoSize = True
+        Me.Label26.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(238, Byte))
+        Me.Label26.ForeColor = System.Drawing.Color.Yellow
+        Me.Label26.Location = New System.Drawing.Point(3, 3)
+        Me.Label26.Name = "Label26"
+        Me.Label26.Size = New System.Drawing.Size(86, 20)
+        Me.Label26.TabIndex = 1
+        Me.Label26.Text = "Odpověď:"
+        '
+        'Panel6
+        '
+        Me.Panel6.BackColor = System.Drawing.SystemColors.GradientActiveCaption
+        Me.Panel6.Controls.Add(Me.Button17)
+        Me.Panel6.Controls.Add(Me.Button16)
+        Me.Panel6.Controls.Add(Me.TBSignum)
+        Me.Panel6.Controls.Add(Me.Button15)
+        Me.Panel6.Controls.Add(Me.LInfo)
+        Me.Panel6.Controls.Add(Me.Label50)
+        Me.Panel6.Controls.Add(Me.TextBox5)
+        Me.Panel6.Controls.Add(Me.Label49)
+        Me.Panel6.Controls.Add(Me.TextBox4)
+        Me.Panel6.Controls.Add(Me.Button14)
+        Me.Panel6.Controls.Add(Me.Label47)
+        Me.Panel6.Controls.Add(Me.TextBox3)
+        Me.Panel6.Controls.Add(Me.LRozhraniTestUrl)
+        Me.Panel6.Controls.Add(Me.Button13)
+        Me.Panel6.Controls.Add(Me.Label45)
+        Me.Panel6.Controls.Add(Me.TextBox2)
+        Me.Panel6.Controls.Add(Me.Button12)
+        Me.Panel6.Controls.Add(Me.cmdSendEncryptedMsg)
+        Me.Panel6.Controls.Add(Me.Button5)
+        Me.Panel6.Controls.Add(Me.CBRozhraniDotaz)
+        Me.Panel6.Controls.Add(Me.Label28)
+        Me.Panel6.Controls.Add(Me.LRozhraniContext)
+        Me.Panel6.Controls.Add(Me.Label27)
+        Me.Panel6.Controls.Add(Me.CBRequests)
+        Me.Panel6.Dock = System.Windows.Forms.DockStyle.Top
+        Me.Panel6.Location = New System.Drawing.Point(3, 3)
+        Me.Panel6.Name = "Panel6"
+        Me.Panel6.Size = New System.Drawing.Size(1132, 124)
+        Me.Panel6.TabIndex = 0
+        '
+        'Button16
+        '
+        Me.Button16.BackColor = System.Drawing.Color.Silver
+        Me.Button16.Location = New System.Drawing.Point(1039, 46)
+        Me.Button16.Name = "Button16"
+        Me.Button16.Size = New System.Drawing.Size(96, 23)
+        Me.Button16.TabIndex = 23
+        Me.Button16.Text = "Podepsat ISDOC"
+        Me.Button16.UseVisualStyleBackColor = False
+        '
+        'TBSignum
+        '
+        Me.TBSignum.Location = New System.Drawing.Point(849, 74)
+        Me.TBSignum.Multiline = True
+        Me.TBSignum.Name = "TBSignum"
+        Me.TBSignum.Size = New System.Drawing.Size(227, 44)
+        Me.TBSignum.TabIndex = 22
+        '
+        'Button15
+        '
+        Me.Button15.BackColor = System.Drawing.Color.Silver
+        Me.Button15.Location = New System.Drawing.Point(941, 46)
+        Me.Button15.Name = "Button15"
+        Me.Button15.Size = New System.Drawing.Size(96, 23)
+        Me.Button15.TabIndex = 21
+        Me.Button15.Text = "Podepsat CSUIS"
+        Me.Button15.UseVisualStyleBackColor = False
+        '
+        'LInfo
+        '
+        Me.LInfo.AutoSize = True
+        Me.LInfo.Location = New System.Drawing.Point(6, 108)
+        Me.LInfo.Name = "LInfo"
+        Me.LInfo.Size = New System.Drawing.Size(106, 13)
+        Me.LInfo.TabIndex = 20
+        Me.LInfo.Text = "Připraveno k použití."
+        '
+        'Label50
+        '
+        Me.Label50.AutoSize = True
+        Me.Label50.Location = New System.Drawing.Point(503, 82)
+        Me.Label50.Name = "Label50"
+        Me.Label50.Size = New System.Drawing.Size(34, 13)
+        Me.Label50.TabIndex = 19
+        Me.Label50.Text = "Heslo"
+        '
+        'TextBox5
+        '
+        Me.TextBox5.Location = New System.Drawing.Point(543, 79)
+        Me.TextBox5.Name = "TextBox5"
+        Me.TextBox5.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
+        Me.TextBox5.Size = New System.Drawing.Size(139, 20)
+        Me.TextBox5.TabIndex = 18
+        Me.TextBox5.Text = "intel"
+        '
+        'Label49
+        '
+        Me.Label49.AutoSize = True
+        Me.Label49.Location = New System.Drawing.Point(503, 52)
+        Me.Label49.Name = "Label49"
+        Me.Label49.Size = New System.Drawing.Size(34, 13)
+        Me.Label49.TabIndex = 17
+        Me.Label49.Text = "Heslo"
+        '
+        'TextBox4
+        '
+        Me.TextBox4.Location = New System.Drawing.Point(543, 49)
+        Me.TextBox4.Name = "TextBox4"
+        Me.TextBox4.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
+        Me.TextBox4.Size = New System.Drawing.Size(139, 20)
+        Me.TextBox4.TabIndex = 16
+        Me.TextBox4.Text = "tiba"
+        '
+        'Button14
+        '
+        Me.Button14.BackColor = System.Drawing.SystemColors.ButtonFace
+        Me.Button14.Location = New System.Drawing.Point(699, 75)
+        Me.Button14.Name = "Button14"
+        Me.Button14.Size = New System.Drawing.Size(134, 23)
+        Me.Button14.TabIndex = 15
+        Me.Button14.Text = "Vyber certifikát"
+        Me.Button14.UseVisualStyleBackColor = False
+        '
+        'Label47
+        '
+        Me.Label47.AutoSize = True
+        Me.Label47.Location = New System.Drawing.Point(105, 79)
+        Me.Label47.Name = "Label47"
+        Me.Label47.Size = New System.Drawing.Size(95, 13)
+        Me.Label47.TabIndex = 14
+        Me.Label47.Text = "Cesta k certifikátu:"
+        '
+        'TextBox3
+        '
+        Me.TextBox3.Location = New System.Drawing.Point(206, 77)
+        Me.TextBox3.Name = "TextBox3"
+        Me.TextBox3.Size = New System.Drawing.Size(277, 20)
+        Me.TextBox3.TabIndex = 13
+        Me.TextBox3.Text = "insytest.pfx"
+        '
+        'LRozhraniTestUrl
+        '
+        Me.LRozhraniTestUrl.Location = New System.Drawing.Point(394, 18)
+        Me.LRozhraniTestUrl.Name = "LRozhraniTestUrl"
+        Me.LRozhraniTestUrl.Size = New System.Drawing.Size(515, 20)
+        Me.LRozhraniTestUrl.TabIndex = 12
+        '
+        'Button13
+        '
+        Me.Button13.BackColor = System.Drawing.SystemColors.ButtonFace
+        Me.Button13.Location = New System.Drawing.Point(699, 46)
+        Me.Button13.Name = "Button13"
+        Me.Button13.Size = New System.Drawing.Size(134, 23)
+        Me.Button13.TabIndex = 11
+        Me.Button13.Text = "Vyber certifikát"
+        Me.Button13.UseVisualStyleBackColor = False
+        '
+        'Label45
+        '
+        Me.Label45.AutoSize = True
+        Me.Label45.Location = New System.Drawing.Point(105, 50)
+        Me.Label45.Name = "Label45"
+        Me.Label45.Size = New System.Drawing.Size(95, 13)
+        Me.Label45.TabIndex = 10
+        Me.Label45.Text = "Cesta k certifikátu:"
+        '
+        'TextBox2
+        '
+        Me.TextBox2.Location = New System.Drawing.Point(206, 48)
+        Me.TextBox2.Name = "TextBox2"
+        Me.TextBox2.Size = New System.Drawing.Size(277, 20)
+        Me.TextBox2.TabIndex = 9
+        Me.TextBox2.Text = "tibaic.pfx"
+        '
+        'Button12
+        '
+        Me.Button12.BackColor = System.Drawing.Color.Silver
+        Me.Button12.Location = New System.Drawing.Point(839, 46)
+        Me.Button12.Name = "Button12"
+        Me.Button12.Size = New System.Drawing.Size(96, 23)
+        Me.Button12.TabIndex = 8
+        Me.Button12.Text = "Podepsat RISRE"
+        Me.Button12.UseVisualStyleBackColor = False
+        '
+        'cmdSendEncryptedMsg
+        '
+        Me.cmdSendEncryptedMsg.BackColor = System.Drawing.SystemColors.Control
+        Me.cmdSendEncryptedMsg.Location = New System.Drawing.Point(915, 18)
+        Me.cmdSendEncryptedMsg.Name = "cmdSendEncryptedMsg"
+        Me.cmdSendEncryptedMsg.Size = New System.Drawing.Size(161, 23)
+        Me.cmdSendEncryptedMsg.TabIndex = 7
+        Me.cmdSendEncryptedMsg.Text = "Odeslat encrypt dotaz"
+        Me.cmdSendEncryptedMsg.UseVisualStyleBackColor = False
+        Me.cmdSendEncryptedMsg.Visible = False
+        '
+        'Button5
+        '
+        Me.Button5.BackColor = System.Drawing.SystemColors.Control
+        Me.Button5.Location = New System.Drawing.Point(9, 46)
+        Me.Button5.Name = "Button5"
+        Me.Button5.Size = New System.Drawing.Size(96, 23)
+        Me.Button5.TabIndex = 6
+        Me.Button5.Text = "Odeslat POST"
+        Me.Button5.UseVisualStyleBackColor = False
+        '
+        'CBRozhraniDotaz
+        '
+        Me.CBRozhraniDotaz.FormattingEnabled = True
+        Me.CBRozhraniDotaz.Location = New System.Drawing.Point(177, 18)
+        Me.CBRozhraniDotaz.Name = "CBRozhraniDotaz"
+        Me.CBRozhraniDotaz.Size = New System.Drawing.Size(211, 21)
+        Me.CBRozhraniDotaz.TabIndex = 5
+        '
+        'Label28
+        '
+        Me.Label28.AutoSize = True
+        Me.Label28.Location = New System.Drawing.Point(174, 2)
+        Me.Label28.Name = "Label28"
+        Me.Label28.Size = New System.Drawing.Size(93, 13)
+        Me.Label28.TabIndex = 4
+        Me.Label28.Text = "Ukázkové dotazy:"
+        '
+        'LRozhraniContext
+        '
+        Me.LRozhraniContext.AutoSize = True
+        Me.LRozhraniContext.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(238, Byte))
+        Me.LRozhraniContext.Location = New System.Drawing.Point(391, -2)
+        Me.LRozhraniContext.Name = "LRozhraniContext"
+        Me.LRozhraniContext.Size = New System.Drawing.Size(66, 17)
+        Me.LRozhraniContext.TabIndex = 2
+        Me.LRozhraniContext.Text = "Label28"
+        '
+        'Label27
+        '
+        Me.Label27.AutoSize = True
+        Me.Label27.Location = New System.Drawing.Point(6, 2)
+        Me.Label27.Name = "Label27"
+        Me.Label27.Size = New System.Drawing.Size(54, 13)
+        Me.Label27.TabIndex = 1
+        Me.Label27.Text = "Rozhraní:"
+        '
+        'CBRequests
+        '
+        Me.CBRequests.FormattingEnabled = True
+        Me.CBRequests.Location = New System.Drawing.Point(9, 18)
+        Me.CBRequests.Name = "CBRequests"
+        Me.CBRequests.Size = New System.Drawing.Size(162, 21)
+        Me.CBRequests.TabIndex = 0
         '
         'TabPage1
         '
@@ -312,7 +654,7 @@ Partial Class IISSPTestApplication
         Me.TabPage1.Location = New System.Drawing.Point(4, 22)
         Me.TabPage1.Name = "TabPage1"
         Me.TabPage1.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage1.Size = New System.Drawing.Size(1128, 484)
+        Me.TabPage1.Size = New System.Drawing.Size(1138, 484)
         Me.TabPage1.TabIndex = 0
         Me.TabPage1.Text = "Inbox"
         Me.TabPage1.UseVisualStyleBackColor = True
@@ -364,42 +706,42 @@ Partial Class IISSPTestApplication
         '
         Me.DataGridView1.AllowUserToAddRows = False
         Me.DataGridView1.AllowUserToDeleteRows = False
-        DataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(210, Byte), Integer), CType(CType(210, Byte), Integer))
-        Me.DataGridView1.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle1
+        DataGridViewCellStyle11.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(210, Byte), Integer), CType(CType(210, Byte), Integer))
+        Me.DataGridView1.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle11
         Me.DataGridView1.AutoGenerateColumns = False
-        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control
-        DataGridViewCellStyle2.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(238, Byte))
-        DataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText
-        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.DataGridView1.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle2
+        DataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle12.BackColor = System.Drawing.SystemColors.Control
+        DataGridViewCellStyle12.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(238, Byte))
+        DataGridViewCellStyle12.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle12.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle12.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.DataGridView1.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle12
         Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DataGridView1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Column1, Me.Column2})
         Me.DataGridView1.DataSource = Me.BindingSource1
-        DataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window
-        DataGridViewCellStyle4.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(238, Byte))
-        DataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText
-        DataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.DataGridView1.DefaultCellStyle = DataGridViewCellStyle4
+        DataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle14.BackColor = System.Drawing.SystemColors.Window
+        DataGridViewCellStyle14.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(238, Byte))
+        DataGridViewCellStyle14.ForeColor = System.Drawing.SystemColors.ControlText
+        DataGridViewCellStyle14.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle14.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.DataGridView1.DefaultCellStyle = DataGridViewCellStyle14
         Me.DataGridView1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.DataGridView1.ImeMode = System.Windows.Forms.ImeMode.NoControl
         Me.DataGridView1.Location = New System.Drawing.Point(0, 0)
         Me.DataGridView1.MultiSelect = False
         Me.DataGridView1.Name = "DataGridView1"
         Me.DataGridView1.ReadOnly = True
-        DataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control
-        DataGridViewCellStyle5.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(238, Byte))
-        DataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText
-        DataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.DataGridView1.RowHeadersDefaultCellStyle = DataGridViewCellStyle5
+        DataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle15.BackColor = System.Drawing.SystemColors.Control
+        DataGridViewCellStyle15.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(238, Byte))
+        DataGridViewCellStyle15.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle15.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle15.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle15.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.DataGridView1.RowHeadersDefaultCellStyle = DataGridViewCellStyle15
         Me.DataGridView1.RowTemplate.Height = 18
         Me.DataGridView1.RowTemplate.ReadOnly = True
         Me.DataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
@@ -409,9 +751,9 @@ Partial Class IISSPTestApplication
         'Column1
         '
         Me.Column1.DataPropertyName = "ZpravaDatumVytvoreni"
-        DataGridViewCellStyle3.Format = "G"
-        DataGridViewCellStyle3.NullValue = Nothing
-        Me.Column1.DefaultCellStyle = DataGridViewCellStyle3
+        DataGridViewCellStyle13.Format = "G"
+        DataGridViewCellStyle13.NullValue = Nothing
+        Me.Column1.DefaultCellStyle = DataGridViewCellStyle13
         Me.Column1.HeaderText = "Datum a čas"
         Me.Column1.Name = "Column1"
         Me.Column1.ReadOnly = True
@@ -1016,7 +1358,7 @@ Partial Class IISSPTestApplication
         Me.TabPage4.Location = New System.Drawing.Point(4, 22)
         Me.TabPage4.Name = "TabPage4"
         Me.TabPage4.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage4.Size = New System.Drawing.Size(1128, 484)
+        Me.TabPage4.Size = New System.Drawing.Size(1138, 484)
         Me.TabPage4.TabIndex = 3
         Me.TabPage4.Text = "RISRE"
         Me.TabPage4.UseVisualStyleBackColor = True
@@ -1336,7 +1678,7 @@ Partial Class IISSPTestApplication
         Me.TabPage9.Location = New System.Drawing.Point(4, 22)
         Me.TabPage9.Name = "TabPage9"
         Me.TabPage9.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage9.Size = New System.Drawing.Size(1128, 484)
+        Me.TabPage9.Size = New System.Drawing.Size(1138, 484)
         Me.TabPage9.TabIndex = 6
         Me.TabPage9.Text = "ROP"
         Me.TabPage9.UseVisualStyleBackColor = True
@@ -1509,301 +1851,6 @@ Partial Class IISSPTestApplication
         Me.Button7.Text = "Odeslat dotaz"
         Me.Button7.UseVisualStyleBackColor = False
         '
-        'TabPage5
-        '
-        Me.TabPage5.Controls.Add(Me.SplitContainer2)
-        Me.TabPage5.Controls.Add(Me.Panel6)
-        Me.TabPage5.Location = New System.Drawing.Point(4, 22)
-        Me.TabPage5.Name = "TabPage5"
-        Me.TabPage5.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage5.Size = New System.Drawing.Size(1128, 484)
-        Me.TabPage5.TabIndex = 4
-        Me.TabPage5.Text = "Universal Request"
-        Me.TabPage5.UseVisualStyleBackColor = True
-        '
-        'SplitContainer2
-        '
-        Me.SplitContainer2.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.SplitContainer2.Location = New System.Drawing.Point(3, 127)
-        Me.SplitContainer2.Name = "SplitContainer2"
-        '
-        'SplitContainer2.Panel1
-        '
-        Me.SplitContainer2.Panel1.BackColor = System.Drawing.SystemColors.Desktop
-        Me.SplitContainer2.Panel1.Controls.Add(Me.TBSource)
-        Me.SplitContainer2.Panel1.Controls.Add(Me.Panel7)
-        '
-        'SplitContainer2.Panel2
-        '
-        Me.SplitContainer2.Panel2.Controls.Add(Me.WebBrowser1)
-        Me.SplitContainer2.Panel2.Controls.Add(Me.Panel8)
-        Me.SplitContainer2.Size = New System.Drawing.Size(1122, 354)
-        Me.SplitContainer2.SplitterDistance = 442
-        Me.SplitContainer2.TabIndex = 1
-        '
-        'TBSource
-        '
-        Me.TBSource.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.TBSource.Location = New System.Drawing.Point(0, 26)
-        Me.TBSource.Multiline = True
-        Me.TBSource.Name = "TBSource"
-        Me.TBSource.ScrollBars = System.Windows.Forms.ScrollBars.Both
-        Me.TBSource.Size = New System.Drawing.Size(442, 328)
-        Me.TBSource.TabIndex = 1
-        Me.TBSource.WordWrap = False
-        '
-        'Panel7
-        '
-        Me.Panel7.BackColor = System.Drawing.Color.Blue
-        Me.Panel7.Controls.Add(Me.Label1)
-        Me.Panel7.Dock = System.Windows.Forms.DockStyle.Top
-        Me.Panel7.Location = New System.Drawing.Point(0, 0)
-        Me.Panel7.Name = "Panel7"
-        Me.Panel7.Size = New System.Drawing.Size(442, 26)
-        Me.Panel7.TabIndex = 0
-        '
-        'Label1
-        '
-        Me.Label1.AutoSize = True
-        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(238, Byte))
-        Me.Label1.ForeColor = System.Drawing.Color.Yellow
-        Me.Label1.Location = New System.Drawing.Point(5, 3)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(62, 20)
-        Me.Label1.TabIndex = 0
-        Me.Label1.Text = "Dotaz:"
-        '
-        'WebBrowser1
-        '
-        Me.WebBrowser1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.WebBrowser1.Location = New System.Drawing.Point(0, 26)
-        Me.WebBrowser1.MinimumSize = New System.Drawing.Size(20, 20)
-        Me.WebBrowser1.Name = "WebBrowser1"
-        Me.WebBrowser1.Size = New System.Drawing.Size(676, 328)
-        Me.WebBrowser1.TabIndex = 0
-        Me.WebBrowser1.Url = New System.Uri("", System.UriKind.Relative)
-        '
-        'Panel8
-        '
-        Me.Panel8.BackColor = System.Drawing.Color.Blue
-        Me.Panel8.Controls.Add(Me.Label26)
-        Me.Panel8.Dock = System.Windows.Forms.DockStyle.Top
-        Me.Panel8.Location = New System.Drawing.Point(0, 0)
-        Me.Panel8.Name = "Panel8"
-        Me.Panel8.Size = New System.Drawing.Size(676, 26)
-        Me.Panel8.TabIndex = 1
-        '
-        'Label26
-        '
-        Me.Label26.AutoSize = True
-        Me.Label26.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(238, Byte))
-        Me.Label26.ForeColor = System.Drawing.Color.Yellow
-        Me.Label26.Location = New System.Drawing.Point(3, 3)
-        Me.Label26.Name = "Label26"
-        Me.Label26.Size = New System.Drawing.Size(86, 20)
-        Me.Label26.TabIndex = 1
-        Me.Label26.Text = "Odpověď:"
-        '
-        'Panel6
-        '
-        Me.Panel6.BackColor = System.Drawing.SystemColors.GradientActiveCaption
-        Me.Panel6.Controls.Add(Me.Label50)
-        Me.Panel6.Controls.Add(Me.TextBox5)
-        Me.Panel6.Controls.Add(Me.Label49)
-        Me.Panel6.Controls.Add(Me.TextBox4)
-        Me.Panel6.Controls.Add(Me.Button14)
-        Me.Panel6.Controls.Add(Me.Label47)
-        Me.Panel6.Controls.Add(Me.TextBox3)
-        Me.Panel6.Controls.Add(Me.LRozhraniTestUrl)
-        Me.Panel6.Controls.Add(Me.Button13)
-        Me.Panel6.Controls.Add(Me.Label45)
-        Me.Panel6.Controls.Add(Me.TextBox2)
-        Me.Panel6.Controls.Add(Me.Button12)
-        Me.Panel6.Controls.Add(Me.cmdSendEncryptedMsg)
-        Me.Panel6.Controls.Add(Me.Button5)
-        Me.Panel6.Controls.Add(Me.CBRozhraniDotaz)
-        Me.Panel6.Controls.Add(Me.Label28)
-        Me.Panel6.Controls.Add(Me.LRozhraniContext)
-        Me.Panel6.Controls.Add(Me.Label27)
-        Me.Panel6.Controls.Add(Me.CBRequests)
-        Me.Panel6.Dock = System.Windows.Forms.DockStyle.Top
-        Me.Panel6.Location = New System.Drawing.Point(3, 3)
-        Me.Panel6.Name = "Panel6"
-        Me.Panel6.Size = New System.Drawing.Size(1122, 124)
-        Me.Panel6.TabIndex = 0
-        '
-        'Label50
-        '
-        Me.Label50.AutoSize = True
-        Me.Label50.Location = New System.Drawing.Point(503, 82)
-        Me.Label50.Name = "Label50"
-        Me.Label50.Size = New System.Drawing.Size(34, 13)
-        Me.Label50.TabIndex = 19
-        Me.Label50.Text = "Heslo"
-        '
-        'TextBox5
-        '
-        Me.TextBox5.Location = New System.Drawing.Point(543, 79)
-        Me.TextBox5.Name = "TextBox5"
-        Me.TextBox5.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
-        Me.TextBox5.Size = New System.Drawing.Size(139, 20)
-        Me.TextBox5.TabIndex = 18
-        Me.TextBox5.Text = "intel"
-        '
-        'Label49
-        '
-        Me.Label49.AutoSize = True
-        Me.Label49.Location = New System.Drawing.Point(503, 52)
-        Me.Label49.Name = "Label49"
-        Me.Label49.Size = New System.Drawing.Size(34, 13)
-        Me.Label49.TabIndex = 17
-        Me.Label49.Text = "Heslo"
-        '
-        'TextBox4
-        '
-        Me.TextBox4.Location = New System.Drawing.Point(543, 49)
-        Me.TextBox4.Name = "TextBox4"
-        Me.TextBox4.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
-        Me.TextBox4.Size = New System.Drawing.Size(139, 20)
-        Me.TextBox4.TabIndex = 16
-        Me.TextBox4.Text = "tiba"
-        '
-        'Button14
-        '
-        Me.Button14.BackColor = System.Drawing.SystemColors.ButtonFace
-        Me.Button14.Location = New System.Drawing.Point(699, 75)
-        Me.Button14.Name = "Button14"
-        Me.Button14.Size = New System.Drawing.Size(134, 23)
-        Me.Button14.TabIndex = 15
-        Me.Button14.Text = "Vyber certifikát"
-        Me.Button14.UseVisualStyleBackColor = False
-        '
-        'Label47
-        '
-        Me.Label47.AutoSize = True
-        Me.Label47.Location = New System.Drawing.Point(105, 79)
-        Me.Label47.Name = "Label47"
-        Me.Label47.Size = New System.Drawing.Size(95, 13)
-        Me.Label47.TabIndex = 14
-        Me.Label47.Text = "Cesta k certifikátu:"
-        '
-        'TextBox3
-        '
-        Me.TextBox3.Location = New System.Drawing.Point(206, 77)
-        Me.TextBox3.Name = "TextBox3"
-        Me.TextBox3.Size = New System.Drawing.Size(277, 20)
-        Me.TextBox3.TabIndex = 13
-        Me.TextBox3.Text = "insytest.pfx"
-        '
-        'LRozhraniTestUrl
-        '
-        Me.LRozhraniTestUrl.Location = New System.Drawing.Point(394, 18)
-        Me.LRozhraniTestUrl.Name = "LRozhraniTestUrl"
-        Me.LRozhraniTestUrl.Size = New System.Drawing.Size(515, 20)
-        Me.LRozhraniTestUrl.TabIndex = 12
-        '
-        'Button13
-        '
-        Me.Button13.BackColor = System.Drawing.SystemColors.ButtonFace
-        Me.Button13.Location = New System.Drawing.Point(699, 46)
-        Me.Button13.Name = "Button13"
-        Me.Button13.Size = New System.Drawing.Size(134, 23)
-        Me.Button13.TabIndex = 11
-        Me.Button13.Text = "Vyber certifikát"
-        Me.Button13.UseVisualStyleBackColor = False
-        '
-        'Label45
-        '
-        Me.Label45.AutoSize = True
-        Me.Label45.Location = New System.Drawing.Point(105, 50)
-        Me.Label45.Name = "Label45"
-        Me.Label45.Size = New System.Drawing.Size(95, 13)
-        Me.Label45.TabIndex = 10
-        Me.Label45.Text = "Cesta k certifikátu:"
-        '
-        'TextBox2
-        '
-        Me.TextBox2.Location = New System.Drawing.Point(206, 48)
-        Me.TextBox2.Name = "TextBox2"
-        Me.TextBox2.Size = New System.Drawing.Size(277, 20)
-        Me.TextBox2.TabIndex = 9
-        Me.TextBox2.Text = "tibaic.pfx"
-        '
-        'Button12
-        '
-        Me.Button12.BackColor = System.Drawing.Color.Silver
-        Me.Button12.Location = New System.Drawing.Point(9, 45)
-        Me.Button12.Name = "Button12"
-        Me.Button12.Size = New System.Drawing.Size(96, 23)
-        Me.Button12.TabIndex = 8
-        Me.Button12.Text = "Podepsat"
-        Me.Button12.UseVisualStyleBackColor = False
-        '
-        'cmdSendEncryptedMsg
-        '
-        Me.cmdSendEncryptedMsg.BackColor = System.Drawing.SystemColors.Control
-        Me.cmdSendEncryptedMsg.Location = New System.Drawing.Point(915, 18)
-        Me.cmdSendEncryptedMsg.Name = "cmdSendEncryptedMsg"
-        Me.cmdSendEncryptedMsg.Size = New System.Drawing.Size(161, 23)
-        Me.cmdSendEncryptedMsg.TabIndex = 7
-        Me.cmdSendEncryptedMsg.Text = "Odeslat encrypt dotaz"
-        Me.cmdSendEncryptedMsg.UseVisualStyleBackColor = False
-        Me.cmdSendEncryptedMsg.Visible = False
-        '
-        'Button5
-        '
-        Me.Button5.BackColor = System.Drawing.SystemColors.Control
-        Me.Button5.Location = New System.Drawing.Point(9, 74)
-        Me.Button5.Name = "Button5"
-        Me.Button5.Size = New System.Drawing.Size(96, 23)
-        Me.Button5.TabIndex = 6
-        Me.Button5.Text = "Odeslat dotaz"
-        Me.Button5.UseVisualStyleBackColor = False
-        '
-        'CBRozhraniDotaz
-        '
-        Me.CBRozhraniDotaz.FormattingEnabled = True
-        Me.CBRozhraniDotaz.Location = New System.Drawing.Point(177, 18)
-        Me.CBRozhraniDotaz.Name = "CBRozhraniDotaz"
-        Me.CBRozhraniDotaz.Size = New System.Drawing.Size(211, 21)
-        Me.CBRozhraniDotaz.TabIndex = 5
-        '
-        'Label28
-        '
-        Me.Label28.AutoSize = True
-        Me.Label28.Location = New System.Drawing.Point(174, 2)
-        Me.Label28.Name = "Label28"
-        Me.Label28.Size = New System.Drawing.Size(93, 13)
-        Me.Label28.TabIndex = 4
-        Me.Label28.Text = "Ukázkové dotazy:"
-        '
-        'LRozhraniContext
-        '
-        Me.LRozhraniContext.AutoSize = True
-        Me.LRozhraniContext.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(238, Byte))
-        Me.LRozhraniContext.Location = New System.Drawing.Point(391, -2)
-        Me.LRozhraniContext.Name = "LRozhraniContext"
-        Me.LRozhraniContext.Size = New System.Drawing.Size(66, 17)
-        Me.LRozhraniContext.TabIndex = 2
-        Me.LRozhraniContext.Text = "Label28"
-        '
-        'Label27
-        '
-        Me.Label27.AutoSize = True
-        Me.Label27.Location = New System.Drawing.Point(6, 2)
-        Me.Label27.Name = "Label27"
-        Me.Label27.Size = New System.Drawing.Size(54, 13)
-        Me.Label27.TabIndex = 1
-        Me.Label27.Text = "Rozhraní:"
-        '
-        'CBRequests
-        '
-        Me.CBRequests.FormattingEnabled = True
-        Me.CBRequests.Location = New System.Drawing.Point(9, 18)
-        Me.CBRequests.Name = "CBRequests"
-        Me.CBRequests.Size = New System.Drawing.Size(162, 21)
-        Me.CBRequests.TabIndex = 0
-        '
         'TabPage8
         '
         Me.TabPage8.Controls.Add(Me.TBSignElm)
@@ -1813,7 +1860,7 @@ Partial Class IISSPTestApplication
         Me.TabPage8.Location = New System.Drawing.Point(4, 22)
         Me.TabPage8.Name = "TabPage8"
         Me.TabPage8.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage8.Size = New System.Drawing.Size(1128, 484)
+        Me.TabPage8.Size = New System.Drawing.Size(1138, 484)
         Me.TabPage8.TabIndex = 5
         Me.TabPage8.Text = "Digitální podpis"
         Me.TabPage8.UseVisualStyleBackColor = True
@@ -1873,7 +1920,7 @@ Partial Class IISSPTestApplication
         Me.TabPage13.Location = New System.Drawing.Point(4, 22)
         Me.TabPage13.Name = "TabPage13"
         Me.TabPage13.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage13.Size = New System.Drawing.Size(1128, 484)
+        Me.TabPage13.Size = New System.Drawing.Size(1138, 484)
         Me.TabPage13.TabIndex = 8
         Me.TabPage13.Text = "Kódování"
         Me.TabPage13.UseVisualStyleBackColor = True
@@ -1891,8 +1938,8 @@ Partial Class IISSPTestApplication
         'SplitContainer3.Panel2
         '
         Me.SplitContainer3.Panel2.Controls.Add(Me.TBCOutput)
-        Me.SplitContainer3.Size = New System.Drawing.Size(1122, 410)
-        Me.SplitContainer3.SplitterDistance = 373
+        Me.SplitContainer3.Size = New System.Drawing.Size(1132, 410)
+        Me.SplitContainer3.SplitterDistance = 376
         Me.SplitContainer3.TabIndex = 2
         '
         'TBCInput
@@ -1902,7 +1949,7 @@ Partial Class IISSPTestApplication
         Me.TBCInput.Multiline = True
         Me.TBCInput.Name = "TBCInput"
         Me.TBCInput.ScrollBars = System.Windows.Forms.ScrollBars.Vertical
-        Me.TBCInput.Size = New System.Drawing.Size(373, 410)
+        Me.TBCInput.Size = New System.Drawing.Size(376, 410)
         Me.TBCInput.TabIndex = 0
         Me.TBCInput.Text = resources.GetString("TBCInput.Text")
         '
@@ -1914,7 +1961,7 @@ Partial Class IISSPTestApplication
         Me.TBCOutput.Name = "TBCOutput"
         Me.TBCOutput.ReadOnly = True
         Me.TBCOutput.ScrollBars = System.Windows.Forms.ScrollBars.Vertical
-        Me.TBCOutput.Size = New System.Drawing.Size(745, 410)
+        Me.TBCOutput.Size = New System.Drawing.Size(752, 410)
         Me.TBCOutput.TabIndex = 1
         '
         'Panel11
@@ -1927,7 +1974,7 @@ Partial Class IISSPTestApplication
         Me.Panel11.Dock = System.Windows.Forms.DockStyle.Top
         Me.Panel11.Location = New System.Drawing.Point(3, 3)
         Me.Panel11.Name = "Panel11"
-        Me.Panel11.Size = New System.Drawing.Size(1122, 68)
+        Me.Panel11.Size = New System.Drawing.Size(1132, 68)
         Me.Panel11.TabIndex = 1
         '
         'Label43
@@ -1975,7 +2022,7 @@ Partial Class IISSPTestApplication
         Me.TabPage12.Location = New System.Drawing.Point(4, 22)
         Me.TabPage12.Name = "TabPage12"
         Me.TabPage12.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage12.Size = New System.Drawing.Size(1128, 484)
+        Me.TabPage12.Size = New System.Drawing.Size(1138, 484)
         Me.TabPage12.TabIndex = 7
         Me.TabPage12.Text = "XPath test"
         Me.TabPage12.UseVisualStyleBackColor = True
@@ -2025,7 +2072,7 @@ Partial Class IISSPTestApplication
         Me.TabPage14.Location = New System.Drawing.Point(4, 22)
         Me.TabPage14.Name = "TabPage14"
         Me.TabPage14.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage14.Size = New System.Drawing.Size(1128, 484)
+        Me.TabPage14.Size = New System.Drawing.Size(1138, 484)
         Me.TabPage14.TabIndex = 9
         Me.TabPage14.Text = "Protokol IISSPClassLibrary"
         Me.TabPage14.UseVisualStyleBackColor = True
@@ -2049,7 +2096,7 @@ Partial Class IISSPTestApplication
         Me.TabPage3.Location = New System.Drawing.Point(4, 22)
         Me.TabPage3.Name = "TabPage3"
         Me.TabPage3.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage3.Size = New System.Drawing.Size(1128, 484)
+        Me.TabPage3.Size = New System.Drawing.Size(1138, 484)
         Me.TabPage3.TabIndex = 2
         Me.TabPage3.Text = "Protokol Aplikace"
         Me.TabPage3.UseVisualStyleBackColor = True
@@ -2087,7 +2134,7 @@ Partial Class IISSPTestApplication
         Me.TabPage2.Location = New System.Drawing.Point(4, 22)
         Me.TabPage2.Name = "TabPage2"
         Me.TabPage2.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage2.Size = New System.Drawing.Size(1128, 484)
+        Me.TabPage2.Size = New System.Drawing.Size(1138, 484)
         Me.TabPage2.TabIndex = 1
         Me.TabPage2.Text = "Info o Aplikaci"
         Me.TabPage2.UseVisualStyleBackColor = True
@@ -2251,16 +2298,37 @@ Partial Class IISSPTestApplication
         Me.OpenFileDialog1.Filter = "*Certifikát pfx|*.pfx|Všechny soubory|*.*"
         Me.OpenFileDialog1.InitialDirectory = "c:\"
         '
+        'Button17
+        '
+        Me.Button17.BackColor = System.Drawing.SystemColors.Control
+        Me.Button17.Location = New System.Drawing.Point(9, 74)
+        Me.Button17.Name = "Button17"
+        Me.Button17.Size = New System.Drawing.Size(96, 23)
+        Me.Button17.TabIndex = 24
+        Me.Button17.Text = "Odeslat GET"
+        Me.Button17.UseVisualStyleBackColor = False
+        '
         'IISSPTestApplication
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1136, 510)
+        Me.ClientSize = New System.Drawing.Size(1146, 510)
         Me.Controls.Add(Me.TabControl1)
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "IISSPTestApplication"
         Me.Text = "IISSPTestApplication"
         Me.TabControl1.ResumeLayout(False)
+        Me.TabPage5.ResumeLayout(False)
+        Me.SplitContainer2.Panel1.ResumeLayout(False)
+        Me.SplitContainer2.Panel1.PerformLayout()
+        Me.SplitContainer2.Panel2.ResumeLayout(False)
+        Me.SplitContainer2.ResumeLayout(False)
+        Me.Panel7.ResumeLayout(False)
+        Me.Panel7.PerformLayout()
+        Me.Panel8.ResumeLayout(False)
+        Me.Panel8.PerformLayout()
+        Me.Panel6.ResumeLayout(False)
+        Me.Panel6.PerformLayout()
         Me.TabPage1.ResumeLayout(False)
         Me.SplitContainer1.Panel1.ResumeLayout(False)
         Me.SplitContainer1.Panel2.ResumeLayout(False)
@@ -2302,17 +2370,6 @@ Partial Class IISSPTestApplication
         Me.TabPage10.ResumeLayout(False)
         Me.Panel10.ResumeLayout(False)
         Me.Panel10.PerformLayout()
-        Me.TabPage5.ResumeLayout(False)
-        Me.SplitContainer2.Panel1.ResumeLayout(False)
-        Me.SplitContainer2.Panel1.PerformLayout()
-        Me.SplitContainer2.Panel2.ResumeLayout(False)
-        Me.SplitContainer2.ResumeLayout(False)
-        Me.Panel7.ResumeLayout(False)
-        Me.Panel7.PerformLayout()
-        Me.Panel8.ResumeLayout(False)
-        Me.Panel8.PerformLayout()
-        Me.Panel6.ResumeLayout(False)
-        Me.Panel6.PerformLayout()
         Me.TabPage8.ResumeLayout(False)
         Me.TabPage8.PerformLayout()
         Me.Panel9.ResumeLayout(False)
@@ -2546,4 +2603,9 @@ Partial Class IISSPTestApplication
     Friend WithEvents TextBox5 As System.Windows.Forms.TextBox
     Friend WithEvents Label49 As System.Windows.Forms.Label
     Friend WithEvents TextBox4 As System.Windows.Forms.TextBox
+    Friend WithEvents LInfo As System.Windows.Forms.Label
+    Friend WithEvents Button15 As System.Windows.Forms.Button
+    Friend WithEvents TBSignum As System.Windows.Forms.TextBox
+    Friend WithEvents Button16 As System.Windows.Forms.Button
+    Friend WithEvents Button17 As System.Windows.Forms.Button
 End Class

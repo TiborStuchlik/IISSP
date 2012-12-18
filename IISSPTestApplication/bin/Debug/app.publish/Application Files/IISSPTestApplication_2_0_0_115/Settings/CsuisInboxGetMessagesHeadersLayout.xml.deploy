@@ -1,9 +1,0 @@
-<msg:Inbox xmlns:msg="urn:cz:mfcr:iissp:schemas:Messaging:v1">
-  <msg:SeznamZpravPozadavek>
-    <msg:ZobrazitHromadneZpravy></msg:ZobrazitHromadneZpravy>
-    <msg:ZpravaStatus></msg:ZpravaStatus>
-    <msg:TypDatoveZpravy></msg:TypDatoveZpravy>
-    <msg:ZpravaDatumVytvoreniOd></msg:ZpravaDatumVytvoreniOd>
-    <msg:ZpravaDatumVytvoreniDo></msg:ZpravaDatumVytvoreniDo>
-  </msg:SeznamZpravPozadavek>
-</msg:Inbox>

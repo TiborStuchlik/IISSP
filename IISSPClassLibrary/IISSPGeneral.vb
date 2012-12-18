@@ -36,6 +36,27 @@ Public Class IISSPGeneral
     ' registered in the COM registry and cannot be created 
     ' via CreateObject.
 
+    ''' <summary>
+    ''' interni verze komponenty
+    ''' </summary>
+    ''' <returns>verze komponenty ve tvaru 1.1.1.10</returns>
+    Public ReadOnly Property componentVersion() As String
+        Get
+            Return "1.1.1.13"
+        End Get
+    End Property
+
+    Private _signature As String
+    ''' <summary>
+    ''' sem se vzdy ulozi podpis
+    ''' </summary>
+    ''' <returns>verze komponenty ve tvaru 1.1.1.10</returns>
+    Public ReadOnly Property Signature() As String
+        Get
+            Return _signature
+        End Get
+    End Property
+
     Private _Url As String
     ''' <summary>
     ''' Url služby
@@ -534,6 +555,7 @@ Public Class IISSPGeneral
         _NamespaceManager.AddNamespace("SOAP-ENV", "http://schemas.xmlsoap.org/soap/envelope/")
         _NamespaceManager.AddNamespace("msg", "urn:cz:mfcr:iissp:schemas:Messaging:v1")
         _NamespaceManager.AddNamespace("cmn", "urn:cz:mfcr:iissp:schemas:Common:v1")
+        _NamespaceManager.AddNamespace("cus", "urn:cz:mfcr:iissp:schemas:Cus:v1")
 
     End Sub
 
@@ -638,119 +660,254 @@ Public Class IISSPGeneral
         Return ErrXml
     End Function
 
+    Public Function SignXmlForRISRE(ByVal xml As String, ByVal crt As String, ByVal pwd As String, Optional ByVal xpath As String = "ancestor-or-self::*[local-name()='EnvelopeBody']") As String
+        Return SignXml(xml, crt, pwd, xpath)
+    End Function
+
+    Public Shared Function EncodeUTF8(ByVal str As String) As String
+        Dim utf8Encoding As New System.Text.UTF8Encoding(True)
+        Dim encodedString() As Byte
+
+        encodedString = utf8Encoding.GetBytes(str)
+
+        Return utf8Encoding.GetString(encodedString)
+    End Function
+
+    Public Function SignXmlForISDOC(ByVal xml As String, ByVal crt As String, ByVal pwd As String) As String
+        Try
+            Dim InXml As XmlDocument = New XmlDocument
+            InXml.PreserveWhitespace = True
+            InXml.LoadXml(xml)
+            Dim cert As X509Certificate2 = New X509Certificate2(crt, pwd)
+            Dim px As XmlDocument = New XmlDocument()
+            Dim root As XmlNode = InXml.DocumentElement
+            Dim SignedXml As New SignedXml(InXml)
+
+            SignedXml.SigningKey = cert.PrivateKey
+            'SignedXml.SignedInfo.CanonicalizationMethod = SignedXml.XmlDsigC14NWithCommentsTransformUrl
+            SignedXml.SignedInfo.CanonicalizationMethod = SignedXml.XmlDsigExcC14NTransformUrl
+            Dim reference As New Reference("")
+            ' pridavame transformace
+            reference.AddTransform(New XmlDsigEnvelopedSignatureTransform())
+            ' aplikujeme kanonikalizaci
+            reference.AddTransform(New XmlDsigExcC14NTransform())
+            'reference.AddTransform(New XmlDsigC14NTransform())
+            reference.DigestMethod = EncryptedXml.XmlEncSHA256Url
+            ' xpath filter
+            SignedXml.AddReference(reference)
+
+            Dim keyInfo As KeyInfo = New KeyInfo()
+            Dim keyx509Data As KeyInfoX509Data = New KeyInfoX509Data(cert)
+            Dim xserial As X509IssuerSerial
+
+            xserial.IssuerName = cert.IssuerName.Name
+            xserial.SerialNumber = cert.SerialNumber
+
+            keyx509Data.AddIssuerSerial(xserial.IssuerName, xserial.SerialNumber)
+
+            keyInfo.AddClause(keyx509Data)
+            keyInfo.AddClause(New RSAKeyValue(CType(cert.PrivateKey, RSA)))
+            SignedXml.KeyInfo = keyInfo
+            SignedXml.ComputeSignature()
+            root.AppendChild(InXml.ImportNode(SignedXml.GetXml(), True))
+            _signature = SignedXml.GetXml().OuterXml
+            Return InXml.OuterXml
+        Catch ex As Exception
+            Log(ex.Message, Me)
+            Return "ERROR: " + ex.Message
+        End Try
+    End Function
+
+    Public Function SignXmlForCSUIS(ByVal xml As String, ByVal crt As String, ByVal pwd As String) As String
+        Try
+            Dim InXml As XmlDocument = New XmlDocument
+            InXml.PreserveWhitespace = True
+            InXml.LoadXml(xml)
+            Dim cert As X509Certificate2 = New X509Certificate2(crt, pwd)
+            ' vytvorime root element z naseho xml
+            Dim root As XmlNode = InXml.SelectSingleNode("//cus:Message", _NamespaceManager)
+            Dim attr As XmlAttribute = InXml.CreateAttribute("ID")
+            attr.Value = "elementToSign"
+            root.Attributes.Append(attr)
+            ''Dim MeXmlNode As XmlNode = InXml.SelectSingleNode("//cus:EnvelopeBody", _NamespaceManager)
+            Dim envFooter As XmlNode = InXml.SelectSingleNode("//cus:MessageFooter", _NamespaceManager)
+            'Dim MeXmlNodeList As XmlNodeList = InXml.SelectNodes("//msg:EnvelopeBody", _NamespaceManager)
+            Dim px As XmlDocument = New XmlDocument()
+
+
+            'px.PreserveWhitespace = True
+            'px.LoadXml(MeXmlNode.OuterXml)
+            ' vytvorime si node
+            If (envFooter Is Nothing) Then
+                Dim EnvelopeFooter As XmlElement = InXml.CreateElement("cus", "MessageFooter", "urn:cz:mfcr:iissp:schemas:Cus:v1")
+                ' a celej footer element vlozime do dokumentu
+                EnvelopeFooter.InnerText = ""
+                root.AppendChild(EnvelopeFooter)
+                envFooter = EnvelopeFooter 'InXml.SelectSingleNode("//msg:EnvelopeFooter", _NamespaceManager)
+                ' vytvorime podpisovy element pro nas dokument
+                ' Dim SignedXml As New SignedXml(px)
+            End If
+
+            Dim SignedXml As New SignedXml(InXml)
+
+            SignedXml.SigningKey = cert.PrivateKey
+            'SignedXml.SignedInfo.CanonicalizationMethod = SignedXml.XmlDsigC14NWithCommentsTransformUrl
+            SignedXml.SignedInfo.CanonicalizationMethod = SignedXml.XmlDsigExcC14NTransformUrl
+            Dim reference As New Reference("#elementToSign")
+            ' pridavame transformace
+            reference.AddTransform(New XmlDsigEnvelopedSignatureTransform())
+            ' aplikujeme kanonikalizaci
+            reference.AddTransform(New XmlDsigExcC14NTransform())
+            'reference.AddTransform(New XmlDsigC14NTransform())
+            reference.DigestMethod = EncryptedXml.XmlEncSHA256Url
+            ' xpath filter
+            SignedXml.AddReference(reference)
+
+            Dim keyInfo As KeyInfo = New KeyInfo()
+            Dim keyx509Data As KeyInfoX509Data = New KeyInfoX509Data(cert)
+            Dim xserial As X509IssuerSerial
+
+            xserial.IssuerName = cert.IssuerName.Name
+            xserial.SerialNumber = cert.SerialNumber
+
+            keyx509Data.AddIssuerSerial(xserial.IssuerName, xserial.SerialNumber)
+
+            keyInfo.AddClause(keyx509Data)
+            keyInfo.AddClause(New RSAKeyValue(CType(cert.PrivateKey, RSA)))
+            SignedXml.KeyInfo = keyInfo
+            SignedXml.ComputeSignature()
+            envFooter.AppendChild(InXml.ImportNode(SignedXml.GetXml(), True))
+            _signature = SignedXml.GetXml().OuterXml
+            Return InXml.OuterXml
+        Catch ex As Exception
+            Log(ex.Message, Me)
+            Return "ERROR: " + ex.Message
+        End Try
+    End Function
+
+
     ''' <summary>
     ''' Vytvoří digitální podpis xml dokumentu, elementu "EnvelopeBody"
     ''' Podpis se realizuje soukromým klíčem z certifikátu, definovaným parametry.
     ''' Vícenásobné volání této funkce je povoleno a přidává další podpisy.
     ''' </summary>
-    ''' <param name="InXml">XmlDocument, který má být podepsaný</param>
+    ''' <param name="xml">XmlDocument, který má být podepsaný</param>
     ''' <param name="crt">Fyzická cesta k certifikátu</param>
     ''' <param name="pwd">Heslo k certifikátu</param>
     ''' <param name="xpath">XPath výraz pro transformaci.</param>
     ''' <returns>Vrátí podepsaný XmlDokument</returns>
     ''' <remarks>V podepisované části xml dokumentu, při použití defaultního XPath výrazu, se nesmí vyskytovat komentáře. Asi bug MS v XPath transformaci. Předpokládam že Apache Xml Security na straně serveru je podle definic.</remarks>
-    Public Function SignXml(ByVal InXml As XmlDocument, ByVal crt As String, ByVal pwd As String, Optional ByVal xpath As String = "ancestor-or-self::msg:EnvelopeBody") As XmlDocument
+    Public Function SignXml(ByVal xml As String, ByVal crt As String, ByVal pwd As String, Optional ByVal xpath As String = "ancestor-or-self::*[local-name()='EnvelopeBody']") As String
+        Try
+            Dim InXml As XmlDocument = New XmlDocument
+            InXml.PreserveWhitespace = True
+            InXml.LoadXml(xml)
+            Dim cert As X509Certificate2 = New X509Certificate2(crt, pwd)
+            ' vytvorime root element z naseho xml
+            Dim root As XmlNode = InXml.SelectSingleNode("//msg:Envelope", _NamespaceManager)
+            Dim MeXmlNode As XmlNode = InXml.SelectSingleNode("//msg:EnvelopeBody", _NamespaceManager)
+            Dim envFooter As XmlNode = InXml.SelectSingleNode("//msg:EnvelopeFooter", _NamespaceManager)
+            'Dim MeXmlNodeList As XmlNodeList = InXml.SelectNodes("//msg:EnvelopeBody", _NamespaceManager)
+            Dim px As XmlDocument = New XmlDocument()
 
-        Dim cert As X509Certificate2 = New X509Certificate2(crt, pwd)
-        ' vytvorime root element z naseho xml
-        Dim root As XmlNode = InXml.SelectSingleNode("//msg:Envelope", _NamespaceManager)
-        Dim MeXmlNode As XmlNode = InXml.SelectSingleNode("//msg:EnvelopeBody", _NamespaceManager)
-        Dim envFooter As XmlNode = InXml.SelectSingleNode("//msg:EnvelopeFooter", _NamespaceManager)
-        'Dim MeXmlNodeList As XmlNodeList = InXml.SelectNodes("//msg:EnvelopeBody", _NamespaceManager)
-        Dim px As XmlDocument = New XmlDocument()
 
+            'px.PreserveWhitespace = True
+            px.LoadXml(MeXmlNode.OuterXml)
+            ' vytvorime si node
+            If (envFooter Is Nothing) Then
+                Dim EnvelopeFooter As XmlElement = InXml.CreateElement("msg", "EnvelopeFooter", "urn:cz:mfcr:iissp:schemas:Messaging:v1")
+                ' a celej footer element vlozime do dokumentu
+                EnvelopeFooter.InnerText = ""
+                root.AppendChild(EnvelopeFooter)
+                envFooter = EnvelopeFooter 'InXml.SelectSingleNode("//msg:EnvelopeFooter", _NamespaceManager)
+                ' vytvorime podpisovy element pro nas dokument
+                ' Dim SignedXml As New SignedXml(px)
+            End If
 
-        'px.PreserveWhitespace = True
-        px.LoadXml(MeXmlNode.OuterXml)
-        ' vytvorime si node
-        If (envFooter Is Nothing) Then
-            Dim EnvelopeFooter As XmlElement = InXml.CreateElement("msg", "EnvelopeFooter", "urn:cz:mfcr:iissp:schemas:Messaging:v1")
-            ' a celej footer element vlozime do dokumentu
-            EnvelopeFooter.InnerText = ""
-            root.AppendChild(EnvelopeFooter)
-            envFooter = EnvelopeFooter 'InXml.SelectSingleNode("//msg:EnvelopeFooter", _NamespaceManager)
-            ' vytvorime podpisovy element pro nas dokument
-            ' Dim SignedXml As New SignedXml(px)
-        End If
+            Dim SignedXml As New SignedXml(InXml)
 
-        Dim SignedXml As New SignedXml(InXml)
+            SignedXml.SigningKey = cert.PrivateKey
+            ' nastavime predepsane id podpisu
+            ' SignedXml.Signature.Id = "ElektronickyPodpis"
+            ' Specifikujeme kanonikalizacni metodu
+            'SignedXml.SignedInfo.CanonicalizationMethod = SignedXml.XmlDsigC14NWithCommentsTransformUrl
+            SignedXml.SignedInfo.CanonicalizationMethod = SignedXml.XmlDsigExcC14NTransformUrl
+            ' Vytvarime reference na cely xml dokument
+            ' SignedXml.SignedInfo.SignatureLength = 128
+            Dim reference As New Reference("")
+            ' pridavame transformace
+            ' reference.AddTransform(New XmlDsigEnvelopedSignatureTransform())
+            ' aplikujeme kanonikalizaci
+            reference.AddTransform(New XmlDsigExcC14NTransform())
+            'reference.AddTransform(New XmlDsigC14NTransform())
+            reference.DigestMethod = EncryptedXml.XmlEncSHA256Url
+            ' xpath filter
+            Dim xx As XmlDocument = New XmlDocument
+            xx.LoadXml("<XPath></XPath>")
+            Dim xPathElem As XmlElement = xx.DocumentElement
+            'xPathElem.SetAttribute("Filter", "intersect")
+            'xPathElem.SetAttribute("xmlns", "tiba")
+            xPathElem.InnerText = xpath
+            'Log(xPathElem.InnerXml, xPathElem)
 
-        SignedXml.SigningKey = cert.PrivateKey
-        ' nastavime predepsane id podpisu
-        ' SignedXml.Signature.Id = "ElektronickyPodpis"
-        ' Specifikujeme kanonikalizacni metodu
-        'SignedXml.SignedInfo.CanonicalizationMethod = SignedXml.XmlDsigC14NWithCommentsTransformUrl
-        SignedXml.SignedInfo.CanonicalizationMethod = SignedXml.XmlDsigExcC14NTransformUrl
-        ' Vytvarime reference na cely xml dokument
-        ' SignedXml.SignedInfo.SignatureLength = 128
-        Dim reference As New Reference("")
-        ' pridavame transformace
-        ' reference.AddTransform(New XmlDsigEnvelopedSignatureTransform())
-        ' aplikujeme kanonikalizaci
-        reference.AddTransform(New XmlDsigExcC14NTransform())
-        'reference.AddTransform(New XmlDsigC14NTransform())
-        reference.DigestMethod = EncryptedXml.XmlEncSHA256Url
-        ' xpath filter
-        Dim xx As XmlDocument = New XmlDocument
-        xx.LoadXml("<XPath></XPath>")
-        Dim xPathElem As XmlElement = xx.DocumentElement
-        'xPathElem.SetAttribute("Filter", "intersect")
-        'xPathElem.SetAttribute("xmlns", "tiba")
-        xPathElem.InnerText = xpath
-        'Log(xPathElem.InnerXml, xPathElem)
+            Dim XPathTransform As New XmlDsigXPathTransform
 
-        Dim XPathTransform As New XmlDsigXPathTransform
+            'XPathTransform.Algorithm = "http://www.w3.org/2002/06/xmldsig-filter2"
+            XPathTransform.LoadInnerXml(xPathElem.SelectNodes("."))
 
-        'XPathTransform.Algorithm = "http://www.w3.org/2002/06/xmldsig-filter2"
-        XPathTransform.LoadInnerXml(xPathElem.SelectNodes("."))
+            reference.AddTransform(XPathTransform)
+            Dim dict As Dictionary(Of String, String) = New Dictionary(Of String, String)
+            dict("msg") = "urn:cz:mfcr:iissp:schemas:Messaging:v1"
+            'Dim XPathTransform As New XmlDsigXPathWithNamespacesTransform(xpath, Nothing, dict)
+            'reference.AddTransform(XPathTransform)
 
-        reference.AddTransform(XPathTransform)
-        Dim dict As Dictionary(Of String, String) = New Dictionary(Of String, String)
-        dict("msg") = "urn:cz:mfcr:iissp:schemas:Messaging:v1"
-        'Dim XPathTransform As New XmlDsigXPathWithNamespacesTransform(xpath, Nothing, dict)
-        'reference.AddTransform(XPathTransform)
+            ' pridavame reference do elementu s podpisem.
+            SignedXml.AddReference(reference)
 
-        ' pridavame reference do elementu s podpisem.
-        SignedXml.AddReference(reference)
+            Dim keyInfo As KeyInfo = New KeyInfo()
+            Dim keyx509Data As KeyInfoX509Data = New KeyInfoX509Data(cert)
+            Dim xserial As X509IssuerSerial
 
-        Dim keyInfo As KeyInfo = New KeyInfo()
-        Dim keyx509Data As KeyInfoX509Data = New KeyInfoX509Data(cert)
-        Dim xserial As X509IssuerSerial
+            xserial.IssuerName = cert.IssuerName.Name
+            xserial.SerialNumber = cert.SerialNumber
 
-        xserial.IssuerName = cert.IssuerName.Name
-        xserial.SerialNumber = cert.SerialNumber
+            keyx509Data.AddIssuerSerial(xserial.IssuerName, xserial.SerialNumber)
 
-        keyx509Data.AddIssuerSerial(xserial.IssuerName, xserial.SerialNumber)
+            keyInfo.AddClause(keyx509Data)
 
-        keyInfo.AddClause(keyx509Data)
+            keyInfo.AddClause(New RSAKeyValue(CType(cert.PrivateKey, RSA)))
+            ' Log(keyx509Data.GetXml.InnerXml, keyx509Data)
 
-        keyInfo.AddClause(New RSAKeyValue(CType(cert.PrivateKey, RSA)))
-        ' Log(keyx509Data.GetXml.InnerXml, keyx509Data)
+            SignedXml.KeyInfo = keyInfo
 
-        SignedXml.KeyInfo = keyInfo
+            ' Dim hm As New HMACSHA256(ClientCertificate.PrivateKey.)
+            ' vytvorime podpis.
+            SignedXml.ComputeSignature()
+            ' do footeru vlozime podpis
+            envFooter.AppendChild(InXml.ImportNode(SignedXml.GetXml(), True))
+            _signature = SignedXml.GetXml().OuterXml
 
-        ' Dim hm As New HMACSHA256(ClientCertificate.PrivateKey.)
-        ' vytvorime podpis.
-        SignedXml.ComputeSignature()
-        ' do footeru vlozime podpis
-        envFooter.AppendChild(InXml.ImportNode(SignedXml.GetXml(), True))
+            'Dim ChXml As New XmlDocument
+            'ChXml.PreserveWhitespace = True
+            'ChXml.LoadXml(InXml.OuterXml)
+            'Dim sXml As New SignedXml(ChXml)
 
-        'Dim ChXml As New XmlDocument
-        'ChXml.PreserveWhitespace = True
-        'ChXml.LoadXml(InXml.OuterXml)
-        'Dim sXml As New SignedXml(ChXml)
+            ' Find the "Signature" node and create a new 
+            ' XmlNodeList object. 
+            'Dim nodeList As XmlNodeList = ChXml.GetElementsByTagName("Signature")
 
-        ' Find the "Signature" node and create a new 
-        ' XmlNodeList object. 
-        'Dim nodeList As XmlNodeList = ChXml.GetElementsByTagName("Signature")
+            ' Load the signature node.
+            'sXml.LoadXml(CType(nodeList(0), XmlElement))
 
-        ' Load the signature node.
-        'sXml.LoadXml(CType(nodeList(0), XmlElement))
+            ' Check the signature and return the result. 
+            ' Log("Kontrola podpisu: " + sXml.CheckSignature(ClientCertificate, True).ToString, sXml)
 
-        ' Check the signature and return the result. 
-        ' Log("Kontrola podpisu: " + sXml.CheckSignature(ClientCertificate, True).ToString, sXml)
+            Return InXml.OuterXml
+        Catch ex As Exception
+            Log(ex.Message, Me)
+            Return "ERROR: " + ex.Message
+        End Try
 
-        Return InXml
     End Function
 
 
@@ -843,6 +1000,28 @@ Public Class IISSPGeneral
         Return HisXml.OuterXml
     End Function
 
+
+
+    Public Function HttpGet(ByVal url As String) As String
+        Dim Rq As HttpWebRequest = WebRequest.Create(url)
+        Dim Re As HttpWebResponse
+        Rq.Method = "GET"
+        'Rq.Headers.Add("SOAPAction", "http://sap.com/xi/WebService/soap1.1")
+        'Rq.Headers.Add("Accept-Encoding", "deflate")
+        'Rq.MaximumResponseHeadersLength = 512
+        Rq.ContentType = "text/xml;charset=utf-8"
+        Rq.UserAgent = "INSYCO Client 2.0.0.2"
+        Rq.ServicePoint.Expect100Continue = False
+        Try
+            Re = Rq.GetResponse()
+            Dim stream As StreamReader
+            stream = New StreamReader(Re.GetResponseStream())
+            Return stream.ReadToEnd()
+        Catch E As WebException
+            Return "ERROR: " + E.Message
+        End Try
+
+    End Function
 
     ''' <summary>
     ''' Vlastní volání dotazu. Předpokládá správné nastavení všech vlastností ovlivňující přenos.
@@ -1076,16 +1255,17 @@ Public Class IISSPGeneral
     ''' Vytvoří objekt klientský certifikát z cesty uložení a hesla 
     ''' Slouží pro interní zpracování v dll
     ''' </summary>
-    Public Function SetClientCertificate(ByVal strCertPath As String, ByVal strPWD As String) As X509Certificate2
-
+    Public Function SetClientCertificate(ByVal strCertPath As String, ByVal strPWD As String) As String
+        Dim out As String = "ERROR UNKNOW CERTIFICATE"
         Try
-            SetClientCertificate = New X509Certificate2(strCertPath, strPWD)
-            ClientCertificate = SetClientCertificate
+            ClientCertificate = New X509Certificate2(strCertPath, strPWD)
+            out = ""
         Catch ex As Exception
             Log(ex.Message, Me)
+            out = ex.Message
         End Try
 
-        Return ClientCertificate
+        Return out
     End Function
 
     Public Function SetServerCertificate(ByVal strCertPath As String, ByVal strPWD As String) As X509Certificate2

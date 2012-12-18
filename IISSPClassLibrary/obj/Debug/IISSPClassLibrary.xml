@@ -6,7 +6,7 @@ IISSPClassLibrary
 </name>
 </assembly>
 <members>
-<member name="M:IISSPClassLibrary.IISSPCrypto.Encrypt(System.String,System.String)">
+<member name="M:IISSPClassLibrary.IISSPCrypto.Encrypt(System.String,System.String,System.Boolean)">
 	<summary>
  Zajistí Identifikátor celistvosti a zakódování xml dokumentu.
  </summary>
@@ -35,6 +35,16 @@ IISSPClassLibrary
  Vytváří kontrolní podpis - identifikátor celistvosti, šifruje a dešifruje xml dokument.
  </summary>
 	<remarks></remarks>
+</member><member name="P:IISSPClassLibrary.IISSPGeneral.componentVersion">
+	<summary>
+ interni verze komponenty
+ </summary>
+	<returns>verze komponenty ve tvaru 1.1.1.10</returns>
+</member><member name="P:IISSPClassLibrary.IISSPGeneral.Signature">
+	<summary>
+ sem se vzdy ulozi podpis
+ </summary>
+	<returns>verze komponenty ve tvaru 1.1.1.10</returns>
 </member><member name="P:IISSPClassLibrary.IISSPGeneral.Url">
 	<summary>
  Url služby
@@ -249,13 +259,13 @@ IISSPClassLibrary
 	<param name="popis">Externí hlášení</param>
 	<returns>Vrátí hlášení</returns>
 	<remarks></remarks>
-</member><member name="M:IISSPClassLibrary.IISSPGeneral.SignXml(System.Xml.XmlDocument,System.String,System.String,System.String)">
+</member><member name="M:IISSPClassLibrary.IISSPGeneral.SignXml(System.String,System.String,System.String,System.String)">
 	<summary>
  Vytvoří digitální podpis xml dokumentu, elementu "EnvelopeBody"
  Podpis se realizuje soukromým klíčem z certifikátu, definovaným parametry.
  Vícenásobné volání této funkce je povoleno a přidává další podpisy.
  </summary>
-	<param name="InXml">XmlDocument, který má být podepsaný</param>
+	<param name="xml">XmlDocument, který má být podepsaný</param>
 	<param name="crt">Fyzická cesta k certifikátu</param>
 	<param name="pwd">Heslo k certifikátu</param>
 	<param name="xpath">XPath výraz pro transformaci.</param>
@@ -318,7 +328,7 @@ IISSPClassLibrary
  Pomocí vlastností třídy se nastaví parametry služby a pomocí fce <see cref="M:IISSPClassLibrary.IISSPGeneral.Request(System.Boolean)"></see> se vykonná dotaz.
  Definuje další funkce jako <see cref="M:IISSPClassLibrary.IISSPGeneral.FormatXml(System.Xml.XmlDocument)">formátování Xml</see>, generuje <see cref="M:IISSPClassLibrary.IISSPGeneral.GetGuid">GUID</see>, vrací <see cref="M:IISSPClassLibrary.IISSPGeneral.GetDateTime(System.DateTime)">
  datum a čas</see>, nebo <see cref="M:IISSPClassLibrary.IISSPGeneral.GetDate(System.DateTime)">datum</see> ve správném formátu atd.
- Zajišťuje cryptografické funkce jako <see cref="M:IISSPClassLibrary.IISSPGeneral.SignXml(System.Xml.XmlDocument,System.String,System.String,System.String)">digitální podepisování</see>.
+ Zajišťuje cryptografické funkce jako <see cref="M:IISSPClassLibrary.IISSPGeneral.SignXml(System.String,System.String,System.String,System.String)">digitální podepisování</see>.
  </summary>
 </member><member name="P:IISSPClassLibrary.IISSPInbox.General">
 	<summary>

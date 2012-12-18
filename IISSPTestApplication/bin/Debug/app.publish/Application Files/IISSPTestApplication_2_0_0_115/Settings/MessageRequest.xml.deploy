@@ -1,9 +1,0 @@
-<Inbox>
-  <SeznamZpravPozadavek>
-    <ZobrazitHromadneZpravy></ZobrazitHromadneZpravy>
-    <ZpravaStatus></ZpravaStatus>
-    <TypDatoveZpravy></TypDatoveZpravy>
-    <ZpravaDatumVytvoreniOd></ZpravaDatumVytvoreniOd>
-    <ZpravaDatumVytvoreniDo></ZpravaDatumVytvoreniDo>
-  </SeznamZpravPozadavek>
-</Inbox>

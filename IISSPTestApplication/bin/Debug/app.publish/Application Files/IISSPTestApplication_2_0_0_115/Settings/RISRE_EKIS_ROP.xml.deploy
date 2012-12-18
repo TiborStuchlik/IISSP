@@ -1,7 +1,0 @@
-<risre:ZpravaRisre xmlns:msg="urn:cz:mfcr:iissp:schemas:Messaging:v1" xmlns:cmn="urn:cz:mfcr:iissp:schemas:Common:v1" xmlns:risre="urn:cz:mfcr:iissp:schemas:Risre:v1">
-    <risre:RozpoctoveOpatreniDotaz>
-        <risre:Kapitola>312</risre:Kapitola>
-        <risre:RozpoctoveOpatreniRok>2010</risre:RozpoctoveOpatreniRok>
-        <risre:RozpoctoveOpatreniCislo>3120000190</risre:RozpoctoveOpatreniCislo>
-    </risre:RozpoctoveOpatreniDotaz>
- </risre:ZpravaRisre>

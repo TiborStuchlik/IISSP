@@ -26,7 +26,6 @@ C:\Users\Administrator\Documents\GitHub\IISSP TEST\IISSP\IISSPTestApplication\ob
 C:\Users\Administrator\Documents\GitHub\IISSP TEST\IISSP\IISSPTestApplication\obj\Debug\IISSPTestApplication.exe
 C:\Users\Administrator\Documents\GitHub\IISSP TEST\IISSP\IISSPTestApplication\obj\Debug\IISSPTestApplication.xml
 C:\Users\Administrator\Documents\GitHub\IISSP TEST\IISSP\IISSPTestApplication\obj\Debug\IISSPTestApplication.pdb
-W:\IISSP\IISSPTestApplication\bin\Debug\IISSPTestApplication.exe.config
 W:\IISSP\IISSPTestApplication\obj\Debug\ResolveAssemblyReference.cache
 W:\IISSP\IISSPTestApplication\obj\Debug\IISSPTestApplication.IISSPTestApplication.resources
 W:\IISSP\IISSPTestApplication\obj\Debug\IISSPTestApplication.Resources.resources
@@ -62,6 +61,7 @@ W:\IISSP\IISSPTestApplication\bin\Debug\Settings\postsignum_qca2_root.cer
 W:\IISSP\IISSPTestApplication\bin\Debug\Settings\postsignum_vca2_sub.cer
 W:\IISSP\IISSPTestApplication\bin\Debug\Settings\testportal.cer
 W:\IISSP\IISSPTestApplication\bin\Debug\Settings\tiba.pfx
+W:\IISSP\IISSPTestApplication\bin\Debug\IISSPTestApplication.exe.config
 W:\IISSP\IISSPTestApplication\bin\Debug\IISSPTestApplication.exe.manifest
 W:\IISSP\IISSPTestApplication\bin\Debug\IISSPTestApplication.application
 W:\IISSP\IISSPTestApplication\bin\Debug\IISSPTestApplication.exe

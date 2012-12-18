@@ -89,7 +89,7 @@ Public Class IISSPTestApplication
 
         Log("Spouštím request")
         BackgroundWorker1.RunWorkerAsync()
-
+        LInfo.Text = "Interní verze: " + Inbox.General.componentVersion
     End Sub
 
     Private Sub HideAllPanel()
@@ -523,9 +523,10 @@ Public Class IISSPTestApplication
         Dim IG As IISSPGeneral = New IISSPGeneral
         ' IG.SetClientCertificate("c:\insytest.pfx", "intel")
         ' IG.SetClientCertificate("c:\tibaic.pfx", "tiba")
-        Xml = IG.SignXml(Xml, TextBox2.Text, TextBox4.Text, TBSignElm.Text)
+
         'Xml = IG.FormatXml(Xml)
-        TBSource.Text = Xml.OuterXml
+        TBSource.Text = IG.SignXmlForRISRE(TBSource.Text, TextBox2.Text, TextBox4.Text)
+        TBSignum.Text = IG.Signature
     End Sub
 
     Private Sub Button13_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button13.Click
@@ -541,5 +542,44 @@ Public Class IISSPTestApplication
         OpenFileDialog1.InitialDirectory = TextBox3.Text
         OpenFileDialog1.ShowDialog()
         TextBox3.Text = OpenFileDialog1.FileName
+    End Sub
+
+    Private Sub TBSignElm_TextChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles TBSignElm.TextChanged
+
+    End Sub
+
+    Private Sub Button15_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button15.Click
+        Dim Xml As XmlDocument = New XmlDocument
+        Xml.PreserveWhitespace = True
+        Xml.LoadXml(TBSource.Text)
+        Dim IG As IISSPGeneral = New IISSPGeneral
+        ' IG.SetClientCertificate("c:\insytest.pfx", "intel")
+        ' IG.SetClientCertificate("c:\tibaic.pfx", "tiba")
+
+        'Xml = IG.FormatXml(Xml)
+        TBSource.Text = IG.SignXmlForCSUIS(TBSource.Text, TextBox2.Text, TextBox4.Text)
+        TBSignum.Text = IG.Signature
+
+    End Sub
+
+    Private Sub Button16_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button16.Click
+        Dim Xml As XmlDocument = New XmlDocument
+        Xml.PreserveWhitespace = True
+        Xml.LoadXml(TBSource.Text)
+        Dim IG As IISSPGeneral = New IISSPGeneral
+        ' IG.SetClientCertificate("c:\insytest.pfx", "intel")
+        ' IG.SetClientCertificate("c:\tibaic.pfx", "tiba")
+
+        'Xml = IG.FormatXml(Xml)
+        TBSource.Text = IG.SignXmlForISDOC(TBSource.Text, TextBox2.Text, TextBox4.Text)
+        TBSignum.Text = IG.Signature
+    End Sub
+
+    Private Sub Button17_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button17.Click
+        Dim IG As IISSPGeneral = New IISSPGeneral
+
+
+        TBSource.Text = IG.HttpGet(LRozhraniTestUrl.Text)
+        Log("Read url: " + LRozhraniTestUrl.Text)
     End Sub
 End Class

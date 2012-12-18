@@ -31,6 +31,10 @@ Public Class IISSPCrypto
         MyBase.New()
     End Sub
 
+    Public Function EncryptNoIntegrity(ByVal XmlString As String, ByVal FullPath As String) As String
+        Return Encrypt(XmlString, FullPath, False)
+    End Function
+
     ''' <summary>
     ''' Zajistí Identifikátor celistvosti a zakódování xml dokumentu.
     ''' </summary>
@@ -39,14 +43,16 @@ Public Class IISSPCrypto
     ''' <returns>Řetězec v Base64</returns>
     ''' <remarks></remarks>
     ''' 
-    Public Function Encrypt(ByVal XmlString As String, ByVal FullPath As String) As String
+    Public Function Encrypt(ByVal XmlString As String, ByVal FullPath As String, Optional ByVal Integrity As Boolean = True) As String
         'Public Function Encrypt(ByVal XmlString As String, ByVal keyBytes() As Byte) As String
 
         Dim keyBytes() As Byte
         keyBytes = GetAESKEY(FullPath)
 
         ' sign
-        XmlString = SignXmlString(XmlString)
+        If (Integrity) Then
+            XmlString = SignXmlString(XmlString)
+        End If
         ' serializace
         Dim Source As Byte()
         Source = Encoding.UTF8.GetBytes(XmlString)
@@ -160,10 +166,19 @@ Public Class IISSPCrypto
         ' vytvorime root element z naseho xml
         Dim root As XmlElement = doc.DocumentElement
         ' vytvorime jediny EnvelopeFooter
-        Dim EnvelopeFooter As XmlElement = doc.CreateElement("msg", "EnvelopeFooter", "urn:cz:mfcr:iissp:schemas:Messaging:v1")
-        ' a celej footer element vlozime do dokumentu
-        EnvelopeFooter.InnerText = ""
-        root.AppendChild(EnvelopeFooter)
+        Dim _NamespaceManager As XmlNamespaceManager
+        _NamespaceManager = New XmlNamespaceManager(New NameTable)
+        _NamespaceManager.AddNamespace("msg", "urn:cz:mfcr:iissp:schemas:Messaging:v1")
+        Dim envFooter As XmlNode = doc.SelectSingleNode("//msg:EnvelopeFooter", _NamespaceManager)
+        If (envFooter Is Nothing) Then
+            Dim EnvelopeFooter As XmlElement = doc.CreateElement("msg", "EnvelopeFooter", "urn:cz:mfcr:iissp:schemas:Messaging:v1")
+            ' a celej footer element vlozime do dokumentu
+            EnvelopeFooter.InnerText = ""
+            root.AppendChild(EnvelopeFooter)
+            envFooter = EnvelopeFooter 'InXml.SelectSingleNode("//msg:EnvelopeFooter", _NamespaceManager)
+            ' vytvorime podpisovy element pro nas dokument
+            ' Dim SignedXml As New SignedXml(px)
+        End If
         ' vytvorime podpisovy element pro nas dokument
         Dim SignedXml As New SignedXml(doc)
         ' nastavime predepsane id podpisu
@@ -195,7 +210,7 @@ Public Class IISSPCrypto
         ' vytvorime podpis.
         SignedXml.ComputeSignature(hm)
         ' vlozime do nej podpis
-        EnvelopeFooter.AppendChild(doc.ImportNode(SignedXml.GetXml(), True))
+        envFooter.AppendChild(doc.ImportNode(SignedXml.GetXml(), True))
 
         Return doc.InnerXml
     End Function
@@ -209,18 +224,18 @@ Public Class IISSPCrypto
     Public Function GetAESKEY(ByVal FullPath As String) As Byte()
 
         Dim oFile As System.IO.FileInfo
-            oFile = New System.IO.FileInfo(FullPath)
+        oFile = New System.IO.FileInfo(FullPath)
 
-            Dim oFileStream As System.IO.FileStream = oFile.OpenRead()
-            Dim lBytes As Long = oFileStream.Length
+        Dim oFileStream As System.IO.FileStream = oFile.OpenRead()
+        Dim lBytes As Long = oFileStream.Length
 
-            If (lBytes > 0) Then
-                Dim fileData(lBytes - 1) As Byte
+        If (lBytes > 0) Then
+            Dim fileData(lBytes - 1) As Byte
 
-                ' Read the file into a byte array
-                oFileStream.Read(fileData, 0, lBytes)
-                oFileStream.Close()
-                Return fileData
+            ' Read the file into a byte array
+            oFileStream.Read(fileData, 0, lBytes)
+            oFileStream.Close()
+            Return fileData
         End If
         Return Nothing
     End Function

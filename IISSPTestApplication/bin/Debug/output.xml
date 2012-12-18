@@ -3,8 +3,8 @@
   <soapenv:Body>
     <msg:Envelope xmlns:msg="urn:cz:mfcr:iissp:schemas:Messaging:v1">
       <msg:EnvelopeHeader>
-        <cmn:TransactionId xmlns:cmn="urn:cz:mfcr:iissp:schemas:Common:v1">00000000000000024121</cmn:TransactionId>
-        <msg:DateTimeCreated>2012-11-18T15:36:21+01:00</msg:DateTimeCreated>
+        <cmn:TransactionId xmlns:cmn="urn:cz:mfcr:iissp:schemas:Common:v1">00000000000000026955</cmn:TransactionId>
+        <msg:DateTimeCreated>2012-12-05T19:28:41+01:00</msg:DateTimeCreated>
         <msg:Sender>
           <cmn:IC xmlns:cmn="urn:cz:mfcr:iissp:schemas:Common:v1">00006947</cmn:IC>
           <cmn:SubjectName xmlns:cmn="urn:cz:mfcr:iissp:schemas:Common:v1">Ministerstvo financí</cmn:SubjectName>
@@ -25,19 +25,36 @@
         </msg:Recipient>
       </msg:EnvelopeHeader>
       <msg:EnvelopeBody>
-        <msg:ZpravaRisreTestovaci>
-          <msg:DataTestovaciOdpoved>
-            <msg:TextZaslany>Test</msg:TextZaslany>
-            <msg:ZpracovaniVysledek>
-              <msg:TypMaximum>I</msg:TypMaximum>
-              <msg:Polozka>
-                <msg:Typ>I</msg:Typ>
-                <msg:ID>ZZPITECH|900</msg:ID>
-                <msg:Text>Volání testovací webové služby IISSP RISRE proběhlo v pořádku.</msg:Text>
-              </msg:Polozka>
-            </msg:ZpracovaniVysledek>
-          </msg:DataTestovaciOdpoved>
-        </msg:ZpravaRisreTestovaci>
+        <risre:ZpravaRisre xmlns:risre="urn:cz:mfcr:iissp:schemas:Risre:v1">
+          <risre:ZpracovaniChyba>
+            <risre:TypMaximum>E</risre:TypMaximum>
+            <risre:Polozka>
+              <risre:Typ>I</risre:Typ>
+              <risre:ID>ZZPIMAIN|002</risre:ID>
+              <risre:Text>Kontrola formátu a syntaxe zprávy proběhla úspěšně.</risre:Text>
+            </risre:Polozka>
+            <risre:Polozka>
+              <risre:Typ>I</risre:Typ>
+              <risre:ID>ZZPIMAIN|004</risre:ID>
+              <risre:Text>Kontrola oprávněné osoby proběhla úspěšně.</risre:Text>
+            </risre:Polozka>
+            <risre:Polozka>
+              <risre:Typ>E</risre:Typ>
+              <risre:ID>ZZPIMAIN|007</risre:ID>
+              <risre:Text>Kontrola elektronického podpisu zprávy skončila neúspěšně.</risre:Text>
+            </risre:Polozka>
+            <risre:Polozka>
+              <risre:Typ>E</risre:Typ>
+              <risre:ID>ZZPITECH|020</risre:ID>
+              <risre:Text>Certifikátu obsaženém v digitálním podpisu skončila platnost.</risre:Text>
+            </risre:Polozka>
+            <risre:Polozka>
+              <risre:Typ>I</risre:Typ>
+              <risre:ID>ZZPITECH|030</risre:ID>
+              <risre:Text>Certifikát obsažený v digitálním podpisu nebyl validován.</risre:Text>
+            </risre:Polozka>
+          </risre:ZpracovaniChyba>
+        </risre:ZpravaRisre>
       </msg:EnvelopeBody>
     </msg:Envelope>
   </soapenv:Body>

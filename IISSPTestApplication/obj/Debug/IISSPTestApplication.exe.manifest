@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <asmv1:assembly manifestVersion="1.0" xsi:schemaLocation="urn:schemas-microsoft-com:asm.v1 assembly.adaptive.xsd" xmlns:asmv3="urn:schemas-microsoft-com:asm.v3" xmlns:dsig="http://www.w3.org/2000/09/xmldsig#" xmlns:co.v2="urn:schemas-microsoft-com:clickonce.v2" xmlns="urn:schemas-microsoft-com:asm.v2" xmlns:asmv1="urn:schemas-microsoft-com:asm.v1" xmlns:asmv2="urn:schemas-microsoft-com:asm.v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:co.v1="urn:schemas-microsoft-com:clickonce.v1">
-  <asmv1:assemblyIdentity version="2.0.0.115" name="IISSPTestApplication.exe" publicKeyToken="0000000000000000" language="cs-CZ" processorArchitecture="msil" type="win32" />
+  <asmv1:assemblyIdentity version="2.0.0.116" name="IISSPTestApplication.exe" publicKeyToken="0000000000000000" language="cs-CZ" processorArchitecture="msil" type="win32" />
   <description asmv2:iconFile="IISSP.ico" xmlns="urn:schemas-microsoft-com:asm.v1" />
   <application />
   <entryPoint>
@@ -32,7 +32,7 @@
   <dependency>
     <dependentOS>
       <osVersionInfo>
-        <os majorVersion="5" minorVersion="1" buildNumber="2600" servicePackMajor="0" />
+        <os majorVersion="4" minorVersion="10" buildNumber="0" servicePackMajor="0" />
       </osVersionInfo>
     </dependentOS>
   </dependency>
@@ -47,41 +47,26 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="preRequisite" allowDelayedBinding="true">
-      <assemblyIdentity name="System.Core" version="3.5.0.0" publicKeyToken="b77a5c561934e089" language="neutral" processorArchitecture="msil" />
-    </dependentAssembly>
-  </dependency>
-  <dependency>
-    <dependentAssembly dependencyType="preRequisite" allowDelayedBinding="true">
-      <assemblyIdentity name="System.Data.Entity" version="3.5.0.0" publicKeyToken="b77a5c561934e089" language="neutral" processorArchitecture="msil" />
-    </dependentAssembly>
-  </dependency>
-  <dependency>
-    <dependentAssembly dependencyType="preRequisite" allowDelayedBinding="true">
-      <assemblyIdentity name="WindowsBase" version="3.0.0.0" publicKeyToken="31bf3856ad364e35" language="neutral" processorArchitecture="msil" />
-    </dependentAssembly>
-  </dependency>
-  <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="IISSPClassLibrary.dll" size="59904">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="IISSPClassLibrary.dll" size="62976">
       <assemblyIdentity name="IISSPClassLibrary" version="1.1.1.6" publicKeyToken="160AAEA9E9572404" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>E0ZfA0P/ysrJdm9nOszloObuVIY=</dsig:DigestValue>
+        <dsig:DigestValue>eQQwBpQRtPCy6RhyQQWcXO0Aqxk=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="IISSPTestApplication.exe" size="1364480">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="IISSPTestApplication.exe" size="1367040">
       <assemblyIdentity name="IISSPTestApplication" version="0.2.5.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>UoGwjurFih7c1qkUeELuw+81Ep0=</dsig:DigestValue>
+        <dsig:DigestValue>CWqiJoOC23McKf/l/p/CXt8NGls=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -103,13 +88,13 @@
       <dsig:DigestValue>ChRu2I+liqkWrcZK0bjDOZjglYI=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="IISSPTestApplication.exe.config" size="1367">
+  <file name="IISSPTestApplication.exe.config" size="1364">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>/XNfOllWtPh2EZvydRpqEMLZwhM=</dsig:DigestValue>
+      <dsig:DigestValue>FUJLWFSVcJJwm9eshjsBVjpIRAs=</dsig:DigestValue>
     </hash>
   </file>
   <file name="insytest.pfx" size="6810">
@@ -130,7 +115,15 @@
       <dsig:DigestValue>QGJ6ihs2Zpev+Nv6pl0r1qsLw4I=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="prog.gif" size="3051" />
+  <file name="prog.gif" size="3051">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+      <dsig:DigestValue>yDj9JwDReNwrgsLMBP2UD4ygibE=</dsig:DigestValue>
+    </hash>
+  </file>
   <file name="Progress.htm" size="1194">
     <hash>
       <dsig:Transforms>
@@ -309,6 +302,15 @@
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
       <dsig:DigestValue>fkRZIy/VmrTUXt3885pYDcpfC+A=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="test.xml" size="12044" writeableType="applicationData">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+      <dsig:DigestValue>GlTQ6AMyLBvy5epUrmN40fRBUf8=</dsig:DigestValue>
     </hash>
   </file>
   <file name="tibaic.pfx" size="4280">
